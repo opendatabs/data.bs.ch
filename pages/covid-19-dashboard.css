@@ -1,0 +1,96 @@
+body {
+        font-size: 1.1rem;
+        background-color: #FFFFFF;
+        line-height: 1.6;
+        font-weight: 300;
+        font-size: 14px;
+    }
+
+    /* Header
+        ========================================================================== */
+    .page-header {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+    }
+    .page-title, .page-title2 {
+        background-color: #FFFFFF;
+        position: relative;
+        vertical-align: bottom;
+        margin: 0;
+        font-weight: 600;
+        font-size: 2em;
+        border-radius: 7px 7px 0px 0px;
+    }
+    .page-subtitle {
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+    .page-title2 {
+        margin-top: 1rem;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+
+    }
+    .cardblock {
+        position: relative;
+        display: -webkit-box;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(72,94,144,0.16);
+        border-radius: 0.25em;
+    }
+
+    .cardblock-body {
+        flex: 1 1 auto;
+        padding: 1.25em;
+    }
+
+    .cardblock-desc {
+        letter-spacing: 0.5px;
+        font-weight: 700;
+        color: #142E7B;
+        margin-bottom: 0px;
+        font-size: 0.9em;
+    }
+
+    .cardblock-descsub {
+        font-size: 0.75em;
+        color: #8392a5;
+        margin-bottom: 0px;
+        font-weight: 500;
+    }
+
+    .cardblock-descsub-kpi {
+        color: #6b7d94;
+        font-weight: 600;
+    }
+
+    .cardblock-descsub-icon-male {
+        color: #80b5fe;
+        font-weight: 800;
+    }
+
+    .cardblock-descsub-icon-female {
+        color: #ff80bd;
+        font-weight: 800;
+    }
+
+    .cardblock-value {
+        line-height: 1.1;
+        font-weight: 800;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-size: 1.53125em;
+    }
+
+    .cardblock-title {
+        margin-bottom: 0px;
+        font-size: 1.2em;
+        font-weight: 350;
+        display: block;
+    }

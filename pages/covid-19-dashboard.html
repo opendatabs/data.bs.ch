@@ -25,6 +25,23 @@
             hospcovid19chdate.parameters['refine.date'] = (maxdate.results[0].x.year + '-' + maxdate.results[0].x.month + '-' + maxdate.results[0].x.day) | moment:'YYYY-MM-DD';
             ""
             }}
+
+
+
+            <!--table>
+                <tr ods-analysis="analysis"
+                    ods-analysis-context="date"
+                    ods-analysis-max="10"
+                    ods-analysis-x="date"
+                    ods-analysis-sort="conf"
+                    ods-analysis-serie-conf="AVG(ncumul_conf)"
+                    ng-repeat="result in analysis.results">
+                    <td>{{ result.x }}</td>
+                    <td>{{ result.conf}}</td>
+                </tr>
+            </table-->
+
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-9">

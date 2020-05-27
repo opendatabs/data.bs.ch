@@ -6,8 +6,7 @@ body {
         font-size: 14px;
     }
 
-    /* Header
-        ========================================================================== */
+    /* Header ========================================================================== */
     .page-header {
         display: flex;
         flex-direction: column-reverse;
@@ -93,4 +92,9 @@ body {
         font-size: 1.2em;
         font-weight: 350;
         display: block;
+    }
+
+    /* hide facet row counts */
+    .odswidget-facet__category-count {
+        display: none;
     }

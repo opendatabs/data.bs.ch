@@ -2,15 +2,12 @@
                          hospcovid19ch-dataset="100085"
                          hospcovid19ch-sort="date"
                          hospcovid19ch-parameters="{'disjunctive.name':'True', 'disjunctive.abbreviation_canton_and_fl':'True'}"
-                         ods-datetime="datetime"
-                         ng-init="default = {'dateto': undefined}">
-    {{ default.dateto = (datetime|momentadd:'days':-1|moment:'YYYY/MM/DD'); "" }}
+                         ods-datetime="datetime">
     <ods-dataset-context context="date" date-dataset="100085">
             <div ods-analysis="maxdate"
                 ods-analysis-context="date"
-                ods-analysis-max="10"
                 ods-analysis-x="date"
-                ods-analysis-sort="conf"
+                ods-analysis-sort="-x"
                 ods-analysis-serie-conf="AVG(ncumul_conf)"
             >
             </div>
@@ -22,7 +19,8 @@
                              hospcovid19chall-parameters="{'disjunctive.name':'True', 'disjunctive.abbreviation_canton_and_fl':'True'}"
                              hospcovid19chdate-urlsync="false">
             {{
-            hospcovid19chdate.parameters['refine.date'] = (maxdate.results[0].x.year + '-' + maxdate.results[0].x.month + '-' + maxdate.results[0].x.day) | moment:'YYYY-MM-DD';
+            latestDate = (maxdate.results[0].x.year > 2000 ? maxdate.results[0].x.year + '-' + maxdate.results[0].x.month + '-' + maxdate.results[0].x.day : '2020-05-20');
+            hospcovid19chdate.parameters['refine.date'] = latestDate;
             ""
             }}
 
@@ -31,9 +29,8 @@
             <!--table>
                 <tr ods-analysis="analysis"
                     ods-analysis-context="date"
-                    ods-analysis-max="10"
                     ods-analysis-x="date"
-                    ods-analysis-sort="conf"
+                    ods-analysis-sort="-x"
                     ods-analysis-serie-conf="AVG(ncumul_conf)"
                     ng-repeat="result in analysis.results">
                     <td>{{ result.x }}</td>
@@ -55,7 +52,7 @@
                         Während der COVID-19-Pandemie veröffentlichen die Kantone ihre Statistiken im Internet. Diese Zahlen werden durch Angestellte der Kantone sowie Freiwillige im <a href="https://github.com/openZH/covid_19/blob/master/COVID19_Fallzahlen_CH_total.csv" target="_blank">Github Repo von OpenZH</a> gesammelt. Die Daten des Kantons Basel-Stadt werden durch die Fachstelle OGD Basel-Stadt erfasst. Diese Daten machen es möglich, die Ausbreitung der Pandemie zu beobachten und nachzuvollziehen. Die Kantone haben unterschiedliche administrative Prozesse zur Datenerfassung und unterschiedliche Datenveröffentlichungsstrategien. Die verfügbaren Daten können sich deshalb je nach Kanton unterscheiden.
                          <br/>
                         <br/>
-                        Das Dashboard zeigt jeweils <a href="https://data.bs.ch/explore/dataset/100077" target="_blank">stündlich aktualisierte Daten</a> in Zeitreihengrafiken. Lücken im Datensatz werden durch die jeweils letzten kantonalen Angaben gefüllt. Stand: {{hospcovid19chdate.parameters['refine.date']|moment:'DD.MM.YYYY'}}.
+                        Das Dashboard zeigt jeweils <a href="https://data.bs.ch/explore/dataset/100077" target="_blank">stündlich aktualisierte Daten</a> in Zeitreihengrafiken. Lücken im Datensatz werden durch die jeweils letzten kantonalen Angaben gefüllt. Stand: {{ latestDate | moment:'DD.MM.YYYY' }}.
                     </div>
                 </div>
             </div>

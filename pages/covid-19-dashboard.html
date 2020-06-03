@@ -19,7 +19,9 @@
                              hospcovid19chall-parameters="{'disjunctive.name':'True', 'disjunctive.abbreviation_canton_and_fl':'True'}"
                              hospcovid19chdate-urlsync="false">
             {{
-            latestDate = (maxdate.results[0].x.year > 2000 ? maxdate.results[0].x.year + '-' + maxdate.results[0].x.month + '-' + maxdate.results[0].x.day : '2020-05-20');
+            latestDate = (maxdate.results[0].x.year > 2000 ? maxdate.results[0].x.year + '-'
+                + (maxdate.results[0].x.month < 10 ? '0' : '') + maxdate.results[0].x.month + '-'
+                + (maxdate.results[0].x.day < 10 ? '0' : '') + maxdate.results[0].x.day : '2020-05-20');
             hospcovid19chdate.parameters['refine.date'] = latestDate;
             ""
             }}
@@ -84,7 +86,7 @@
                         <div class="col-md-3">
                             <div class="cardblock cardblock-body">
                                 <div class="cardblock-title">
-                                    Anzahl Erkrankte im Spital
+                                    Erkrankte im Spital
                                 </div>
                                 <h3 class="cardblock-value">
                                     {{ cthospitalized || '?'}}
@@ -94,7 +96,7 @@
                         <div class="col-md-3">
                             <div class="cardblock cardblock-body">
                                 <div class="cardblock-title">
-                                    Anzahl Erkrankte auf Intensivstationen
+                                    Erkrankte auf Intensivstationen
                                 </div>
                                 <h3 class="cardblock-value">
                                     {{ctintcare || '?'}}
@@ -104,7 +106,7 @@
                         <div class="col-md-3">
                             <div class="cardblock cardblock-body">
                                 <div class="cardblock-title">
-                                    Anzahl Genesene
+                                    Genesene
                                 </div>
                                 <h3 class="cardblock-value">
                                     {{ctout || '?'}}
@@ -115,7 +117,7 @@
                         <div class="col-md-3">
                             <div class="cardblock cardblock-body">
                                 <div class="cardblock-title">
-                                    Anzahl Verstorbene
+                                    Verstorbene
                                 </div>
                                 <h3 class="cardblock-value">
                                     {{ctdeath || '?'}}

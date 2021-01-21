@@ -1,0 +1,23 @@
+.odswidget-date-range-slider {
+    margin:5px 20px 15px;
+}
+/* Custom map control, get rid of background, add box-shadow on layer controller */
+ul.odswidget-map-display-control__groups {
+    width: fit-content;
+}
+ul.odswidget-map-display-control__groups {
+    background-color: transparent;
+}
+.odswidget.odswidget-map-display-control {
+    box-shadow: none;
+}
+li.ng-scope.odswidget-map-display-control__group.odswidget-map-display-control__group--disabled {
+    background-color: white;
+    opacity: 0.7;
+}
+li.ng-scope.odswidget-map-display-control__group {
+    background-color: white;
+    box-shadow: 2px 2px 10px #868585;
+}
+
+}

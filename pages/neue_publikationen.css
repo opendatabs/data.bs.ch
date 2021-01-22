@@ -1,0 +1,151 @@
+
+
+
+.timeline-item {
+    width: 100%;
+    margin-bottom: 40px;
+    margin: 10px; 
+    margin-left: -10px; 
+}
+
+.timeline-item:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.timeline-content {
+    position: relative;
+    margin: auto;
+    max-width: 600px;
+    padding: 10px 30px;
+    border-radius: 4px;
+    background: #f5f5f5;
+    box-shadow: 0 20px 25px -15px rgba(0, 0, 0, .3);
+}
+
+
+
+.timeline-img {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 5px #1d0f31 solid;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-top: 25px;
+    margin-left: -15px;
+    
+}
+p.bnt-more {
+    background: #1C0F31;
+    color: white;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .6);
+}
+a.bnt-more {
+    background: #1C0F31;
+    color: white;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: 35px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .6);margin-left: auto;
+  
+}
+a.bnt-more:hover, a.bnt-more:active, a.bnt-more:focus {
+    background: white;
+    color: #1C0F31;
+    text-decoration: none;
+}
+
+p.bnt-themes {
+   
+     margin-left: 20px!important;
+    margin: auto;
+}
+
+.odswidget-theme-picto {
+    min-width: 33px!important;
+    max-width: 33px!important;
+    margin-left: 5%!important;
+}
+
+.timeline-card {
+    padding: 0!important;
+}
+.links {
+    padding: 0 20px!important;
+    
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.timeline-bottom {
+    width: 94%;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.timeline-img-header {
+    height: 100px;
+  
+    position: relative;
+    margin-bottom: 20px;
+
+}
+
+.timeline-img-header h2 {
+    color: white;
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+}
+
+
+blockquote {
+    margin-top: 30px;
+    color: grey;
+    border-left-color: blue;
+    padding: 0 20px;
+}
+
+.timeline-content .date {
+    background: #1C0F31;
+    display: inline-block;
+    color: white;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+
+
+    .timeline-img {
+        left: 50px;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+        width: auto;
+    }
+
+
+
+}

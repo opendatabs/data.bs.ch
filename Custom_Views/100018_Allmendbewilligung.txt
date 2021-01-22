@@ -1,0 +1,107 @@
+<h1>
+    Art und Anzahl Belegungen
+</h1>
+<p>
+ Mit der folgenden Visualisierung kann man nach der Belegungsart, nach dem Belegungsstart, sowie nach der Bezeichnung der Allmendnutzung filtern.
+</p>
+<ul>
+  <li>Mit dem Datumsbereis-Regler legt man die gewünschten Belegungsstart fest </li>
+  <li>Falls gewünscht, kann man mit der Dropdown-Liste die Belegungsart auswählen.</li>
+  <li>Die Map macht die Anzahl sowie die Geoform ersichtlich. Mit dem "Cluster-Tag" sieht man, wo sich die einzelnen Geoformen befinden.</li>
+</ul>
+<ods-dataset-context context="myctx" 
+                     myctx-dataset="100018" 
+                     myctx-parameters="{'sort':'datum_von1'}">
+    <ods-date-range-slider context="myctx"
+                           date-format="DD MMM YYYY"
+                           precision="day"
+                           initial-from="now"
+                           initial-to="now"
+                           date-field="datum_von1"
+                           start-bound="'1994/07/05'"
+                           end-bound="'2030/07/05'">
+    </ods-date-range-slider>
+    
+    
+    <div 
+         style="width: 500px; padding: 20px; margin: 0 20px"
+         ods-facet-results="belgartbez"
+                 ods-facet-results-facet-name="belgartbez"
+             ods-facet-results-context="myctx">
+            <h3>
+                Belegungsart auswählen
+            </h3>
+            <ods-select options="belgartbez"
+                        selected-values="myctx.parameters['refine.belgartbez']"
+                        label-modifier="name"
+                        value-modifier="name"
+                        placeholder="Belegungsart auswählen"></ods-select>
+    </div>
+    
+   
+    
+    
+    <ods-map basemap="jawg.streets"
+             no-refit="true"
+             display-control="true" 
+             search-box="false"
+             toolbar-fullscreen="false" 
+             toolbar-geolocation="true">
+        
+   <ods-map-layer-group>      
+   
+             <ods-map-layer context="myctx" 
+             style="height:500px" 
+             scroll-wheel-zoom="true" 
+             location="14,47.5582,7.59451" 
+             basemap="a95210"
+             displayLegend ="True"
+             display="aggregation"
+             title="Geo-Shape"
+             caption-picto-color="#bf7f7f"
+             description="zeigt den Umriss der Belegung an" 
+             size="4"
+             ></ods-map-layer>
+</ods-map-layer-group>
+        
+        
+        <ods-map-layer-group>
+            <ods-map-layer context="myctx" 
+                           color="#BCD6E8" 
+                           picto="ods-circle" 
+                           show-marker="true" 
+                           display="clusters" 
+                           function="COUNT" 
+                           expression="begehrenid" 
+                           shape-opacity="1" 
+                           point-opacity="1" 
+                           border-color="#8DB9D8" 
+                           border-opacity="1" 
+                           border-size="1" 
+                           border-pattern="solid" 
+                           caption-picto-color="#8DB9D8" 
+                           size-min="3" size-max="4" 
+                           size-function="linear"
+                           title="Cluster"
+                           description="Anzahl Belegungen" 
+                           size="4"
+                           >
+            </ods-map-layer>
+        </ods-map-layer-group>
+        
+  
+      
+    </ods-map>
+
+    
+  
+    <ods-chart align-month="true">
+         <ods-chart-query context="myctx" field-x="belgartbez" maxpoints="0" stacked="normal" series-breakdown="bezeichng">
+            <ods-chart-serie expression-y="begehrenid" chart-type="column" function-y="COUNT" color="range-Accent" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+       
+
+</ods-dataset-context>

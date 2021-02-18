@@ -1,0 +1,172 @@
+.home-header {
+	margin-bottom: 20px;
+    /* Change this value to make the background image taller or smaller */
+    height: 200px;
+    /* Background color before image loads */
+    background-color:"#4b4b47" var(--highlight);
+
+
+    /* You can replace the background-image by uploading an image to the portal assets
+    and replacing the text in simple quotes below or use the URL of an image on the web */
+    background-image: url('https://basel-stadt.opendatasoft.com/assets/theme_image/Banner-Statistik.jpg');
+
+    /* Position of the background-image on x y axis. Change these values to
+    modify where the image is centered.
+    */
+    background-position: center center;
+}
+
+h1 .smaller {
+    font-size: 0.5em;
+}
+h2 .smaller {
+    font-size: 0.8em;
+}
+.ods-box {
+    border-radius: 3px;
+}
+.titre {
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+/* BOX */
+.box {
+    padding-left: 0px;
+    padding-right: 10px;
+}
+.grey-box {
+    background: #fff;
+    border-radius: 5;
+    border: solid 1px #E5E5E5;
+    padding: 30px;
+    margin-bottom: 20px;
+    height: 450px;
+}
+.grey-box-small {
+    background: #fff;
+    border-radius: 5;
+    border: solid 1px #E5E5E5;
+    padding: 30px;
+    margin-bottom: 20px;
+    }
+.grey-box.half-box {
+    height: 206px;
+}
+/* BOX CONTENT */
+.title {
+    font-size: 1em;
+    margin: 0 auto;
+}
+.description {
+    margin: 0 auto;
+    color: grey;
+    font-size: 0.7em;
+    font-weight: 100;
+}
+.kpi {
+    font-size: 1.66em;
+    margin-top: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+/* BOX Title Line */
+h2.grey-box {
+    height: 70px;
+    font-size: 1.3em;
+}
+/* CONTENT CARD */
+.content-card {
+	background-color: white;
+	padding: 26px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	height: 100%;
+}
+.content-card-title {
+	color: #204454;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 13px;
+	max-width: 100%;
+}
+.content-card-description {
+	color: var(--text);
+	font-size: 1rem;
+	line-height: 1.5;
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 26px;
+	max-width: 100%;
+}
+.content-card-icon {
+	color: var(--highlight);
+	font-size: 2rem;
+	margin-bottom: 13px;
+	max-width: 100%;
+}
+.content-card-link {
+	color: #225a33;
+	font-weight: bold;
+	-webkit-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+	opacity: 1;
+	max-width: 100%;
+}
+.content-card-link-symbol {
+	color: #225a33;
+	font-weight: bold;
+    font-family: calibri;
+	-webkit-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+	opacity: 1;
+	max-width: 100%;
+}
+.content-card-link:hover {
+	opacity: .7;
+	text-decoration: none;
+}
+.content-card-button {
+	color: var(--highlight); /* Color for IE */
+	color: var(--secondary-color);
+	border: 1px solid var(--highlight); /* Border color for IE because it doesn't support CSS variables. */
+	border: 1px solid var(--secondary-color);
+    background: transparent;
+	display: inline-block;
+	text-align: center;
+	font-size: .867rem;
+    border-radius: 4px;
+    padding: .5rem 1.15rem;
+    text-decoration: none;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.content-card-button:hover {
+	background-color: var(--highlight); /* Color for IE */
+	background-color: var(--secondary-color);
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+/* CHARTS */
+.ods-chart {
+    height: 350px;
+}
+.odswidget-charts {
+    margin-top: 10px;
+}
+.odswidget-table {
+    height: 338px;
+    margin-top: 10px;
+}
+rect.highcharts-background {
+    fill: #eee !important;
+}
+tspan.highcharts-text-outline {
+    display: none;
+}
+      

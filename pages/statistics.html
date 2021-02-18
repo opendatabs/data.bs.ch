@@ -1,0 +1,214 @@
+<ods-dataset-context context="stata,bik"
+                     stata-dataset="100042"
+                     bik-dataset="100003"
+                     bik-parameters="{'refine.date':'2021-01-01'}"
+                     >
+    <div class="container">
+        <!-- change the variables '1.Identifier'...etc
+ ng-init="colors = {'1. Identifier':'#d3d3d3',
+              '7. Mettre à jour':'#619FC8',
+              '4. Editer':'#19630A',
+              '8. Conserver':'#263892',
+              '6. Publier':'#5A1887',
+              '3. Extraire':'#F8B334',
+              '5. Standardiser':'#E5352D'
+              }"
+
+     Header Image
+      Check the .home-header class to change the background image
+    -->
+    <section class="home-header"></section>
+        <h1 class="titre">
+            Die öffentliche Statistik im Datenportal Basel-Stadt
+        </h1>
+        <div class="row">
+            <div class="box col-md-12">
+                 <div class="grey-box-small">
+                    <h2 class="content-card-title">
+                        OGD-Angebot der öffentlichen Statistik
+                    </h2>
+                    <p class="content-card-description">
+                        Auf dem Datenportal des Kantons Basel-Stadt veröffentlicht das Statistische Amt die Daten in möglichst roher Form,
+                        so dass Nutzerinnen und Nutzer ihre eigenen Auswertungen und Visualisierungen erstellen können.
+                        Die Daten sind plausibilisiert, anonymisiert und im Einklang mit den Datenschutzrichtlinien.
+                   <br /><br />
+                        Im Portal können die Daten anhand von Tabellen, Karten oder Grafiken analysiert werden. Ein Export der Daten ist ebenfalls möglich.
+                   <br /><br />
+                   <a target="_blank" href="https://data.bs.ch/explore/?sort=modified&refine.publisher=Statistisches+Amt">Alle OGD-Datensätze des Statistischen Amtes&nbsp;&nbsp;<b>→</b></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box col-md-12">
+                <div class="box">
+                    <h2>
+                        Basler Index der Konsumentenpreise im Januar 2021
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box col-md-9">
+                 <ods-chart ng-if="!bik.parameters['refine.name4'] && !bik.parameters['refine.name2']"
+
+                      align-month="true" labels-x-length="40">
+        <ods-chart-query context="bik" field-x="name2" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="currentweight"
+                             chart-type="treemap"
+                             function-y="SUM"
+                             color="range-Accent"
+                             display-units="false"
+                             scientific-display="true"
+                             refine-on-click-context="bik"
+                             refine-on-click-bik-context-field="name2">
+            </ods-chart-serie>
+            <!--category-colors="{'2011':'#E5352D','2016':'#FA8C44'}"-->
+        </ods-chart-query>
+    </ods-chart>
+
+                    <ods-chart ng-if="bik.parameters['refine.name2'] && !bik.parameters['refine.name4']"
+                               align-month="true" labels-x-length="40" labels-x-color="#FFFFF">
+
+        <ods-chart-query context="bik"
+                         field-x="name4"
+                         maxpoints="0"
+                         sort="serie1-1">
+            <ods-chart-serie expression-y="currentweight"
+                             chart-type="treemap"
+                             function-y="SUM"
+                             color="range-Accent"
+                             display-units="false"
+                             display-values="false"
+                             scientific-display="true"
+                             refine-on-click-context="bik"
+                             refine-on-click-bik-context-field="name4">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+    <ods-chart ng-if="bik.parameters['refine.name4']  "
+                               align-month="true" labels-x-length="40" labels-x-color="#FFFFF">
+
+        <ods-chart-query context="bik"
+                         field-x="name5"
+                         maxpoints="0"
+                         sort="serie1-1">
+            <ods-chart-serie expression-y="currentweight"
+                             chart-type="treemap"
+                             function-y="SUM"
+                             color="range-Accent"
+                             display-units="false"
+                             display-values="false"
+                             scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                </div>
+
+            <div class="col-md-3 filters">
+                <p class="appliedfilter">
+                    {{ (bik.parameters | values).join(" ") || bik.parameters['refine.name2'] || bik.parameters['refine.name4'] }}
+
+                </p>
+                <div class="resetfilters">
+                    <a href class="resetfilter"
+                       ng-if="bik.parameters['refine.name2'] && !bik.parameters['refine.name4']"
+                       ng-click="bik.parameters['refine.name2'] = undefined">Zurück zu den Hauptgruppen</a>
+                    <a href class="resetfilter"
+                       ng-if="bik.parameters['refine.name4']"
+                       ng-click="bik.parameters['refine.name4'] = undefined">Zurück zu den Gruppen</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box col-md-12">
+                <div class="box">
+                    <h2>&nbsp;
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box col-md-12">
+                 <div class="grey-box-small">
+                    <h2 class="content-card-title">
+                        Angebot der öffentlichen Statistik
+                    </h2>
+                    <p class="content-card-description">
+                        Das Statistische Amt veröffentlicht Daten aus allen Bereichen des öffentlichen Lebens.
+                        Diese werden zunächst ausgewertet (plausibilisiert, analysiert) und adressatengerecht aufbereitet und publiziert.
+                    <br /><br /><br />
+                        Auf der Inernetseite des Statistischen Amtes finden Sie die Auswertungsergebnisse in verschiedenen Formaten:
+                     <br /><br />
+                     <a target="_blank" href="https://www.statistik.bs.ch/zahlen/tabellen.html"><span class="content-card-link-symbol">↗</span>
+                        Excel-Tabellen zu den 19 Themen der öffentlichen Statistik</a>
+                    <br /><br />
+                     <a target="_blank" href="https://www.statistik.bs.ch/zahlen/indikatoren/portal.html"><span class="content-card-link-symbol">↗</span>
+                       Indikatorenportal mit über 600 interaktiven Grafiken</a>
+                     <br /><br />
+                    <a target="_blank" href="https://www.basleratlas.ch/#c=home"><span class="content-card-link-symbol">↗</span>
+                        Basler Atlas mit zahlreichen Karten auf Ebene Wohnviertel, Bezirk oder Block</a>
+                </div>
+            </div>
+        </div>
+                <div class="row">
+            <div class="box col-md-8">
+                <div class="grey-box">
+                    <ods-map no-refit="true"
+                             scroll-wheel-zoom="false"
+                             display-control="false"
+                             search-box="false"
+                             toolbar-fullscreen="true"
+                             toolbar-geolocation="true"
+                             basemap="a95210"
+                             location="13,47.559,7.58357">
+                        <ods-map-layer-group>
+                            <ods-map-layer context="stata"
+                                           color-categories="{'10':'#8A65A9','11':'#B060A3','12':'#6D7A87','13':'#619FC8','14':'#F7C87E','15':'#CB516D','16':'#F7AD84','17':'#5D9FA3','18':'#64905C','19':'#6A79B0','20':'#E87273','01':'#6D7A87','02':'#619FC8','03':'#F7C87E','04':'#CB516D','05':'#F7AD84','06':'#5D9FA3','07':'#64905C','08':'#6A79B0','09':'#E87273'}"
+                                           color-by-field="wov_id"
+                                           color-categories-other="#C32D1C"
+                                           picto="ods-circle"
+                                           show-marker="true"
+                                           display="categories"
+                                           shape-opacity="0.5"
+                                           point-opacity="1"
+                                           border-color="#FFFFFF"
+                                           border-opacity="1"
+                                           border-size="1"
+                                           border-pattern="solid"
+                                           caption="false"
+                                           title="Statistische Wohnviertel "
+                                           description="Zum Kanton Basel-Stadt zählen die Stadt Basel und die Gemeinden Riehen und Bettingen. Die Stadt Basel ist in 19 statistische Wohnviertel gegliedert. Diese statistische Raumeinteilungen existiert se…"
+                                           size="4"
+                                           size-min="2"
+                                           size-max="5"
+                                           size-function="linear"></ods-map-layer>
+                        </ods-map-layer-group>
+                    </ods-map>
+                </div>
+            </div>
+            <div class="box col-md-4">
+                <div class="grey-box">
+                    <h2 class="content-card-title">
+                        Räumliche Daten
+                    </h2>
+                    <p class="content-card-description">
+                        Der Kanton Basel-Stadt besteht aus 3 politischen Gemeinden. Die Stadt Basel ist in 19 statistische Wohnviertel unterteilt.
+                    <br /><br />
+                        Daten und Beschreibungen der statistischen Wohnviertel in Wort und Bild finden Sie in den<br />
+                        <a target="blank" href="https://www.statistik.bs.ch/haeufig-gefragt/wohnviertel.html"><span class="content-card-link-symbol">↗</span> Quartier- und Gemeindeportraits.</a>
+                    <br /><br />Entdecken Sie eine Vielzahl an Daten der öffentlichen Statistik im Basler Atlas.
+                        Tauchen Sie ein in die räumlichen Ebenen Gemeinde, Wohnviertel, Bezirk und Block und
+                        lassen Sie sich die Daten für verschiedene Jahre als Karten, Tabellen oder Diagramme darstellen.<br />
+                        <a target="blank" href="http://www.basleratlas.ch/"><span class="content-card-link-symbol">↗</span> Basler Atlas.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+          </div>
+
+
+
+</ods-dataset-context>
+

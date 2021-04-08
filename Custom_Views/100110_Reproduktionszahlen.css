@@ -2,6 +2,11 @@
 
 /* KPI Card
 ========================================================================== */
+.correct {
+    
+    padding: 4px;
+    
+}
 .kpi-card {
     background-color: #e1e7ed;
     height: 200px;

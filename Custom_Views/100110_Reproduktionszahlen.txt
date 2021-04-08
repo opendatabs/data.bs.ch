@@ -1,0 +1,179 @@
+﻿<div class="container-fluid">
+<p><b>Aktuellste Werte der effektiven Reproduktionszahl (R<sub>e</sub>) für die Schweiz und für Basel-Stadt</b> 
+    <br />(Basierend auf der Anzahl bestätigter Fälle. Angewandte Methodik: <a href="https://tb.ethz.ch/plot.html">sliding window</a>)</p>
+
+
+ <div ods-dataset-context
+         context="stationsctx"
+         stationsctx-dataset="100110"
+         stationsctx-parameters="100110"
+         sort="date">
+
+        <div ods-facet-results="stations"
+             ods-facet-results-context="stationsctx"
+             ods-facet-results-facet-name="data_type"
+             >
+            
+            <div class="row justify-content-center">
+            
+<!-------------------------- Box für Basler Werte ----------------------------------->
+            
+            <div class="col-xs-6">
+
+                <div class="kpi-card"
+                     ods-dataset-context context="values"
+                     values-dataset="100110"
+                     values-parameters= "{'refine.data_type': 'Confirmed cases','refine.region':'BS' ,'refine.estimate_type':'Cori_slidingWindow','sort':'date'}"
+                     >
+                    <h3 class="kpi-ueber">
+                        R<sub>e</sub>- Wert Basel-Stadt
+                    </h3> 
+                    <h2 class="kpi-title"
+                        ods-results="results"
+                        ods-results-context="values"
+                        ods-results-max=1
+                        >
+                        {{ results[0].fields.median_r_mean | number:2 }}
+                    </h2>
+
+                    <p ods-results="results"
+                       ods-results-context="values"
+                       ods-results-max=1
+                       class="kpi-description"
+                       >
+                        95%-Konfidenzintervall:  {{ results[0].fields.median_r_lowhpd | number:2 }} - {{ results[0].fields.median_r_highhpd | number:2 }}
+                    </p>
+
+                    <p  ods-results="results"
+                       ods-results-context="values"
+                       ods-results-max=1
+                       >
+                        (Stand: {{ results[0].fields.date|moment:"DD. MMMM YYYY" }})
+                    </p> 
+                </div>
+
+            </div>
+            
+<!-------------------------- Box für Schweizer Werte ----------------------------------->
+            <div class="col-xs-6">
+
+                <div class="kpi-card"
+                     ods-dataset-context context="values"
+                     values-dataset="100110"
+                     values-parameters= "{'refine.data_type': 'Confirmed cases','refine.region':'CHE' ,'refine.estimate_type':'Cori_slidingWindow','sort':'date'}"
+                     >
+                    <h3 class="kpi-ueber">
+                        R<sub>e</sub>- Wert Schweiz
+                    </h3> 
+                    <!--<h3 class="kpi-ueber">
+                        R<sub>e</sub>- Wert bestätigte Fälle Schweiz
+                    </h3> -->
+                    <h2 class="kpi-title"
+                        ods-results="results"
+                        ods-results-context="values"
+                        ods-results-max=1
+                        >
+                        {{ results[0].fields.median_r_mean | number:2 }}
+                    </h2>
+
+                    <p ods-results="results"
+                       ods-results-context="values"
+                       ods-results-max=1
+                       class="kpi-description"
+                       >
+                        95%-Konfidenzintervall:  {{ results[0].fields.median_r_lowhpd | number:2 }} - {{ results[0].fields.median_r_highhpd | number:2 }}
+                    </p>
+
+                    <p  ods-results="results"
+                       ods-results-context="values"
+                       ods-results-max=1
+                       >
+                        (Stand: {{ results[0].fields.date|moment:"DD. MMMM YYYY" }})
+                    </p> 
+                </div>
+
+            </div>
+          
+          
+        </div>
+    </div>
+</div>
+
+<hr/>
+<div class="row">
+ <div class="col-xs-12">   
+   
+<br />
+
+
+<p><b>Entwicklung der Schätzung der effektiven Reproduktionszahl (R<sub>e</sub>) in Basel-Stadt</b> 
+    <br />(Basierend auf der Anzahl bestätigter Fälle. Angewandte Methodik: <a href="https://tb.ethz.ch/plot.html">sliding window</a>)</p>
+
+
+<!--<h3 class="kpi-ueber">
+   R<sub>e</sub>- Wert bestätigte Fälle Basel-Stadt
+</h3> -->
+
+
+<ods-dataset-context context="myctx" myctx-dataset="100110" myctx-parameters="{'refine.region':'BS','refine.estimate_type':'Cori_slidingWindow','refine.data_type':'Confirmed cases'}">
+    <ods-chart timescale="day" single-y-axis="true" single-y-axis-label="Reproduktionszahl" min="0" max="5" scientific-display="false" labels-x-length="12" align-month="true">
+        <ods-chart-query context="myctx" field-x="date" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="median_r_mean" chart-type="line" function-y="AVG" label-y="Effektive Reproduktionszahl R" color="#263891" display-units="false" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="median_r_mean" chart-type="arearange" function-y="COUNT" label-y="95%-Konfidenzintervall" color="#5F9DC6" scientific-display="true" subseries='[{"func":"MIN","yAxis":"median_r_lowhpd"},{"func":"MAX","yAxis":"median_r_highhpd"}]'>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="1" chart-type="line" function-y="CONSTANT" label-y="Schwellenwert 1" color="#000000" display-values="false" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+</div>
+</div>
+<br /><br />
+<div class="row">
+ <div class="col-xs-12">   
+   
+<b>Täglich neu gemeldete positiv auf SARS-CoV-2 getestete Personen mit Wohnsitz im Kanton Basel-Stadt</b>
+<br /><br />
+<div class="correct">
+<ods-dataset-context context="myctx" myctx-dataset="100108" myctx-parameters="{'sort':'test_datum'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="test_datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="faelle_bs" chart-type="column" function-y="SUM" color="#8da0cb" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+</div>
+ </div>    
+ </div>
+<hr/>
+<br />
+<div class="row">
+ <div class="col-xs-12">   
+    
+<p><b>Entwicklung der Schätzung der effektiven Reproduktionszahl (R<sub>e</sub>) für die Schweiz</b> 
+    <br />(Basierend auf der Anzahl bestätigter Fälle. Angewandte Methodik: <a href="https://tb.ethz.ch/plot.html">sliding window</a>)</p>
+
+<!--<h3 class="kpi-ueber">
+    R<sub>e</sub>- Wert bestätigte Fälle Schweiz
+</h3> -->
+
+<ods-dataset-context context="myctx" myctx-dataset="100110" myctx-parameters="{'refine.region':'CHE','refine.data_type':'Confirmed cases','refine.estimate_type':'Cori_slidingWindow'}">
+    <ods-chart timescale="day" single-y-axis="true" single-y-axis-label="Reproduktionszahl" min="0" max="5" align-month="true">
+        <ods-chart-query context="myctx" field-x="date" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="median_r_mean" chart-type="line" function-y="AVG" label-y="Effektive Reproduktionszahl R" color="#124907" display-units="false" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="median_r_mean" chart-type="areasplinerange" function-y="COUNT" label-y="95%-Konfidenzintervall" color="#8FAF89" scientific-display="true" subseries='[{"func":"AVG","yAxis":"median_r_lowhpd"},{"func":"AVG","yAxis":"median_r_highhpd"}]'>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="1" chart-type="line" function-y="CONSTANT" label-y="Schwellenwert 1" color="#000000" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+    </div> 
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="container-fluid">
+<ods-dataset-context context="myctx" myctx-dataset="100113" myctx-parameters="{'disjunctive.sensornr':true,'sort':'time'}">
+    <div class="row">
+    <div class="col-xs-6">
+        <h1>
+            Feinstaubmessungen auf Basler Tramlinien
+        </h1>
+        <p>
+         Mit der folgenden Visualisierung kann man nach der Sensorennummer und nach dem Zeitfenster filtern. Eine klare Zuordnung der Sensoren zu den Tramlinien ist nicht möglich, da die Sensoren auf verschiedenen Linine Anwendung gefunden haben. Neben den Linien 3 und 8 sind die Sensoren auch
+auf der Tramlinie 14 bis nach Muttenz und Pratteln und mit der Linie 6 zwischen Allschwil und
+Riehen sowie mit der Linie 2 von Riehen bis nach Binningen unterwegs. Sensor 236 und 240 sind stationär. 
+        </p>
+        <p>
+         Folgende Filterfunktionen sind hier möglich:
+        </p>
+        <ol>
+          <li>Mit der rechten Dropdown-Liste kann man den gewünschten Sensor auswählen.</li>
+           <li>Mit dem Zeitskalenfeld legt man das gewünschte Zeitfenster fest.</li>
+          <li>Auf der Map kann man die Kennzahlen für PM 2.5 oder PM 10 auswählen.</li>
+        </ol>
+    </div>
+    <div class="col-xs-6"> 
+    <div style="width: auto; padding: 20px; margin: 0 20px"
+         ods-facet-results="sensornr"
+                 ods-facet-results-facet-name="sensornr"
+             ods-facet-results-context="myctx" ods-results-max="7">
+            <h3>
+                Feinstaubsensor auswählen (236 und 240 sind stationär)
+            </h3>
+        <ods-select options="sensornr"
+                        selected-values="myctx.parameters['refine.sensornr']"
+                    multiple="true"
+                        label-modifier="name"
+                        value-modifier="name"
+                        placeholder="Feinstaubsensor auswählen">
+        </ods-select>
+   
+    </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+<ods-timerange context="myctx"
+               default-from="2019/12/31 23:30"
+               default-to="2020/01/01 00:30"
+               display-time="true">
+</ods-timerange>
+    </div>
+</div>
+ <br />   
+    
+<ods-map scroll-wheel-zoom="true" 
+         basemap="jawg.light"
+         search-box="false"
+         toolbar-fullscreen="true"
+         location="14,47.55556,7.58962" 
+         display-control="true" 
+         display-control-single-layer="true">
+    <ods-map-layer-group>
+        <ods-map-layer 
+                       context="myctx" 
+                       color-numeric-ranges="{'10.99':'#3900e6','20.99':'#00b4e6','30.99':'#e6cb00','40.99':'#e68e00','341.68':'#e60000'}"  
+                       color-by-field="pm25" 
+                       color-numeric-range-min="0.000001" 
+                       picto="ods-circle" 
+                       display="choropleth" 
+                       caption="true"
+                       caption-picto-color="#d64e47"
+                       title="PM 2.5"
+                       description="Feinstaub mit Partikelgrösse < 2.5 tausendstel Millimeter"
+                       size="2">
+        </ods-map-layer>
+    </ods-map-layer-group>
+    <ods-map-layer-group displayed="false">
+        <ods-map-layer 
+                       context="myctx" 
+                       color-numeric-ranges="{'20.99':'#3900e6','40.99':'#00b4e6','60.99':'#e6cb00','80.99':'#e68e00','1734.41':'#e60000'}" 
+                       color-by-field="pm10" 
+                       color-numeric-range-min="0.000001" 
+                       picto="ods-circle" 
+                       display="choropleth" 
+                       caption="true"
+                       caption-picto-color="#206e3c"
+                       title="PM 10" 
+                       description="Feinstaub mit Partikelgrösse < 10 tausendstel Millimeter" 
+                       size="2">
+        </ods-map-layer>
+    </ods-map-layer-group>
+</ods-map>
+
+    
+<br /> 
+<hr/>    
+  
+<ods-simple-tabs class="tab-pills">
+            <ods-simple-tab
+                    label="PM 2.5 Chart"
+                    fontawesome-class="area-chart"
+                    keep-content="false">
+                <!-- BAR COLMUN -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Einzelwerte an Feinstaub in µg/m<sup>3</sup> als Liniendiagramm.
+                        </h3>
+       
+
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="time" maxpoints="0" timescale="minute" series-breakdown="sensornr" category-colors="{'228':'#28729B','234':'#5AB7EA','235':'#EA39E9','236':'#E2C347','237':'#B48FB5','240':'#01C10F'}">
+            <ods-chart-serie expression-y="pm25" chart-type="line" function-y="SUM" color="range-Set2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                    </div>
+                </div>
+            </ods-simple-tab>
+            <ods-simple-tab
+                    label="PM 10 Chart"
+                    fontawesome-class="area-chart"
+                    keep-content="false">
+                <!-- SPLINE RANGE BOXPLOT -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Einzelwerte an Feinstaub in µg/m<sup>3</sup> als Liniendiagramm.
+                        </h3>
+                         
+                        
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="time" maxpoints="0" timescale="minute" series-breakdown="sensornr" category-colors="{'228':'#28729B','234':'#5AB7EA','235':'#EA39E9','236':'#E2C347','237':'#B48FB5','240':'#01C10F'}">
+            <ods-chart-serie expression-y="pm10" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                    </div>
+                </div>
+            </ods-simple-tab>
+        </ods-simple-tabs>
+</ods-dataset-context>
+</div>

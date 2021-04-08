@@ -1,0 +1,60 @@
+<div class="container"
+     style="background-color:#fcfcfc;
+            margin-left: -10px;
+            margin-right: -10px;
+            margin-top: -20px;
+            margin-bottom: -15px;">
+    
+
+
+
+    <ods-dataset-context context="myctx"
+                         myctx-dataset="100057"
+                         myctx-domain="https://data.bs.ch/"
+                         myctx-parameters="{'sort':'issued'}"
+                         >
+        <ods-infinite-scroll-results context="myctx"
+                                     scroll-top-when-refresh="false"
+                                     list-class="timeline-frame"
+                                     result-class="timeline-item"
+                                     no-results-message="No more event...">
+
+
+
+            <div class="timeline-content timeline-card">
+                <div class="timeline-img-header"
+                     style="background: url('https://data.bs.ch/assets/theme_image/{{ item.fields.themes.split(';')[0] | uriEncode }}.jpg' );
+                            background-color: #5c5c5c;
+                            background-blend-mode: overlay;"><!-- //background: url('https://raw.githubusercontent.com/BorisDjakovic/OGD_New_Page_Images/main/{{ item.fields.themes.split(';')[0] | uriEncode }}.jpg' ); -->
+                    <h2 >{{ item.fields.title }}</h2>
+                </div>
+               
+                <div class="date">
+                    <span ng-if="item.fields.issued"> {{ item.fields.issued|moment:"DD. MMMM YYYY"}}</span>
+                    
+                </div>
+                
+                
+                <div class="links">
+                    <p> <b>Herausgeber: {{ item.fields.publisher }}</b></p>
+             
+                <span ng-bind-html="item.fields.description | shortSummary:800"></span>
+                <!--<span ng-bind-html="item.fields.description | shortTextSummary:800  "></span> --> 
+                </div>
+                    
+                    
+                <div class="timeline-bottom">
+                    
+                  <ods-theme-picto  theme="{{item.fields.themes.split(';')[0]}}" color="white"></ods-theme-picto>
+                  <p class="bnt-themes"><b>{{ item.fields.themes.split(';')[0]}}</b></p>  
+                    
+                  <a class="bnt-more"
+                      target="_blank"
+                      ng-href="{{context.domainUrl + '/explore/dataset/' + item.fields.dataset_identifier + '/'}}"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+                 
+                </div>
+            </div>
+
+        </ods-infinite-scroll-results>
+    </ods-dataset-context>
+</div>

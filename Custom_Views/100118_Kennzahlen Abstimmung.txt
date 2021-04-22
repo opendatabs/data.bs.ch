@@ -1,0 +1,65 @@
+<b>Anteil Ja-Stimmen</b>
+<br /><br />
+Diese Grafik zeigt den Anteil Ja-Stimmmen für alle Vorlagen dieses Abstimmungstermins.
+<br />
+<ods-dataset-context context="myctx" myctx-dataset="100118"  myctx-parameters= "{'refine.gemein_name':'Basel-Stadt'}">
+    <ods-chart display-legend="false" label-x="" labels-x-length=30
+               single-y-axis="true" single-y-axis-label="Anteil Ja-Stimmen (%)">
+        <ods-chart-query context="myctx" field-x="abst_id_titel">
+            <ods-chart-serie expression-y="anteil_ja_stimmen" chart-type="bar" function-y="AVG" color="#51BFD9" label-y="Anteil Ja-Stimmen (%)"
+                             multiplier="100">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<br /><br />
+
+<b>«Verhüllungsverbot»</b>
+<br /><br />
+Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen nach Gemeinde (inkl. Auslandschweizer/innen) und für den ganzen Kanton.
+<br/>
+<ods-dataset-context context="myctx" myctx-dataset="100118" myctx-parameters="{'refine.abst_id':1}">
+    <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+        <ods-chart-query context="myctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
+            <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="AVG" color="#51BFD9" label-y="Ja-Stimmen">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="nein_anz" chart-type="column" function-y="AVG" color="#F6C024" label-y="Nein-Stimmen">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+<br /><br />
+
+<b>«E-ID»</b>
+<br /><br />
+Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen nach Gemeinde (inkl. Auslandschweizer/innen) und für den ganzen Kanton.
+<br />
+<ods-dataset-context context="myctx" myctx-dataset="100118" myctx-parameters="{'refine.abst_id':2}">
+    <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+        <ods-chart-query context="myctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
+            <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="AVG" color="#51BFD9" label-y="Ja-Stimmen">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="nein_anz" chart-type="column" function-y="AVG" color="#F6C024" label-y="Nein-Stimmen">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+<br /><br />
+
+<b>«Wirtschaftsabkommen Indonesien»</b>
+<br /><br />
+Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen nach Gemeinde und für den ganzen Kanton.
+<br />
+<ods-dataset-context context="myctx" myctx-dataset="100118" myctx-parameters="{'refine.abst_id':3}">
+    <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+        <ods-chart-query context="myctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
+            <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="AVG" color="#51BFD9" label-y="Ja-Stimmen">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="nein_anz" chart-type="column" function-y="AVG" color="#F6C024" label-y="Nein-Stimmen">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+<br /><br />
+

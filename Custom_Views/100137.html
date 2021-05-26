@@ -21,7 +21,7 @@ Anzahl vollständig geimpfte Personen
     <ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'disjunctive.vacc_count':true,'refine.vacc_count':'-1','refine.age_group':['> 74','65-74','50-64','16-49']}">
         <div>
             {{
-            latestDate = (maxdate.results[0].x.year > 2020 ? maxdate.results[0].x.year + '-' + (maxdate.results[0].x.month < 10 ? '0' : '') + maxdate.results[0].x.month + '-' + (maxdate.results[0].x.day < 10 ? '0' : '') + maxdate.results[0].x.day : '2021-05-25');
+            latestDate = (maxdate.results[0].x.year > 2020 ? maxdate.results[0].x.year + '-' + (maxdate.results[0].x.month < 10 ? '0' : '') + maxdate.results[0].x.month + '-' + (maxdate.results[0].x.day < 10 ? '0' : '') + maxdate.results[0].x.day : '2021-03-01');
             myctx.parameters['refine.vacc_day'] = latestDate;
             ""}}
         </div>

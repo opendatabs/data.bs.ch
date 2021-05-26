@@ -1,16 +1,21 @@
 Anteil der Geimpften an der Wohnbevölkerung
-<ods-dataset-context context="myctx,myctx0" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'sort':'vacc_day','refine.vacc_count_description':['Ausschliesslich erste Impfdosis','Zweite Impfdosis'],'refine.age_group':'Gesamtbevölkerung'}" myctx0-dataset="100137" myctx0-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.age_group':'Gesamtbevölkerung','refine.vacc_count':['1']}">
-    <ods-chart timescale="day" single-y-axis="false" align-month="true">
-        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" stacked="normal" reverse-stacks="true" series-breakdown="vacc_count_description" category-colors="{'Ausschliesslich erste Impfdosis':'#0971B5','Erste Impfdosis':'#000000','Zweite Impfdosis':'#F98C44'}">
+<ods-dataset-context context="myctx,myctx0,myctx1" myctx-dataset="100137" myctx-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.age_group':'Gesamtbevölkerung','refine.vacc_count':'2'}" myctx0-dataset="100137" myctx0-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.age_group':'Gesamtbevölkerung','refine.vacc_count':'-1'}" myctx1-dataset="100137" myctx1-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.vacc_count':'1','refine.age_group':'Gesamtbevölkerung'}">
+    <ods-chart timescale="day" single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx1" field-x="vacc_day" maxpoints="0" timescale="day" category-colors="{'Gesamtbevölkerung':'#000000'}">
+            <ods-chart-serie label-y="Mindestens einmal Geimpfte" expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" stacked="normal" series-breakdown="vacc_count_description" category-colors="{'Zweite Impfdosis':'#F98C44'}">
             <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
             </ods-chart-serie>
         </ods-chart-query>
-        <ods-chart-query context="myctx0" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="age_group" category-colors="{'Gesamtbevölkerung':'#000000'}">
-            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+        <ods-chart-query context="myctx0" field-x="vacc_day" maxpoints="0" timescale="day" stacked="normal" series-breakdown="vacc_count_description" category-colors="{'Ausschliesslich erste Impfdosis':'#0971B5'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
 </ods-dataset-context>
+
 
 Anzahl vollständig geimpfte Personen
 

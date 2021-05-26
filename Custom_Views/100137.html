@@ -1,0 +1,75 @@
+Anzahl vollständig geimpfte Personen
+
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'refine.age_group':['> 74','65-74','50-64','16-49'],'refine.vacc_count':'2'}">
+    <ods-chart single-y-axis="true" display-legend="false">
+        <ods-chart-query context="myctx" field-x="age_group" maxpoints="0" category-colors="{'16-49':'#0971B5','50-64':'#000000','65-74':'#BA0129','> 74':'#F98C44','Unbekannt':'#F9E5C5'}">
+            <ods-chart-serie expression-y="count" chart-type="column" function-y="SUM" color="#66c2a5" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+<ods-dataset-context context='date' date-dataset='100137'>
+    <div ods-analysis="maxdate"
+         ods-analysis-context="date"
+         ods-analysis-x="vacc_day"
+         ods-analysis-sort="-x"
+         ods-analysis-serie-conf="AVG(count_cum)"
+         >
+    </div>
+    <ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'disjunctive.vacc_count':true,'refine.vacc_count':'-1','refine.age_group':['> 74','65-74','50-64','16-49']}">
+        <div>
+            {{
+            latestDate = (maxdate.results[0].x.year > 2020 ? maxdate.results[0].x.year + '-' + (maxdate.results[0].x.month < 10 ? '0' : '') + maxdate.results[0].x.month + '-' + (maxdate.results[0].x.day < 10 ? '0' : '') + maxdate.results[0].x.day : '2021-05-25');
+            myctx.parameters['refine.vacc_day'] = latestDate;
+            ""}}
+        </div>
+        <div>
+            Anzahl mit ausschliesslich erster Dosis geimpfte Personen (Stand {{ latestDate | moment:'DD.MM.YYYY' }})
+        </div>
+        <ods-chart single-y-axis="true" display-legend="false">
+            <ods-chart-query context="myctx" field-x="age_group" maxpoints="0" category-colors="{'16-49':'#0971B5','50-64':'#000000','65-74':'#BA0129','> 74':'#F98C44','Unbekannt':'#F9E5C5'}">
+                <ods-chart-serie expression-y="count_cum" chart-type="column" function-y="SUM" color="#66c2a5" scientific-display="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+    </ods-dataset-context>
+</ods-dataset-context>
+
+Anteil vollständig Geimpfter an der Gesamtbevölkerung in Prozent
+
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'sort':'vacc_day','refine.vacc_count':'2'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="age_group">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+
+Anteil mit mindestens erster Dosis Geimpfter an der Gesamtbevölkerung in Prozent
+
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'sort':'vacc_day','refine.vacc_count':'1'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="age_group">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+
+Anteil mit ausschliesslich erster Dosis Geimpfter an der Gesamtbevölkerung in Prozent
+
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'sort':'vacc_day','refine.vacc_count':'-1'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="age_group">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>

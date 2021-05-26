@@ -18,13 +18,12 @@ Anteil der Geimpften an der Wohnbevölkerung
 
 Anzahl Geimpfte
 <ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'sort':'vacc_day','refine.age_group':'Gesamtbevölkerung'}">
-    <ods-chart single-y-axis="true" align-month="true">
-        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="vacc_count_description">
+    <ods-chart timescale="day" single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="vacc_count_description" category-colors="{'Ausschliesslich erste Impfdosis':'#0971B5','Erste Impfdosis':'#E5352E','Zweite Impfdosis':'#F98C44'}">
             <ods-chart-serie expression-y="count_cum" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
-
 </ods-dataset-context>
 
 Anzahl vollständig geimpfte Personen

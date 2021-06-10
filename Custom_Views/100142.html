@@ -1,46 +1,28 @@
-<b>Diese Abbildung zeigt die Stimmenanteile der Vorlage «Verhüllungsverbot» nach Wahllokal</b>
- <br /> <br />
 
-<ods-dataset-context context="myctx" myctx-dataset="100117" myctx-parameters="{'refine.abst_id': 1}">
+<div ods-facet-results="items"
+     ods-facet-results-context="ctx"
+     ods-facet-results-facet-name="abst_titel"
+     ods-facet-results-sort="alphanum"
+     ng-repeat="item in items">
+    <ods-dataset-context context="ctx"
+                         ctx-dataset="{{ ctx.dataset.datasetid }}"
+                         ctx-parameters="{'sort':'-abst_id','refine.abst_titel':''+item.name}">
+
+
+    <b>Diese Abbildung zeigt die Stimmenanteile der Vorlage {{item.name}} nach Wahllokal</b>
+    <br /><br />
     <ods-chart single-y-axis="true" scientific-display="false" labels-x-length="30" align-month="true">
-        <ods-chart-query context="myctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
+        <ods-chart-query context="ctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
             <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="AVG" color="#51BFD9" scientific-display="true" label-y="Ja-Stimmen">
             </ods-chart-serie>
             <ods-chart-serie expression-y="nein_anz" chart-type="column" function-y="AVG" color="#F6C024" scientific-display="true" label-y="Nein-Stimmen">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
+    </ods-dataset-context>
+    <br /><br />
 
-</ods-dataset-context>
- <br /> <br />
+</div>
 
-<b>Diese Abbildung zeigt die Stimmenanteile der Vorlage «E-ID» nach Wahllokal</b>
- <br /> <br />
 
-<ods-dataset-context context="myctx" myctx-dataset="100117" myctx-parameters="{'refine.abst_id': 2}">
-    <ods-chart single-y-axis="true" scientific-display="false" labels-x-length="30" align-month="true">
-        <ods-chart-query context="myctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
-            <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="AVG" color="#51BFD9" scientific-display="true" label-y="Ja-Stimmen">
-            </ods-chart-serie>
-            <ods-chart-serie expression-y="nein_anz" chart-type="column" function-y="AVG" color="#F6C024" scientific-display="true" label-y="Nein-Stimmen">
-            </ods-chart-serie>
-        </ods-chart-query>
-    </ods-chart>
 
-</ods-dataset-context>
- <br /> <br />
-
-<b>Diese Abbildung zeigt die Stimmenanteile der Vorlage «Wirtschaftsabkommen Indonesien» nach Wahllokal</b>
- <br /> <br />
-
-<ods-dataset-context context="myctx" myctx-dataset="100117" myctx-parameters="{'refine.abst_id': 3}">
-    <ods-chart single-y-axis="true" scientific-display="false" labels-x-length="30" align-month="true">
-        <ods-chart-query context="myctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
-            <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="AVG" color="#51BFD9" scientific-display="true" label-y="Ja-Stimmen">
-            </ods-chart-serie>
-            <ods-chart-serie expression-y="nein_anz" chart-type="column" function-y="AVG" color="#F6C024" scientific-display="true" label-y="Nein-Stimmen">
-            </ods-chart-serie>
-        </ods-chart-query>
-    </ods-chart>
-
-</ods-dataset-context>

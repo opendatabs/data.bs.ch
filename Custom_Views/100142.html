@@ -1,12 +1,12 @@
 
 <div ods-facet-results="items"
      ods-facet-results-context="ctx"
-     ods-facet-results-facet-name="abst_titel"
+     ods-facet-results-facet-name="abst_id_titel"
      ods-facet-results-sort="alphanum"
      ng-repeat="item in items">
     <ods-dataset-context context="ctx"
                          ctx-dataset="{{ ctx.dataset.datasetid }}"
-                         ctx-parameters="{'sort':'-abst_id','refine.abst_titel':''+item.name}">
+                         ctx-parameters="{'sort':'-abst_id','refine.abst_id_titel':''+item.name}">
 
 
     <b>Diese Abbildung zeigt die Stimmenanteile der Vorlage {{item.name}} nach Wahllokal</b>

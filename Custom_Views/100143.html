@@ -1,0 +1,104 @@
+<b>Anteil Ja-Stimmen</b>
+<br /><br />
+Diese Grafik zeigt den Anteil Ja-Stimmmen für alle Vorlagen dieses Abstimmungstermins, welche ohne Gegenvorschlag zur Abstimmung kommen.
+<br />
+<ods-dataset-context context="myctx" myctx-dataset="{{ctx.dataset.datasetid }}"  myctx-parameters= "{'refine.gemein_name':'Basel-Stadt', 'exclude.abst_typ':'Initiative mit Gegenvorschlag und Stichfrage'}">
+    <ods-chart display-legend="false" label-x="" labels-x-length=30
+               single-y-axis="true" single-y-axis-label="Anteil Ja-Stimmen (%)">
+        <ods-chart-query context="myctx" field-x="abst_id_titel">
+            <ods-chart-serie expression-y="anteil_ja_stimmen" chart-type="bar" function-y="AVG" color="#51BFD9" label-y="Anteil Ja-Stimmen (%)"
+                             multiplier="100">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<br /><br />
+Diese Grafik zeigt den Anteil Ja-Stimmmen für die Mindestlohn-Initiative und den Gegenvorschlag.
+<br />
+
+<ods-dataset-context context="myctx" myctx-dataset="{{ctx.dataset.datasetid }}" myctx-parameters="{'refine.abst_titel':'«Mindestlohn-Initiative» und Gegenvorschlag'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="abst_titel" maxpoints="0">
+            <ods-chart-serie expression-y="anteil_ja_stimmen" chart-type="bar" function-y="AVG" color="#51BFD9" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="gege_anteil_ja_stimmen" chart-type="bar" function-y="AVG" color="#00546F" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<br /><br />
+Diese Grafik zeigt die Anzahl Stimmen der Stichfrage der Mindestlohn-Initiative und Gegenvorschlag
+<br />
+
+<ods-dataset-context context="myctx" myctx-dataset="100143" myctx-parameters="{'refine.abst_titel':'«Mindestlohn-Initiative» und Gegenvorschlag'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="abst_titel" maxpoints="0">
+            <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="gege_ja_anz" chart-type="column" function-y="SUM" color="#00546F" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<br /><br />
+
+<div ods-facet-results="items"
+     ods-facet-results-context="ctx"
+     ods-facet-results-facet-name="abst_id_titel"
+     ods-facet-results-sort="alphanum"
+     ng-repeat="item in items">
+    <ods-dataset-context context="ctx"
+                         ctx-dataset="{{ ctx.dataset.datasetid }}"
+                         ctx-parameters="{'sort':'-abst_id','refine.abst_id_titel':''+item.name}">
+
+
+        <b>{{item.name}}</b>
+        <br /><br />
+        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen nach Gemeinde (inkl. Auslandschweizer/innen) und für den ganzen Kanton.
+        <br /><br />
+        Initiative
+        <br />
+        <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+            <ods-chart-query context="ctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
+                <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="AVG" color="#51BFD9" label-y="Ja-Stimmen">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="nein_anz" chart-type="column" function-y="AVG" color="#F6C024" label-y="Nein-Stimmen">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+    </ods-dataset-context>
+    <br /><br />
+
+</div>
+Gegenvorschlag
+
+<ods-dataset-context context="myctx" myctx-dataset="100143">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="gemein_name" maxpoints="0" stacked="percent">
+            <ods-chart-serie expression-y="gege_ja_anz" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="gege_nein_anz" chart-type="column" function-y="SUM" color="#F6C024" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+<br /><br />
+Stichfrage
+
+<ods-dataset-context context="myctx" myctx-dataset="100143">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="gemein_name" maxpoints="0" stacked="percent">
+            <ods-chart-serie expression-y="sti_initiative_anz" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="sti_gegenvorschlag_anz" chart-type="column" function-y="SUM" color="#00546F" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

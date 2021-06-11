@@ -1,0 +1,138 @@
+Die untenstehenden Abbildungen beziehen sich ausschliesslich auf Personen mit Wohnsitz im Kanton Basel-Stadt. Die den Abbildungen zugrunde liegenden Daten finden Sie in diesem Datensatz: <a href="https://data.bs.ch/explore/dataset/100137">https://data.bs.ch/explore/dataset/100137</a>
+<br />
+<br />
+
+Die geimpften Personen mit Wohnsitz im Kanton Basel-Stadt müssen nicht zwingend auch im Kanton Basel-Stadt geimpft worden sein.
+
+<br />
+<br />
+
+Anteil der Geimpften an der Wohnbevölkerung in Prozent
+<br />
+<br />
+<ods-dataset-context context="myctx,myctx0,myctx1" myctx-dataset="100137" myctx-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.age_group':'Gesamtbevölkerung','refine.vacc_count':'2'}" myctx0-dataset="100137" myctx0-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.age_group':'Gesamtbevölkerung','refine.vacc_count':'-1'}" myctx1-dataset="100137" myctx1-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.vacc_count':'1','refine.age_group':'Gesamtbevölkerung'}">
+    <ods-chart timescale="day" single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx1" field-x="vacc_day" maxpoints="0" timescale="day" category-colors="{'Gesamtbevölkerung':'#000000'}">
+            <ods-chart-serie label-y="Mindestens einmal Geimpfte" expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" stacked="normal" series-breakdown="vacc_count_description" category-colors="{'Zweite Impfdosis':'#0971B5'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx0" field-x="vacc_day" maxpoints="0" timescale="day" stacked="normal" series-breakdown="vacc_count_description" category-colors="{'Ausschliesslich erste Impfdosis':'#8DB9D8'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+<br /><br />
+Anteil der Geimpften an der impfberechtigten Bevölkerung in Prozent
+<br />
+<br />
+<ods-dataset-context context="myctx,myctx0,myctx1" myctx-dataset="100137" myctx-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.age_group':'Impfberechtigte Bevölkerung','refine.vacc_count':'2'}" myctx0-dataset="100137" myctx0-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.age_group':'Impfberechtigte Bevölkerung','refine.vacc_count':'-1'}" myctx1-dataset="100137" myctx1-parameters="{'sort':'vacc_day','disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'refine.vacc_count':'1','refine.age_group':'Impfberechtigte Bevölkerung'}">
+    <ods-chart timescale="day" single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx1" field-x="vacc_day" maxpoints="0" timescale="day" category-colors="{'Impfberechtigte Bevölkerung':'#000000'}">
+            <ods-chart-serie label-y="Mindestens einmal Geimpfte" expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" stacked="normal" series-breakdown="vacc_count_description" category-colors="{'Zweite Impfdosis':'#0971B5'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx0" field-x="vacc_day" maxpoints="0" timescale="day" stacked="normal" series-breakdown="vacc_count_description" category-colors="{'Ausschliesslich erste Impfdosis':'#8DB9D8'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+<br /><br />
+
+
+
+Anzahl geimpfte Personen
+ <br /><br />
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'disjunctive.vacc_count':true,'disjunctive.vacc_count_description':true,'sort':'vacc_day','refine.age_group':'Gesamtbevölkerung'}">
+    <ods-chart timescale="day" single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="vacc_count_description" category-colors="{'Ausschliesslich erste Impfdosis':'#0971B5','Erste Impfdosis':'#E5352E','Zweite Impfdosis':'#F98C44'}">
+            <ods-chart-serie expression-y="count_cum" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+<br /><br />
+Anzahl vollständig geimpfte Personen nach Altersklasse
+<br /><br />
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'refine.age_group':['> 74','65-74','50-64','16-49'],'refine.vacc_count':'2'}">
+    <ods-chart single-y-axis="false" display-legend="false">
+        <ods-chart-query context="myctx" field-x="age_group" maxpoints="0" category-colors="{'16-49':'#5F9DC6','50-64':'#263891','65-74':'#BA0129','> 74':'#F98C44','Unbekannt':'#F9E5C5'}">
+            <ods-chart-serie expression-y="count" chart-type="column" function-y="SUM" color="#66c2a5" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+<ods-dataset-context context='date' date-dataset='100137'>
+    <div ods-analysis="maxdate"
+         ods-analysis-context="date"
+         ods-analysis-x="vacc_day"
+         ods-analysis-sort="-x"
+         ods-analysis-serie-conf="AVG(count_cum)"
+         >
+    </div>
+    <ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'disjunctive.vacc_count':true,'refine.vacc_count':'-1','refine.age_group':['> 74','65-74','50-64','16-49']}">
+        <div>
+            {{
+            latestDate = (maxdate.results[0].x.year > 2020 ? maxdate.results[0].x.year + '-' + (maxdate.results[0].x.month < 10 ? '0' : '') + maxdate.results[0].x.month + '-' + (maxdate.results[0].x.day < 10 ? '0' : '') + maxdate.results[0].x.day : '2021-03-01');
+            myctx.parameters['refine.vacc_day'] = latestDate;
+            ""}}
+        </div>
+        <div>
+     <br /><br />
+Anzahl mit ausschliesslich erster Dosis geimpfte Personen nach Altersklasse <!--(Stand {{ latestDate | moment:'DD.MM.YYYY' }}) -->
+     <br /><br />
+        </div>
+        <ods-chart single-y-axis="false" display-legend="false">
+            <ods-chart-query context="myctx" field-x="age_group" maxpoints="0" category-colors="{'16-49':'#5F9DC6','50-64':'#263891','65-74':'#BA0129','> 74':'#F98C44','Unbekannt':'#F9E5C5'}">
+                <ods-chart-serie expression-y="count_cum" chart-type="column" function-y="SUM" color="#66c2a5" scientific-display="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+    </ods-dataset-context>
+</ods-dataset-context>
+<br /><br />
+Anteil vollständig Geimpfter an der Wohnbevölkerung in Prozent nach Altersklasse
+<br /><br />
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'sort':'vacc_day','refine.vacc_count':'2'}">
+    <ods-chart single-y-axis="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="age_group" category-colors="{'16-49':'#5F9DC6','50-64':'#263891','65-74':'#BA0129','> 74':'#F98C44','Gesamtbevölkerung':'#000000','Impfberechtigte Bevölkerung':'#AAAAAA','Unbekannt':'#F9E5C5'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<br /><br />
+Anteil mit mindestens erster Dosis Geimpfter an der Wohnbevölkerung in Prozent nach Altersklasse
+<br /><br />
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'sort':'vacc_day','refine.vacc_count':'1'}">
+    <ods-chart single-y-axis="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="age_group" category-colors="{'16-49':'#5F9DC6','50-64':'#263891','65-74':'#BA0129','> 74':'#F98C44','Gesamtbevölkerung':'#000000','Impfberechtigte Bevölkerung':'#AAAAAA','Unbekannt':'#F9E5C5'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<br /><br />
+Anteil mit ausschliesslich erster Dosis Geimpfter an der Wohnbevölkerung in Prozent nach Altersklasse
+<br /><br />
+<ods-dataset-context context="myctx" myctx-dataset="100137" myctx-parameters="{'disjunctive.age_group':true,'sort':'vacc_day','refine.vacc_count':'-1'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day" series-breakdown="age_group" category-colors="{'16-49':'#5F9DC6','50-64':'#263891','65-74':'#BA0129','> 74':'#F98C44','Gesamtbevölkerung':'#000000','Impfberechtigte Bevölkerung':'#AAAAAA','Unbekannt':'#F9E5C5'}">
+            <ods-chart-serie expression-y="count_cum_percentage_of_total_pop" chart-type="line" function-y="SUM" color="range-Dark2" scientific-display="true" display-units="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>

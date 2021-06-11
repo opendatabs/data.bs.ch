@@ -77,7 +77,7 @@ Gegenvorschlag
 
 <ods-dataset-context context="myctx" myctx-dataset="100143">
     <ods-chart single-y-axis="true" align-month="true">
-        <ods-chart-query context="myctx" field-x="gemein_name" maxpoints="0" stacked="percent">
+        <ods-chart-query context="myctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
             <ods-chart-serie expression-y="gege_ja_anz" chart-type="column" function-y="SUM" color="#51BFD9" label-y="Ja-Stimmen">
             </ods-chart-serie>
             <ods-chart-serie expression-y="gege_nein_anz" chart-type="column" function-y="SUM" color="#F6C024" label-y="Ja-Stimmen">
@@ -91,7 +91,7 @@ Stichfrage
 
 <ods-dataset-context context="myctx" myctx-dataset="100143">
     <ods-chart single-y-axis="true" align-month="true">
-        <ods-chart-query context="myctx" field-x="gemein_name" maxpoints="0" stacked="percent">
+        <ods-chart-query context="myctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
             <ods-chart-serie expression-y="sti_initiative_anz" label-y="Stimmen für Initiative" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
             </ods-chart-serie>
             <ods-chart-serie expression-y="sti_gegenvorschlag_anz" label-y="Stimmen für Gegenvorschlag" chart-type="column" function-y="SUM" color="#00546F" scientific-display="true">

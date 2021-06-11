@@ -18,7 +18,7 @@ Diese Grafik zeigt den Anteil Ja-Stimmmen für die Mindestlohn-Initiative und de
 <br />
 
 <ods-dataset-context context="myctx" myctx-dataset="{{ctx.dataset.datasetid }}" myctx-parameters="{'refine.abst_titel':'«Mindestlohn-Initiative» und Gegenvorschlag'}">
-    <ods-chart single-y-axis="true" align-month="true">
+    <ods-chart single-y-axis="true" align-month="true" label-x="" labels-x-length="1">
         <ods-chart-query context="myctx" field-x="abst_titel" maxpoints="0">
             <ods-chart-serie expression-y="anteil_ja_stimmen" chart-type="bar" function-y="AVG" color="#51BFD9" scientific-display="true" label-y="Anteil Ja-Stimmen Initiative (%)" multiplier="100">
             </ods-chart-serie>
@@ -35,10 +35,10 @@ Diese Grafik zeigt die Anzahl Stimmen der Stichfrage der Mindestlohn-Initiative 
 
 <ods-dataset-context context="myctx" myctx-dataset="100143" myctx-parameters="{'refine.abst_titel':'«Mindestlohn-Initiative» und Gegenvorschlag'}">
     <ods-chart single-y-axis="true" align-month="true">
-        <ods-chart-query context="myctx" field-x="abst_titel" maxpoints="0">
-            <ods-chart-serie expression-y="ja_anz" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
+        <ods-chart-query context="myctx" field-x="abst_titel" label-x="" labels-x-length="100">
+            <ods-chart-serie expression-y="sti_initiative_anz" label-y="Stichfrage Stimmen für Initiative" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
             </ods-chart-serie>
-            <ods-chart-serie expression-y="gege_ja_anz" chart-type="column" function-y="SUM" color="#00546F" scientific-display="true">
+            <ods-chart-serie expression-y="sti_gegenvorschlag_anz" label-y="Stichfrage Stimmen für Gegenvorschlag" chart-type="column" function-y="SUM" color="#00546F" scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>

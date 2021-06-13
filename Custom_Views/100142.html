@@ -24,5 +24,32 @@
 
 </div>
 
+Gegenvorschlag
+<ods-dataset-context context="myctx" myctx-dataset="100144">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
+            <ods-chart-serie expression-y="gege_ja_anz" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="gege_nein_anz" chart-type="column" function-y="SUM" color="#F6C024" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<br /><br />
+Stichfrage
+
+<ods-dataset-context context="myctx" myctx-dataset="100144">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
+            <ods-chart-serie expression-y="sti_initiative_anz" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="sti_gegenvorschlag_anz" chart-type="column" function-y="SUM" color="#00546F" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
 
 

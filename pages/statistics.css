@@ -1,16 +1,21 @@
+.reference {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
 .home-header {
 	margin-bottom: 20px;
     /* Change this value to make the background image taller or smaller */
     height: 200px;
     /* Background color before image loads */
     background-color:"#4b4b47" var(--highlight);
+    
 
-
-    /* You can replace the background-image by uploading an image to the portal assets
+    /* You can replace the background-image by uploading an image to the portal assets 
     and replacing the text in simple quotes below or use the URL of an image on the web */
     background-image: url('https://basel-stadt.opendatasoft.com/assets/theme_image/Banner-Statistik.jpg');
-
-    /* Position of the background-image on x y axis. Change these values to
+    
+    /* Position of the background-image on x y axis. Change these values to 
     modify where the image is centered.
     */
     background-position: center center;
@@ -85,7 +90,7 @@ h2.grey-box {
 .content-card-title {
 	color: #204454;
 	font-size: 1.2rem;
-	line-height: 1.5;
+	line-height: 1.5; 
 	font-weight: bold;
 	margin-top: 0;
 	margin-bottom: 13px;
@@ -169,4 +174,7 @@ rect.highcharts-background {
 tspan.highcharts-text-outline {
     display: none;
 }
-      
+
+.highcharts-data-label span {
+    text-align: center;
+}

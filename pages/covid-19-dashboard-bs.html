@@ -1,0 +1,1083 @@
+ <div class="container-fluid"
+      ng-init="view = 'bs'">
+                <div class="page-header">
+                    <h1 class="page-title">
+                        COVID-19 Dashboard
+                    </h1>
+             <div class="switch-container">
+                <label class="switch">
+                    <input ng-model="view"
+                           ng-true-value="'schweiz'"
+                           ng-false-value="'bs'"
+                           ng-checked="view == 'schweiz'"
+                           class="switch-input"
+                           type="checkbox">
+                    <div class="switch-button">
+                        <span class="switch-button-left">BS</span>
+                        <span class="switch-button-right">Schweiz</span>
+                    </div>
+                </label>
+            </div>
+            </div>
+<div ng-if="view == 'bs'">
+    <section class="sticky-content">
+<a class="basic-button"
+   href="/?headless=true/#Fallzahlen"
+   role="button">
+   Fallzahlen, Inzidenzen und Tests
+</a>
+<a class="basic-button"
+   href="#Abwasser"
+   role="button">
+   SARS-CoV-2 im Abwasser
+</a>
+<a class="basic-button"
+   href="#Hosp"
+   role="button">
+   Hospitalisierungen
+</a>
+<a class="basic-button"
+   href="#Impf"
+   role="button">
+   Impfungen
+</a>
+
+    </section><div class="row "><ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100073" hospcovid19chall-parameters="{'sort':'timestamp','q':'date > #now(days=-30)'}">
+
+                    <div class="col-md-12">
+                        <h2 id="Fallzahlen">
+                         Fallzahlen und Inzidenzen
+                        </h2><p ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                         Stand: {{ results[0].fields.date|moment:"DD.MM.YYYY" }}
+                        </p>
+     </div></ods-dataset-context>
+     </div>
+                <div class="row "><ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100073" hospcovid19chall-parameters="{'sort':'timestamp','q':'date > #now(days=-30)'}">
+
+                    <div class="col-md-4">
+                        <h3 >
+                         positiv getestete Personen
+                        </h3>
+                        <div class="row">
+
+                       <div class="col-xs-6">
+                        <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                   neu
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.ndiff_conf || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                            <div class="col-xs-6">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    Total
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.ncumul_conf || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                       </div>
+                        <div class="cardblock" ng-init="view1 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                positiv getestete Personen
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view1"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view1 == 'zeitreihe'" style="font-size:8pt">
+                                Ganze Zeitreihe
+                            </p>
+                            </div>
+                         <div ng-if="view1 == '30tage'">
+                           <ods-chart display-legend="false" timescale="day" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ndiff_conf" chart-type="column" function-y="SUM" color="#1B6698" min="0" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                         </div>
+                        <div ng-if="view1 == 'zeitreihe'">
+                            <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100073" hospcovid19chall-parameters="{'sort':'timestamp'}">
+                           <ods-chart display-legend="false" timescale="day" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ndiff_conf" chart-type="column" function-y="SUM" color="#1B6698" min="0" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                </ods-chart>
+                            </ods-dataset-context>
+                         </div>
+                        </div>
+                    </div>
+
+                   <div class="col-md-4">
+                       <h3>
+                         genesene Personen
+                        </h3>
+                        <div class="row">
+
+                       <div class="col-xs-6">
+                        <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                   neu
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                  {{ results[0].fields.ndiff_released || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                            <div class="col-xs-6">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    Total
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                  {{ results[0].fields.ncumul_released || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                       </div>
+                        <div class="cardblock" ng-init="view2 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                genesene Personen
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view2"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view2 == 'zeitreihe'" style="font-size:8pt">
+                               Ganze Zeitreihe
+                            </p>
+                            </div>
+                            <div ng-if="view2 == '30tage'">
+                            <ods-chart display-legend="false" timescale="day" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ndiff_released" chart-type="column" function-y="SUM" color="#339933" min="0" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                            </div>
+                            <div ng-if="view2 == 'zeitreihe'">
+                            <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100073" hospcovid19chall-parameters="{'sort':'timestamp'}">
+                            <ods-chart display-legend="false" timescale="day" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ndiff_released" chart-type="column" function-y="SUM" color="#339933" min="0" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                            </ods-dataset-context>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3>
+                         gemeldete Gestorbene
+                        </h3>
+                        <div class="row">
+
+                       <div class="col-xs-6">
+                        <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                   neu
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.ndiff_deceased }}
+                                </h3>
+                            </div>
+                            </div>
+                            <div class="col-xs-6">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    Total
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.ncumul_deceased || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                       </div>
+                        <div class="cardblock" ng-init="view3 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                gemeldete Gestorbene
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view3"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view3 == 'zeitreihe'" style="font-size:8pt">
+                              Ganze Zeitreihe
+                            </p>
+                            </div>
+                            <div ng-if="view3 == '30tage'">
+                           <ods-chart display-legend="false" timescale="day" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ndiff_deceased" chart-type="column" function-y="SUM" color="#f03b20"  step="1" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                            </div>
+                             <div ng-if="view3 == 'zeitreihe'">
+                                 <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100073" hospcovid19chall-parameters="{'sort':'timestamp'}">
+                           <ods-chart display-legend="false" timescale="day" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ndiff_deceased" chart-type="column" function-y="SUM" color="#f03b20"  scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                     </ods-chart>
+                                 </ods-dataset-context>
+                            </div>
+                        </div>
+                    </div>
+                    </ods-dataset-context>
+            </div><p class="kpi2">
+    Datenquelle: <a href="https://data.bs.ch/explore/dataset/100073/" target="_blank">https://data.bs.ch/explore/dataset/100073/</a>
+    </p>
+    <br />
+        <!-- Inzidenzen-->
+                <div class="row" >
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100108" hospcovid19chall-parameters="{'sort':'test_datum'}">
+                     <div class="col-xs-12"><h3>
+                         Inzidenzen
+                         </h3><p ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                         Stand: {{ results[0].fields.test_datum|moment:"DD.MM.YYYY" }}
+                          </p></div>
+                       <div class="col-xs-6">
+                        <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                   7d-Inzidenz Basel-Stadt
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.inzidenz07_bs | number : 0 }}
+                                </h3>
+                            </div>
+                            </div>
+                            <div class="col-xs-6">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    14d-Inzidenz Basel-Stadt
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.inzidenz14_bs | number : 0}}
+                                </h3>
+                            </div>
+                            </div>
+                    </ods-dataset-context>
+            </div>
+
+     <div class="row">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100108" hospcovid19chall-parameters="{'sort':'test_datum','q':'test_datum > #now(days=-30)'}">
+                    <div class="col-md-12">
+                        <div class="cardblock" ng-init="view4 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                Inzidenzen Basel-Stadt
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view4"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view4 == 'zeitreihe'" style="font-size:8pt">
+                              Ganze Zeitreihe
+                            </p>
+                            </div>
+                            <div ng-if="view4 == '30tage'">
+                            <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="hospcovid19chall" field-x="test_datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="inzidenz07_bs" chart-type="line" function-y="SUM" color="#fc8d62" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="inzidenz14_bs" chart-type="line" function-y="SUM" color="#66c2a5" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+     </div>
+                            <div ng-if="view4 == 'zeitreihe'">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100108" hospcovid19chall-parameters="{'sort':'test_datum'}">
+                            <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="hospcovid19chall" field-x="test_datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="inzidenz07_bs" chart-type="line" function-y="SUM" color="#fc8d62" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="inzidenz14_bs" chart-type="line" function-y="SUM" color="#66c2a5" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+                        </ods-chart>
+       </ods-dataset-context>
+     </div>
+                        </div>
+                    </div>
+                    </ods-dataset-context>
+            </div> <p class="kpi2">
+    Datenquelle: <a href="https://data.bs.ch/explore/dataset/100108/" target="_blank">https://data.bs.ch/explore/dataset/100108/</a>
+    </p>
+    <br />
+
+         <!-- Tests Basel-Stadt-->
+                <div class="row" >
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100094" hospcovid19chall-parameters="{'sort':'datum'}">
+                      <div class="col-md-12">
+                        <h3>
+                        Tests Basel-Stadt
+                          </h3><p ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                         Stand: {{ results[0].fields.datum|moment:"DD.MM.YYYY" }}
+                          </p>
+                        </div>
+
+                       <div class="col-md-3">
+                        <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                   Total Tests
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.total_tests || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                            <div class="col-md-3">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    Anzahl positive Tests
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.positive_tests || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                        <div class="col-md-3">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    Anzahl negative Tests
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.negative_tests || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                        <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100094" hospcovid19chall-parameters="{'sort':'datum'}">
+                        <div class="col-md-3">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    Anteil positive Tests
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.positivity_rate_percent || '?'| number : 2}} %
+                                </h3>
+                            </div>
+                            </div>
+                        </ods-dataset-context>
+                    </ods-dataset-context>
+            </div>
+     <div class="row">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100094" hospcovid19chall-parameters="{'sort':'datum','q':'datum > #now(days=-30)'}">
+                        <div class="col-md-6">
+                        <div class="cardblock" ng-init="view7 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                Entwicklung der Anzahl positiven und negativen Tests auf das Coronavirus (SARS-CoV-2)
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view7"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view7 == 'zeitreihe'" style="font-size:8pt">
+                                Ganze Zeitreihe
+                            </p>
+                            </div>
+                            <div ng-if="view7 == '30tage'">
+                           <ods-chart timescale="day" single-y-axis="true" align-month="true">
+            <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day" stacked="normal">
+                <ods-chart-serie expression-y="negative_tests" chart-type="column" function-y="SUM" label-y="negativ" color="#8da0cb" display-units="false" scientific-display="true">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="total_tests" chart-type="line" function-y="SUM" label-y="Total" color="#5E4000" display-units="false" scientific-display="true">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="positive_tests" chart-type="column" function-y="SUM" label-y="positiv" color="#E5352D" display-values="false" display-stack-values="false" scientific-display="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+                            </div>
+                            <div ng-if="view7 == 'zeitreihe'">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100094" hospcovid19chall-parameters="{'sort':'datum'}">
+                          <ods-chart timescale="day" single-y-axis="true" align-month="true">
+            <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day" stacked="normal">
+                <ods-chart-serie expression-y="negative_tests" chart-type="column" function-y="SUM" label-y="negativ" color="#8da0cb" display-units="false" scientific-display="true">
+                </ods-chart-serie>
+                 <ods-chart-serie expression-y="total_tests" chart-type="line" function-y="SUM" label-y="Total" color="#5E4000" display-units="false" scientific-display="true">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="positive_tests" chart-type="column" function-y="SUM" label-y="positiv" color="#E5352D" display-values="false" display-stack-values="false" scientific-display="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+                                </ods-dataset-context>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cardblock" ng-init="view8 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+Entwicklung des Anteils der positiven Testresultate
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view8"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view8 == 'zeitreihe'" style="font-size:8pt">
+                                Ganze Zeitreihe
+                            </p>
+                            </div>
+                            <div ng-if="view8 == '30tage'">
+                           <ods-chart timescale="day" single-y-axis="true" single-y-axis-label="Prozent" min="0" max="100" step="20" scientific-display="false" labels-x-length="0" align-month="true">
+            <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day">
+                <ods-chart-serie expression-y="positivity_rate_percent" chart-type="line" function-y="AVG" label-y="Positivitätsrate" color="#263892" display-units="true" display-values="false" scientific-display="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+                            </div>
+                            <div ng-if="view8 == 'zeitreihe'">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100094" hospcovid19chall-parameters="{'sort':'datum'}">
+                         <ods-chart timescale="day" single-y-axis="true" single-y-axis-label="Prozent" min="0" max="100" step="20" scientific-display="false" labels-x-length="0" align-month="true">
+            <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day">
+                <ods-chart-serie expression-y="positivity_rate_percent" chart-type="line" function-y="AVG" label-y="Positivitätsrate" color="#263892" display-units="true" display-values="false" scientific-display="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+                                </ods-dataset-context>
+                            </div>
+                        </div>
+                    </div>
+                    </ods-dataset-context>
+            </div>    <p class="kpi2">
+    Datenquelle: <a href="https://data.bs.ch/explore/dataset/100094/" target="_blank">https://data.bs.ch/explore/dataset/100094/</a>
+    </p>
+     <br /><br/>
+            <!-- SARS-CoV-2 im Abwasser-->
+     <div class="row">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100187" hospcovid19chall-parameters="{'sort':'datum','q':'datum > #now(days=-30)'}">
+                   <div class="col-md-12">
+                        <h2 id="Abwasser" >
+                        SARS-CoV-2 im Abwasser und positiv auf SARS-CoV-2 getestete Personen
+                        </h2><p ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                         Stand: {{ results[0].fields.datum|moment:"DD.MM.YYYY" }}
+                          </p>
+                        </div> <div class="col-md-12">
+                        <div class="cardblock" ng-init="view9 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view9"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view9 == 'zeitreihe'" style="font-size:8pt">
+                              Ganze Zeitreihe
+                            </p>
+                            </div>
+                            <div ng-if="view9 == '30tage'">
+                           <ods-chart align-month="true">
+        <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" label-y="7-Tage Median SARS-CoV-2 RNA Kopien / Tag und 100'000 Pers." chart-type="line" function-y="SUM" color="#263891" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_bs_bl" label-y="7-Tage Median Covid19-Fälle im Einzugsgebiet ARA Basel (Kt. BS + 6 Gemeinden BL)" chart-type="line" function-y="SUM" color="#AF5FA2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart><p>
+                  Die Untersuchungen decken das Einzugsgebiet der ARA Basel (ProRheno) ab, welches hauptsächlich aus dem Kantonsgebiet BS und den BL-Gemeinden Allschwil, Binningen, Birsfelden, Bottmingen, Oberwil, Schönenbuch besteht.
+                                </p>
+     </div>
+                            <div ng-if="view9 == 'zeitreihe'">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100187" hospcovid19chall-parameters="{'sort':'datum'}">
+                           <ods-chart align-month="true">
+        <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" label-y="7-Tage Median SARS-CoV-2 RNA Kopien / Tag und 100'000 Pers." chart-type="line" function-y="SUM" color="#263891" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_bs_bl" label-y="7-Tage Median Covid19-Fälle im Einzugsgebiet ARA Basel (Kt. BS + 6 Gemeinden BL)" chart-type="line" function-y="SUM" color="#AF5FA2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query><p>
+                  Die Untersuchungen decken das Einzugsgebiet der ARA Basel (ProRheno) ab, welches hauptsächlich aus dem Kantonsgebiet BS und den BL-Gemeinden Allschwil, Binningen, Birsfelden, Bottmingen, Oberwil, Schönenbuch besteht.
+                                </p>
+    </ods-chart>
+       </ods-dataset-context>
+     </div>
+                        </div>
+                    </div>
+                    </ods-dataset-context>
+            </div>
+    <p class="kpi2">
+    Datenquelle: <a href="https://data.bs.ch/explore/dataset/100187/" target="_blank">https://data.bs.ch/explore/dataset/100187/</a>
+    </p>
+     <br />
+    <br/>
+     <!-- Hospitalisierte in baselstädtischen Spitälern-->
+                <div class="row" >
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100109" hospcovid19chall-parameters="{'sort':'date'}">
+                      <div class="col-md-12">
+                        <h2 id="Hosp" >
+                         Hospitalisierte in baselstädtischen Spitälern
+                        </h2><p ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                         Stand: {{ results[0].fields.date|moment:"DD.MM.YYYY" }}
+                          </p>
+                        </div>
+
+                       <div class="col-xs-6">
+                        <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                   Hospitalisierte Total
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.current_hosp || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                            <div class="col-xs-6">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    davon Einwohner BS
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.current_hosp_resident || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                        <div class="col-xs-6">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                    davon Einwohner BL
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.current_hosp_non_resident || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                        <div class="col-xs-6">
+                            <div class="cardblock1 cardblock-body">
+                                <div class="cardblock-title">
+                                   davon auf Intensivstationen
+                                </div>
+                                <h3 class="cardblock-value" ods-results="results"
+                           ods-results-context="hospcovid19chall"
+                           ods-results-max=1>
+                                    {{ results[0].fields.current_icu || '?'}}
+                                </h3>
+                            </div>
+                            </div>
+                    </ods-dataset-context>
+            </div>
+     <div class="row">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100109" hospcovid19chall-parameters="{'sort':'date','q':'date > #now(days=-30)'}">
+                    <div class="col-md-6">
+                        <div class="cardblock" ng-init="view5 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                Anzahl positiv getestete Personen im Spital bzw. auf Intensivstationen
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view5"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view5 == 'zeitreihe'" style="font-size:8pt">
+                                Ganze Zeitreihe
+                            </p>
+                            </div>
+                            <div ng-if="view5 == '30tage'">
+                            <ods-chart timescale="day" single-y-axis="true" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day" stacked="normal">
+                                    <ods-chart-serie expression-y="normalstation" chart-type="column" function-y="SUM" color="#F8B334" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_icu" chart-type="column" function-y="SUM" color="#BA0129" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="imcu" chart-type="column" function-y="SUM" color="#FF515A" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_hosp" chart-type="line" function-y="SUM" color="#000000" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                            </div>
+                            <div ng-if="view5 == 'zeitreihe'">
+                    <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100109" hospcovid19chall-parameters="{'sort':'date'}">
+                            <ods-chart timescale="day" single-y-axis="true" align-month="true">
+                                 <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day" stacked="normal">
+                                    <ods-chart-serie expression-y="normalstation" chart-type="column" function-y="SUM" color="#F8B334" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_icu" chart-type="column" function-y="SUM" color="#BA0129" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="imcu" chart-type="column" function-y="SUM" color="#FF515A" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_hosp" chart-type="line" function-y="SUM" color="#000000" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                                </ods-dataset-context>
+                            </div>
+                        </div>
+                    </div>
+                        <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100109" hospcovid19chall-parameters="{'sort':'date', 'q':'date > #now(days=-30)'}">
+                    <div class="col-md-6">
+                        <div class="cardblock" ng-init="view6 = 'zeitreihe'">
+                            <div class="cardblock-body cardblock-title">
+                                Anzahl positiv getestete Personen im Spital nach Wohnsitz
+                                <div style="font-size:8pt">
+                Letzte 30 Tage anzeigen
+                <label>
+                    <input ng-model="view6"
+                           ng-true-value="'30tage'"
+                           ng-false-value="'zeitreihe'"
+                           type="checkbox">
+                </label>
+            </div>
+                            <p ng-if="view6 == 'zeitreihe'" style="font-size:8pt">
+                             Ganze Zeitreihe
+                            </p>
+                            </div>
+                           <div ng-if="view6 == '30tage'">
+                          <ods-chart timescale="day" single-y-axis="true"  align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day" stacked="normal">
+                                    <ods-chart-serie expression-y="current_hosp_resident" chart-type="column" function-y="SUM" color="#7a397c" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_hosp_non_resident" chart-type="column" function-y="SUM" color="#4d8dbe" scientific-display="true">
+                                    </ods-chart-serie>
+                                   <ods-chart-serie expression-y="current_hosp" chart-type="line" function-y="SUM" color="#000000" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                           </div>
+                            <div ng-if="view6 == 'zeitreihe'">
+                            <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100109" hospcovid19chall-parameters="{'sort':'date'}">
+                          <ods-chart timescale="day" single-y-axis="true"  align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day" stacked="normal">
+                                    <ods-chart-serie expression-y="current_hosp_resident" chart-type="column" function-y="SUM" color="#7a397c" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_hosp_non_resident" chart-type="column" function-y="SUM" color="#4d8dbe" scientific-display="true">
+                                    </ods-chart-serie>
+                                   <ods-chart-serie expression-y="current_hosp" chart-type="line" function-y="SUM" color="#000000" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                            </ods-dataset-context>
+                           </div>
+                        </div>
+                    </div>
+                    </ods-dataset-context>
+                    </ods-dataset-context>
+            </div><p class="kpi2">
+    Datenquelle: <a href="https://data.bs.ch/explore/dataset/100109/" target="_blank">https://data.bs.ch/explore/dataset/100109/</a>
+    </p>
+     <br/>
+     <h2 id="Impf">
+In Basel-Stadt verabreichte Impfungen
+     </h2>
+<ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100111" hospcovid19chall-parameters="{'sort':'datum'}">
+    <p ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+        Stand: {{ results[0].fields.datum|moment:"DD.MM.YYYY" }}
+    </p>
+    <div class="table-responsive">
+        <table class="table-basic"
+              >
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Veränd. ggü. Vortag</th>
+                    <th>Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+  <tr>
+    <td>Total</td>
+    <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.total_verabreichte_impfungen_pro_tag}}</td>
+    <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.total_verabreichte_impfungen}}</td>
+  </tr>
+
+
+    <tr>
+    <td>Erstimpfung</td>
+    <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.im_impfzentrum_mit_erster_dosis_geimpfte_personen_pro_tag + results[0].fields.im_aph_mit_erster_dosis_geimpfte_personen_pro_tag + results[0].fields.im_spital_mit_erster_dosis_geimpfte_personen_pro_tag + results[0].fields.anderswo_mit_erster_dosis_geimpfte_personen_pro_tag}}</td>
+     <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.total_personen_mit_erster_dosis}}</td>
+     </tr>
+
+
+  <tr>
+    <td>Zweitimpfung</td>
+    <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+          {{ results[0].fields.im_impfzentrum_mit_zweiter_dosis_geimpfte_personen_pro_tag + results[0].fields.im_aph_mit_zweiter_dosis_geimpfte_personen_pro_tag + results[0].fields.im_spital_mit_zweiter_dosis_geimpfte_personen_pro_tag + results[0].fields.anderswo_mit_zweiter_dosis_geimpfte_personen_pro_tag}}</td>
+    <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.total_personen_mit_zweiter_dosis}}</td>
+  </tr>
+  <tr>
+      <td>Auffrischimpfung</td>
+      <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.auffrischimpfungen_pro_tag}}</td>
+      <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.total_auffrischimpfungen}}</td>
+  </tr>
+  <tr>
+     <td>Drittimpfung</td>
+     <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.drittimpfungen_u_m_grundimmunisierung_pro_tag}}</td>
+      <td ods-results="results"
+        ods-results-context="hospcovid19chall"
+        ods-results-max=1>
+         {{ results[0].fields.total_drittimpfungen_u_m_grundimmunisierung}}</td>
+  </tr>
+            </tbody>
+        </table>
+    </div>
+</ods-dataset-context><p class="kpi2">
+    Datenquelle: <a href="https://data.bs.ch/explore/dataset/100111/" target="_blank">https://data.bs.ch/explore/dataset/100111/</a>
+     </p>
+        <h2><b>Geimpfte Personen mit Wohnsitz im Kanton Basel-Stadt Bevölkerung nach Typ</b></h2>
+        <p> Diese Visualisierung zeigt die SARS-CoV-2-Impfungen, welche an Personen mit Wohnsitz im Kanton Basel-Stadt verabreicht wurden nach Impfstatus. Unterschieden wird dabei auf oberster Ebene in teilweise geimpfte Personen, vollständig geimpfte Personen und Personen mit Auffrischimpfung. Die Definitionen dieser Einteilung finden Sie in den Spaltenbeschreibungen resp. Im Datensatzschema - siehe <a href="https://data.bs.ch/explore/dataset/100162/information/"target="_blank">Link</a>.
+
+    Die Datenbasis bildet der Vaccination Monitoring Data Lake (VMDL) des BAG. Der Datensatz wird stündlich aktualisiert.
+
+    Anmerkung: Die geimpften Personen wohnen im Kanton Basel-Stadt, müssen aber nicht zwingend auch im Kanton Basel-Stadt geimpft worden sein. Aus diesem Grund unterscheiden sich die hier visualisierten Zahlen auch von jenen im <a href="https://data.bs.ch/explore/dataset/100111/information/"target="_blank">Datensatz mit den im Kanton Basel-Stadt verabreichten Impfungen</a>.    </p>
+
+    <ods-dataset-context context="myctx" myctx-dataset="100162" myctx-parameters="{'sort':'vacc_day'}">
+
+    <ods-simple-tabs>
+
+
+
+        <ods-simple-tab
+                        label="Prozentangaben"
+                        keep-content="true">
+                    <ods-chart single-y-axis="true" align-month="true">
+            <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day">
+                <ods-chart-serie expression-y="anteil_vollstaendig_geimpft_an_wohnbevoelkerung" chart-type="line" function-y="SUM" color="#263891" scientific-display="true"display-units="true">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="anteil_teilweise_geimpft_an_wohnbevoelkerung" chart-type="line" function-y="SUM" color="#5F9DC6" scientific-display="true"display-units="true">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="anteil_impfung_aufgefrischt_an_wohnbevoelkerung" chart-type="line" function-y="SUM" color="#000000" scientific-display="true"display-units="true">
+                </ods-chart-serie>
+               <ods-chart-serie expression-y="anteil_mit_mindestens_einer_dosis_geimpft" chart-type="line" function-y="SUM" color="#66c2a5" scientific-display="true"display-units="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+
+                </ods-simple-tab>
+
+                    <ods-simple-tab
+                        label="Absolute Angaben"
+                        keep-content="true">
+                    <ods-chart single-y-axis="true" align-month="true"scientific-display="false">
+            <ods-chart-query context="myctx" field-x="vacc_day" maxpoints="0" timescale="day">
+                <ods-chart-serie expression-y="vollstaendig_geimpft" chart-type="line" function-y="SUM" color="#263891" scientific-display="true">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="teilweise_geimpft" chart-type="line" function-y="SUM" color="#5F9DC6" scientific-display="true">
+                </ods-chart-serie>
+                <ods-chart-serie expression-y="impfung_aufgefrischt" chart-type="line" function-y="SUM" color="#000000" scientific-display="true">
+                </ods-chart-serie>
+               <ods-chart-serie expression-y="mit_mindestens_einer_dosis_geimpft" chart-type="line" function-y="SUM" color="#66c2a5" scientific-display="true">
+                </ods-chart-serie>
+            </ods-chart-query>
+        </ods-chart>
+
+                </ods-simple-tab>
+
+    </ods-simple-tabs>
+    </ods-dataset-context>
+    <p class="kpi2">
+    Datenquelle: <a href="https://data.bs.ch/explore/dataset/100162/" target="_blank">https://data.bs.ch/explore/dataset/100162/</a>
+    </p>
+</div>
+<div ng-if="view == 'schweiz'">
+        <ods-dataset-context context="hospcovid19ch"
+                         hospcovid19ch-dataset="100085"
+                         hospcovid19ch-sort="date"
+                         hospcovid19ch-parameters="{'disjunctive.name':'True', 'disjunctive.abbreviation_canton_and_fl':'True'}"
+                         ods-datetime="datetime">
+    <ods-dataset-context context="date" date-dataset="100085">
+            <div ods-analysis="maxdate"
+                ods-analysis-context="date"
+                ods-analysis-x="date"
+                ods-analysis-sort="-x"
+                ods-analysis-serie-conf="AVG(ncumul_conf)"
+            >
+            </div>
+        <ods-dataset-context context="hospcovid19chdate, hospcovid19chall"
+                             hospcovid19chdate-dataset="100085"
+                             hospcovid19chdate-parameters="{'disjunctive.name':'True', 'disjunctive.abbreviation_canton_and_fl':'True'}"
+                             hospcovid19chdate-urlsync="false"
+                             hospcovid19chall-dataset="100085"
+                             hospcovid19chall-parameters="{'disjunctive.name':'True', 'disjunctive.abbreviation_canton_and_fl':'True'}"
+                             hospcovid19chall-urlsync="false">
+            {{
+            latestDate = (maxdate.results[0].x.year > 2000 ? maxdate.results[0].x.year + '-'
+                + (maxdate.results[0].x.month < 10 ? '0' : '') + maxdate.results[0].x.month + '-'
+                + (maxdate.results[0].x.day < 10 ? '0' : '') + maxdate.results[0].x.day : '2020-05-20');
+            hospcovid19chdate.parameters['refine.date'] = latestDate;
+            ""
+            }}
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-9">
+                <div class="page-subtitle">
+                    <div>
+                        Während der COVID-19-Pandemie veröffentlichen die Kantone ihre Statistiken im Internet. Diese Zahlen werden durch Angestellte der Kantone sowie Freiwillige im <a href="https://github.com/openZH/covid_19/blob/master/COVID19_Fallzahlen_CH_total.csv" target="_blank">Github Repo von OpenZH</a> gesammelt. Die Daten des Kantons Basel-Stadt werden durch die Fachstelle OGD Basel-Stadt erfasst. Diese Daten machen es möglich, die Ausbreitung der Pandemie zu beobachten und nachzuvollziehen. Die Kantone haben unterschiedliche administrative Prozesse zur Datenerfassung und unterschiedliche Datenveröffentlichungsstrategien. Die verfügbaren Daten können sich deshalb je nach Kanton unterscheiden.
+                         <br/>
+                        <br/>
+                        Das Dashboard zeigt jeweils <a href="https://data.bs.ch/explore/dataset/100077" target="_blank">stündlich aktualisierte Daten</a> in Zeitreihengrafiken. Lücken im Datensatz werden durch die jeweils letzten kantonalen Angaben gefüllt. Stand: {{ latestDate | moment:'DD.MM.YYYY' }}.
+                    </div>
+                </div>
+            </div>
+                    <div class="col-md-3">
+                        <ods-facets context="hospcovid19ch">
+                            <ods-facet name="abbreviation_canton_and_fl"
+                                       title="Nach Kanton filtern"
+                                       sort="alphanum"
+                                       value-search="true"
+                                       refine-also="[hospcovid19chdate, hospcovid19chall]"
+                                       hospcovid19chdate-facet-name="abbreviation_canton_and_fl"
+                                       hospcovid19chall-facet-name="abbreviation_canton_and_fl"
+                                       ></ods-facet>
+                        </ods-facets>
+                    </div>
+                      </div>
+            <section class="page-section">
+                <div class="row">
+                    <div ods-aggregation="cthospitalized, ctintcare, ctdeath, ctout"
+                         ods-aggregation-context="hospcovid19chdate"
+                         ods-aggregation-cthospitalized-expression="current_hosp"
+                         ods-aggregation-cthospitalized-function="SUM"
+                         ods-aggregation-ctintcare-expression="current_icu"
+                         ods-aggregation-ctintcare-function="SUM"
+                         ods-aggregation-ctout-expression="ncumul_released"
+                         ods-aggregation-ctout-function="SUM"
+                         ods-aggregation-ctdeath-expression="ncumul_deceased"
+                         ods-aggregation-ctdeath-function="SUM">
+                        <div class="col-md-3">
+                            <div class="cardblock cardblock-body">
+                                <div class="cardblock-title">
+                                    Erkrankte im Spital
+                                </div>
+                                <h3 class="cardblock-value">
+                                    {{ cthospitalized || '?'}}
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cardblock cardblock-body">
+                                <div class="cardblock-title">
+                                    Erkrankte auf Intensivstationen
+                                </div>
+                                <h3 class="cardblock-value">
+                                    {{ctintcare || '?'}}
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cardblock cardblock-body">
+                                <div class="cardblock-title">
+                                    Genesene
+                                </div>
+                                <h3 class="cardblock-value">
+                                    {{ctout || '?'}}
+
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cardblock cardblock-body">
+                                <div class="cardblock-title">
+                                    Verstorbene
+                                </div>
+                                <h3 class="cardblock-value">
+                                    {{ctdeath || '?'}}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br/>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="cardblock">
+                            <div class="cardblock-body cardblock-title">
+                                Anzahl Erkrankte im Spital bzw. auf Intensivstationen
+                            </div>
+                            <ods-chart timescale="day" single-y-axis="true" display-legend="false" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="current_hosp" chart-type="area" function-y="SUM" color="#F8B334" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_icu" chart-type="area" function-y="SUM" color="#FF515A" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cardblock" >
+                            <div class="cardblock-body cardblock-title">
+                                Anzahl Erkrankte im Spital bzw. auf Intensivstationen, nach Kanton
+                            </div>
+                            <ods-chart display-legend="false" timescale="day" align-month="true" single-y-axis="true">
+                                <ods-chart-query context="hospcovid19chdate" field-x="abbreviation_canton_and_fl" timescale="day" sort="serie1-1">
+                                    <ods-chart-serie expression-y="current_hosp" chart-type="column" function-y="SUM" color="#F8B334" scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="current_icu" chart-type="column" function-y="SUM" color="#FF515A" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <br/>
+                </div>
+
+            </section>
+            <section>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="cardblock">
+                            <div class="cardblock-body cardblock-title">
+                                Bestätigte Fälle
+                            </div>
+                            <ods-chart display-legend="false" timescale="day" single-y-axis="true" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ncumul_conf" chart-type="column" function-y="SUM" color="#1B6698" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cardblock">
+                            <div class="cardblock-body cardblock-title">
+                                Anzahl Genesene
+                            </div>
+                            <ods-chart display-legend="false" timescale="day" single-y-axis="true" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ncumul_released" chart-type="column" function-y="SUM" color="#339933" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cardblock">
+                            <div class="cardblock-body cardblock-title">
+                                Anzahl Verstorbene
+                            </div>
+                            <ods-chart display-legend="false" timescale="day" single-y-axis="true" align-month="true">
+                                <ods-chart-query context="hospcovid19chall" field-x="date" maxpoints="0" timescale="day">
+                                    <ods-chart-serie expression-y="ncumul_deceased" chart-type="column" function-y="SUM" color="#f03b20" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+    </ods-dataset-context>
+</ods-dataset-context>
+</ods-dataset-context>
+</div>
+<!-- Boris Djakovic
+for further information contact boris.djakovic@bs.ch-->

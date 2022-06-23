@@ -540,9 +540,9 @@ Entwicklung des Anteils der positiven Testresultate
                             <div ng-if="view9 == '30tage'">
                            <ods-chart align-month="true">
         <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day">
-            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" label-y="7-Tage Median SARS-CoV-2 RNA Kopien / Tag und 100'000 Pers." chart-type="line" function-y="SUM" color="#263891" scientific-display="true">
+            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" label-y="7-Tage Median SARS-CoV-2 RNA Kopien / Tag und 100'000 Pers." chart-type="line" function-y="AVG" color="#263891" scientific-display="true">
             </ods-chart-serie>
-            <ods-chart-serie expression-y="7t_median_bs_bl" label-y="7-Tage Median Covid19-Fälle im Einzugsgebiet ARA Basel (Kt. BS + 6 Gemeinden BL)" chart-type="line" function-y="SUM" color="#AF5FA2" scientific-display="true">
+            <ods-chart-serie expression-y="7t_median_bs_bl" label-y="7-Tage Median Covid19-Fälle im Einzugsgebiet ARA Basel (Kt. BS + 6 Gemeinden BL)" chart-type="line" function-y="AVG" color="#AF5FA2" scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart><p>
@@ -553,9 +553,9 @@ Entwicklung des Anteils der positiven Testresultate
                     <ods-dataset-context context="hospcovid19chall" hospcovid19chall-dataset="100187" hospcovid19chall-parameters="{'sort':'datum'}">
                            <ods-chart align-month="true">
         <ods-chart-query context="hospcovid19chall" field-x="datum" maxpoints="0" timescale="day">
-            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" label-y="7-Tage Median SARS-CoV-2 RNA Kopien / Tag und 100'000 Pers." chart-type="line" function-y="SUM" color="#263891" scientific-display="true">
+            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" label-y="7-Tage Median SARS-CoV-2 RNA Kopien / Tag und 100'000 Pers." chart-type="line" function-y="AVG" color="#263891" scientific-display="true">
             </ods-chart-serie>
-            <ods-chart-serie expression-y="7t_median_bs_bl" label-y="7-Tage Median Covid19-Fälle im Einzugsgebiet ARA Basel (Kt. BS + 6 Gemeinden BL)" chart-type="line" function-y="SUM" color="#AF5FA2" scientific-display="true">
+            <ods-chart-serie expression-y="7t_median_bs_bl" label-y="7-Tage Median Covid19-Fälle im Einzugsgebiet ARA Basel (Kt. BS + 6 Gemeinden BL)" chart-type="line" function-y="AVG" color="#AF5FA2" scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query><p>
                   Die Untersuchungen decken das Einzugsgebiet der ARA Basel (ProRheno) ab, welches hauptsächlich aus dem Kantonsgebiet BS und den BL-Gemeinden Allschwil, Binningen, Birsfelden, Bottmingen, Oberwil, Schönenbuch besteht.

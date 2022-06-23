@@ -1,3 +1,103 @@
+.switch-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Button Group Switch
+   ========================================================================== */
+
+.switch {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+}
+
+.switch-button {
+    /* background and border when in "off" state */
+    background: var(--highlight);
+    border: 2px solid var(--highlight);
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    border-radius: 6px;
+    color: #FFFFFF;
+    position: relative;
+    cursor: pointer;
+    outline: 0;
+    user-select: none;
+}
+
+.switch-input:not(:checked) + .switch-button .switch-button-left {
+    /* text color when in "off" state */
+    color: var(--highlight);
+}
+
+.switch-input {
+    display: none;
+}
+
+.switch-button span {
+    font-size: 1rem;
+    padding: 0.2rem .7rem;
+    text-align: center;
+    z-index: 2;
+    color: #FFFFFF;
+    transition: color .2s;
+}
+
+.switch-button::before {
+    content: '';
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+    border-radius: 4px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+    transition: left .3s cubic-bezier(0.175, 0.885, 0.320, 1), 
+                padding .2s ease, margin .2s ease;
+}
+
+.switch-button:hover::before {
+    will-change: padding;
+}
+
+.switch-button:active::before {
+    padding-right: .4rem;
+}
+
+
+/* "On" state
+   ========================== */
+
+.switch-input:checked + .switch-button {
+    /* background and border when in "on" state */
+    background-color: var(--links);
+    border-color: var(--links);
+}
+
+.switch-input:checked + .switch-button .switch-button-right {
+    /* text color when in "on" state */
+    color: var(--links);
+}
+
+.switch-input:checked + .switch-button::before {
+    left: 50%;
+}
+
+.switch-input:checked + .switch-button:active::before {
+    margin-left: -.4rem;
+}
+
+/* Checkbox in disabled state
+   ========================== */
+
+.switch-input[type="checkbox"]:disabled + .switch-button {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.chart-timezone-caption { display: none; }
 body {
         font-size: 1.1rem;
         background-color: #FFFFFF;
@@ -9,17 +109,15 @@ body {
     /* Header ========================================================================== */
     .page-header {
         display: flex;
-        flex-direction: column-reverse;
-        justify-content: space-between;
+        flex-direction: row; 
+        align-items: center;
     }
     .page-title, .page-title2 {
         background-color: #FFFFFF;
         position: relative;
-        vertical-align: bottom;
-        margin: 0;
-        font-weight: 600;
-        font-size: 2em;
-        border-radius: 7px 7px 0px 0px;
+        margin:0;
+        font-weight: 700;
+        font-size: 2.5em;
     }
     .page-subtitle {
         margin-top: 2em;
@@ -31,7 +129,7 @@ body {
         font-size: 1.5rem;
 
     }
-    .cardblock {
+    .cardblock1 {
         position: relative;
         display: -webkit-box;
         display: flex;
@@ -42,6 +140,20 @@ body {
         background-clip: border-box;
         border: 1px solid rgba(72,94,144,0.16);
         border-radius: 0.25em;
+    }
+
+    .cardblock {
+        position: relative;
+        display: -webkit-box;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(72,94,144,0.16);
+        border-radius: 0.25em;margin-bottom: 20px;
+       
     }
 
     .cardblock-body {
@@ -97,4 +209,82 @@ body {
     /* hide facet row counts */
     .odswidget-facet__category-count {
         display: none;
+    }
+/* Table Module Basic
+   ========================================================================== */
+.table-module {
+  height: 400px;
+  overflow-y: auto;
+}
+.table-basic {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+  background-color: #FFFFFF;
+}
+.table-basic thead th {
+  color: var(--titles);
+  background-color: #f6f8fb;
+  font-weight: 500;
+  padding: 13px 3px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.table-basic thead th:first-child,
+.table-basic tbody th {
+  padding-left: 13px;
+}
+.table-basic tr td,
+.table-basic tbody th {
+  font-weight: normal;
+  border-top: 1px solid #dee5ef;
+}
+.table-basic tr td {
+  padding: 13px 3px;
+}
+/* Sticky Content
+   ========================================================================== */
+.sticky-content {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding:5px; width:100%;
+  display:flex; 
+  flex-direction:row;
+}
+.sticky-content-title {
+ margin: 0;
+}
+
+html {
+  scroll-padding-top: 80px; /* for the sticky navbar, so that it doesnt overlap */
+}
+.row { margin-top: 10px; }
+.basic-button {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    margin:2px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #EC643C; /* Button background color */
+    border: 1px solid #EC643C; /* Button border color */flex-grow:1;
+}
+.basic-button:hover {
+    outline: none;
+    text-decoration: none;
+    background-color: #df4516; /* Button background color on mouse hover */
+    border-color: #df4516; /* Button border color on mouse hover */
+}
+
+ .kpi2 {
+        font-size: 10px;
+        opacity: 0.8;
     }

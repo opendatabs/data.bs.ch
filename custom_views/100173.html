@@ -1,0 +1,82 @@
+<b>Positiv auf SARS-CoV-2 getestete Personen mit Wohnsitz im Kanton Basel-Stadt kumuliert</b>
+<br /><br />
+
+<ods-dataset-context context="myctx" myctx-dataset="100073" myctx-parameters="{'sort':'timestamp'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="date" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="ncumul_conf" chart-type="line" function-y="SUM" color="#2C3F56" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+<br /><br />
+
+<b>Täglich neu gemeldete positiv auf SARS-CoV-2 getestete Personen mit Wohnsitz im Kanton Basel-Stadt</b>
+<br /><br />
+
+<ods-dataset-context context="myctx" myctx-dataset="100073" myctx-parameters="{'sort':'timestamp'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="date" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="ndiff_conf" chart-type="column" function-y="SUM" color="#2C3F56" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+<br /><br />
+
+<b>Zusammensetzung kumulierte Fallzahlen Basel-Stadt</b>
+<br /><br />
+
+<ods-dataset-context context="myctx" myctx-dataset="100073" myctx-parameters="{'sort':'timestamp'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="date" maxpoints="0" timescale="day" stacked="normal">
+            <ods-chart-serie expression-y="current_isolated" chart-type="column" function-y="SUM" color="#FA8C44" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="ncumul_released" chart-type="column" function-y="SUM" color="#619FC8" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="ncumul_deceased" chart-type="column" function-y="SUM" color="#2C3F56" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+<br /><br />
+
+<b>In baselstädtischen Spitälern hospitalisierte Personen mit einem positiven Testresultat auf SARS-CoV-2</b>
+<br /><br />
+
+<ods-dataset-context context="myctx" myctx-dataset="100073" myctx-parameters="{'sort':'timestamp'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="date" maxpoints="0" timescale="day" stacked="normal">
+            <ods-chart-serie expression-y="current_hosp_resident" chart-type="column" function-y="SUM" color="#000000" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="current_hosp_non_resident" chart-type="column" function-y="SUM" color="#E5352E" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="current_hosp" chart-type="line" function-y="SUM" color="#00737C" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+
+<br /><br />
+<b>In baselstädtischen Spitälern hospitalisierte Personen mit einem positiven Testresultat auf SARS-CoV-2 insgesamt sowie auf Intensivpflegestation</b>
+<br /><br />
+
+<ods-dataset-context context="myctx" myctx-dataset="100073" myctx-parameters="{'sort':'timestamp'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="date" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="current_hosp" chart-type="column" function-y="SUM" color="#00737C" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="current_icu" chart-type="column" function-y="SUM" color="#93107F" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+
+

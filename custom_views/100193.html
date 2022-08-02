@@ -1,0 +1,48 @@
+<ods-dataset-context context="myctx" myctx-dataset="100193">
+   <h3>
+       Fangstatistik Kanton Basel-Stadt ab 2010 (ohne invasive Schwarzmeergrundeln)
+    </h3>
+    <ods-chart timescale="year" single-y-axis="true" labels-x-length="17" label-x="Jahr" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr"  maxpoints="0" timescale="year" stacked="normal" series-breakdown="fischart" category-colors="{}">
+            <ods-chart-serie expression-y="grundel_total" chart-type="column" function-y="COUNT" color="range-Set3" display-values="false" display-stack-values="false" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+ <h3>
+       Karte Fänge 2020
+    </h3>
+
+   <ods-dataset-context context="myctx" myctx-dataset="100193" myctx-parameters="{'disjunctive.fischereikarte':true,'disjunctive.gewasser':true,'disjunctive.fischart':true,'refine.jahr':'2020',
+                                                                                 'refine.fischart':['Andere','Aal','Äsche','Brachsmen','Bach-/Flussforelle','Egli','Wels','Rotauge','Rapfen','Hecht','Barbe','Zander','Alet']}">
+    <ods-map no-refit="true" scroll-wheel-zoom="false" basemap="9fffa5" location="12,47.56932,7.60365">
+        <ods-map-layer-group>
+            <ods-map-layer context="myctx" color-categories="{'Rhein - Basel-Stadt':'#186309','Wiese - Pachtstrecke Stadt Basel':'#BA0129','Birs - Pachtstrecke Stadt Basel':'#0B71B5','Neuer Teich / Mühleteich - Pachtstrecke Riehen':'#F7B334','Wiese - Pachtstrecke Riehen':'#591787'}" color-by-field="gewasser" picto="circle" show-marker="false" display="categories" shape-opacity="1" point-opacity="1" border-color="#FFFFFF" border-opacity="0.3" border-size="0" border-pattern="solid" line-width="6" caption="true" caption-picto-color="#E5E5E5" size="7"></ods-map-layer>
+        </ods-map-layer-group>
+        <ods-map-layer-group>
+            <ods-map-layer context="myctx" color="#FFFFFF" picto="circle" show-marker="false" display="auto" shape-opacity="0.5" point-opacity="1" border-color="#FFFFFF" border-opacity="0" border-size="0" border-pattern="solid" caption="true" title="Fischereistatistik Basel-Stadt" size="7" size-min="3" size-max="5" size-function="linear"></ods-map-layer>
+        </ods-map-layer-group>
+    </ods-map>
+</ods-dataset-context>
+
+    <h3>
+       Fangstatistik invasive Schwarzmeergrundeln ab 2014
+    </h3>
+
+       <ods-dataset-context context="myctx" myctx-dataset="100193" myctx-parameters="{'disjunctive.fischereikarte':true,'disjunctive.gewasser':true,'disjunctive.fischart':true,'disjunctive.lange':true,'disjunctive.kesslergrundel':true,'disjunctive.schwarzmundgrundel':true,'sort':'monat','q.timerange.monat':'monat:[2014-01-01 TO 2022-08-02]'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" timescale="year">
+            <ods-chart-serie expression-y="schwarzmundgrundel" chart-type="column" function-y="SUM" label-y = "Anzahl Schwarzmundgrundel" color="#66c2a5" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+       <ods-dataset-context context="myctx" myctx-dataset="100193" myctx-parameters="{'disjunctive.fischereikarte':true,'disjunctive.gewasser':true,'disjunctive.fischart':true,'disjunctive.lange':true,'disjunctive.kesslergrundel':true,'disjunctive.schwarzmundgrundel':true,'sort':'monat','q.timerange.monat':'monat:[2014-01-01 TO 2022-08-02]'}">
+    <ods-chart single-y-axis="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" timescale="year">
+            <ods-chart-serie expression-y="kesslergrundel" chart-type="column" function-y="SUM" label-y = "Anzahl Kesslergrundel" color="#fc8d62"  scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+

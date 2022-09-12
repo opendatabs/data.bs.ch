@@ -226,41 +226,12 @@
         <div class="content-card">
             <div class="row">
                 <div class="col-sm-8">
-                    <!--<ods-dataset-context context="donneesairfranceklm" donneesairfranceklm-dataset="donnees-air-france-klm">
-                        <ods-map no-refit="true" scroll-wheel-zoom="false" location="4,39.43619,12.7002" display-legend="false">
+                    <ods-dataset-context context="myctx" myctx-dataset="100088" myctx-parameters="{'disjunctive.title':true,'sort':'published'}">
+                        <ods-map no-refit="true" scroll-wheel-zoom="false" toolbar-geolocation="true" basemap="9fffa5" location="15,47.55846,7.59228">
                             <ods-map-layer-group>
-                                <ods-map-layer context="donneesairfranceklm" color="#C32D1C" picto="ods-circle" show-marker="true" display="auto" shape-opacity="0.5" point-opacity="1" border-color="#FFFFFF" border-opacity="1" border-size="1" border-pattern="solid" caption="true" title="Données Air France KLM" size="4" size-min="3" size-max="5" size-function="linear" ></ods-map-layer>
+                                <ods-map-layer context="myctx" color-categories="{'Parkhaus Aeschen':'#6D7A87','Parkhaus Anfos':'#619FC8','Parkhaus Bad. Bahnhof':'#F7C87E','Parkhaus Bahnhof Süd':'#CB516D','Parkhaus Centralbahnparking':'#F7AD84','Parkhaus City':'#5D9FA3','Parkhaus Clarahuus':'#64905C','Parkhaus Claramatte':'#6A79B0','Parkhaus Elisabethen':'#E87273','Parkhaus Europe':'#8A65A9','Parkhaus Kunstmuseum':'#B060A3','Parkhaus Messe':'#6D7A87','Parkhaus Post Basel':'#619FC8','Parkhaus Rebgasse':'#F7C87E','Parkhaus Steinen':'#CB516D','Parkhaus Storchen':'#F7AD84','Zur Zeit haben wir keine aktuellen Parkhausdaten erhalten':'#5D9FA3'}" color-by-field="title" color-categories-other="#C32D1C" picto="circle" show-marker="false" display="categories" function="COUNT" expression="free" shape-opacity="0.5" point-opacity="1" border-color="#FFFFFF" border-opacity="1" border-size="1" border-pattern="solid" caption-picto-color="#E5E5E5" size="7"></ods-map-layer>
                             </ods-map-layer-group>
                         </ods-map>
-                    </ods-dataset-context>-->
-                    <ods-dataset-context context="realtimeparking"
-                                         realtimeparking-dataset="100004">
-                        <ods-map no-refit="true"
-                                 scroll-wheel-zoom="false"
-                                 display-control="false"
-                                 search-box="false"
-                                 toolbar-fullscreen="true"
-                                 toolbar-geolocation="true"
-                                 basemap="jawg.streets"
-                                 location="13,47.559,7.58357">
-                            <ods-map-layer-group>
-                                <ods-map-layer context="realtimeparking"
-                                               color-categories="{'AVAILABLE':'#165E2D','OCCUPIED':'#BA022A','UNDETERMINED':'#555555'}"
-                                               color-by-field="status"
-                                               picto="ods-circle"
-                                               show-marker="true"
-                                               display="categories"
-                                               shape-opacity="0.5"
-                                               point-opacity="1"
-                                               border-color="#FFFFFF"
-                                               border-opacity="1"
-                                               border-size="1"
-                                               border-pattern="solid"
-                                               caption="false"
-                                               size="4"></ods-map-layer>
-                            </ods-map-layer-group>
-                        </ods-map>
-
                     </ods-dataset-context>
                 </div>
                 <div class="col-sm-4">
@@ -271,16 +242,16 @@
                         Das Datenportal Basel-Stadt bietet verschiedene Datensätze, welche in Echtzeit resp. beinahe in Echtzeit aktualisiert werden.
                     </p>
                     <p class="content-card-description">
-                        Unter anderem finden Sie Daten zum permanenten Parkleitsystem der Parkhäuser Basel-Stadt, zu den Ladestationen von Elektro-Autos der Industriellen Werke Basel (im Kartenbeispiel links) sowie zu den Messungen der Rheinüberwachungsstation Weil am Rhein des Amts für Umwelt und Energie (AUE) in unserem Angebot an Echtzeitdaten.
+                        Unter anderem finden Sie Daten zum permanenten Parkleitsystem der Parkhäuser Basel-Stadt (im Kartenbeispiel links), zur lokalen Temperatur gemessen von den Sensoren des Smart City Climate Projekts, sowie zu den Messungen der Rheinüberwachungsstation Weil am Rhein des Amts für Umwelt und Energie (AUE) in unserem Angebot an Echtzeitdaten.
                     </p>
-                    <a target="_blank" href="https://data.bs.ch/explore/dataset/100004/information/"
-                       class="content-card-link">
-                        &#8226; Belegung der Elektroauto-Ladestationen <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                    </a>
-                     <br />
                     <a target="_blank" href="https://data.bs.ch/explore/dataset/100014/information/"
                        class="content-card-link">
                         &#8226; Belegung der öffentlichen Parkhäuser <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+                    </a>
+                     <br />
+                    <a target="_blank" href="https://data.bs.ch/explore/dataset/100009/information/"
+                       class="content-card-link">
+                        &#8226; Smart Climate Luftklima <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
                     </a>
                      <br />
                     <a target="_blank" href="https://data.bs.ch/explore/dataset/100014/information/"

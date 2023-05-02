@@ -1,0 +1,132 @@
+
+:root {
+    --boxes-radius: 6px;
+}
+
+body, main {
+    margin: 0;
+    background-color: white;
+}
+
+section {
+    padding: 1.5rem 0;
+}
+
+.header {
+    margin: 3rem 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.box {
+    height: auto;
+    position: relative;
+    padding: 13px;
+}
+
+.box.white {
+    background-color: white;
+}
+
+.box.flat {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16);
+    border-radius: var(--boxes-radius);
+}
+
+.box.height {
+    height: 150px;
+}
+
+
+/* Table Module Basic
+   ========================================================================== */
+.table-module {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.table-basic {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    white-space: nowrap;
+    background-color: #FFFFFF;
+}
+
+.table-basic thead th {
+    color: var(--titles);
+    background-color: #f6f8fb;
+    font-weight: 500;
+    padding: 13px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-basic thead th:first-child,
+.table-basic tbody th {
+    padding-left: 13px;
+}
+
+.table-basic tr td,
+.table-basic tbody th {
+    font-weight: normal;
+    border-top: 1px solid #dee5ef;
+}
+
+.table-basic tr td {
+    padding: 13px 10px;
+}
+
+
+/* Custom Legend Map
+   ========================================================================== */
+.map-container {
+    position: relative;
+}
+
+.map-legend {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    border-right-color: rgb(229, 229, 229);
+    border-right-width: 5px;
+    background-color: white;
+    box-shadow: 2px 2px 10px #868585;
+    padding: 5px 10px;
+}
+
+.ROSEN1 {
+    color: rgb(69, 159, 231);
+}
+
+.ROSEN2 {
+    color: rgb(214, 105, 37);
+}
+
+.ROSEN3 {
+    color: rgb(70, 160, 75);
+}
+
+.ROSEN4 {
+    color: rgb(105, 82, 143);
+}

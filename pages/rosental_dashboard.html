@@ -1,0 +1,862 @@
+<div class="container-fluid">
+    <div class="box white flat">
+        <div class="row">
+            <h1>
+                Überwachung Luftqualität Transformation Areal Rosental
+            </h1>
+            <div class="col-md-5">
+
+                <h3>
+                    <p>
+                        Das Rosental-Areal soll etappenweise für die Öffentlichkeit zugänglich gemacht und transformiert
+                        werden.
+                        Auf dem Areal der ehemaligen Firma Geigy wurden in über 150 Jahren Chemiegeschichte Farbstoffe,
+                        Schädlingsbekämpfungsmittel, chemische Grundstoffe und Medikamente produziert und geforscht.
+                        Bedingt durch die frühere Nutzung des Geländes ist der Untergrund mit Schadstoffen belastet. Ein
+                        Grossteil des Areals ist entsprechend im Kataster der belasteten Standorte des Kantons
+                        Basel-Stadt geführt.
+                        Weiterführende Informationen und aktuelle Bilder (Webcams) zur Transformation Rosental Mitte
+                        sind zu finden auf <a href="https://rosentalmitte.ch/"
+                                              target="_blank">https://rosentalmitte.ch/</a>.
+                    </p>
+                    <p>
+                        Neben behördlichen Auflagen und Schutzmassnahmen, welche während den baulichen Massnahmen im
+                        Untergrund eine Belastung der Umgebung (Schutz der Umwelt und Allgemeinbevölkerung) mindern
+                        sollen, sieht das Lufthygieneamt beider Basel (LHA) vor,
+                        während der relevanten baulichen Eingriffe die Immissionen mittels Messungen der Luft zu
+                        überwachen.
+                        Auf Basis der Ergebnisse der technischen Untersuchung des Areals wurden in erster Linie
+                        flüchtige Stoffe (flüchtige organische Stoffe sog. VOC, Aniline und Quecksilber) sowie die
+                        Staubdeposition als zu überwachende Parameter ausgewählt.
+                        Die zu überwachenden Schadstoffe sind gesundheitsgefährdend und teilweise krebserregend.
+                    </p>
+                    <p>
+                        Für die vorliegende Überwachung wurden Warn- und Interventionswerte festgelegt.
+                        Die Interventionswerte beruhen auf behördlichen Grenzwerten und toxikologischen Studien.
+                        Der Warnwert wurde bei jeweils 50% des Interventionswertes festgelegt.
+                    </p>
+                    <p>
+                        Auf dem Rosental-Areal wurde zudem eine Wetterstation installiert,
+                        welche während der Überwachung u.a. Windrichtungen und Windgeschwindigkeiten aufzeichnet,
+                        die bei der Interpretation der Immissionsmessungen hilfreich sind
+                        <small>
+                            <a href="https://data.bs.ch/explore/dataset/100294/"
+                               target="_blank">LINK Wetterstation</a>.
+                        </small>
+
+                    </p>
+                    <p>
+                        Für Anfragen wenden Sie sich bitte an die Medienstelle Rosental Mitte <a
+                            href="https://rosentalmitte.ch/de/medien"
+                            target="_blank">https://rosentalmitte.ch/de/medien</a>.
+                    </p>
+                </h3>
+            </div>
+
+
+            <div class="col-md-7">
+                <div class="box white flat">
+                    <h2>
+                        Karte mit Mess-Standorten
+                    </h2>
+                    <div class="map-container">
+                        <ods-dataset-context context="myctx" myctx-dataset="100293">
+                            <ods-map no-refit="true" scroll-wheel-zoom="true" basemap="9fffa5"
+                                     location="16,47.56748,7.60394">
+                                <ods-map-layer-group>
+                                    <ods-map-layer context="myctx"
+                                                   color-categories="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                                   color-by-field="name" picto="ods-circle" show-marker="true"
+                                                   display="categories" shape-opacity="0.5" point-opacity="1"
+                                                   border-color="#FFFFFF" border-opacity="1" border-size="1"
+                                                   border-pattern="solid" caption="false" caption-title="Standorte"
+                                                   caption-picto-color="#E5E5E5" size="4"></ods-map-layer>
+                                </ods-map-layer-group>
+                            </ods-map>
+                        </ods-dataset-context>
+                        <div class="map-legend">
+                            <!-- would be good to turn off when the diffusion tube layer is deselected -->
+                            <div class="map-legend-item">
+                                <center>
+                                    <strong>
+                                        Standorte
+                                    </strong>
+                                </center>
+                                <i class="fa fa-circle ROSEN1" aria-hidden="true"> </i>
+                                ROSEN 1
+                            </div>
+                            <div class="map-legend-item">
+                                <i class="fa fa-circle ROSEN2" aria-hidden="true"> </i>
+                                ROSEN 2
+                            </div>
+                            <div class="map-legend-item">
+                                <i class="fa fa-circle ROSEN3" aria-hidden="true"></i>
+                                ROSEN 3
+                            </div>
+                            <div class="map-legend-item">
+                                <i class="fa fa-circle ROSEN4" aria-hidden="true"></i>
+                                ROSEN 4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box white flat">
+                <h2>
+                    Gemessene Überschreitungen der Interventionswerte
+                </h2>
+                <ods-dataset-context context="myctx" myctx-dataset="100295">
+                    <div class="table-module">
+                        <table class="table-basic"
+                               ods-results="events"
+                               ods-results-context="myctx">
+                            <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Standort</th>
+                                <th>Parameter</th>
+                                <th>Wert [µg/m3]</th>
+                                <th>Interventionswert [µg/m3]</th>
+                                <th>Info / Massnahmen</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="event in events">
+                                <th scope="row">
+                                    {{ event.fields.datum | capitalize }}
+                                </th>
+                                <td>
+                                    {{ event.fields.standort }}
+                                </td>
+                                <td>
+                                    {{ event.fields.parameter }}
+                                </td>
+                                <td>
+                                    {{ event.fields.wert_ug_m3 }}
+                                </td>
+                                <td>
+                                    {{ event.fields.interventionswert_ug_m3 }}
+                                </td>
+                                <td>
+                                    {{ event.fields.info_massnahmen }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ods-dataset-context>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="box white flat">
+        <div class="row">
+            <h1>
+                Flüchtige Schadstoffe
+            </h1>
+            <h5 style="margin: 0" ;>
+                <a href="https://data.bs.ch/explore/dataset/100273/"
+                   target="_blank">LINK zu Rohdaten
+                </a>
+            </h5>
+            <div class="box white flat">
+                <div class="row">
+                    <h2>
+                        Messungen mittels VOC-Passivsammler (flüchtige organische Verbindungen)
+                    </h2>
+                    <h3>
+                        Passivsammler sind Messeinrichtungen, die ohne Energiezufuhr die zu messende Komponente sammeln.
+                        Die
+                        VOC-Passivsammler werden über einen Zeitraum von 14 Tagen exponiert und danach im Labor
+                        analysiert.
+                    </h3>
+                    <div class="col-md-4">
+                        <div class="box white flat">
+                            <h2>
+                                Benzol
+                            </h2>
+                            <ods-dataset-context context="myctx" myctx-dataset="100273"
+                                                 myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Benzol'}">
+                                <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Benzol [μg/m3]">
+                                    <ods-chart-query
+                                            category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                            context="myctx" field-x="messbeginn" maxpoints="0"
+                                            series-breakdown="standort"
+                                            timescale="day">
+                                        <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                         function-y="" label-y="Warnwert" scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#E5352E"
+                                                         expression-y="interventionswert" function-y=""
+                                                         label-y="Interventionswert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+
+                                </ods-chart>
+                            </ods-dataset-context>
+
+                            Anwendung: Lösemittel für viele Produkte (u.a. Farbstoffe und Schädlingsbekämpfung)
+                            <br/>
+                            Heutige Hauptquelle: Motorisierter Strassenverkehr (Inhaltsstoff von Treibstoffen)
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box white flat">
+                            <h2>
+                                Summe chlorierte Kohlenwasserstoffe
+                            </h2>
+                            <ods-dataset-context context="myctx" myctx-dataset="100273"
+                                                 myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'∑CKW'}">
+                                <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="∑CKW [μg/m3]">
+                                    <ods-chart-query
+                                            category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                            context="myctx" field-x="messbeginn" maxpoints="0"
+                                            series-breakdown="standort"
+                                            timescale="day">
+                                        <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                         function-y="" label-y="Warnwert" scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#E5352E"
+                                                         expression-y="interventionswert" function-y=""
+                                                         label-y="Interventionswert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+
+                                </ods-chart>
+                            </ods-dataset-context>
+
+                            Summe chlorierter organischer Verbindungen u.a. Chloroform, Tetrachlorethen (PER),
+                            Trichlorethen (Tri)
+                            <br/>
+                            Anwendung: Lösungsmittel, Entfettung und Reinigung, chemische Produktion,
+                            Schädlingsbekämpfung, Arzneimittel
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box white flat">
+
+                            <h2>
+                                Naphthalin
+                            </h2>
+                            <ods-dataset-context context="myctx" myctx-dataset="100273"
+                                                 myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Naphthalin'}">
+                                <ods-chart label-x="Datum" single-y-axis="true"
+                                           single-y-axis-label="Naphthalin [μg/m3]">
+                                    <ods-chart-query
+                                            category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                            context="myctx" field-x="messbeginn" maxpoints="0"
+                                            series-breakdown="standort"
+                                            timescale="day">
+                                        <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                         function-y="" label-y="Warnwert" scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#E5352E"
+                                                         expression-y="interventionswert" function-y=""
+                                                         label-y="Interventionswert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </ods-dataset-context>
+                            Naphthalin gehört zur Gruppe der polyzyklischen aromatischen Kohlenwasserstoffe (PAK), ist
+                            flüchtig und geruchsintensiv. Naphthalin gilt als flüchtiger PAK-Leitstoff.
+                            <br/>
+                            Anwendung: Zur Synthese von verschiedenen Verbindungen, die zu Lösungs- und
+                            Schädlingsbekämpfungsmittel weiterverarbeitet werden
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box white flat">
+                    <h2>
+                        Messungen mittels Quecksilber-Passivsammler
+                    </h2>
+                    <h3>
+                        Passivsammler sind Messeinrichtungen, die ohne Energiezufuhr die zu messende Komponente sammeln.
+                        <br/>
+                        Die Quecksilber-Passivsammler werden über einen Zeitraum von 14 Tagen exponiert und danach im
+                        Labor
+                        analysiert.
+                    </h3>
+                    <h2>
+                        Quecksilber (gasförmig)
+                    </h2>
+                    <ods-dataset-context context="myctx" myctx-dataset="100273"
+                                         myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Quecksilber (gasförmig)'}">
+                        <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Hg [μg/m3]">
+                            <ods-chart-query
+                                    category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                    context="myctx" field-x="messbeginn" maxpoints="0"
+                                    series-breakdown="standort"
+                                    timescale="day">
+                                <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                 scientific-display="true">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                            <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert" function-y=""
+                                                 label-y="Warnwert" scientific-display="true">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                            <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                <ods-chart-serie chart-type="line" color="#E5352E" expression-y="interventionswert"
+                                                 function-y="" label-y="Interventionswert" scientific-display="true">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+
+                        </ods-chart>
+                    </ods-dataset-context>
+                    Anwendung: Farbherstellung, Desinfektionsmittel
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="box white flat">
+                    <h2>
+                        Messungen mittels Aktivsammler
+                    </h2>
+                    <h3>
+                        Aniline werden über einen Zeitraum von 14 Tagen auf ein Röhrchen aktiv angesaugt und
+                        anschliessend
+                        im Labor analysiert.
+                    </h3>
+                    <h2>
+                        Summe Aniline
+                    </h2>
+                    <ods-dataset-context context="myctx" myctx-dataset="100273"
+                                         myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'∑Aniline'}">
+                        <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="∑Aniline [μg/m3]">
+                            <ods-chart-query
+                                    category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                    context="myctx" field-x="messbeginn" maxpoints="0"
+                                    series-breakdown="standort"
+                                    timescale="day">
+                                <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                 scientific-display="true">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                            <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert" function-y=""
+                                                 label-y="Warnwert" scientific-display="true">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                            <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0" timescale="day">
+                                <ods-chart-serie chart-type="line" color="#E5352E" expression-y="interventionswert"
+                                                 function-y="" label-y="Interventionswert" scientific-display="true">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+
+                        </ods-chart>
+                    </ods-dataset-context>
+                    Summe der Anilinverbindungen, die im Untergrund nachgewiesen werden konnten, u.a. Anilin,
+                    2-Chlor-Anilin, 3-Methylanilin
+                    <br/>
+                    Anwendung: Herstellung von Farben, Lacken, Medikamenten etc.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box white flat">
+        <div class="row">
+            <h1>
+                Staubgebundene Schadstoffe
+            </h1>
+            <h5 style="margin: 0" ;>
+                <a href="https://data.bs.ch/explore/dataset/100274/"
+                   target="_blank">LINK zu Rohdaten
+                </a>
+            </h5>
+            <div class="box white flat">
+                <div class="row">
+                    <h2>
+                        Messungen mittels Online Sensor
+                    </h2>
+                    <h5 style="margin: 0" ;>
+                        <a href="https://data.bs.ch/explore/dataset/100275/"
+                           target="_blank">LINK zu Rohdaten
+                        </a>
+                    </h5>
+                    <h3>
+                        Online Sensoren sind kostengünstige und effiziente Mikrosensoren, die in Echtzeit Schadstoffe
+                        messen. Die Messung entspricht allerdings nicht dem Referenzstandard hinsichtlich Genauigkeit,
+                        hat
+                        daher rein informativen Charakter und dient der Verlaufskontrolle.
+                    </h3>
+                    <div class="col-md-12">
+                        <div class="box white flat">
+                            <h2>
+                                Feinstaubpartikel &#60 2.5μm (PM2.5) - Online Sensor
+                            </h2>
+                            <ods-dataset-context context="myctx" myctx-dataset="100275">
+                                <ods-chart align-month="true">
+                                    <ods-chart-query
+                                            category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                            context="myctx" field-x="timestamp" maxpoints="0"
+                                            series-breakdown="station"
+                                            timescale="hour">
+                                        <ods-chart-serie chart-type="line" expression-y="pm_2_5" function-y="AVG"
+                                                         scientific-display="true" label-y="PM2.5 [µg/m3]">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </ods-dataset-context>
+                            Lungengängige Partikel mit einem Durchmesser kleiner als 2.5 Mikrometer
+                            <br/>
+                            Feinstaub besteht aus unterschiedlichen Bestandteilen (Russ, Abrieb, Schwermetalle, PAK,
+                            etc.)
+                            <br/>
+                            Hauptquellen: Baustellentätigkeiten, motorisierter Strassenverkehr, Heizungen (Öl, Gas und
+                            Holz)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box white flat">
+                <div class="row">
+                    <h2>
+                        Gravimetrische Messungen
+                    </h2>
+                    <h3>
+                        Staub wird über einen Zeitraum von 14 Tagen aktiv angesaugt, auf einem Filter abgeschieden und
+                        anschliessend gewogen. Bei Verdachtsmomenten wird der Staubinhalt analysiert. Untersucht werden
+                        ausgewählte Schwermetalle, die Summe der polyzyklischen aromatischen Kohlenwasserstoffe (PAK)
+                        und Benzo(a)pyren (letzteres gilt als partikelgebundene Leitsubstanz für andere PAK).
+                    </h3>
+                    <div class="col-md-4">
+                        <div class="box white flat">
+                            <h2>
+                                Feinstaubpartikel &#60 10 μm (PM10)
+                            </h2>
+                            <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                                 myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'PM 10'}">
+                                <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="PM10 [μg/m3]">
+                                    <ods-chart-query
+                                            category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                            context="myctx" field-x="messbeginn"
+                                            maxpoints="0" series-breakdown="standort"
+                                            timescale="day">
+                                        <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                     timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                         function-y="" label-y="Warnwert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                     timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#E5352E"
+                                                         expression-y="interventionswert" function-y=""
+                                                         label-y="Interventionswert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+
+                                </ods-chart>
+                            </ods-dataset-context>
+                            Lungengängige Partikel mit einem Durchmesser kleiner als 10 Mikrometer
+                            <br/>
+                            Feinstaub besteht aus unterschiedlichen Bestandteilen (Russ, Abrieb, Schwermetalle, PAK,
+                            etc.)
+                            <br/>
+                            Hauptquellen: Baustellentätigkeiten, motorisierter Strassenverkehr, Heizungen (Öl, Gas
+                            und Holz)
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box white flat">
+                            <h2>
+                                Arsen
+                            </h2>
+                            <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                                 myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Arsen'}">
+                                <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Arsen [μg/m3]">
+                                    <ods-chart-query
+                                            category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                            context="myctx" field-x="messbeginn"
+                                            maxpoints="0" series-breakdown="standort"
+                                            timescale="day">
+                                        <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                     timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                         function-y="" label-y="Warnwert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                     timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#E5352E"
+                                                         expression-y="interventionswert" function-y=""
+                                                         label-y="Interventionswert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+
+                                </ods-chart>
+                            </ods-dataset-context>
+                            Anwendung: Farbherstellung, Schädlingsbekämpfung
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box white flat">
+
+                            <h2>
+                                Blei
+                            </h2>
+                            <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                                 myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Blei'}">
+                                <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Pb [μg/m3]">
+                                    <ods-chart-query
+                                            category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                            context="myctx" field-x="messbeginn"
+                                            maxpoints="0" series-breakdown="standort"
+                                            timescale="day">
+                                        <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                     timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                         function-y="" label-y="Warnwert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                    <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                     timescale="day">
+                                        <ods-chart-serie chart-type="line" color="#E5352E"
+                                                         expression-y="interventionswert" function-y=""
+                                                         label-y="Interventionswert"
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </ods-dataset-context>
+                            Anwendung: Farb- und Rostschutzanstriche, Schädlingsbekämpfung
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box white flat">
+                        <h2>
+                            Nickel
+                        </h2>
+                        <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                             myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Nickel'}">
+                            <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Ni [μg/m3]">
+                                <ods-chart-query
+                                        category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                        context="myctx" field-x="messbeginn"
+                                        maxpoints="0" series-breakdown="standort"
+                                        timescale="day">
+                                    <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                     function-y="" label-y="Warnwert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#E5352E"
+                                                     expression-y="interventionswert" function-y=""
+                                                     label-y="Interventionswert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+
+                            </ods-chart>
+                        </ods-dataset-context>
+                        Anwendung: Farbherstellung
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box white flat">
+                        <h2>
+                            Cadmium
+                        </h2>
+                        <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                             myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Cadmium'}">
+                            <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Cd [μg/m3]">
+                                <ods-chart-query
+                                        category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                        context="myctx" field-x="messbeginn"
+                                        maxpoints="0" series-breakdown="standort"
+                                        timescale="day">
+                                    <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                     function-y="" label-y="Warnwert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#E5352E"
+                                                     expression-y="interventionswert" function-y=""
+                                                     label-y="Interventionswert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+
+                            </ods-chart>
+                        </ods-dataset-context>
+                        Anwendung: Farbherstellung, Schädlingsbekämpfung
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box white flat">
+
+                        <h2>
+                            Zink
+                        </h2>
+                        <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                             myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Zink'}">
+                            <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Zn [μg/m3]">
+                                <ods-chart-query
+                                        category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                        context="myctx" field-x="messbeginn"
+                                        maxpoints="0" series-breakdown="standort"
+                                        timescale="day">
+                                    <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                     function-y="" label-y="Warnwert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#E5352E"
+                                                     expression-y="interventionswert" function-y=""
+                                                     label-y="Interventionswert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </ods-dataset-context>
+                        Anwendung: Farbherstellung, Schädlingsbekämpfung
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box white flat">
+                        <h2>
+                            Quecksilber
+                        </h2>
+                        <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                             myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Quecksilber'}">
+                            <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Hg [μg/m3]">
+                                <ods-chart-query
+                                        category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                        context="myctx" field-x="messbeginn"
+                                        maxpoints="0" series-breakdown="standort"
+                                        timescale="day">
+                                    <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                     function-y="" label-y="Warnwert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#E5352E"
+                                                     expression-y="interventionswert" function-y=""
+                                                     label-y="Interventionswert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+
+                            </ods-chart>
+                        </ods-dataset-context>
+                        Anwendung: Farbherstellung, Desinfektionsmittel
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box white flat">
+                        <h2>
+                            Chrom
+                        </h2>
+                        <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                             myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Chrom'}">
+                            <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="Cr [μg/m3]">
+                                <ods-chart-query
+                                        category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                        context="myctx" field-x="messbeginn"
+                                        maxpoints="0" series-breakdown="standort"
+                                        timescale="day">
+                                    <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                     function-y="" label-y="Warnwert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#E5352E"
+                                                     expression-y="interventionswert" function-y=""
+                                                     label-y="Interventionswert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+
+                            </ods-chart>
+                        </ods-dataset-context>
+                        Anwendung: Farbherstellung, Schädlingsbekämpfung
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box white flat">
+                        <h2>
+                            Summe Polyzyklische Aromatische Kohlenwasserstoffe
+                        </h2>
+                        <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                             myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'∑PAK'}">
+                            <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="∑PAK [μg/m3]">
+                                <ods-chart-query
+                                        category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                        context="myctx" field-x="messbeginn"
+                                        maxpoints="0" series-breakdown="standort"
+                                        timescale="day">
+                                    <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                     function-y="" label-y="Warnwert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#E5352E"
+                                                     expression-y="interventionswert" function-y=""
+                                                     label-y="Interventionswert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+
+                            </ods-chart>
+                        </ods-dataset-context>
+                        Summe polyzyklischer aromatischer Kohlenwasserstoffe u.a. Benzo(a)pyren, Naphthalin, Chrysen
+                        <br/>
+                        PAK entstehen bei unvollständigen Verbrennungsprozessen
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box white flat">
+                        <h2>
+                            Benzo(a)pyren
+                        </h2>
+                        <ods-dataset-context context="myctx" myctx-dataset="100274"
+                                             myctx-parameters="{'disjunctive.standort':true,'disjunctive.parameter':true, 'refine.parameter':'Benzo(a)pyren'}">
+                            <ods-chart label-x="Datum" single-y-axis="true" single-y-axis-label="∑BaP [μg/m3]">
+                                <ods-chart-query
+                                        category-colors="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
+                                        context="myctx" field-x="messbeginn"
+                                        maxpoints="0" series-breakdown="standort"
+                                        timescale="day">
+                                    <ods-chart-serie chart-type="line" expression-y="messwert" function-y="MAX"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#FFFF00" expression-y="warnwert"
+                                                     function-y="" label-y="Warnwert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx" field-x="messbeginn" maxpoints="0"
+                                                 timescale="day">
+                                    <ods-chart-serie chart-type="line" color="#E5352E"
+                                                     expression-y="interventionswert" function-y=""
+                                                     label-y="Interventionswert"
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+
+                            </ods-chart>
+                        </ods-dataset-context>
+                        Benzo(a)pyren gehört zur Gruppe der polyzyklischen aromatischen Kohlenwasserstoffe (PAK) und
+                        gilt als partikelgebundene Leitsubstanz für andere PAK
+                        <br/>
+                        PAK entstehen bei unvollständigen Verbrennungsprozessen
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

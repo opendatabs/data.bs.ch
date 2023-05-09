@@ -38,17 +38,14 @@
                     <p>
                         Auf dem Rosental-Areal wurde zudem eine Wetterstation installiert,
                         welche während der Überwachung u.a. Windrichtungen und Windgeschwindigkeiten aufzeichnet,
-                        die bei der Interpretation der Immissionsmessungen hilfreich sind
-                        <small>
-                            <a href="https://data.bs.ch/explore/dataset/100294/"
-                               target="_blank">LINK Wetterstation</a>.
-                        </small>
-
+                        die bei der Interpretation der Immissionsmessungen hilfreich sind <a
+                            href="https://data.bs.ch/explore/dataset/100294/"
+                            target="_blank">https://data.bs.ch/explore/dataset/100294/</a>.
                     </p>
                     <p>
                         Für Anfragen wenden Sie sich bitte an die Medienstelle Rosental Mitte <a
-                            href="https://rosentalmitte.ch/de/medien"
-                            target="_blank">https://rosentalmitte.ch/de/medien</a>.
+                            href="https://rosentalmitte.ch/de/kontakt"
+                            target="_blank">https://rosentalmitte.ch/de/kontakt</a>.
                     </p>
                 </h3>
             </div>
@@ -56,15 +53,20 @@
 
             <div class="col-md-7">
                 <div class="box white flat">
-                    <h2>
-                        Karte mit Mess-Standorten
-                    </h2>
                     <div class="map-container">
-                        <ods-dataset-context context="myctx" myctx-dataset="100293">
+                        <ods-dataset-context context="myctx,myctx0" myctx-dataset="100296" myctx0-dataset="100293">
                             <ods-map no-refit="true" scroll-wheel-zoom="true" basemap="9fffa5"
                                      location="16,47.56748,7.60394">
                                 <ods-map-layer-group>
-                                    <ods-map-layer context="myctx"
+                                    <ods-map-layer context="myctx" color="#C32D1C" picto="ods-circle" show-marker="true"
+                                                   display="auto" function="COUNT" shape-opacity="0.5" point-opacity="1"
+                                                   border-color="#E5352D" border-opacity="1" border-size="2"
+                                                   border-pattern="solid" caption-picto-color="#E5E5E5"
+                                                   title="Baustellenbereich Etappe 1" size="4" size-min="3" size-max="5"
+                                                   size-function="linear"></ods-map-layer>
+                                </ods-map-layer-group>
+                                <ods-map-layer-group>
+                                    <ods-map-layer context="myctx0"
                                                    color-categories="{'ROSEN 1':'rgb(69,159,231)', 'ROSEN 2':'rgb(214,105,37)', 'ROSEN 3': 'rgb(70,160,75)', 'ROSEN 4': 'rgb(105,82,143)'}"
                                                    color-by-field="name" picto="ods-circle" show-marker="true"
                                                    display="categories" shape-opacity="0.5" point-opacity="1"
@@ -75,7 +77,6 @@
                             </ods-map>
                         </ods-dataset-context>
                         <div class="map-legend">
-                            <!-- would be good to turn off when the diffusion tube layer is deselected -->
                             <div class="map-legend-item">
                                 <center>
                                     <strong>
@@ -98,7 +99,22 @@
                                 ROSEN 4
                             </div>
                         </div>
+
+                        <div class="map-legend2">
+                            <div class="map-legend-item">
+                                <center>
+                                    <strong>
+                                        Baustellenbereich
+                                    </strong>
+                                </center>
+                                <i class="fas fa-square" aria-hidden="false"> </i>
+                                Perimeter Etappe 1
+                            </div>
+                        </div>
                     </div>
+                    <h2>
+                        Karte mit Mess-Standorten und Baustellenbereich
+                    </h2>
                 </div>
             </div>
         </div>
@@ -157,11 +173,6 @@
             <h1>
                 Flüchtige Schadstoffe
             </h1>
-            <h5 style="margin: 0" ;>
-                <a href="https://data.bs.ch/explore/dataset/100273/"
-                   target="_blank">LINK zu Rohdaten
-                </a>
-            </h5>
             <div class="box white flat">
                 <div class="row">
                     <h2>
@@ -209,6 +220,11 @@
                             Anwendung: Lösemittel für viele Produkte (u.a. Farbstoffe und Schädlingsbekämpfung)
                             <br/>
                             Heutige Hauptquelle: Motorisierter Strassenverkehr (Inhaltsstoff von Treibstoffen)
+                            <h5 style="margin: 0" ;>
+                                <a href="https://data.bs.ch/explore/dataset/100273/"
+                                   target="_blank">Rohdaten anzeigen
+                                </a>
+                            </h5>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -249,6 +265,11 @@
                             <br/>
                             Anwendung: Lösungsmittel, Entfettung und Reinigung, chemische Produktion,
                             Schädlingsbekämpfung, Arzneimittel
+                            <h5 style="margin: 0" ;>
+                                <a href="https://data.bs.ch/explore/dataset/100273/"
+                                   target="_blank">Rohdaten anzeigen
+                                </a>
+                            </h5>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -289,6 +310,11 @@
                             <br/>
                             Anwendung: Zur Synthese von verschiedenen Verbindungen, die zu Lösungs- und
                             Schädlingsbekämpfungsmittel weiterverarbeitet werden
+                            <h5 style="margin: 0" ;>
+                                <a href="https://data.bs.ch/explore/dataset/100273/"
+                                   target="_blank">Rohdaten anzeigen
+                                </a>
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -337,6 +363,11 @@
                         </ods-chart>
                     </ods-dataset-context>
                     Anwendung: Farbherstellung, Desinfektionsmittel
+                    <h5 style="margin: 0" ;>
+                        <a href="https://data.bs.ch/explore/dataset/100273/"
+                           target="_blank">Rohdaten anzeigen
+                        </a>
+                    </h5>
                 </div>
             </div>
 
@@ -382,6 +413,11 @@
                     2-Chlor-Anilin, 3-Methylanilin
                     <br/>
                     Anwendung: Herstellung von Farben, Lacken, Medikamenten etc.
+                    <h5 style="margin: 0" ;>
+                        <a href="https://data.bs.ch/explore/dataset/100273/"
+                           target="_blank">Rohdaten anzeigen
+                        </a>
+                    </h5>
                 </div>
             </div>
         </div>
@@ -391,21 +427,11 @@
             <h1>
                 Staubgebundene Schadstoffe
             </h1>
-            <h5 style="margin: 0" ;>
-                <a href="https://data.bs.ch/explore/dataset/100274/"
-                   target="_blank">LINK zu Rohdaten
-                </a>
-            </h5>
             <div class="box white flat">
                 <div class="row">
                     <h2>
                         Messungen mittels Online Sensor
                     </h2>
-                    <h5 style="margin: 0" ;>
-                        <a href="https://data.bs.ch/explore/dataset/100275/"
-                           target="_blank">LINK zu Rohdaten
-                        </a>
-                    </h5>
                     <h3>
                         Online Sensoren sind kostengünstige und effiziente Mikrosensoren, die in Echtzeit Schadstoffe
                         messen. Die Messung entspricht allerdings nicht dem Referenzstandard hinsichtlich Genauigkeit,
@@ -437,6 +463,11 @@
                             <br/>
                             Hauptquellen: Baustellentätigkeiten, motorisierter Strassenverkehr, Heizungen (Öl, Gas und
                             Holz)
+                            <h5 style="margin: 0" ;>
+                                <a href="https://data.bs.ch/explore/dataset/100275/"
+                                   target="_blank">Rohdaten anzeigen
+                                </a>
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -496,6 +527,11 @@
                             <br/>
                             Hauptquellen: Baustellentätigkeiten, motorisierter Strassenverkehr, Heizungen (Öl, Gas
                             und Holz)
+                            <h5 style="margin: 0" ;>
+                                <a href="https://data.bs.ch/explore/dataset/100274/"
+                                   target="_blank">Rohdaten anzeigen
+                                </a>
+                            </h5>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -534,6 +570,11 @@
                                 </ods-chart>
                             </ods-dataset-context>
                             Anwendung: Farbherstellung, Schädlingsbekämpfung
+                            <h5 style="margin: 0" ;>
+                                <a href="https://data.bs.ch/explore/dataset/100274/"
+                                   target="_blank">Rohdaten anzeigen
+                                </a>
+                            </h5>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -572,6 +613,11 @@
                                 </ods-chart>
                             </ods-dataset-context>
                             Anwendung: Farb- und Rostschutzanstriche, Schädlingsbekämpfung
+                            <h5 style="margin: 0" ;>
+                                <a href="https://data.bs.ch/explore/dataset/100274/"
+                                   target="_blank">Rohdaten anzeigen
+                                </a>
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -614,6 +660,11 @@
                             </ods-chart>
                         </ods-dataset-context>
                         Anwendung: Farbherstellung
+                        <h5 style="margin: 0" ;>
+                            <a href="https://data.bs.ch/explore/dataset/100274/"
+                               target="_blank">Rohdaten anzeigen
+                            </a>
+                        </h5>
 
                     </div>
                 </div>
@@ -653,6 +704,11 @@
                             </ods-chart>
                         </ods-dataset-context>
                         Anwendung: Farbherstellung, Schädlingsbekämpfung
+                        <h5 style="margin: 0" ;>
+                            <a href="https://data.bs.ch/explore/dataset/100274/"
+                               target="_blank">Rohdaten anzeigen
+                            </a>
+                        </h5>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -691,6 +747,11 @@
                             </ods-chart>
                         </ods-dataset-context>
                         Anwendung: Farbherstellung, Schädlingsbekämpfung
+                        <h5 style="margin: 0" ;>
+                            <a href="https://data.bs.ch/explore/dataset/100274/"
+                               target="_blank">Rohdaten anzeigen
+                            </a>
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -731,6 +792,11 @@
                             </ods-chart>
                         </ods-dataset-context>
                         Anwendung: Farbherstellung, Desinfektionsmittel
+                        <h5 style="margin: 0" ;>
+                            <a href="https://data.bs.ch/explore/dataset/100274/"
+                               target="_blank">Rohdaten anzeigen
+                            </a>
+                        </h5>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -769,6 +835,11 @@
                             </ods-chart>
                         </ods-dataset-context>
                         Anwendung: Farbherstellung, Schädlingsbekämpfung
+                        <h5 style="margin: 0" ;>
+                            <a href="https://data.bs.ch/explore/dataset/100274/"
+                               target="_blank">Rohdaten anzeigen
+                            </a>
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -811,6 +882,11 @@
                         Summe polyzyklischer aromatischer Kohlenwasserstoffe u.a. Benzo(a)pyren, Naphthalin, Chrysen
                         <br/>
                         PAK entstehen bei unvollständigen Verbrennungsprozessen
+                        <h5 style="margin: 0" ;>
+                            <a href="https://data.bs.ch/explore/dataset/100274/"
+                               target="_blank">Rohdaten anzeigen
+                            </a>
+                        </h5>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -852,6 +928,11 @@
                         gilt als partikelgebundene Leitsubstanz für andere PAK
                         <br/>
                         PAK entstehen bei unvollständigen Verbrennungsprozessen
+                        <h5 style="margin: 0" ;>
+                            <a href="https://data.bs.ch/explore/dataset/100274/"
+                               target="_blank">Rohdaten anzeigen
+                            </a>
+                        </h5>
                     </div>
                 </div>
             </div>

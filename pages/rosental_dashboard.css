@@ -115,6 +115,32 @@ h3 {
     padding: 5px 10px;
 }
 
+
+.map-legend2 {
+    position: absolute;
+    bottom: 30px;
+    right: 120px;
+    border-right-color: rgb(229, 229, 229);
+    border-right-width: 5px;
+    background-color: white;
+    box-shadow: 2px 2px 10px #868585;
+    padding: 5px 10px;
+}
+
+
+.fa-square::before {
+    content: "\f0c8"; /* Unicode value for FontAwesome square */
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    width: 1em;
+    height: 1em;
+    border: 2px solid red;
+    background-color: lightcoral;
+    color: transparent;
+    box-shadow: 0 0 0 4px white;
+}
+
 .ROSEN1 {
     color: rgb(69, 159, 231);
 }

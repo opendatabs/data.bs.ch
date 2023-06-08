@@ -1,0 +1,26 @@
+Anzahl Stimmen pro Liste (sechs Parteien mit den meisten Stimmen)
+
+
+<ods-dataset-context context="ctx" ctx-dataset="100297" ctx-parameters="{'refine.wahlkreisbezeichnung':'Kanton Basel-Stadt','sort':'parteistimmen'}">
+    <ods-chart single-y-axis="true" single-y-axis-label="Parteistimmen" scientific-display="false" display-legend="false" align-month="true">
+        <ods-chart-query context="ctx" field-x="parteikurzbezeichnung" maxpoints="6" sort="serie1-1" category-colors="{'SP':'#FF0000', 'GB':'#46BB05' , 'LDP':'#333399', 'SVP':'#008000', 'GLP':'#D5FF5D',
+                                                                                                                                                'FDP':'#3366FF', 'CVP':'#FF9900', 'EVP':'#FFFF00', 'GB - DA':'#46BB05', 'CVP 60+':'#FF9900'}">
+            <ods-chart-serie expression-y="parteistimmen" chart-type="bar" function-y="" color="#66c2a5" display-values="true" display-stack-values="false" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+Anzahl Stimmen pro Liste (alle Parteien)
+
+
+<ods-dataset-context context="ctx" ctx-dataset="100297" ctx-parameters="{'refine.wahlkreisbezeichnung':'Kanton Basel-Stadt','sort':'parteistimmen'}">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="ctx" field-x="parteikurzbezeichnung" maxpoints="0" sort="serie1-1" >
+            <ods-chart-serie label-y="Parteistimmen" expression-y="parteistimmen" chart-type="bar" function-y="" color="#66c2a5" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

@@ -1,8 +1,8 @@
-<!-- 
+<!--
      The <ods-catalog-context> allows other widgets in this page to access the catalog of datasets in this platform.
      Check the ods-widgets documentation to learn more about ods-catalog-context.
 -->
-<ods-catalog-context context="catalog">  
+<ods-catalog-context context="catalog">
 <ods-dataset-context context="domaindatasets"
                      domaindatasets-dataset="100057">
                      <!--domaindatasets-parameters="{'refine.visibility':'domain'}"-->
@@ -227,12 +227,13 @@
             <div class="row">
                 <div class="col-sm-8">
                     <ods-dataset-context context="myctx" myctx-dataset="100088" myctx-parameters="{'disjunctive.title':true,'sort':'published'}">
-                        <ods-map no-refit="true" scroll-wheel-zoom="false" toolbar-geolocation="true" basemap="9fffa5" location="15,47.55846,7.59228">
-                            <ods-map-layer-group>
-                                <ods-map-layer context="myctx" color-categories="{'Parkhaus Aeschen':'#6D7A87','Parkhaus Anfos':'#619FC8','Parkhaus Bad. Bahnhof':'#F7C87E','Parkhaus Bahnhof Süd':'#CB516D','Parkhaus Centralbahnparking':'#F7AD84','Parkhaus City':'#5D9FA3','Parkhaus Clarahuus':'#64905C','Parkhaus Claramatte':'#6A79B0','Parkhaus Elisabethen':'#E87273','Parkhaus Europe':'#8A65A9','Parkhaus Kunstmuseum':'#B060A3','Parkhaus Messe':'#6D7A87','Parkhaus Post Basel':'#619FC8','Parkhaus Rebgasse':'#F7C87E','Parkhaus Steinen':'#CB516D','Parkhaus Storchen':'#F7AD84','Zur Zeit haben wir keine aktuellen Parkhausdaten erhalten':'#5D9FA3'}" color-by-field="title" color-categories-other="#C32D1C" picto="circle" show-marker="false" display="categories" function="COUNT" expression="free" shape-opacity="0.5" point-opacity="1" border-color="#FFFFFF" border-opacity="1" border-size="1" border-pattern="solid" caption-picto-color="#E5E5E5" size="7"></ods-map-layer>
-                            </ods-map-layer-group>
-                        </ods-map>
-                    </ods-dataset-context>
+    <ods-map no-refit="true" scroll-wheel-zoom="false" basemap="9fffa5" location="14,47.55649,7.604">
+        <ods-map-layer-group>
+            <ods-map-layer context="myctx" color-numeric-ranges="{'20':'#1196FF','40':'#4770C2','60':'#7D4B85','80':'#B32548','100':'#EA000C'}" color-undefined="#000000" color-out-of-bounds="#FFFFFF" color-by-field="auslastung_prozent" color-numeric-range-min="0" picto="dot" show-marker="false" display="choropleth" shape-opacity="0.5" point-opacity="1" border-color="#FFFFFF" border-opacity="1" border-size="1" border-pattern="solid" caption="true" caption-title="Aktuelle Belegung der öffentlichen Parkhäuser" caption-picto-color="#E5E5E5" size="7"></ods-map-layer>
+        </ods-map-layer-group>
+    </ods-map>
+
+</ods-dataset-context>
                 </div>
                 <div class="col-sm-4">
                     <h2 class="content-card-title">
@@ -359,4 +360,3 @@ Alle im Kanton Basel-Stadt verfügbaren Geodaten sind im Geodaten-Katalog aufgel
         </div>
     </section-->
 </ods-catalog-context>
-

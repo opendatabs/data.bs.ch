@@ -1,46 +1,48 @@
-<!--
+<!-- 
      The <ods-catalog-context> allows other widgets in this page to access the catalog of datasets in this platform.
      Check the ods-widgets documentation to learn more about ods-catalog-context.
 -->
-<ods-catalog-context context="catalog">
+<ods-catalog-context context="catalog">  
 <ods-dataset-context context="domaindatasets"
                      domaindatasets-dataset="100057">
-                     <!--domaindatasets-parameters="{'refine.visibility':'domain'}"-->
-
+                     <!--domaindatasets-parameters="{'refine.visibility':'domain'}"-->    
+    
     <!-- Header Image
       Check the .home-header class to change the background image
     -->
     <section class="home-header"></section>
     <!-- Welcome card and KPI cards -->
-    <section class="container">
-        <div class="row row-equal-height">
-            <div class="col-md-4">
+    <section class="container"> 
+        <div class="row row-equal-height">                   
+            <div class="col-md-6">
                 <div class="welcome-card">
                     <h1 class="welcome-card-title">
-                        Willkommen
-                        <br /> auf dem Datenportal
-                        <br />
+                        Willkommen 
+                        <br /> auf dem Datenportal  
+                        <br />  
                          Basel-Stadt
                     </h1>
                     <p class="welcome-card-description">
-                                  Hier finden Sie Open Government Data (OGD) des Kantons Basel-Stadt.
+                                  Hier finden Sie Open Government Data (OGD) des Kantons Basel-Stadt.  
+                        <br />   <br />  
+                                  Die <a href = 'https://opendata.bs.ch' target = '_blank' class="welcome-card-textlink"> Fachstelle für OGD Basel-Stadt </a> 
+                                  ist die Betreiberin des Datenportals und Ihre primäre Anlaufstelle für Fragen und Rückmeldungen. 
                         <br />   <br />
-                                  Die <a href = 'https://opendata.bs.ch' target = '_blank' class="welcome-card-textlink"> Fachstelle für OGD Basel-Stadt </a>
-                                  ist die Betreiberin des Datenportals und Ihre primäre Anlaufstelle für Fragen und Rückmeldungen.
-                        <br />   <br />
-
+                        
                                   Haben Sie Anmerkungen zu einem publizierten Datensatz? Schreiben Sie einen Kommentar.
-                        <br />   <br />
-                                  Möchten Sie regelmässig über neue Publikationen informiert werden? Dann folgen Sie uns auf
+                        <br />   <br />                 
+                                  Möchten Sie regelmässig über neue Publikationen informiert werden? Dann folgen Sie uns auf 
                     <a href = 'https://twitter.com/opendatabs' target = '_blank' class="welcome-card-textlink">Twitter</a>.
                         <br />   <br />
-                                  Suchen Sie Daten zu einem Thema oder einen bestimmten Datensatz, den Sie nicht auf unserem Portal finden? Schreiben Sie uns eine
+                    <a href="https://twitter.com/opendatabs?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false" data-size="large">@opendatabs folgen</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <br />   <br />
+                                  Suchen Sie Daten zu einem Thema oder einen bestimmten Datensatz, den Sie nicht auf unserem Portal finden? Schreiben Sie uns eine 
                     <a href = 'mailto:opendata@bs.ch' class="welcome-card-textlink" >E-Mail</a>.
                         <br />   <br />
                                   Alle Daten werden von den publizierenden Stellen kostenlos zur Verfügung gestellt. Wo nichts anderes vermerkt ist, dürfen Sie die Daten sowohl für nicht-kommerzielle als auch für kommerzielle Zwecke verwenden. Die Angabe einer Quelle ist erwünscht.
                         <br />   <br />
-
-
+                        
+                                               
                     </p>
                     <a href="/explore/"
                        class="welcome-card-link">
@@ -48,18 +50,18 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">  
                 <div class="col-md-12">
                     <!-- KPI box component -->
                     <div class="kpi-card-grey">
                        <img class="logo-homepage" src="/assets/theme_image/ODBS_Logo_rund_gruen.png">
-
+                         
                     </div>
-
-
+                    
+                    
                 </div>
                 <div class="col-md-12">
-
+              
                     <!-- KPI box component -->
                     <div class="kpi-card">
                         <i class="kpi-icon fa fa-university" aria-hidden="true"></i>
@@ -73,34 +75,35 @@
                         </h2>
                         <p class="kpi-description">
                             Aktuell bieten {{publishercount.results.length}} verschiedene Stellen aus Basel-Stadt offene Daten auf dem Datenportal Basel-Stadt an.
-
-                        </p>
+                 
+                        </p>                  
                     </div>
-
-                </div>
+                 
+                </div>  
                 <div class="col-md-12">
                     <!-- KPI box component -->
                     <div class="kpi-card">
                         <i class="kpi-icon fa fa-database" aria-hidden="true"></i>
                         <h2 class="kpi-title">
-                                <span ods-results="items" ods-results-context="domaindatasets" class="ng-scope ng-binding"></span>
+                                <span ods-results="items" ods-results-context="domaindatasets" class="ng-scope ng-binding"></span> 
                         {{domaindatasets.nhits}}
                         </h2>
                         <p class="kpi-description">
-                            Zurzeit stehen Ihnen {{domaindatasets.nhits}} Datensätze zur Verfügung. Das Angebot wird laufend erweitert.
-                        </p>
-
+                            Zurzeit stehen Ihnen {{domaindatasets.nhits}} Datensätze zur Verfügung. Das Angebot wird laufend erweitert. 
+                        </p> 
+                            
                     </div>
-
-                 </div>
-
+                    
+                 </div> 
+               
             </div>
-            <div class="col-md-4">
+            <!-- Twitter feed is down (temporarily comment out) -->
+            <!--div class="col-md-4">
                 <div class="twitter-timeline-container">
-                    <!-- To change the Twitter profile to display go to https://publish.twitter.com/#-->
+                    <!-- To change the Twitter profile to display go to https://publish.twitter.com/#>
                     <a class="twitter-timeline" data-height="810" href="https://twitter.com/OpenDataBS?ref_src=twsrc%5Etfw">Tweets by Basel-Stadt</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </section>
@@ -112,9 +115,9 @@
                 Welche Daten suchen Sie?
             </h2>
             <div class="search-card-container">
-                <ods-searchbox class="search-card-searchbox"
+                <ods-searchbox class="search-card-searchbox" 
                                form-id="search-form"
-                               translate="placeholder"
+                               translate="placeholder" 
                                placeholder="Suchen Sie einen Datensatz">
                 </ods-searchbox>
                 <button type="submit" form="search-form" class="search-card-submit-button">
@@ -138,7 +141,7 @@
                             Mobilität und Verkehr
                         </h3>
                         <p class="image-description">
-                            Zum Thema Mobilität und Verkehr finden Sie bei uns Daten zu den Verkehrszählstellen, der Belegung der Parkhäuser und der Ladestationen für Elektroautos, verschiedene Velorouten und weitere Datensätze.
+                            Zum Thema Mobilität und Verkehr finden Sie bei uns Daten zu den Verkehrszählstellen, der Belegung der Parkhäuser und der Ladestationen für Elektroautos, verschiedene Velorouten und weitere Datensätze. 
                         </p>
                     </div>
                 </a>
@@ -166,7 +169,7 @@
                             Öffentliche Ordnung <br /> und Sicherheit
                         </h3>
                         <p class="image-description">
-                            Das Thema öffentliche Ordnung und Sicherheit umfasst Datensätze zu den Allmendbewilligungen, zu Abfall-Entsorgungs- und Recyclingstellen sowie den sanitären Anlagen.
+                            Das Thema öffentliche Ordnung und Sicherheit umfasst Datensätze zu den Allmendbewilligungen, zu Abfall-Entsorgungs- und Recyclingstellen sowie den sanitären Anlagen. 
                         </p>
                     </div>
                 </a>
@@ -211,21 +214,21 @@
                             Wenn Sie keine thematische Einschränkung vornehmen wollen, finden Sie hier die Übersicht über alle auf dem Datenportal Basel-Stadt publizierten Daten. Aktuell sind dies
                             <!--ods-dataset-context context="domaindatasets"
                                                  domaindatasets-dataset="dataset-of-datasets"-->
-                                <span ods-results="items" ods-results-context="domaindatasets" class="ng-scope ng-binding">{{ domaindatasets.nhits }}</span>
+                                <span ods-results="items" ods-results-context="domaindatasets" class="ng-scope ng-binding">{{ domaindatasets.nhits }}</span> 
                             <!--/ods-dataset-context-->
                             verschiedene Datensätze.
                         </p>
                     </div>
                 </a>
             </div>
-        </div>
+        </div> 
     </section>
      </ods-dataset-context>
     <section class="container">
-        <!-- Content card -->
+        <!-- Content card --> 
         <div class="content-card">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-8">                             
                     <ods-dataset-context context="myctx" myctx-dataset="100088" myctx-parameters="{'disjunctive.title':true,'sort':'published'}">
     <ods-map no-refit="true" scroll-wheel-zoom="false" basemap="9fffa5" location="14,47.55649,7.604">
         <ods-map-layer-group>
@@ -240,7 +243,7 @@
                         Entdecken Sie unsere Echtzeit-Daten
                     </h2>
                     <p class="content-card-description">
-                        Das Datenportal Basel-Stadt bietet verschiedene Datensätze, welche in Echtzeit resp. beinahe in Echtzeit aktualisiert werden.
+                        Das Datenportal Basel-Stadt bietet verschiedene Datensätze, welche in Echtzeit resp. beinahe in Echtzeit aktualisiert werden.  
                     </p>
                     <p class="content-card-description">
                         Unter anderem finden Sie Daten zum permanenten Parkleitsystem der Parkhäuser Basel-Stadt (im Kartenbeispiel links), zur lokalen Temperatur gemessen von den Sensoren des Smart City Climate Projekts, sowie zu den Messungen der Rheinüberwachungsstation Weil am Rhein des Amts für Umwelt und Energie (AUE) in unserem Angebot an Echtzeitdaten.
@@ -259,13 +262,13 @@
                        class="content-card-link">
                         &#8226; Kontinuierliche Rheinmesswerte <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
                     </a>
-
+                    
                 </div>
             </div>
         </div>
     </section>
     <section class="container">
-        <!-- Content card -->
+        <!-- Content card --> 
         <div class="content-card">
             <div class="row">
                 <div class="col-sm-4">
@@ -274,7 +277,7 @@
                     </h2>
                     <p class="content-card-description">
                         Das Statistische Amt erhebt eine Vielzahl von Daten zu verschiedenen Themenbereichen und bereitet diese für unterschiedliche Nutzer auf. Auf dem Datenportal Basel-Stadt finden Sie eine wachsende Anzahl von rohen Datensätzen und längeren Zeitreihen aus der öffentlichen Statistik.
-
+                        
                     </p>
                     <p class="content-card-description">
                         Untersuchen Sie die Datensätze und erstellen Sie eigene Visualisierungen wie die Treemap-Grafik aus dem Datensatz des Basler Index' der Konsumentenpreise. Versuchen Sie es und gewinnen Sie spannende Erkenntnisse aus Ihren Analysen.
@@ -291,11 +294,11 @@
                                          >
                         <ods-chart align-month="true" labels-x-length="11">
                             <ods-chart-query context="bik" field-x="name2" maxpoints="0" sort="serie1-1">
-                                <ods-chart-serie expression-y="currentweight"
-                                                 chart-type="treemap"
-                                                 function-y="SUM"
-                                                 color="range-Accent"
-                                                 display-units="false"
+                                <ods-chart-serie expression-y="currentweight" 
+                                                 chart-type="treemap" 
+                                                 function-y="SUM"   
+                                                 color="range-Accent" 
+                                                 display-units="false" 
                                                  scientific-display="true">
      </ods-chart-serie>
                             </ods-chart-query>
@@ -305,10 +308,10 @@
             </div>
         </div>
     </section><section class="container">
-        <!-- Content card -->
+        <!-- Content card --> 
         <div class="content-card">
             <div class="row">
-
+               
                 <div class="col-sm-8">
                     <a target="_blank" href="https://data.bs.ch/pages/geo/"><img src="https://data.bs.ch/assets/theme_image/Geoportal.jpg"alt="Geoportal" style="float:left;width:100%;height:100%;">
                     </a></div>
@@ -317,7 +320,7 @@
                         Daten aus dem Geoportal
                     </h2>
                     <p class="content-card-description">
-Mit dem allgemein zugänglichen Geoportal bietet das Grundbuch- und Vermessungsamt einen direkten Zugang zu den öffentlichen Geoinformationen des Kantons Basel-Stadt.
+Mit dem allgemein zugänglichen Geoportal bietet das Grundbuch- und Vermessungsamt einen direkten Zugang zu den öffentlichen Geoinformationen des Kantons Basel-Stadt.                        
                     </p>
                     <p class="content-card-description">
 Das Geoportal Kanton Basel-Stadt ist der zentrale Einstiegspunkt für interaktive Karten, Geodaten und Geodienste der kantonalen Verwaltung.</p>

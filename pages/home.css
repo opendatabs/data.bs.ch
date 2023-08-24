@@ -320,7 +320,7 @@
 }
 .kpi-description { 
 	color: var(--text);
-	font-size: 1rem;
+	font-size: 1.2rem;
 	line-height: 1.5;
 	font-weight: normal;
 	margin-top: 0;
@@ -511,7 +511,7 @@ main {
 	max-width: 100%;
 }
 .welcome-card-description {
-	font-size: 1rem;
+	font-size: 1.2rem;
 	line-height: 1.5;
 	font-weight: normal;
 	color: inherit;
@@ -525,6 +525,7 @@ main {
 	}
 }
 .welcome-card-link {
+    font-size: 1.2rem;
 	color: inherit;
 	font-weight: bold;
 	margin-top: auto;

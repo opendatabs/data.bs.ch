@@ -1,0 +1,140 @@
+RSV gc / L wastewater  
+(nicht normiert) 
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="rsv_gc_l" chart-type="scatter" function-y="AVG" color="rgb(122,97,22)" scientific-display="true"
+                             min=0 max=12E5 step=3E5>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="rsv_gc_l_7_d_median" chart-type="line" function-y="AVG" color="rgb(196,155,51)" scientific-display="true"
+                             min=0 max=12E5 step=3E5>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients" chart-type="line" function-y="AVG" color="rgb(0,0,0)" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+RSV gc / PMMoV gc
+(Stuhl-normiert)
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="rsv_gc_pmmov" chart-type="scatter" function-y="AVG" color="rgb(122,97,22)" scientific-display="true"
+                             min=0 max=0.04 step=0.01>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="rsv_gc_pmmov_7_d_median" chart-type="line" function-y="AVG" color="rgb(196,155,51)" scientific-display="true"
+                             min=0 max=0.04 step=0.01>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients" chart-type="line" function-y="AVG" color="rgb(0,0,0)" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+RSV gc / 100'000 Pers.  
+(Zufluss-normiert)
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="rsv_gc_100_000_p" chart-type="scatter" function-y="AVG" color="rgb(122,97,22)" scientific-display="true"
+                             min=0 max=24E12 step=6E12>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="rsv_gc_100_000_p_7_d_median" chart-type="line" function-y="AVG" color="rgb(196,155,51)"
+                             scientific-display="true" min=0 max=24E12 step=6E12>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients" chart-type="line" function-y="AVG" color="rgb(0,0,0)" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+Inf A, B gc / L wastewater 
+(nicht normiert) 
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="infa_gc_l" chart-type="scatter" function-y="AVG" color="#fc8d62" 
+                             scientific-display="true" min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infb_gc_l" chart-type="scatter" function-y="AVG" color="#e78ac3" 
+                             scientific-display="true" min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infa_gc_l_7_d_median" chart-type="line" function-y="AVG" color="#8da0cb" 
+                             scientific-display="true" min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infb_gc_l_7_d_median" chart-type="line" function-y="AVG" color="#66c2a5" 
+                             scientific-display="true" min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_infa" chart-type="line" function-y="AVG" color="#a6d854" 
+                             scientific-display="true" min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_infb" chart-type="line" function-y="AVG" color="#ffd92f" 
+                             scientific-display="true" min=0 max=32 step=8>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+Inf A, B gc / PMMoV gc  
+(Stuhl-normiert)
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="infa_gc_pmmov" chart-type="scatter" function-y="AVG" color="#fc8d62" 
+                             scientific-display="true" min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infb_gc_pmmov" chart-type="scatter" function-y="AVG" color="#e78ac3" 
+                             scientific-display="true" min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infa_gc_pmmov_7_d_median" chart-type="line" function-y="AVG" color="#8da0cb" 
+                             scientific-display="true" min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infb_gc_pmmov_7_d_median" chart-type="line" function-y="AVG" color="#66c2a5" 
+                             scientific-display="true" min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_infa" chart-type="line" function-y="AVG" color="#a6d854" 
+                             scientific-display="true"  min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_infb" chart-type="line" function-y="AVG" color="#ffd92f" 
+                             scientific-display="true" min=0 max=32 step=8>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+Inf A, B gc / 100'000 Pers.  
+(inflow-normalized) 
+
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="infa_gc_100_000_p" chart-type="scatter" function-y="AVG" color="#fc8d62" 
+                             scientific-display="true"  min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infb_gc_100_000_p" chart-type="scatter" function-y="AVG" color="#e78ac3" 
+                             scientific-display="true" min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infa_gc_100_000_p_7_d_median" chart-type="line" function-y="AVG" color="#8da0cb" 
+                             scientific-display="true" min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="infb_gc_100_000_p_7_d_median" chart-type="line" function-y="AVG" color="#66c2a5" 
+                             scientific-display="true" min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_infa" chart-type="line" function-y="AVG" color="#a6d854" 
+                             scientific-display="true" min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="7t_median_infb" chart-type="line" function-y="AVG" color="#ffd92f" 
+                             scientific-display="true" min=0 max=32 step=8>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+

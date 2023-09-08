@@ -1,3 +1,9 @@
+<h2>
+    Stromverbrauch pro Monat
+</h2>
+<h4>
+    gruppiert in Jahren
+</h4>
 <ods-dataset-context context="myctx" myctx-dataset="100233" myctx-parameters="{'sort':'timestamp_interval_start','q.from_date.timestamp_interval_start':'timestamp_interval_start>=\'2011-12-31T23:00:00Z\''}">
     <ods-chart align-month="true">
         <ods-chart-query context="myctx" field-x="month" maxpoints="0" series-breakdown="year">
@@ -5,4 +11,21 @@
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
+
+</ods-dataset-context>
+
+<h2>
+    Stromverbrauch pro Jahr
+</h2>
+<h4>
+    gruppiert in Wochentagen
+</h4>
+<ods-dataset-context context="myctx" myctx-dataset="100233" myctx-parameters="{'sort':'timestamp_interval_start','q.from_date.timestamp_interval_start':'timestamp_interval_start>=\'2011-12-31T23:00:00Z\''}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="year" maxpoints="0" series-breakdown="weekday">
+            <ods-chart-serie expression-y="stromverbrauch_kwh" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
 </ods-dataset-context>

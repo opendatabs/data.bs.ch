@@ -1,0 +1,533 @@
+<h2>
+    RSV Genkopien / Liter Abwasser
+</h2>
+<h3>
+    (nicht normiert)
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'datum','q.timerange.datum':'datum:[2021-01-01 TO 2023-09-07]'}">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="RSV (gc/L)"
+                             expression-y="rsv_gc_l"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="rgb(122,97,22)"
+                             scientific-display="true"
+                             min=0 max=12E5 step=3E5>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
+                             expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="rgb(0,0,0)"
+                             scientific-display="true"
+                             min=0 max=320 step=80>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="RSV (gc/L)"
+                             expression-y="rsv_gc_l_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="rgb(196,155,51)"
+                             scientific-display="true"
+                             min=0 max=12E5 step=3E5>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    RSV Genkopien / PMMoV Genkopien
+</h2>
+<h3>
+    (Stuhl-normiert)
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="RSV (gc/PMMoV)"
+                             expression-y="rsv_gc_pmmov"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="rgb(122,97,22)"
+                             scientific-display="true"
+                             min=0 max=0.04 step=0.01>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
+                             expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="rgb(0,0,0)"
+                             scientific-display="true"
+                             min=0 max=320 step=80>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="RSV (gc/PMMoV)"
+                             expression-y="rsv_gc_pmmov_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="rgb(196,155,51)"
+                             scientific-display="true"
+                             min=0 max=0.04 step=0.01>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    RSV Genkopien / 100'000 Personen 
+</h2>
+<h3>
+    (Zufluss-normiert)
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="RSV (gc/100'000 P.)"
+                             expression-y="rsv_gc_100_000_p"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="rgb(122,97,22)"
+                             scientific-display="true"
+                             min=0 max=24E12 step=6E12>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
+                             expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="rgb(0,0,0)"
+                             scientific-display="true"
+                             min=0 max=320 step=80>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="RSV (gc/100'000 P.)"
+                             expression-y="rsv_gc_100_000_p_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="rgb(196,155,51)"
+                             scientific-display="true"
+                             min=0 max=24E12 step=6E12>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Inf A Genkopien / Liter Abwasser
+</h2>
+<h3>
+    (nicht normiert) 
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-A (gc/L)"
+                             expression-y="infa_gc_l"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#EF4026"
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infa"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#929591" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-A (gc/L)"
+                             expression-y="infa_gc_l_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#FF796C" 
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Inf B Genkopien / Liter Abwasser
+</h2>
+<h3>
+    (nicht normiert) 
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-B (gc/L)"
+                             expression-y="infb_gc_l"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#0343DF" 
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infb"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#000000" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/L)"
+                             expression-y="infb_gc_l_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#7BC8F6" 
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Inf A, B Genkopien / Liter Abwasser
+</h2>
+<h3>
+    (nicht normiert) 
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-A (gc/L)"
+                             expression-y="infa_gc_l"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#EF4026"
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infa"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#929591" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-A (gc/L)"
+                             expression-y="infa_gc_l_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#FF796C" 
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/L)"
+                             expression-y="infb_gc_l"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#0343DF" 
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infb"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#000000" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/L)"
+                             expression-y="infb_gc_l_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#7BC8F6" 
+                             scientific-display="true"
+                             min=0 max=32E4 step=8E4>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Inf A Genkopien / PMMoV Genkopien
+</h2>
+<h3>
+    (Stuhl-normiert)
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-A (gc/PMMoV)"
+                             expression-y="infa_gc_pmmov"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#EF4026" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infa"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#929591" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-A (gc/PMMoV)"
+                             expression-y="infa_gc_pmmov_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#FF796C" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Inf B Genkopien / PMMoV Genkopien
+</h2>
+<h3>
+    (Stuhl-normiert)
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-B (gc/PMMoV)"
+                             expression-y="infb_gc_pmmov"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#0343DF" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infb"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#000000" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/PMMoV)"
+                             expression-y="infb_gc_pmmov_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#7BC8F6" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+<h2>
+    Inf A, B Genkopien / PMMoV Genkopien
+</h2>
+<h3>
+    (Stuhl-normiert)
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-A (gc/PMMoV)"
+                             expression-y="infa_gc_pmmov"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#EF4026" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infa"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#929591" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-A (gc/PMMoV)"
+                             expression-y="infa_gc_pmmov_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#FF796C" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/PMMoV)"
+                             expression-y="infb_gc_pmmov"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#0343DF" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infb"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#000000" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/PMMoV)"
+                             expression-y="infb_gc_pmmov_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#7BC8F6" 
+                             scientific-display="true"
+                             min=0 max=12E-3 step=3E-3>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Inf A Genkopien / 100'000 Personen
+</h2>
+<h3>
+    (Zufluss-normiert)
+</h3>
+
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-A (gc/100'000 P.)"
+                             expression-y="infa_gc_100_000_p"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#EF4026" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infa"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#929591" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-A (gc/100'000 P.)"
+                             expression-y="infa_gc_100_000_p_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#FF796C" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Inf B Genkopien / 100'000 Personen
+</h2>
+<h3>
+    (Zufluss-normiert)
+</h3>
+
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-B (gc/100'000 P.)"
+                             expression-y="infb_gc_100_000_p"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#0343DF" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infb"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#000000" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/100'000 P.)"
+                             expression-y="infb_gc_100_000_p_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#7BC8F6" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+
+
+<h2>
+    Inf A, B Genkopien / 100'000 Personen
+</h2>
+<h3>
+    (Zufluss-normiert)
+</h3>
+
+<ods-dataset-context context="myctx" myctx-dataset="100302">
+    <ods-chart scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+            <ods-chart-serie label-y="Inf-A (gc/100'000 P.)"
+                             expression-y="infa_gc_100_000_p"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#EF4026" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infa"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#929591" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-A (gc/100'000 P.)"
+                             expression-y="infa_gc_100_000_p_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#FF796C" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/100'000 P.)"
+                             expression-y="infb_gc_100_000_p"
+                             chart-type="scatter"
+                             function-y="AVG"
+                             color="#0343DF" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                             expression-y="7t_median_infb"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#000000" 
+                             scientific-display="true"
+                             min=0 max=32 step=8>
+            </ods-chart-serie>
+            <ods-chart-serie label-y="Inf-B (gc/100'000 P.)"
+                             expression-y="infb_gc_100_000_p_7_d_median"
+                             chart-type="line"
+                             function-y="AVG"
+                             color="#7BC8F6" 
+                             scientific-display="true"
+                             min=0 max=8E12 step=2E12>
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+

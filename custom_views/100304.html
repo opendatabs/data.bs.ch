@@ -1,0 +1,33 @@
+<h1>
+    Grafische Darstellungen des Stromverbrauchs (Messungen von 01.09.2021 bis heute)
+</h1>
+<h2>
+    Gasverbrauch pro Monat
+</h2>
+<h4>
+    gruppiert in Jahren
+</h4>
+<ods-dataset-context context="myctx" myctx-dataset="100304" myctx-parameters="{'sort':'timestamp','q.from_date.timestamp':'timestamp>=\'2021-08-31T23:00:00Z\''}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="month" maxpoints="0" series-breakdown="year">
+            <ods-chart-serie expression-y="value" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+
+<h2>
+    Gasverbrauch pro Jahr
+</h2>
+<h4>
+    gruppiert in Wochentagen (0 = Montag, 1 = Dienstag etc.)
+</h4>
+<ods-dataset-context context="myctx" myctx-dataset="100304" myctx-parameters="{'sort':'timestamp','q.from_date.timestamp':'timestamp>=\'2021-08-31T23:00:00Z\''}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="year" maxpoints="0" series-breakdown="weekday">
+            <ods-chart-serie expression-y="value" chart-type="column" function-y="SUM" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

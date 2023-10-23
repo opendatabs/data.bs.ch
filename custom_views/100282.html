@@ -1,8 +1,6 @@
-<b>Stimmen</b>
+<h2>Stimmen</h2>
 
-<br /><br />
-
-Diese Abbildung zeigt die Anzahl Stimmen aller Kandidatinnen und Kandidaten
+Diese Abbildung zeigt die Anzahl Stimmen aller Kandidierenden
 
 <br /><br />
 
@@ -17,22 +15,16 @@ Diese Abbildung zeigt die Anzahl Stimmen aller Kandidatinnen und Kandidaten
 
 </ods-dataset-context>
 
+<h2>Stimmen nach Gemeinde</h2>
 
-<br /><br />
-
-
-<b>Stimmen nach Gemeinde</b>
-
-<br /><br />
-
-Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatein oder Kandidat für die Gemeinde Basel
+Diese Abbildung zeigt die Anzahl Stimmen pro kandidierende Person für die Gemeinde <b>Basel</b>
 
 <br /><br />
 
 <ods-dataset-context context="staenderatswahlen2023" staenderatswahlen2023-dataset="100282" staenderatswahlen2023-parameters="{'sort':'stimmen','refine.wahlkreis_nr':'2701'}">
     <ods-chart align-month="true"
                single-y-axis="true" single-y-axis-label="Anzahl Stimmen"display-legend="false" labels-x-length="35" label-x="">
-        <ods-chart-query context="staenderatswahlen2023" field-x="name" maxpoints="0" sort="serie1-1">
+        <ods-chart-query context="staenderatswahlen2023" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
             <ods-chart-serie expression-y="stimmen" chart-type="column" function-y="SUM" color="#51BFD9" scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
@@ -42,7 +34,7 @@ Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatein oder Kandidat für die 
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatin oder Kandidat für die Gemeinde Riehen
+Diese Abbildung zeigt die Anzahl Stimmen pro kandidierende Person für die Gemeinde <b>Bettingen</b>
 
 <br /><br />
 
@@ -59,7 +51,7 @@ Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatin oder Kandidat für die G
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahl Stimmen pro Kanidatin oder Kandidat für die Gemeinde Bettingen
+Diese Abbildung zeigt die Anzahl Stimmen pro kandidierende Person für die Gemeinde <b>Riehen</b>
 
 <br /><br />
 
@@ -76,7 +68,7 @@ Diese Abbildung zeigt die Anzahl Stimmen pro Kanidatin oder Kandidat für die Ge
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahnl Stimmen pro Kandidatin oder Kandidat für die Auslandschweizerinnen und -schweizer
+Diese Abbildung zeigt die Anzahnl Stimmen pro kandidierende Person für die <b>Auslandschweizerinnen und -schweizer</b>
 
 <br /><br />
 

@@ -1,16 +1,27 @@
-<b>Stimmen total</b>
+<h2>Stimmen total</h2>
+
+Diese Abbildung zeigt die Anzahl Stimmen aller gewählten Kandidierenden
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahl Stimmen aller gewählten Kandidatinnen  und Kandidaten
-
-<br /><br />
-
-<ods-dataset-context context="nationalratswahlen2023" nationalratswahlen2023-dataset="100281" nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.gewahlt':'Gewählt'}">
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.gewahlt':'Gewählt'}">
     <ods-chart align-month="true"
-               single-y-axis="true" single-y-axis-label="Anzahl Stimmen"display-legend="false" labels-x-length="35" label-x="">
-        <ods-chart-query context="nationalratswahlen2023" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
-            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" chart-type="column" function-y="max" color="#00546F" scientific-display="true">
+               single-y-axis="true"
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false"
+               labels-x-length="35"
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023"
+                         field-x="ganzer_name" 
+                         maxpoints="0" 
+                         sort="serie1-1">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y="max" 
+                             color="#00546F" 
+                             scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
@@ -19,15 +30,28 @@ Diese Abbildung zeigt die Anzahl Stimmen aller gewählten Kandidatinnen  und Kan
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatin oder Kandidat
+Diese Abbildung zeigt die erste Hälfte der kandidierenden Personen, die die höhere Anzahl an Stimmen erhalten haben. 
 
 <br /><br />
 
-<ods-dataset-context context="nationalratswahlen2023" nationalratswahlen2023-dataset="100281" nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel'}">
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'12'}">
     <ods-chart align-month="true"
-               single-y-axis="true" single-y-axis-label="Anzahl Stimmen"display-legend="false" labels-x-length="35" label-x="">
-        <ods-chart-query context="nationalratswahlen2023" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
-            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" chart-type="column" function-y="max" color="#51BFD9" scientific-display="true">
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y=""
+                             color="#51BFD9" 
+                             scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
@@ -36,20 +60,63 @@ Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatin oder Kandidat
 
 <br /><br />
 
-
-<b>Stimmen nach Gemeinde</b>
-
-<br /><br />
-
-Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatein oder Kandidat für die Gemeinde Basel
+Diese Abbildung zeigt die Anzahl Stimmen der übrigen kandidierenden Personen.
 
 <br /><br />
 
-<ods-dataset-context context="nationalratswahlen2023" nationalratswahlen2023-dataset="100281" nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2701'}">
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'12'}">
     <ods-chart align-month="true"
-               single-y-axis="true" single-y-axis-label="Anzahl Stimmen"display-legend="false" labels-x-length="35" label-x="">
-        <ods-chart-query context="nationalratswahlen2023" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
-            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" chart-type="column" function-y="" color="#51BFD9" scientific-display="true">
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="-y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y=""
+                             color="#51BFD9" 
+                             scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+
+<br /><br />
+
+<h2>Stimmen nach Gemeinde</h2>
+
+<h3> Basel </h3>
+
+Diese Abbildung zeigt die erste Hälfte der kandidierenden Personen für die Gemeinde <b>Basel</b>, die die höhere Anzahl an Stimmen erhalten haben.
+
+<br /><br />
+
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2701'}">
+    <ods-chart align-month="true"
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y="" 
+                             color="#51BFD9" 
+                             scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
@@ -58,15 +125,58 @@ Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatein oder Kandidat für die 
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatin oder Kandidat für die Gemeinde Riehen
+Diese Abbildung zeigt die Anzahl Stimmen der übrigen kandidierenden Personen für die Gemeinde <b>Basel</b>.
 
 <br /><br />
 
-<ods-dataset-context context="nationalratswahlen2023" nationalratswahlen2023-dataset="100281" nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2702'}">
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2701'}">
     <ods-chart align-month="true"
-               single-y-axis="true" single-y-axis-label="Anzahl Stimmen"display-legend="false" labels-x-length="35" label-x="">
-        <ods-chart-query context="nationalratswahlen2023" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
-            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" chart-type="column" function-y="" color="#51BFD9" scientific-display="true">
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="-y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y="" 
+                             color="#51BFD9" 
+                             scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<h3> Bettingen </h3>
+
+Diese Abbildung zeigt die erste Hälfte der kandidierenden Personen für die Gemeinde <b>Bettingen</b>, die die höhere Anzahl an Stimmen erhalten haben.
+
+<br /><br />
+
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2702'}">
+    <ods-chart align-month="true"
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y="" 
+                             color="#51BFD9" 
+                             scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
@@ -75,15 +185,58 @@ Diese Abbildung zeigt die Anzahl Stimmen pro Kandidatin oder Kandidat für die G
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahl Stimmen pro Kanidatin oder Kandidat für die Gemeinde Bettingen
+Diese Abbildung zeigt die Anzahl Stimmen der übrigen kandidierenden Personen für die Gemeinde <b>Bettingen</b>.
 
 <br /><br />
 
-<ods-dataset-context context="nationalratswahlen2023" nationalratswahlen2023-dataset="100281" nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2703'}">
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2702'}">
     <ods-chart align-month="true"
-               single-y-axis="true" single-y-axis-label="Anzahl Stimmen"display-legend="false" labels-x-length="35" label-x="">
-        <ods-chart-query context="nationalratswahlen2023" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
-            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" chart-type="column" function-y="" color="#51BFD9" scientific-display="true">
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="-y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y="" 
+                             color="#51BFD9" 
+                             scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<h3> Riehen </h3>
+
+Diese Abbildung zeigt die erste Hälfte der kandidierenden Personen für die Gemeinde <b>Riehen</b>, die die höhere Anzahl an Stimmen erhalten haben.
+
+<br /><br />
+
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2703'}">
+    <ods-chart align-month="true"
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y="" 
+                             color="#51BFD9" 
+                             scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>
@@ -92,15 +245,28 @@ Diese Abbildung zeigt die Anzahl Stimmen pro Kanidatin oder Kandidat für die Ge
 
 <br /><br />
 
-Diese Abbildung zeigt die Anzahnl Stimmen pro Kandidatin oder Kandidat für die Auslandschweizerinnen und -schweizer
+Diese Abbildung zeigt die Anzahl Stimmen der übrigen kandidierenden Personen für die Gemeinde <b>Riehen</b>.
 
 <br /><br />
 
-<ods-dataset-context context="nationalratswahlen2023" nationalratswahlen2023-dataset="100281" nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'9999'}">
+<ods-dataset-context context="nationalratswahlen2023" 
+                     nationalratswahlen2023-dataset="100281" 
+                     nationalratswahlen2023-parameters="{'sort':'stimmen_total_aus_wahlzettel','refine.wahlkreis_nr':'2703'}">
     <ods-chart align-month="true"
-               single-y-axis="true" single-y-axis-label="Anzahl Stimmen"display-legend="false" labels-x-length="35" label-x="">
-        <ods-chart-query context="nationalratswahlen2023" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
-            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" chart-type="column" function-y="" color="#51BFD9" scientific-display="true">
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="nationalratswahlen2023" 
+                         field-x="ganzer_name" 
+                         maxpoints="61" 
+                         sort="-y">
+            <ods-chart-serie expression-y="stimmen_total_aus_wahlzettel" 
+                             chart-type="column" 
+                             function-y="" 
+                             color="#51BFD9" 
+                             scientific-display="true">
             </ods-chart-serie>
         </ods-chart-query>
     </ods-chart>

@@ -41,15 +41,3 @@
         </ods-chart-query>
     </ods-chart>
 </ods-dataset-context>
-<ods-dataset-context context="myctx" myctx-dataset="100245" myctx-parameters="{'sort':'time','q':'not#null(rollav)'}">
-    <ods-chart id="myid" timescale="day" scientific-display="false" single-y-axis="true" min="0" align-month="true">
-        <ods-chart-query context="myctx" field-x="time" maxpoints="0" timescale="day">
-            <ods-chart-serie expression-y="rollav" chart-type="arearange" function-y="COUNT" label-y="Unteres und oberes Prognoseintervall gleitender Durchschnitt" color="#F4C0C0" min="0" subseries='[{"func":"MIN","yAxis":"roll_forecast_lowfi"},{"func":"MAX","yAxis":"roll_forecast_highfi"}]'>
-            </ods-chart-serie>
-        </ods-chart-query>
-        <ods-chart-query context="myctx" field-x="time" maxpoints="0" timescale="day">
-            <ods-chart-serie expression-y="rollav" chart-type="line" function-y="SUM" color="#263891" min="0" step="" scientific-display="false">
-            </ods-chart-serie>
-        </ods-chart-query>
-    </ods-chart>
-</ods-dataset-context>

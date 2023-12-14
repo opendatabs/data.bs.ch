@@ -1,0 +1,288 @@
+<div class="container-fluid">
+    <div class="box white flat">
+        <div class="row">
+            <h1>
+                Abwassermonitoring
+            </h1>
+            <div class="map box white flat">
+                <div class="map-container">
+                    <img class="pic-einzugsgebiet" src="/assets/theme_image/einzugsgebiet_prorheno-min.png" />
+                </div>
+                <h3>
+                    Karte von Einzugsgebiet der ARA Basel
+                </h3>
+            </div>
+            <h3>
+                <b>Messung</b>
+                <p>
+                    Die ProRheno AG (Betreiber der ARA Basel) entnimmt jeweils eine 24h-Probe des Rohabwassers, welche durch das Kantonale Laboratorium Basel-Stadt (KL BS) auf RNA der angegebenen Viren untersucht wird. Die Messmethodik
+                    wurde dabei seit Beginn des Monitorings nicht verändert: siehe 
+                    <a href="https://smw.ch/index.php/smw/article/view/3226" style="color: rgb(28, 99, 12);" target="_blank">Publikation</a>.
+                    Die Plausibilität der Werte wird laufend anhand interner Qualitätsparameter überprüft. 
+                    Bis Ende Juni 2023 wurden die Messwerte des KL BS auch auf dem Abwasser-Dashboard des BAG
+                    <a href="https://www.covid19.admin.ch/de/epidemiologic/waste-water?wasteWaterFacility=270101" style="color: rgb(28, 99, 12);" target="_blank">Covid-⁠19 Schweiz | Coronavirus | Dashboard</a>
+                    dargestellt. Ab Juli 2023 werden auf dieser Seite die Messwerte der
+                    <a href="https://www.eawag.ch/de/abteilung/sww/projekte/sars-cov2-im-abwasser/" style="color: rgb(28, 99, 12);" target="_blank">EAWAG SARS-CoV2 im Abwasser - Eawag</a>
+                    publiziert, welche ebenfalls das Rohabwasser der ARA Basel untersucht. Die vom KL BS und der EAWAG verwendeten Untersuchungsmethoden sind sehr ähnlich aber nicht identisch
+                </p>
+                <b>Untersuchungsgebiet</b>
+                <p>
+                    Das Untersuchungsgebiet umfasst das Einzugsgebiet der ARA Basel, welches sich hauptsächlich aus dem Kanton Basel-Stadt 
+                    sowie den Gemeinden Allschwil, Binningen, Birsfelden, Bottmingen, Oberwil und Schönenbuch (alle Kanton Baselland) zusammensetzt.
+                </p>
+                <b>Figuren</b>
+                <p>
+                    Dieses Dashboard zeigt den 7-Tage-Median der RNA-Kopien des angegebenen Virus jeweils pro Tag und 100‘000 Personen im Abwasser der Abwasserreinigungs-Anlage (ARA) Basel sowie den 7-Tage-Median der entsprechenden
+                    Fallzahlen. Der Datensatz wird i.d.R. jeweils dienstags mit den Daten bis vorangegangenem Sonntag aktualisiert. In einzelnen Wochen kann es zu Verschiebungen kommen.
+                </p>
+            </h3>
+        </div>
+        <br>
+        <div class="box white flat">
+            <div class="row">
+                <ods-simple-tabs>
+                    <ods-simple-tab label="SARS-CoV-2" keep-content="false">
+                        <ods-dataset-context context="myctx" myctx-dataset="100187" myctx-parameters="{'sort':'-date_start'}">
+                            <h2>
+                                <b>SARS-CoV-2 im Abwasser und positiv auf SARS-CoV-2 getestete Personen </b>
+                            </h2>
+                            <h3>
+                                Zeitraum wählen
+                            </h3>
+                            <ods-date-range-slider context="myctx" 
+                                date-format="DD MMM YYYY" 
+                                initial-from="'2021/07/06'" 
+                                initial-to="'now'"
+                                precision="day" 
+                                date-field="datum" 
+                                start-bound="'2021/07/06'" 
+                                end-bound="'now'">
+                            </ods-date-range-slider>
+                            <h3>
+                                SARS-CoV-2 im Abwasser (Genkopien pro 100 000 Personen) und positiv auf SARS-CoV-2 getestete Personen
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ods-chart align-month="true">
+                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                                label-y="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median"
+                                                chart-type="line"
+                                                function-y="AVG" 
+                                                color="#263891"
+                                                scientific-display="true"
+                                                min=0 max= 8E13 step=2E13>
+                                            </ods-chart-serie>
+                                            <ods-chart-serie expression-y="7t_median_bs_bl"
+                                                label-y="SARS-CoV-2-Fälle (BS&BL) 7-Tage Median"
+                                                chart-type="line"
+                                                function-y="AVG"
+                                                color="#AF5FA2"
+                                                scientific-display="true"
+                                                min=0 max= 1600 step=400>
+                                            </ods-chart-serie>
+                                        </ods-chart-query>
+                                    </ods-chart>
+                                </div>
+                            </div>
+                            <p>
+                                <br>
+                            </p>
+                            <div class="col-md-2">
+                                <a class="basic-button"
+                                   href="https://data.bs.ch/explore/dataset/100187"
+                                   role="button">
+                                    Zum Datensatz
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="basic-button"
+                                   href="https://data.bs.ch/pages/covid-19-dashboard/"
+                                   role="button">
+                                    Zum Covid-19 Dashboard
+                                </a>
+                            </div>
+                        </ods-dataset-context>
+                    </ods-simple-tab>
+                    <ods-simple-tab label="RSV" keep-content="false">
+                        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+                            <h2>
+                                <b>RS-Virus im Abwasser und positiv auf das RS-Virus getestete Personen </b>
+                            </h2>
+                            <h3>
+                                Zeitraum wählen
+                            </h3>
+                            <ods-date-range-slider context="myctx" 
+                                date-format="DD MMM YYYY" 
+                                initial-from="'2021/08/14'" 
+                                initial-to="'now'"
+                                precision="day" 
+                                date-field="datum" 
+                                start-bound="'2021/08/14'" 
+                                end-bound="'now'">
+                            </ods-date-range-slider>
+                            <h3>
+                                RS-Virus im Abwasser (Genkopien pro 100 000 Personen) und positiv auf RS-Virus getestete Personen
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ods-chart scientific-display="false" align-month="true">
+                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                            <ods-chart-serie label-y="RSV (gc/100'000 P.) 7-Tage Median"
+                                                expression-y="rsv_gc_100_000_p_7_d_median"
+                                                chart-type="line"
+                                                function-y="AVG"
+                                                color="rgb(196,155,51)"
+                                                scientific-display="true"
+                                                min=0 max=2E13>
+                                            </ods-chart-serie>
+                                            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
+                                                expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                                                chart-type="line"
+                                                function-y="AVG"
+                                                color="rgb(0,0,0)"
+                                                scientific-display="true"
+                                                min=0 max=320 step=80>
+                                            </ods-chart-serie>
+                                        </ods-chart-query>
+                                    </ods-chart>
+                                </div>
+                            </div>
+                            <a class="basic-button"
+                               href="https://data.bs.ch/explore/dataset/100302"
+                               role="button">
+                                Zum Datensatz
+                            </a>
+                        </ods-dataset-context>
+                    </ods-simple-tab>
+                    <ods-simple-tab label="Influenza A" keep-content="false">
+                        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+                            <h2>
+                                <b>Influenza A im Abwasser und positiv auf das Influenza A getestete Personen </b>
+                            </h2>
+                            <h3>
+                                Zeitraum wählen
+                            </h3>
+                            <ods-date-range-slider context="myctx" 
+                                date-format="DD MMM YYYY" 
+                                initial-from="'2021/10/03'" 
+                                initial-to="'now'"
+                                precision="day" 
+                                date-field="datum" 
+                                start-bound="'2021/10/03'" 
+                                end-bound="'now'">
+                            </ods-date-range-slider>
+                            <h3>
+                                Influenza A im Abwasser (Genkopien pro 100 000 Personen) und positiv auf Influenza A getestete Personen
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ods-chart scientific-display="false" align-month="true">
+                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                            <ods-chart-serie label-y="InfA (gc/100'000 P.) 7-Tage Median"
+                                                expression-y="infa_gc_100_000_p_7_d_median"
+                                                chart-type="line"
+                                                function-y="AVG"
+                                                color="#FF796C" 
+                                                scientific-display="true"
+                                                min=0 max=6E12 step=15E11>
+                                            </ods-chart-serie>
+                                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                                expression-y="7t_median_infa"
+                                                chart-type="line"
+                                                function-y="AVG"
+                                                color="#929591" 
+                                                scientific-display="true"
+                                                min=0 max=32 step=8>
+                                            </ods-chart-serie>
+                                        </ods-chart-query>
+                                    </ods-chart>
+                                </div>
+                            </div>
+                            <a class="basic-button"
+                               href="https://data.bs.ch/explore/dataset/100302"
+                               role="button">
+                                Zum Datensatz
+                            </a>
+                        </ods-dataset-context>
+                    </ods-simple-tab>
+                    <ods-simple-tab label="Influenza B" keep-content="false">
+                        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+                            <h2>
+                                <b>Influenza B im Abwasser und positiv auf das Influenza B getestete Personen </b>
+                            </h2>
+                            <h3>
+                                Zeitraum wählen
+                            </h3>
+                            <ods-date-range-slider context="myctx" 
+                                date-format="DD MMM YYYY" 
+                                initial-from="'2021/10/03'" 
+                                initial-to="'now'"
+                                precision="day" 
+                                date-field="datum" 
+                                start-bound="'2021/10/03'" 
+                                end-bound="'now'">
+                            </ods-date-range-slider>
+                            <h3>
+                                Influenza B im Abwasser (Genkopien pro 100 000 Personen) und positiv auf Influenza B getestete Personen
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ods-chart scientific-display="false" align-month="true">
+                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                            <ods-chart-serie label-y="InfB (gc/100'000 P.) 7-Tage Median"
+                                                expression-y="infb_gc_100_000_p_7_d_median"
+                                                chart-type="line"
+                                                function-y=""
+                                                color="#7BC8F6" 
+                                                scientific-display="true"
+                                                min=0 max=6E12 step=15E11>
+                                            </ods-chart-serie>
+                                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                                expression-y="7t_median_infb"
+                                                chart-type="line"
+                                                function-y="AVG"
+                                                color="#000000" 
+                                                scientific-display="true"
+                                                min=0 max=32 step=8>
+                                            </ods-chart-serie>
+                                        </ods-chart-query>
+                                    </ods-chart>
+                                </div>
+                            </div>
+                            <a class="basic-button"
+                               href="https://data.bs.ch/explore/dataset/100302"
+                               role="button">
+                                Zum Datensatz
+                            </a>
+                        </ods-dataset-context>
+                    </ods-simple-tab>
+                </ods-simple-tabs>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <h3>
+                <b>Fallzahlen</b>
+                <p>
+                    Die Fallzahlen von Covid-19, Influenza A und Influenza B entsprechen der Anzahl der bestätigten und dem Kanton gemeldeten Fälle im Einzugsgebiet der ARA Basel. 
+                    Bei RSV entsprechen die Fallzahlen den monatlich durch die Labormedizin des Universitätsspital Basel laborbestätigten Fälle.
+                </p>
+                <b>Interpretation der Kurven</b>
+                <p>
+                    Beim Monitoring von Viren im Abwasser geht es in erster Linie darum, Trends zu erkennen (insbesondere natürlich die Zunahme eines zirkulierenden Virus). Es ist nicht möglich, daraus eine bestimmte Fallzahl oder den
+                    Schweregrad einer Infektion abzuleiten. Ein Vergleich des Kurvenausschlags (Höhe der Peaks) zu verschiedenen Zeitpunkten ist kaum möglich, da z.B. unterschiedliche Virusvarianten zu unterschiedlichen Virusmengen pro Fall
+                    führen. Unterschiedliche Virusvarianten können auch die Symptomatik beeinflussen, so dass z.B. Infektionen bei Menschen spurlos verlaufen, aber dennoch Viren ins Abwasser abgegeben werden.
+                </p>
+                <p>
+                    <b>Hinweis zum SARS-CoV-2 Datensatz:</b> Die ursprünglich dargestellten Werte vom 22.03. bis 01.10.2023 
+                    mussten aufgrund einer falschen Einstellung in der Messgerätesoftware, die Einfluss auf die RNA-Quantifizierung 
+                    hat, nach unten korrigiert werden und sind nun korrekt dargestellt.
+                    <br>
+                    <b>Hinweis zum RSV und Influenza Datensatz</b> In den Zeiträumen 29.4. bis 1.8.2022 (ausser 1.6.2022 und 5.6.2022)
+                    und 30.5.2023 bis 3.9.2023 wurden keine Abwasserproben auf Influenza und RSV untersucht.
+                </p>
+            </h3>
+        </div>
+    </div>
+</div>

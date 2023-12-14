@@ -1,0 +1,1125 @@
+<h1>
+    Grafische Darstellungen zum Abwassermonitoring
+</h1>
+<ods-simple-tabs>
+    <ods-simple-tab label="SARS-CoV-2" keep-content="false">
+        <ods-dataset-context context="myctx"
+            myctx-dataset="100167" 
+            myctx-parameters="{'sort':'-date_start'}">
+            <h3>
+                Zeitraum wählen
+            </h3>
+            <ods-date-range-slider context="myctx"
+                date-format="DD MMM YYYY"
+                initial-from="'2021/05/01'"
+                initial-to="'now'"
+                precision="day"
+                date-field="datum"
+                start-bound="'2021/05/01'"
+                end-bound="'now'">
+            </ods-date-range-slider>
+            <h2>
+                SARS-CoV-2 RNA copies / L Abwasser vs. Tage
+            </h2>
+            <h3>
+                (Tage ohne Punkte = keine Messung)
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" 
+                        single-y-axis="true" single-y-axis-label= "SARS-CoV-2 RNA copies/ L Abwasser" 
+                        label-x= "Datum des ProRheno Zulaufs" 
+                        min=0 max=4E6 step=10E5>
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="mean_e_n1_n2_qty_l_ww"
+                                label-y = "Mean SARS-Cov-2" chart-type="scatter"
+                                function-y="" color="black" scientific-display="true">
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean"
+                                label-y = "7-TageMEDIAN SARS-CoV-2" chart-type="line"
+                                function-y="" color="rgb(71,163,80)" scientific-display="true">
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                SARS-CoV-2 RNA copies / PMMoV RNA copies vs. Tage
+            </h2>
+            <h3>
+                (Tage ohne Punkte = keine Messung)
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true"
+                        single-y-axis="true" single-y-axis-label= "SARS-CoV-2 RNA copies/PMMoV RNA copies"
+                        label-x= "Datum des ProRheno Zulaufs" 
+                        min=0 max=0.02 step=0.005 >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="n1_n2_e_normalized_pmmov"
+                                label-y="SARS-CoV-2 [PMMoV-normalized]" chart-type="scatter"
+                                function-y="" color="black" scientific-display="true">
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 [PMMoV-normalized]" chart-type="line"
+                                function-y="" color="rgb(47,110,186)" scientific-display="true">
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                SARS-CoV-2 RNA copies / 100'000 Personen vs. Tage
+            </h2>
+            <h3>
+                (Tage ohne Punkte = noch keine Info zu Zuflussmenge ProRheno)
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true"
+                        single-y-axis="true" single-y-axis-label= "SARS-CoV-2 RNA copies/ 100'000 Pers."
+                        label-x= "Datum des ProRheno Zulaufs"
+                        min=0 max= 100E12 step=250E11>
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="e_n1_n2_pro_tag_und_100_000_pers_prorheno_260_449_einw"
+                                label-y="SARS-CoV-2 [pro 100'000 Einw.]" chart-type="scatter"
+                                function-y="" color="black" scientific-display="true">
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                label-y ="7-TageMEDIAN SARS-CoV-2 [pro 100'000 Einw]" chart-type="line"
+                                function-y="" color="rgb(128,128,128)" scientific-display="true">
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median/ 7-Tagesmedian Fälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="7t_median_bs" label-y = "7-Tagesmedian Fälle BS"
+                                chart-type="line" function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7t_median_bl" label-y = "7-Tagesmedian Fälle BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean" label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/ L Abwasser"
+                                chart-type="line" function-y="" color="rgb(71,163,80)"
+                                scientific-display="true"
+                                min=0 max=4E6 step=10E5>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7t_median_bs_bl" label-y = "7-TagesMedian Total (BS+BL)"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)" 
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median PMMoV normiert/ 7-Tagesmedian Fälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="7t_median_bs" label-y = "7-Tagesmedian Fälle BS"
+                                chart-type="line" function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7t_median_bl" label-y = "7-Tagesmedian Fälle BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/PMMoV RNA copies"
+                                chart-type="line" function-y="" color="rgb(47,110,186)"
+                                scientific-display="true"
+                                min=0 max=0.02 step=0.005>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7t_median_bs_bl" label-y = "7-TagesMedian Total (BS+BL)"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)"
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median Zufluss normiert/ 7-Tagesmedian Fälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="7t_median_bs" label-y = "7-Tagesmedian Fälle BS"
+                                chart-type="line" function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7t_median_bl" label-y = "7-Tagesmedian Fälle BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" 
+                                label-y ="7-TageMEDIAN SARS-CoV-2 RNA copies/ 100'000 Pers."
+                                chart-type="line" function-y="" color="rgb(128,128,128)"
+                                scientific-display="true"
+                                min=0 max= 100E12 step=250E11>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7t_median_bs_bl" label-y = "7-TagesMedian Total (BS+BL)"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)" 
+                                scientific-display="true"
+                                min=0 max=1600 step=400>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median/ BS Hosp., IPS, Todesfälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="current_icu" label-y = "IPS BS"
+                                chart-type="line" function-y="" color="rgb(151, 29 ,39)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="ndiff_deceased" label-y = "Todesfälle BS"
+                                chart-type="line" function-y="" color="rgb(234,51,35)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/ L Abwasser"
+                                chart-type="line" function-y="" color="rgb(71,163,80)"
+                                scientific-display="true"
+                                min=0 max=4E6 step=10E5>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="current_hosp" label-y = "Hospitalierte BS"
+                                chart-type="line" function-y="" color="rgb(234,51,247)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median PMMoV normiert/ BS Hosp., IPS, Todesfälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="current_icu" label-y = "IPS BS" chart-type="line"
+                                function-y="" color="rgb(151, 29 ,39)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="ndiff_deceased" label-y = "Todesfälle BS"
+                                chart-type="line" function-y="" color="rgb(234,51,35)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/PMMoV RNA copies"
+                                chart-type="line" function-y="" color="rgb(47,110,186)"
+                                scientific-display="true"
+                                min=0 max=0.02 step=0.005>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="current_hosp" label-y = "Hospitalierte BS" 
+                                chart-type="line" function-y="" color="rgb(234,51,247)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median Zufluss normiert/ BS Hospitalisierte, IPS, Todesfälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="current_icu" label-y = "IPS BS" chart-type="line"
+                                function-y="" color="rgb(151, 29 ,39)" scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="ndiff_deceased" label-y = "Todesfälle BS"
+                                chart-type="line" function-y="" color="rgb(234,51,35)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                label-y ="7-TageMEDIAN SARS-CoV-2 RNA copies/ 100'000 Pers."
+                                chart-type="line" function-y="" color="rgb(128,128,128)"
+                                scientific-display="true"
+                                min=0 max= 100E12 step=250E11>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="current_hosp" label-y = "Hospitalierte BS"
+                                chart-type="line" function-y="" color="rgb(234,51,247)"
+                                scientific-display="true"
+                                min=0 max=180 step=45>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median/ R Wert BS
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/ L Abwasser"
+                                chart-type="line" function-y="" color="rgb(71,163,80)"
+                                scientific-display="true"
+                                min=0 max=4E6 step=10E5>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="median_r_mean" label-y = "R Wert BS"
+                                chart-type="line" function-y="" color="rgb(241,158,56)"
+                                scientific-display="true">
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median PMMoV normiert/ R Wert BS
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/PMMoV RNA copies"
+                                chart-type="line" function-y="" color="rgb(47,110,186)"
+                                scientific-display="true"
+                                min=0 max=0.02 step=0.005>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="median_r_mean" label-y = "R Wert BS"
+                                chart-type="line" function-y="" color="rgb(241,158,56)"
+                                scientific-display="true">
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median Zufluss normiert/ R Wert BS
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                label-y ="7-TageMEDIAN SARS-CoV-2 RNA copies/ 100'000 Pers."
+                                chart-type="line" function-y="" color="rgb(128,128,128)"
+                                scientific-display="true"
+                                min=0 max= 100E12 step=250E11>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="median_r_mean" label-y = "R Wert BS"
+                                chart-type="line" function-y="" color="rgb(241,158,56)"
+                                scientific-display="true">
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median/ tägliche Fälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="faelle_bs" label-y = "tägliche Fälle BS"
+                                chart-type="line" function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="anz_pos_bl" label-y = "tägliche Fälle BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/ L Abwasser"
+                                chart-type="line" function-y="" color="rgb(71,163,80)"
+                                scientific-display="true"
+                                min=0 max=4E6 step=10E5>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="daily_cases_bs_bl"
+                                label-y = "Anzahl tägliche Fälle Total (BS+BL)"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median PMMoV normiert/ tägliche Fälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="faelle_bs" label-y = "tägliche Fälle BS"
+                                chart-type="line" function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="anz_pos_bl" label-y = "tägliche Fälle BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/PMMoV RNA copies"
+                                chart-type="line" function-y="" color="rgb(47,110,186)"
+                                scientific-display="true"
+                                min=0 max=0.02 step=0.005>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="daily_cases_bs_bl" label-y = "Anzahl tägliche Fälle Total (BS+BL)"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median Zufluss normiert/ tägliche Fälle
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="faelle_bs" label-y = "tägliche Fälle BS"
+                                chart-type="line" function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="anz_pos_bl" label-y = "tägliche Fälle BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                label-y ="7-TageMEDIAN SARS-CoV-2 RNA copies/ 100'000 Pers."
+                                chart-type="line" function-y="" color="rgb(128,128,128)"
+                                scientific-display="true"
+                                min=0 max= 100E12 step=250E11>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="daily_cases_bs_bl"
+                                label-y = "Anzahl tägliche Fälle Total (BS+BL)"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)"
+                                scientific-display="true"
+                                min=0 max=2000 step=500>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median/ Positivitätsrate
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="positivity_rate_percent" label-y = "Positivitätsrate BS"
+                                chart-type="line" function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="pos_rate_bl" label-y = "Positivitätsrate BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/ L Abwasser"
+                                chart-type="line" function-y="" color="rgb(71,163,80)"
+                                scientific-display="true"
+                                min=0 max=4E6 step=10E5>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="pos_rate_bs_bl"
+                                label-y = "mittlere Positivitätsrate BS+BL"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median PMMoV normiert/ Positivitätsrate
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="positivity_rate_percent"
+                                label-y = "Positivitätsrate BS" chart-type="line"
+                                function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="pos_rate_bl"
+                                label-y = "Positivitätsrate BL (ARA Teil)" 
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
+                                label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/PMMoV RNA copies"
+                                chart-type="line" function-y="" color="rgb(47,110,186)"
+                                scientific-display="true"
+                                min=0 max=0.02 step=0.005>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="pos_rate_bs_bl"
+                                label-y = "mittlere Positivitätsrate BS+BL"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                7 Tage Median Zufluss normiert/ Positivitätsrate
+            </h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart timescale="day" align-month="true" label-x= "Datum des ProRheno Zulaufs" >
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie expression-y="positivity_rate_percent"
+                                label-y = "Positivitätsrate BS" chart-type="line"
+                                function-y="" color="rgb(198,128,84)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="pos_rate_bl"
+                                label-y = "Positivitätsrate BL (ARA Teil)"
+                                chart-type="line" function-y="" color="rgb(237, 197, 171)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                label-y ="7-TageMEDIAN SARS-CoV-2 RNA copies/ 100'000 Pers."
+                                chart-type="line" function-y="" color="rgb(128,128,128)" 
+                                scientific-display="true"
+                                min=0 max= 100E12 step=250E11>
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="pos_rate_bs_bl"
+                                label-y = "mittlere Positivitätsrate BS+BL"
+                                chart-type="line" function-y="" color="rgb(147, 77,33)"
+                                scientific-display="true"
+                                min=0 max=80 step=20>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+        </ods-dataset-context>
+    </ods-simple-tab>
+    <ods-simple-tab label="RSV" keep-content="false">
+        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+            <!-- RS-Virus -->
+            <h3>
+                Zeitraum wählen
+            </h3>
+            <ods-date-range-slider context="myctx" 
+                date-format="DD MMM YYYY" 
+                initial-from="'2021/08/14'" 
+                initial-to="'now'"
+                precision="day" 
+                date-field="datum" 
+                start-bound="'2021/08/14'" 
+                end-bound="'now'">
+            </ods-date-range-slider>
+            <h2>
+                RSV Genkopien pro Liter Abwasser
+            </h2>
+            <h3>
+                (nicht normiert)
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl RSV Genkopien pro Liter Abwasser stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="RSV (gc/L)"
+                                expression-y="rsv_gc_l"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="rgb(122,97,22)"
+                                scientific-display="true"
+                                min=0 max=12E5 step=3E5>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
+                                expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="rgb(0,0,0)"
+                                scientific-display="true"
+                                min=0 max=320 step=80>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="RSV (gc/L)"
+                                expression-y="rsv_gc_l_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="rgb(196,155,51)"
+                                scientific-display="true"
+                                min=0 max=12E5 step=3E5>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                RSV Genkopien pro PMMoV Genkopien
+            </h2>
+            <h3>
+                (Stuhl-normiert)
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl RSV Genkopien pro PMMoV Genkopien stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="RSV (gc/PMMoV)"
+                                expression-y="rsv_gc_pmmov"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="rgb(122,97,22)"
+                                scientific-display="true"
+                                min=0 max=0.04 step=0.01>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
+                                expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="rgb(0,0,0)"
+                                scientific-display="true"
+                                min=0 max=320 step=80>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="RSV (gc/PMMoV)"
+                                expression-y="rsv_gc_pmmov_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="rgb(196,155,51)"
+                                scientific-display="true"
+                                min=0 max=0.04 step=0.01>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                RSV Genkopien pro 100 000 Personen 
+            </h2>
+            <h3>
+                (Zufluss-normiert)
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl RSV Genkopien pro 100 000 Personen stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="RSV (gc/100'000 P.)"
+                                expression-y="rsv_gc_100_000_p"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="rgb(122,97,22)"
+                                scientific-display="true"
+                                min=0 max=24E12 step=6E12>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
+                                expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="rgb(0,0,0)"
+                                scientific-display="true"
+                                min=0 max=320 step=80>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="RSV (gc/100'000 P.)"
+                                expression-y="rsv_gc_100_000_p_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="rgb(196,155,51)"
+                                scientific-display="true"
+                                min=0 max=24E12 step=6E12>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+        </ods-dataset-context>
+    </ods-simple-tab>
+    <ods-simple-tab label="Influenza A, B (gc/L)" keep-content="false">
+        <!-- Influenza A, B Genkopien / Liter Abwasser -->
+        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+            <h3>
+                Zeitraum wählen
+            </h3>
+            <ods-date-range-slider context="myctx" 
+                date-format="DD MMM YYYY" 
+                initial-from="'2021/10/03'" 
+                initial-to="'now'"
+                precision="day" 
+                date-field="datum" 
+                start-bound="'2021/10/03'" 
+                end-bound="'now'">
+            </ods-date-range-slider>
+            <h2>
+                Influenza A Genkopien pro Liter Abwasser
+            </h2>
+            <h3>
+                (nicht normiert) 
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl Influenza A Genkopien pro Liter Abwasser stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfA (gc/L)"
+                                expression-y="infa_gc_l"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="#EF4026"
+                                scientific-display="true"
+                                min=0 max=32E4 step=8E4>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infa"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#929591" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA (gc/L)"
+                                expression-y="infa_gc_l_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#FF796C" 
+                                scientific-display="true"
+                                min=0 max=32E4 step=8E4>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                Influenza B Genkopien pro Liter Abwasser
+            </h2>
+            <h3>
+                (nicht normiert) 
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl Influenza B Genkopien pro Liter Abwasser stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfB (gc/L)"
+                                expression-y="infb_gc_l"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="#0343DF" 
+                                scientific-display="true"
+                                min=0 max=32E4 step=8E4>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infb"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#000000" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB (gc/L)"
+                                expression-y="infb_gc_l_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#7BC8F6" 
+                                scientific-display="true"
+                                min=0 max=32E4 step=8E4>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                Influenza A, B Genkopien pro Liter Abwasser
+            </h2>
+            <h3>
+                (nicht normiert) 
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfA (gc/L) 7-Tage Median"
+                                expression-y="infa_gc_l_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#FF796C" 
+                                scientific-display="true"
+                                min=0 max=32E4 step=8E4>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infa"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#929591" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB (gc/L) 7-Tage Median"
+                                expression-y="infb_gc_l_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#7BC8F6" 
+                                scientific-display="true"
+                                min=0 max=32E4 step=8E4>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infb"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#000000" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+        </ods-dataset-context>
+    </ods-simple-tab>
+    <ods-simple-tab label="Influenza A, B (gc/PMMoV)" keep-content="false">
+        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+            <h3>
+                Zeitraum wählen
+            </h3>
+            <ods-date-range-slider context="myctx" 
+                date-format="DD MMM YYYY" 
+                initial-from="'2021/10/03'" 
+                initial-to="'now'"
+                precision="day" 
+                date-field="datum" 
+                start-bound="'2021/10/03'" 
+                end-bound="'now'">
+            </ods-date-range-slider>
+            <h2>
+                Influenza A Genkopien pro PMMoV Genkopien
+            </h2>
+            <h3>
+                (Stuhl-normiert)
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl Influenza A Genkopien pro PMMoV Genkopien stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfA (gc/PMMoV)"
+                                expression-y="infa_gc_pmmov"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="#EF4026" 
+                                scientific-display="true"
+                                min=0 max=12E-3 step=3E-3>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infa"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#929591" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA (gc/PMMoV)"
+                                expression-y="infa_gc_pmmov_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#FF796C" 
+                                scientific-display="true"
+                                min=0 max=12E-3 step=3E-3>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                Influenza B Genkopien pro PMMoV Genkopien
+            </h2>
+            <h3>
+                (Stuhl-normiert)
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl Influenza B Genkopien pro PMMoV Genkopien stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfB (gc/PMMoV)"
+                                expression-y="infb_gc_pmmov"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="#0343DF" 
+                                scientific-display="true"
+                                min=0 max=12E-3 step=3E-3>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infb"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#000000" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB (gc/PMMoV)"
+                                expression-y="infb_gc_pmmov_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#7BC8F6" 
+                                scientific-display="true"
+                                min=0 max=12E-3 step=3E-3>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                Influenza A, B Genkopien pro PMMoV Genkopien
+            </h2>
+            <h3>
+                (Stuhl-normiert)
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfA (gc/PMMoV) 7-Tage Median"
+                                expression-y="infa_gc_pmmov_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#FF796C" 
+                                scientific-display="true"
+                                min=0 max=12E-3 step=3E-3>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infa"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#929591" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB (gc/PMMoV) 7-Tage Median"
+                                expression-y="infb_gc_pmmov_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#7BC8F6" 
+                                scientific-display="true"
+                                min=0 max=12E-3 step=3E-3>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infb"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#000000" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+        </ods-dataset-context>
+    </ods-simple-tab>
+    <ods-simple-tab label="Influenza A, B (gc/100'000 P.)" keep-content="false">
+        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+            <h3>
+                Zeitraum wählen
+            </h3>
+            <ods-date-range-slider context="myctx" 
+                date-format="DD MMM YYYY" 
+                initial-from="'2021/10/03'" 
+                initial-to="'now'"
+                precision="day" 
+                date-field="datum" 
+                start-bound="'2021/10/03'" 
+                end-bound="'now'">
+            </ods-date-range-slider>
+            <h2>
+                Influenza A Genkopien pro 100 000 Personen
+            </h2>
+            <h3>
+                (Zufluss-normiert)
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl Influenza A Genkopien pro 100 000 Personen stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfA (gc/100'000 P.)"
+                                expression-y="infa_gc_100_000_p"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="#EF4026" 
+                                scientific-display="true"
+                                min=0 max=8E12 step=2E12>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infa"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#929591" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA (gc/100'000 P.)"
+                                expression-y="infa_gc_100_000_p_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#FF796C" 
+                                scientific-display="true"
+                                min=0 max=8E12 step=2E12>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                Influenza B Genkopien pro 100 000 Personen
+            </h2>
+            <h3>
+                (Zufluss-normiert)
+            </h3>
+            <h4>
+                Das Liniendiagramm zu den Anzahl Influenza B Genkopien pro 100 000 Personen stellt den 7-Tage Median dar.
+            </h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfB (gc/100'000 P.)"
+                                expression-y="infb_gc_100_000_p"
+                                chart-type="scatter"
+                                function-y="AVG"
+                                color="#0343DF" 
+                                scientific-display="true"
+                                min=0 max=8E12 step=2E12>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infb"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#000000" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB (gc/100'000 P.)"
+                                expression-y="infb_gc_100_000_p_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#7BC8F6" 
+                                scientific-display="true"
+                                min=0 max=8E12 step=2E12>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+            <h2>
+                Influenza A, B Genkopien pro 100 000 Personen
+            </h2>
+            <h3>
+                (Zufluss-normiert)
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <ods-chart scientific-display="false" align-month="true">
+                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                            <ods-chart-serie label-y="InfA (gc/100'000 P.) 7-Tage Median"
+                                expression-y="infa_gc_100_000_p_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#FF796C" 
+                                scientific-display="true"
+                                min=0 max=8E12 step=2E12>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infa"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#929591" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB (gc/100'000 P.) 7-Tage Median"
+                                expression-y="infb_gc_100_000_p_7_d_median"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#7BC8F6" 
+                                scientific-display="true"
+                                min=0 max=8E12 step=2E12>
+                            </ods-chart-serie>
+                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                expression-y="7t_median_infb"
+                                chart-type="line"
+                                function-y="AVG"
+                                color="#000000" 
+                                scientific-display="true"
+                                min=0 max=32 step=8>
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </div>
+            </div>
+        </ods-dataset-context>
+    </ods-simple-tab>
+</ods-simple-tabs>

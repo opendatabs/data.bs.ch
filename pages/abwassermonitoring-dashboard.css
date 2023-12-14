@@ -1,0 +1,97 @@
+
+:root {
+    --boxes-radius: 6px;
+}
+
+body, main {
+    margin: 0;
+    background-color: white;
+}
+.map {
+    float:right; 
+    width: 50%; 
+    margin: 10px;
+}
+@media (max-width: 600px) { 
+   .map{
+      width: 100%;
+   }
+}
+section {
+    padding: 1.5rem 0;
+}
+
+.header {
+    margin: 3rem 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.box {
+    height: auto;
+    position: relative;
+    padding: 20px;
+}
+
+.box.white {
+    background-color: white;
+}
+
+.box.flat {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16);
+    border-radius: var(--boxes-radius);
+}
+
+.box.height {
+    height: 150px;
+}
+
+.pic-einzugsgebiet{
+    max-width: 550px;
+    height: auto;
+}
+
+/* Basic button
+   ========================================================================== */
+.basic-button {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #33629c; /* Button background color */
+    border: 1px solid #264972; /* Button border color */
+}
+.basic-button:hover {
+    outline: none;
+    text-decoration: none;
+    background-color: #264972; /* Button background color on mouse hover */
+    border-color: #213f63; /* Button border color on mouse hover */
+}
+
+.center {
+  text-align: center;
+}

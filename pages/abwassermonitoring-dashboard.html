@@ -2,14 +2,25 @@
     <div class="box white flat">
         <div class="row">
             <h1>
-                Abwassermonitoring
+                Virenmonitoring im Abwasser
             </h1>
             <div class="map box white flat">
-                <div class="map-container">
-                    <img class="pic-einzugsgebiet" src="/assets/theme_image/einzugsgebiet_prorheno-min.png" />
-                </div>
+                <ods-dataset-context context="myctx,myctx0" myctx-dataset="100336">
+                            <ods-map no-refit="true" scroll-wheel-zoom="true" basemap="9fffa5"
+                                     location="11,47.55543,7.60919">
+                                <ods-map-layer-group>
+                                    <ods-map-layer context="myctx" color="#C32D1C" picto="ods-circle" show-marker="true"
+                                                   display="auto" function="COUNT" shape-opacity="0" point-opacity="1"
+                                                   border-color="#2832C2" border-opacity="1" border-size="2"
+                                                   border-pattern="solid" caption-picto-color="#E5E5E5"
+                                                   title="Einzugsgebiet" size="4" size-min="3" size-max="5"
+                                                   size-function="linear">
+                                    </ods-map-layer>
+                                </ods-map-layer-group>
+                            </ods-map>
+                        </ods-dataset-context>
                 <h3>
-                    Karte von Einzugsgebiet der ARA Basel
+                    Karte des Einzugsgebiets der ARA Basel
                 </h3>
             </div>
             <h3>
@@ -49,7 +60,7 @@
                             <h3>
                                 Zeitraum wählen
                             </h3>
-                            <ods-date-range-slider context="myctx" 
+                            <ods-date-range-slider class="slider" context="myctx" 
                                 date-format="DD MMM YYYY" 
                                 initial-from="'2021/07/06'" 
                                 initial-to="'now'"
@@ -85,9 +96,6 @@
                                     </ods-chart>
                                 </div>
                             </div>
-                            <p>
-                                <br>
-                            </p>
                             <div class="col-md-2">
                                 <a class="basic-button"
                                    href="https://data.bs.ch/explore/dataset/100187"
@@ -112,7 +120,7 @@
                             <h3>
                                 Zeitraum wählen
                             </h3>
-                            <ods-date-range-slider context="myctx" 
+                            <ods-date-range-slider class="slider" context="myctx" 
                                 date-format="DD MMM YYYY" 
                                 initial-from="'2021/08/14'" 
                                 initial-to="'now'"
@@ -148,6 +156,9 @@
                                     </ods-chart>
                                 </div>
                             </div>
+                            <p>
+                                <br>
+                            </p>
                             <a class="basic-button"
                                href="https://data.bs.ch/explore/dataset/100302"
                                role="button">
@@ -163,7 +174,7 @@
                             <h3>
                                 Zeitraum wählen
                             </h3>
-                            <ods-date-range-slider context="myctx" 
+                            <ods-date-range-slider class="slider" context="myctx" 
                                 date-format="DD MMM YYYY" 
                                 initial-from="'2021/10/03'" 
                                 initial-to="'now'"
@@ -214,7 +225,7 @@
                             <h3>
                                 Zeitraum wählen
                             </h3>
-                            <ods-date-range-slider context="myctx" 
+                            <ods-date-range-slider class="slider" context="myctx" 
                                 date-format="DD MMM YYYY" 
                                 initial-from="'2021/10/03'" 
                                 initial-to="'now'"

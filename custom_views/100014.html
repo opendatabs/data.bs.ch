@@ -1,0 +1,61 @@
+Die Abbildungen zeigen die freien Parkplätze in ausgewählten Parkhäusern in Basel ab Februar 2020. Je länger die Säulen sind, desto voller ist ein Parkhaus. Im Tooltip wird die Anzahl freier Parkplätze angezeigt. 
+
+<br /><br />
+
+<ods-dataset-context context="myctx" myctx-dataset="100014" myctx-parameters="{'sort':'published','q.from_date.published':'published>=\'2020-01-31T23:00:00Z\'','refine.title':'Parkhaus Elisabethen'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="published" maxpoints="0" timescale="hour" series-breakdown="title">
+            <ods-chart-serie expression-y="free" chart-type="line" function-y="MIN" color="range-Set1" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+<br /><br />
+    
+</ods-dataset-context>
+
+<ods-dataset-context context="myctx" myctx-dataset="100014" myctx-parameters="{'sort':'published','q.from_date.published':'published>=\'2020-01-31T23:00:00Z\'','refine.title':'Parkhaus Messe'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="published" maxpoints="0" timescale="hour" series-breakdown="title">
+            <ods-chart-serie expression-y="free" chart-type="line" function-y="MIN" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+<br /><br />    
+    
+</ods-dataset-context>
+
+<ods-dataset-context context="myctx" myctx-dataset="100014" myctx-parameters="{'sort':'published','q.from_date.published':'published>=\'2020-01-31T23:00:00Z\'','refine.title':'Parkhaus Bad. Bahnhof'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="published" maxpoints="0" timescale="hour" series-breakdown="title">
+            <ods-chart-serie expression-y="free" chart-type="line" function-y="MIN" color="range-Dark2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+<br /><br />    
+    
+</ods-dataset-context>
+
+<ods-dataset-context context="myctx" myctx-dataset="100014" myctx-parameters="{'sort':'published','q.from_date.published':'published>=\'2020-01-31T23:00:00Z\'','refine.title':'Parkhaus Steinen'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="published" maxpoints="0" timescale="hour" series-breakdown="title">
+            <ods-chart-serie expression-y="free" chart-type="line" function-y="MIN" color="range-RdGy" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+<br /><br />    
+    
+</ods-dataset-context>
+
+<ods-dataset-context context="myctx" myctx-dataset="100014" myctx-parameters="{'sort':'published','q.from_date.published':'published>=\'2020-01-31T23:00:00Z\'','refine.title':'Parkhaus Rebgasse'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="published" maxpoints="0" timescale="hour" series-breakdown="title">
+            <ods-chart-serie expression-y="free" chart-type="line" function-y="MIN" color="range-PuOr" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

@@ -1,0 +1,360 @@
+<ods-dataset-context context="initctx"
+                     initctx-dataset="100120">
+    <div ods-analysis="lastyearanalysis"
+         ods-analysis-context="initctx"
+         ods-analysis-x="accident_date.year"
+         ods-analysis-serie-count="COUNT()">
+        {{ lastyear = lastyearanalysis.results[lastyearanalysis.results.length - 1].x.year; '' }}
+    </div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">  
+<ods-dataset-context ng-if="lastyear"
+                     context="myctx,veloctx,motorctx,fussctx" 
+                     myctx-dataset="100120" 
+                     myctx-parameters="{'disjunctive.accidenttype_de':true,
+                                       'disjunctive.accidentseveritycategory_de':true,
+                                       'disjunctive.roadtype_de':true,
+                                       'disjunctive.accidentweekday_de':true,
+                                       'disjunctive.accident_date':true,
+                                       'refine.accident_date': '' + lastyear,
+                                       'sort':'accident_date'}"
+                     veloctx-dataset="100120" 
+                     veloctx-parameters="{'refine.accidentinvolvingbicycle':'true',
+                                         'disjunctive.accidenttype_de':true,
+                                         'disjunctive.accidentseveritycategory_de':true,
+                                         'disjunctive.roadtype_de':true,
+                                         'disjunctive.accidentweekday_de':true,
+                                         'sort':'accident_date'}"
+                     motorctx-dataset="100120" 
+                     motorctx-parameters="{'refine.accidentinvolvingmotorcycle':'true',
+                                          'disjunctive.accidenttype_de':true,
+                                          'disjunctive.accidentseveritycategory_de':true,
+                                          'disjunctive.roadtype_de':true,
+                                          'disjunctive.accidentweekday_de':true,
+                                          'sort':'accident_date'}"
+                     fussctx-dataset="100120" 
+                     fussctx-parameters="{'refine.accidentinvolvingpedestrian':'true',
+                                         'disjunctive.accidenttype_de':true,
+                                         'disjunctive.accidentseveritycategory_de':true,
+                                         'disjunctive.roadtype_de':true,
+                                         'disjunctive.accidentweekday_de':true,
+                                         'sort':'accident_date'}">
+    {{ 
+    veloctx.parameters['refine.accidenttype_de'] = myctx.parameters['refine.accidenttype_de'] ;
+    veloctx.parameters['refine.accidentseveritycategory_de'] = myctx.parameters['refine.accidentseveritycategory_de'] ;
+    veloctx.parameters['refine.roadtype_de'] = myctx.parameters['refine.roadtype_de'] ;
+    veloctx.parameters['refine.accidentweekday_de'] = myctx.parameters['refine.accidentweekday_de'] ;
+    veloctx.parameters['refine.accidentinvolvingpedestrian'] = myctx.parameters['refine.accidentinvolvingpedestrian'] ;
+    veloctx.parameters['refine.accidentinvolvingmotorcycle'] = myctx.parameters['refine.accidentinvolvingmotorcycle'] ;
+    veloctx.parameters['refine.municipalitycode'] = myctx.parameters['refine.municipalitycode'] ;
+    veloctx.parameters['refine.accident_date'] = myctx.parameters['refine.accident_date'] ;
+    veloctx.parameters['refine.accidenthour'] = myctx.parameters['refine.accidenthour'] ;
+
+    motorctx.parameters['refine.accidenttype_de'] = myctx.parameters['refine.accidenttype_de'] ;
+    motorctx.parameters['refine.accidentseveritycategory_de'] = myctx.parameters['refine.accidentseveritycategory_de'] ;
+    motorctx.parameters['refine.roadtype_de'] = myctx.parameters['refine.roadtype_de'] ;
+    motorctx.parameters['refine.accidentweekday_de'] = myctx.parameters['refine.accidentweekday_de'] ;
+    motorctx.parameters['refine.accidentinvolvingpedestrian'] = myctx.parameters['refine.accidentinvolvingpedestrian'] ;
+    motorctx.parameters['refine.accidentinvolvingbicycle'] = myctx.parameters['refine.accidentinvolvingbicycle'] ;
+    motorctx.parameters['refine.municipalitycode'] = myctx.parameters['refine.municipalitycode'] ;
+    motorctx.parameters['refine.accident_date'] = myctx.parameters['refine.accident_date'] ;
+    motorctx.parameters['refine.accidenthour'] = myctx.parameters['refine.accidenthour'] ;
+
+
+    fussctx.parameters['refine.accidenttype_de'] = myctx.parameters['refine.accidenttype_de'] ;
+    fussctx.parameters['refine.accidentseveritycategory_de'] = myctx.parameters['refine.accidentseveritycategory_de'] ;
+    fussctx.parameters['refine.roadtype_de'] = myctx.parameters['refine.roadtype_de'] ;
+    fussctx.parameters['refine.accidentweekday_de'] = myctx.parameters['refine.accidentweekday_de'] ;
+    fussctx.parameters['refine.accidentinvolvingmotorcycle'] = myctx.parameters['refine.accidentinvolvingmotorcycle'] ;
+    fussctx.parameters['refine.accidentinvolvingbicycle'] = myctx.parameters['refine.accidentinvolvingbicycle'] ;
+    fussctx.parameters['refine.municipalitycode'] = myctx.parameters['refine.municipalitycode'] ;
+    fussctx.parameters['refine.accident_date'] = myctx.parameters['refine.accident_date'] ;
+    fussctx.parameters['refine.accidenthour'] = myctx.parameters['refine.accidenthour'] ;
+
+    }}
+
+
+    <div class="fullpage-app">
+        <div class="rightmodal"
+             ng-init="modalswitchstatus">
+
+            <div class="backdrop"
+                 ng-click="modalswitchstatus = !modalswitchstatus"
+                 ng-class="{'backdrop-active':modalswitchstatus}">
+            </div>
+
+            <div class="modal" 
+                 ng-class="{'modal-active':modalswitchstatus,
+                           'modal-filterson': (stats.parameters | values).length > 0}">
+
+                <div class="modal__leftside"> 
+                    <div class="modal__leftside__icon"
+                         ng-click="modalswitchstatus = !modalswitchstatus">
+                        <i class="fa fa-angle-double-up" aria-hidden="true"></i>    
+                    </div>
+                    <div class="modal__leftside__padding">
+                        <ods-filter-summary context="myctx"></ods-filter-summary>
+                    </div>
+                    <div class="a">
+                        <h3>
+                            Filter
+                        </h3></div>
+                </div>
+
+                <div class="modal__rightside">
+                    <div class="modal__header"
+                         ng-click="modalswitchstatus = !modalswitchstatus">
+
+                    </div>
+                    <div class="modal__content">
+                        <ods-facets context="myctx"></ods-facets>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <ods-filter-summary context="myctx">
+            {{ refinements }}
+        </ods-filter-summary>
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="grid-cols-12 gap-1" style="margin-right:35px">
+
+                    <div class="lg:cell-3 cell-full gap-1"> 
+                        <div class="cell-1 box blue flat">
+
+                            <div class="timeline">
+
+                                <!--KPI for Total -->
+                                <p class="kpi-title blue"
+                                   ods-aggregation="Total"
+                                   ods-aggregation-context="myctx"
+                                   ods-aggregation-function="COUNT">
+                                    {{ Total | number }}
+                                </p>                        </div>
+                      <div ng-if="myctx.parameters['refine.accident_date']">      
+                            <p  class="kpi-description blue"
+                                ods-results="results"
+                       ods-results-context="myctx"
+                       ods-results-max=1
+                       >
+                        Total polizeilich registrierte Verkehrsunfälle ({{ results[0].fields.accidentyear}})
+                            </p>
+                       </div> 
+                       <div ng-if="!myctx.parameters['refine.accident_date']">      
+                            <p  class="kpi-description blue"
+                                ods-results="results"
+                       ods-results-context="myctx"
+                       ods-results-max=1
+                       >
+                        Total polizeilich registrierte Verkehrsunfälle (2011 - {{lastyear}})
+                            </p>
+                       </div>      
+                        </div>  
+<!--KPI for Pedestrians -->                     
+                        <div class="cell-1 box white flat">
+                            
+                            <div class="timeline-bottom" >  
+                                <i class="material-icons"style="font-size:60px;">directions_run</i>
+                                <p ng-if="myctx.parameters['refine.accidentinvolvingpedestrian'] != 'false'"
+                                   class="kpi-title"
+                                   ods-aggregation="Fuss"
+                                   ods-aggregation-context="fussctx"
+                                   ods-aggregation-function="COUNT">
+                                    {{ Fuss | number }}
+                                </p>
+                                <p ng-if="myctx.parameters['refine.accidentinvolvingpedestrian'] == 'false'"
+                                   class="kpi-title">
+                                    0
+                                </p>
+                            </div>
+                            <p class="kpi-description">
+                                mit Fussgängerbeteiligung
+                            </p>
+
+                        </div>
+                        <!--KPI for bikes -->     
+                        <div class="cell-1 box white flat">
+                            <div class="timeline-bottom"> 
+                                <i class="material-icons"style="font-size:60px;">directions_bike</i>
+
+                                <p ng-if="myctx.parameters['refine.accidentinvolvingbicycle'] != 'false'"
+                                   class="kpi-title"
+                                   ods-aggregation="Velo"
+                                   ods-aggregation-context="veloctx"
+                                   ods-aggregation-function="COUNT">
+                                    {{result=( Velo | number)}}
+                                </p>
+
+                                <p ng-if="myctx.parameters['refine.accidentinvolvingbicycle'] == 'false'"
+                                   class="kpi-title">
+                                    0
+                                </p>
+                            </div> 
+
+                            <p class="kpi-description">
+                                mit Fahrradbeteiligung
+                            </p>
+                        </div>   
+
+                        <!--KPI for Motorbikes -->                    
+                        <div class="cell-1 box white flat">
+                            <div class="timeline-bottom">  
+                                <i class="kpi-icon fa fa-motorcycle" aria-hidden="true"></i>
+                                <p ng-if="myctx.parameters['refine.accidentinvolvingmotorcycle'] != 'false'"
+                                   class="kpi-title"
+                                   ods-aggregation="Motor"
+                                   ods-aggregation-context="motorctx"
+                                   ods-aggregation-function="COUNT">
+                                    {{ Motor | number }}
+                                </p>
+                                <p ng-if="myctx.parameters['refine.accidentinvolvingmotorcycle'] == 'false'"
+                                   class="kpi-title">
+                                    0
+                                </p>
+                            </div>
+                            <p class="kpi-description">
+                                mit Motorradbeteiligung
+                            </p>
+                        </div>
+
+                    </div>  
+
+                    <!--Map -->
+                    <div class="lg:cell-6 cell-full gap-1">
+                        <div class="cell-1 box white flat">
+                            <ods-map style="height: 500px" 
+                                     scroll-wheel-zoom="true" 
+                                     basemap="jawg.light"
+                                     search-box="false"
+                                     location="12,47.56198,7.62439"
+                                     toolbar-fullscreen="false" 
+                                     toolbar-geolocation="true"
+                                     no-refit="true">
+                                <ods-map-layer-group>
+                                    <ods-map-layer context="myctx" 
+                                                   color="#a6bddb"
+                                                   picto="dot" 
+                                                   show-marker="false" 
+                                                   display="auto" 
+                                                   function="COUNT" 
+                                                   expression="begehrenid" 
+                                                   shape-opacity="0.5" 
+                                                   point-opacity="1" 
+                                                   border-color="#FFFFFF" 
+                                                   border-opacity="1" 
+                                                   border-size="1" 
+                                                   border-pattern="solid" 
+                                                   caption-picto-color="#8DB9D8"
+                                                   size="8"
+                                                   size-min="3" 
+                                                   size-max="4" 
+                                                   size-function="linear"
+                                                   title="Cluster"
+                                                   description="Anzahl Belegungen"
+                                                   >
+                                    </ods-map-layer>
+                                </ods-map-layer-group>
+                            </ods-map>
+                        </div>
+                    </div> 
+
+                    <!--Chart Accident Date-->                 
+                    <div class="lg:cell-3 cell-full gap-1">  
+                        <div class="cell-1 box white flat">
+                                <h3>
+                                Unfälle pro Jahr
+                                </h3>
+                            <ods-chart label-x=""  single-y-axis="true" align-month="true" display-legend="false" >
+                                <ods-chart-query context="myctx" field-x="accident_date" maxpoints="0" timescale="year">
+                                    <ods-chart-serie chart-type="bar" function-y="COUNT" color="#1c3d50" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </div> 
+
+                        <!--Chart Accident Weekday-->         
+                        <div class="cell-1 box white flat">
+                            <h3>
+                                Unfälle pro Wochentag
+                                </h3>
+                            
+                            <ods-chart single-y-axis="true" label-x=""style="height: 250px"align-month="true" display-legend="false" labels-x-length="14">
+                                <ods-chart-query context="myctx" field-x="accidentweekday_de" maxpoints="0">
+                                    <ods-chart-serie chart-type="bar" function-y="COUNT" color="#1c3d50" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>      
+                        </div>     
+                    </div>       
+               
+
+                    <!--Barchart Severity-->        
+                    <div class="md:cell-3 cell-full gap-1"> 
+                        <div class="cell-1 box white flat">
+                            <h3>
+                                Unfälle nach Schwerekategorie
+                                </h3>
+    <ods-chart display-legend="true" label-x="" style="height: 250px" labels-x-length="0" align-month="false">
+        <ods-chart-query context="myctx" field-x="accident_date" maxpoints="0" timescale="year" reverse-stacks="true" stacked="normal" series-breakdown="accidentseveritycategory_de" category-colors="{'1 Unfall mit Sachschaden':'#a6bddb','2 Unfall mit Leichtverletzten':'#74a9cf','3 Unfall mit Schwerverletzten':'#2b8cbe','4 Unfall mit Getöteten':'#045a8d'}">
+            <ods-chart-serie chart-type="bar" function-y="COUNT" color="range-Paired" display-values="false" display-stack-values="false" scientific-display="true">
+            </ods-chart-serie>
+          
+        </ods-chart-query>
+    </ods-chart>
+                            
+                        </div>
+                    </div>
+
+                    <!--Linechart Severitycategory-->       
+                    <div class="md:cell-6 cell-full gap-1"> 
+                        <div class="cell-1 box white flat">
+                            <h3>
+                                Unfälle nach Unfalltyp
+                                </h3>
+    <ods-chart labels-x-length="20" style="height: 250px"single-y-axis="true" display-legend="false" align-month="true"label-x="">
+        <ods-chart-query context="myctx" field-x="accidenttype_de" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie chart-type="column" function-y="COUNT" color="#1c3d50" display-values="true" scientific-display="false">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+
+
+                        </div> 
+                    </div>
+
+
+                    <!--Chart Hour-->        
+                    <div class="md:cell-3 cell-full gap-1"> 
+                        <div class="cell-1 box white flat">
+                            <h3>
+                                Unfälle nach Tageszeit
+                                </h3>
+                            <ods-chart label-x="" style="height: 250px"class="lighter-y-legend" align-month="true" display-legend="false">
+                                <ods-chart-query context="myctx" field-x="accidenthour" maxpoints="0">
+                                    <ods-chart-serie chart-type="bar" function-y="COUNT" color="#1c3d50" scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>   
+                        </div>
+                    </div>  
+                </div> 
+                <p style="margin-top:11px">    
+                Datengrundlage: <a href="https://www.astra.admin.ch/astra/de/home/dokumentation/daten-informationsprodukte/unfalldaten.html" target="_blank">www.unfalldaten.ch</a>
+                Kontakt: <a href="https://www.polizei.bs.ch/verkehr/verkehrssicherheit.html" target="_blank">Kantonspolizei Basel-Stadt, Abteilung Verkehrssicherheit</a><br />
+                Datenquelle: Kantonales Datenportal, <a href="https://data.bs.ch/explore/dataset/100120/table/" target="_blank">Datensatz zu Strassenverkehrsunfällen</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</ods-dataset-context>
+</ods-dataset-context>
+
+
+

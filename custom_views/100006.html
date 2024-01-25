@@ -1,0 +1,10 @@
+<ods-dataset-context context="myctx" myctx-dataset="100006" myctx-parameters="{'sort':'datetimefrom','timezone':'Europe/Berlin','refine.sitename':'420 Nauenstrasse 73'}">
+        <b>Motorisierter Individualverkehr an der Zählstelle &laquo;Nauenstrasse 73&raquo;</b>
+    <ods-chart align-month="true" label-x="Tag des Jahres">
+        <ods-chart-query context="myctx" field-x="dayofyear" maxpoints="0" series-breakdown="year" category-colors="{'2019':'#D7E8D2','2020':'#68AB2B','2021':'#0A3B19'}">
+            <ods-chart-serie expression-y="total" chart-type="line" function-y="SUM" label-y="Anzahl Motorfahrzeuge" color="range-Accent" display-units="false" scientific-display="false">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

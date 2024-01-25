@@ -1,0 +1,22 @@
+<ods-dataset-context context="myctx" myctx-dataset="100013" myctx-parameters="{'sort':'datetimefrom','timezone':'Europe/Berlin','refine.traffictype':'Velo','refine.sitename':'354 Wettsteinbrücke'}">
+    <b>Veloverkehr an der Zählstelle &laquo;Wettsteinbrücke&raquo;</b>
+    <ods-chart align-month="true" label-x="Tag des Jahres">
+        <ods-chart-query context="myctx" field-x="dayofyear" maxpoints="0" series-breakdown="year" category-colors="{'2019':'#D3E2E4','2020':'#689199','2021':'#0A3B19'}">
+            <ods-chart-serie expression-y="total" chart-type="line" function-y="SUM" label-y="Anzahl Velos" color="range-Accent" display-units="false" scientific-display="false">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<ods-dataset-context context="myctx" myctx-dataset="100013" myctx-parameters="{'sort':'datetimefrom','timezone':'Europe/Berlin','refine.traffictype':'Fussgänger','refine.sitename':'817 Elisabethenanlage'}">
+        <br /><br/>
+    <b>Fussgänger an der Zählstelle &laquo;Elisabethenanlage&raquo;</b>
+    <ods-chart align-month="true" label-x="Tag des Jahres">
+        <ods-chart-query context="myctx" field-x="dayofyear" maxpoints="0" series-breakdown="year" category-colors="{'2019':'#E7CEE2','2020':'#923F8D','2021':'#2E1435'}">
+            <ods-chart-serie expression-y="total" chart-type="line" function-y="SUM" label-y="Anzahl Fussgänger" color="range-Accent" display-units="false" scientific-display="false" max="10000">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+<em>Zur besseren Lesbarkeit der Grafik geht die Skala bei der Fussgänger-Zählstelle nur bis 10&nbsp;000, weshalb die Ausreisser im Jahr 2019 vom 11.-13. März (Fasnacht: &Oslash;18&nbsp;663) und 14. Juni (Frauenstreik: 13&nbsp;536) abgeschnitten sind.</em>
+</ods-dataset-context>

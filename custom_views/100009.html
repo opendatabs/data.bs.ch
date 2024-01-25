@@ -1,0 +1,14 @@
+<ods-dataset-context context="myctx,myctx0" 
+                     myctx-dataset="100009" myctx-parameters="{'disjunctive.name_original':true,'disjunctive.name_custom':true,'sort':'-dates_max_date','refine.name_custom':'Grenzacherstrasse','timezone':'Europe/Berlin'}" 
+                     myctx0-dataset="100081" myctx0-parameters="{'sort':'zeitstempel','q.from_date.zeitstempel':'zeitstempel>=\'2020-05-06T22:00:00Z\'','refine.name':'Basel Grenzacherstrasse'}">
+    <ods-chart timescale="day" align-month="true">
+        <ods-chart-query context="myctx" field-x="dates_max_date" maxpoints="0" timescale="hour">
+            <ods-chart-serie expression-y="meta_rain_1h_val" chart-type="column" function-y="AVG" color="#93117E" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx0" field-x="zeitstempel" maxpoints="0" timescale="hour">
+            <ods-chart-serie expression-y="pm_2_5" chart-type="line" function-y="AVG" color="#19630A" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>

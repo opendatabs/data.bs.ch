@@ -1,0 +1,335 @@
+/* ==========================================================================
+COLOR BIG HEADER THEME
+========================================================================== */
+
+/* 
+The CSS rules below apply to the whole portal.
+Some suggestions:
+- You should add below CSS rules that apply to elements that show up in all pages (such as the 
+header or footer) or built-in pages such as the Explore page, the MapBuilder, the ChartBuilder and the API 
+page.
+- For CSS that applies to a specific user-created page, add it directly in the "CSS" 
+tab in the page edit section. This makes it easier to keep track of which classes 
+are page specific and which ones are generic and apply to the whole portal.
+*/
+
+
+/* Portal Header - Logo and main navigation
+========================================================================== */
+
+.portal-header {
+    padding: 0;
+    border-bottom: 1px solid var(--header-background);
+    height: auto;
+}
+
+.ods-responsive-menu--collapsed.portal-header {
+    height: auto;
+    border-bottom: none;
+    background-color: var(--page-background);
+}
+
+.ods-responsive-menu-placeholder__container {
+    flex: 1 1 auto;
+}
+
+.portal-logo-primary {
+    margin-left: 0;
+    margin-top: 2px;
+    height: 72px;
+    width: auto;
+}
+
+.portal-header-logo-container {
+    height: 79px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-between;
+        -ms-flex-pack: space-between;
+            justify-content: space-between;
+    background-color: var(--page-background); /* background color behind logo for two tone effect */
+}
+
+/* Logo */
+.ods-front-header__logo {
+    display: block;
+    width: auto; /* Logo width */
+    height: 79px; /* Logo height */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Logo size in responsive mode */
+.ods-responsive-menu--collapsed .ods-front-header__logo {
+    width: auto; /* Logo width in mobile mode */
+    max-height: 79px; /* Logo max height in mobile mode */
+}
+
+.ods-responsive-menu-placeholder__toggle {
+    flex: 0 0 auto;
+    position: static;
+    order: 1;
+    color: var(--text);
+}
+
+.ods-responsive-menu-collapsible__toggle-button {
+    opacity: .7;
+}
+
+.ods-responsive-menu-collapsible__toggle-button:hover {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.ods-responsive-menu-placeholder__toggle:hover {
+    background-color: transparent;
+}
+
+.portal-navigation {
+    border-top: 1px solid var(--header-background);
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.ods-front-header__menu {
+    margin: 0 10px;
+}
+
+.ods-front-header__menu-item-link {
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    letter-spacing: .8px;
+    line-height: 59px;
+    padding: 0 13px;
+    opacity: 1;
+}
+
+.ods-front-header__menu-item-link:hover,
+.ods-front-header__menu-item-link--active {
+    background-color: rgb(47,75,89);
+    color: #FFFFFF; /* Header link color when the link is active */
+}
+
+
+/* Management Menu
+   ========================================================================== */
+
+.ods-front-header__management-menu {
+    position: absolute;
+    top: 78px;
+    right: 13px;
+    line-height: 59px;
+    font-size: .833rem;
+}
+
+.ods-front-header__management-menu-item {
+    margin: 0 0 0 26px;
+}
+
+.ods-front-header__management-menu-item-link--active, 
+.ods-front-header__management-menu-item-link:hover {
+    border: none;
+    color: var(--page-background);
+}
+
+.ods-front-header__account-avatar-container {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.ods-front-header__management-menu-item--backoffice {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+/* Button "Back Office" in header */
+.ods-front-header__management-menu-item--backoffice .ods-front-header__management-menu-item-link--backoffice {
+    display: inline-block;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    background-color: transparent;  
+    border-radius: 4px;
+}
+
+.ods-front-header__management-menu-item-link--backoffice:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+.ods-front-header__management-menu-item-link {
+    padding-bottom: 0;
+    color: #FFFFFF;
+}
+
+
+/* Header - Mobile (small screens)
+   ========================================================================== */
+
+.ods-responsive-menu-placeholder.ods-responsive-menu-placeholder--active {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.ods-responsive-menu--collapsed .ods-responsive-menu-collapsible__content {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.ods-responsive-menu-collapsible--collapsed .portal-header-logo-container {
+    display: none;
+}
+
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__menu-item-link {
+    width: 100%;
+    border-left: none;
+}
+
+.ods-responsive-menu-collapsible--collapsed .portal-navigation,
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__menu,
+.ods-responsive-menu-collapsible--collapsed .portal-management-menu {
+    width: 100%;
+}
+
+/* Management Menu - Mobile (small screens)
+   ========================================================================== */
+
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu {
+    padding: 13px;
+}
+
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu-item {
+    padding-left: 0;
+}
+
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu-item--backoffice {
+    padding: 0;
+}
+
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu-item-link--backoffice {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logos-container{
+    margin-left: 128px;
+    margin-right: 128px;
+}/* DESKTOP SPECIFICS - STYLE OF DROPDOWN MENU
+========================================================================== */
+
+.ods-front-header__menu-item {
+    position: relative;
+}
+
+.ods-front-header__menu-item-link--active {
+    border-bottom: 0px solid;
+    color: #FFF;
+    opacity: 1;
+}
+
+li.dropdown-menu i {
+    font-size: 1.2em;
+    margin-left: 13.5px;
+    color: var(--header-links);
+}
+
+ul.dropdown-menu-submenu {
+    display: none;
+    margin: 0;
+    padding: 22px 28px;
+    list-style: none;
+    background-color: var(--header-background);
+}
+
+ul.dropdown-menu-submenu.dropdown-menu-submenu__active {
+    display: inherit;
+}
+
+li.dropdown-menu-submenu-item {
+    margin-bottom: 26px;
+    }
+
+li.dropdown-menu-submenu-item:last-child {
+    margin-bottom: inherit;
+}
+
+.ods-responsive-menu-collapsible:not(.ods-responsive-menu-collapsible--collapsed) ul.ods-front-header__menu {
+    display: flex;
+    align-items: center; 
+}
+
+.ods-responsive-menu-collapsible:not(.ods-responsive-menu-collapsible--collapsed) ul.dropdown-menu-submenu {
+    position: absolute;
+    top: 55px;
+    left: 1px;
+    z-index: 1001;
+    filter: drop-shadow(0px 14px 8px rgba(37, 48, 59, 0.1)); 
+}
+
+.ods-responsive-menu-collapsible:not(.ods-responsive-menu-collapsible--collapsed) .ods-front-header__menu .custom-menu-item-submenu {
+    width: auto !important;
+    top: 55px !important;
+    left: 1px !important;
+    padding: 20px !important;
+    filter: drop-shadow(0px 0px 8px rgba(37, 48, 59, 0.2)) !important; }
+
+.ods-responsive-menu-collapsible:not(.ods-responsive-menu-collapsible--collapsed) .ods-front-header__menu .dropdown-menu-submenu a {
+    white-space: nowrap; 
+}
+
+
+/* MOBILE SPECIFICS
+========================================================================== */
+.ods-responsive-menu-placeholder.ods-responsive-menu-placeholder--active {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.ods-responsive-menu--collapsed .ods-responsive-menu-collapsible__content {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__logo {
+    display: none;
+}
+
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__menu,
+.ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu
+{
+    width: 100%;
+}

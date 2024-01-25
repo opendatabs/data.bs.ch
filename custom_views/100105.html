@@ -1,0 +1,24 @@
+<p>Anzahl positiv auf SARS-CoV-2 getestete Personen verteilt auf 10 Altersklassen nach Monat.</p>
+<ods-dataset-context context="myctx" myctx-dataset="100105" myctx-parameters="{'disjunctive.pers_alter':true,'sort':'test_datum','timezone':'Europe/Berlin'}">
+    <ods-chart timescale="day" align-month="true">
+        <ods-chart-query context="myctx" field-x="test_datum" maxpoints="0" timescale="month" series-breakdown="pers_alter" category-colors="{'20 - 29':'#ff9933','30 - 39':'#ffcc33','40 - 49':'#ccff33','50 - 59':'#66ff33','60 - 69':'#33ff66','70 - 79':'#33ffff','10 - 19':'#ff6633','80 - 89':'#33ccff','>89':'#3366ff','00 - 09':'#ff3333'}">
+            <ods-chart-serie expression-y="anzahl" chart-type="column" function-y="SUM" color="range-RdYlGn" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+<br />
+
+
+<br />
+<p>Prozentuale Verteilung der positiv auf SARS-CoV-2 getesteten Personen nach Altersklasse und Monat.</p>
+<ods-dataset-context context="myctx" myctx-dataset="100105" myctx-parameters="{'disjunctive.pers_alter':true,'sort':'test_datum','timezone':'Europe/Berlin'}">
+    <ods-chart timescale="day" align-month="true">
+        <ods-chart-query context="myctx" field-x="test_datum" maxpoints="0" timescale="month" stacked="percent" reverse-stacks="true" series-breakdown="pers_alter" category-colors="{'20 - 29':'#ff9933','30 - 39':'#ffcc33','40 - 49':'#ccff33','50 - 59':'#66ff33','60 - 69':'#33ff66','70 - 79':'#33ffff','10 - 19':'#ff6633','80 - 89':'#33ccff','>89':'#3366ff','00 - 09':'#ff3333'}">
+            <ods-chart-serie expression-y="anzahl" chart-type="column" function-y="SUM" color="range-RdYlGn" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

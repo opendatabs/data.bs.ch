@@ -1,0 +1,192 @@
+<div class="text-center">
+                <a href="https://www.entwicklung.bs.ch/grundlagen/smart-city/smarte-strasse.html" target="_blank"
+                   class="content-card-button">
+                    Infos zum Projekt «Smarte Strasse»
+                </a>
+            </div><br />
+    <p><b>E-Ladestation</b>
+
+        <div ods-dataset-context ="stationsctx"
+             context="stationsctx"
+             stationsctx-dataset="100047"
+             stationsctx-parameters="100047"
+             sort="stoptime">
+
+            <div ods-facet-results="stations"
+                 ods-facet-results-context="stationsctx"
+                 ods-facet-results-facet-name="kilowatthour"
+                 >    
+        <div   ods-dataset-context context="values"
+                         values-dataset="100047"
+                         values-parameters= "{'sort':'stoptime'}"
+                         ><p class="reference2" ods-results="results"
+                           ods-results-context="values"
+                           ods-results-max=1
+                           >
+                            Stand: {{ results[0].fields.stoptime|moment:"DD.MM.YYYY HH:mm:ss" }}, Daten seit 20.08.2021
+                        </p>
+                </div></div></div>
+    <div ods-dataset-context
+             context="stationsctx"
+             stationsctx-dataset="100047"
+             stationsctx-parameters="100047"
+             sort="stoptime">
+
+            <div ods-facet-results="stations"
+                 ods-facet-results-context="stationsctx"
+                 ods-facet-results-facet-name="kilowatthour"
+                 >
+    
+                
+                <div class="row justify-content-center">
+                
+    <!-------------------------- Box für Basler Werte ----------------------------------->
+                
+                <div class="col-xs-6">
+
+                    <div class="kpi-card"
+                         ods-dataset-context context="values"
+                         values-dataset="100047"
+                         values-parameters= "{'sort':'stoptime'}"
+                         >
+                        <h3 class="kpi-ueber">
+                            Mittlere Ladedauer pro Ladevorgang   
+                        </h3> 
+                        <h2 class="kpi-title"
+                            ods-aggregation="avgduration"
+                           ods-aggregation-context="values"
+                           ods-aggregation-function="AVG"
+                           ods-aggregation-expression="duration">
+                    {{ avgduration | number : 0}} min
+                        </h2>
+
+                    </div>
+
+                </div>
+                    
+                     <div class="col-xs-6">
+
+                   <div class="kpi-card"
+                         ods-dataset-context context="values"
+                         values-dataset="100047"
+                         values-parameters= "{'sort':'stoptime'}"
+                         >
+                        <h3 class="kpi-ueber">
+                            Mittlere Anzahl Ladevorgänge pro Tag
+                        </h3> 
+                      <h2 class="kpi-title"
+                            ods-adv-analysis="myData"
+                           ods-adv-analysis-context="values"
+                           ods-adv-analysis-select="((sum(station_location_coordinates_lng)/max(station_location_coordinates_lng))/max(time_measured)) as avgkwh">
+                            {{ myData[0].avgkwh| number : 2}}
+                        </h2>
+                    </div>
+
+                </div>    
+                
+                <div class="col-xs-6">
+
+                    <div class="kpi-card"
+                         ods-dataset-context context="values"
+                         values-dataset="100047"
+                         values-parameters= "{'sort':'stoptime'}"
+                         >
+                        <h3 >
+                            Mittlere Lademenge pro Ladevorgang
+                        </h3> 
+                        <h2 class="kpi-title"
+                            ods-aggregation="avgwatthour"
+                           ods-aggregation-context="values"
+                           ods-aggregation-function="AVG"
+                           ods-aggregation-expression="kilowatthour">
+                            {{avgwatthour | number : 2}} kWh
+                        </h2>
+                       <p 
+                            ods-aggregation="avgwatthour"
+                           ods-aggregation-context="values"
+                           ods-aggregation-function="AVG"
+                           ods-aggregation-expression="kilowatthour">
+                            entspricht in etwa <b>{{avgwatthour*6.6666666 | number : 2}} km</b> Fahrleistung*. 
+                        </p>
+                    </div>
+
+                </div>
+                    <div class="col-xs-6">
+
+                   <div class="kpi-card"
+                         ods-dataset-context context="values"
+                         values-dataset="100047"
+                         values-parameters= "{'sort':'stoptime'}"
+                         >
+                        <h3 class="kpi-ueber">
+                            Mittlere Lademenge pro Tag
+                        </h3> 
+                       <h2 class="kpi-title"
+                            ods-adv-analysis="myData"
+                           ods-adv-analysis-context="values"
+                           ods-adv-analysis-select="(sum(kilowatthour)/max(time_measured)) as avgkwh">
+                            {{ myData[0].avgkwh| number : 2}} kWh
+                        </h2>
+                        <p ods-adv-analysis="myData"
+                           ods-adv-analysis-context="values"
+                           ods-adv-analysis-select="(sum(kilowatthour)/max(time_measured)) as avgkwh">
+                            entspricht in etwa <b>{{ myData[0].avgkwh*6.6666666| number : 2}} km</b> Fahrleistung*.
+                        </p>
+                    </div>
+
+                </div>    
+                
+                  
+                
+                                 
+           </div><p>
+                * Die Fahrleistung ist vom Fahrzeugtyp abhängig. Dies ist lediglich ein Richtwert.
+                </p> <br />
+                <p><b>
+                    Wieviel wurde getankt?</b>
+                </p>
+<ods-dataset-context context="myctx" myctx-dataset="100047" myctx-parameters="{'sort':'-stoptime','q':'starttime > #now(days=-7)'}">
+    <ods-chart label-x="" align-month="true" display-legend="false">
+        <ods-chart-query context="myctx" field-x="stoptime" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="kilowatthour" chart-type="column" function-y="SUM" color="#66c6eb"  scientific-display="false">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                </ods-dataset-context>
+             
+<p class="reference">
+    <b>Zum Datensatz im Datenportal:</b> <a href="https://data.bs.ch/explore/dataset/100047/table/" target="_blank">Smarte Strasse: Elektroauto-Ladestationen</a>
+<br /></p>
+  
+
+              
+            </div>
+        </div><br />
+<p>
+IWB <a href="https://iwb.ch" target="_blank">(www.iwb.ch)</a> testet im Rahmen der Smarten Strasse Alternativen für die Betankung von Elektroautos. Das Unternehmen prüft, inwiefern sich Kabelverteilkasten (KVK) dafür eignen, Ladestationen daran anzuschliessen. Da für Ladestationen ab KVKs keine Tiefbauarbeiten notwendig sind, lassen sich die Stationen schneller und günstiger bauen.</p> 
+<p>
+  Im Auftrag des Kantons Basel-Stadt betreibt und wartet IWB die öffentlichen Beleuchtung. Damit an den Masten der öffentlichen Beleuchtung Sensoren angebracht werden können, traf IWB diverse technische Vorkehrungen. Zum einen wurde im entsprechenden Strassenabschnitt die Stromzufuhr der Masten neu konfiguriert, so dass der Strom auch tagsüber zur Verfügung steht. Denn bisher floss der Strom nur, wenn die Beleuchtung an war – also abends und nachts. Zudem wurden wetterresistente Stromanschlüsse für die Sensoren installiert. Die Nutzung der IWB-Infrastruktur hat wichtige Erkenntnisse für die künftige Nutzung von Sensoren im Stadtgebiet gebracht.  
+        </p>
+   <br />
+        
+
+        
+    <div class="Footer_outer">
+            <div class="Footer_inner_left"><br />
+            <b> Weitere Informationen</b><br />
+            IWB – Industrielle Werke Basel <br />
+                Kontakt:<a href="tel:+41 61 275 58 00"> +41 61 275 58 00</a> / <a href="mailto:mobilitaet@iwb.ch">mobilitaet@iwb.ch</a><br />
+            </div>
+  <div class="Footer_inner_right"><br />
+      <b style="font-size:70%"> powered by – SwissCharge</b><br />
+            
+      <a href="https://www.swisscharge.ch/" target="_blank" ><img src="https://data.bs.ch/assets/theme_image/SwissCharge_ohne_claim.jpg" alt="SwissCharge Logo" width="140" ></a>
+</div>
+</div>    
+<!-------------------------- 
+by Boris Djakovic
+If you require any further information, feel free to contact me boris.djakovic@bs.ch 
+----------------------------------->
+
+
+ 

@@ -1,0 +1,11 @@
+<ods-dataset-context context="myctx" myctx-dataset="100049" myctx-parameters="{'sort':'datum_zeit','refine.datum_zeit':'2020'}">
+    <ods-chart align-month="true">
+        <ods-chart-query context="myctx" field-x="datum_zeit" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="pm10_stundenmittelwerte_ug_m3" chart-type="line" function-y="AVG" color="#19630A" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="pm2_5_stundenmittelwerte_ug_m3" chart-type="line" function-y="AVG" color="#93117E" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

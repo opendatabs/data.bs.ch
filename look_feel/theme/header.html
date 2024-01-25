@@ -1,0 +1,123 @@
+<nav class="ods-front-header portal-header" ods-responsive-menu breakpoint="1000">
+    <!-- 
+        ---- Mobile View ----
+        - Displayed when screen width is lower than the "breakpoint" value inserted above. 
+        - The navigation menu will automatically be inserted behind a "hamburger" menu.
+        - Make sure to test the responsive design when editing this.
+    -->
+    <ods-responsive-menu-placeholder>   
+        <!-- 
+            Mobile Logo
+            -->
+        <div class="portal-header-logo-container">
+            <a href="/">       
+                <img class="portal-logo-primary" src="/assets/theme_image/logo-b-w.svg"/>
+            </a> 
+        </div>
+    </ods-responsive-menu-placeholder>
+    <!--
+        ---- Desktop Header ----
+        - Header items visible when screen size is bigger than "breakpoint" variable.
+    -->
+    <ods-responsive-menu-collapsible>
+        <!-- This language menu is only visible in mobile mode -->
+        ##language## 
+        <div class="portal-header-logo-container">
+            <a href="/">       
+                <img class="portal-logo-primary" src="/assets/theme_image/logo-b-w.svg"/>
+            </a> 
+            <!-- 
+                    Desktop Logo 
+                -->
+            ##logo##
+        </div>
+        <!-- Main Navigation Menu -->
+        <div class="portal-navigation">
+           <ul class="ods-front-header__menu"
+    ng-init="variables = { 'menuState' : false }">
+  <!-- START - CLASSIC MENU ITEM -->
+  <li class="ods-front-header__menu-item">
+    <!-- ITEM MENU LINK HERE -->
+    <a href="/pages/home/" class="ods-front-header__menu-item-link">
+      <!-- ITEM MENU FR TITLE HERE -->
+      <span ng-if="'fr'|currentLanguage">Accueil</span>
+      <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'en'|currentLanguage">Home</span>
+        <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'de'|currentLanguage">Home</span>
+    </a>
+    <a href="/explore/" class="ods-front-header__menu-item-link">
+      <!-- ITEM MENU FR TITLE HERE -->
+      <span ng-if="'fr'|currentLanguage">Données</span>
+      <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'en'|currentLanguage">Data</span>
+        <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'de'|currentLanguage">Daten</span>
+    </a>
+    <a href="/api/" class="ods-front-header__menu-item-link">
+      <!-- ITEM MENU FR TITLE HERE -->
+      <span ng-if="'fr'|currentLanguage">API</span>
+      <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'en'|currentLanguage">API</span>
+        <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'de'|currentLanguage">API</span>
+    </a>
+    <a href="https://help.opendatasoft.com/platform/de" class="ods-front-header__menu-item-link">
+      <!-- ITEM MENU FR TITLE HERE -->
+      <span ng-if="'fr'|currentLanguage">Documentation</span>
+      <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'en'|currentLanguage">Documentation</span>
+        <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'de'|currentLanguage">Dokumentation</span>
+    </a>
+    <a href="/pages/reuses/" class="ods-front-header__menu-item-link">
+      <!-- ITEM MENU FR TITLE HERE -->
+      <span ng-if="'fr'|currentLanguage">Réutilisations</span>
+      <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'en'|currentLanguage">Reuses</span>
+        <!-- ITEM MENU EN TITLE HERE -->
+      <span ng-if="'de'|currentLanguage">Weiterverwendungen</span>
+    </a>
+  </li>
+  <!-- END - CLASSIC MENU ITEM -->
+  <!-- START - DROPDOWN MENU ITEM -->
+  <!-- ITEM MENU FR AND EN TITLES HERE -->
+  <li class="ods-front-header__menu-item dropdown-menu"
+      ng-init="titre = 'Dashboards'; title = 'Dashboards';titel = 'Dashboards'"
+      ng-if="true">
+    <!-- ITEM MENU LINK HERE -->
+    <a class="ods-front-header__menu-item-link"
+       ng-class="{'ods-front-header__menu-item-link--active': variables.menuState == title}"
+       ng-click="variables.menuState = (variables.menuState == title ? variables.menuState = false : variables.menuState = title)">
+      <span ng-if="'fr'|currentLanguage">{{titre}}</span>
+      <span ng-if="'en'|currentLanguage">{{title}}</span>
+      <span ng-if="'de'|currentLanguage">{{titel}}</span>
+      <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </a>
+    <!-- START - SUBMENU -->
+    <ul class="dropdown-menu-submenu"
+        ng-class="{'dropdown-menu-submenu__active': variables.menuState == title}">
+      <li class="dropdown-menu-submenu-item" >
+        <!-- ITEM SUBMENU LINK HERE -->
+        <a href="/pages/covid-19-dashboard/">
+          <!-- ITEM SUBMENU FR TITLE HERE -->
+          <span style="color:white;" ng-if="'fr'|currentLanguage">COVID-19 Dashboard</span>
+          <!-- ITEM SUBMENU EN TITLE HERE -->
+          <span style="color:white;" ng-if="'en'|currentLanguage">COVID-19 Dashboard</span>
+            <!-- ITEM SUBMENU EN TITLE HERE -->
+          <span style="color:white;" ng-if="'de'|currentLanguage">COVID-19 Dashboard</span>
+        </a>
+      </li>
+    </ul>
+    <!-- END - SUBMENU -->
+  </li>
+
+  <!-- END - DROPDOWN MENU ITEM -->
+</ul>
+        </div>
+        <!-- Management Menu -->
+        <div class="portal-management-menu">
+            ##secondary-menu##
+        </div>
+    </ods-responsive-menu-collapsible>
+</nav>

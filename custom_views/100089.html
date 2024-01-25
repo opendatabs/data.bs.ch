@@ -1,0 +1,11 @@
+<ods-dataset-context context="myctx" myctx-dataset="100089" myctx-parameters="{'sort':'timestamp'}">
+    <ods-chart timescale="hour" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="timestamp" maxpoints="0" timescale="day">
+            <ods-chart-serie expression-y="abfluss" chart-type="line" function-y="AVG" color="#263892" min="" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="pegelhoehe" chart-type="line" function-y="AVG" color="#8EBAD8" min="0" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

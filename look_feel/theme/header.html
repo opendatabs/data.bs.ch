@@ -4,94 +4,96 @@
         - Displayed when screen width is lower than the "breakpoint" value inserted above. 
         - The navigation menu will automatically be inserted behind a "hamburger" menu.
         - Make sure to test the responsive design when editing this.
-    -->
-    <ods-responsive-menu-placeholder>   
+        -->
+    <ods-responsive-menu-placeholder>
         <!-- 
             Mobile Logo
             -->
         <div class="portal-header-logo-container">
             <a href="/">       
-                <img class="portal-logo-primary" src="/assets/theme_image/logo-b-w.svg"/>
+            <img class="portal-logo-primary" src="/assets/theme_image/logo-b-w.svg"/>
             </a> 
         </div>
     </ods-responsive-menu-placeholder>
     <!--
         ---- Desktop Header ----
         - Header items visible when screen size is bigger than "breakpoint" variable.
-    -->
+        -->
     <ods-responsive-menu-collapsible>
         <!-- This language menu is only visible in mobile mode -->
         ##language## 
         <div class="portal-header-logo-container">
             <a href="/">       
-                <img class="portal-logo-primary" src="/assets/theme_image/logo-b-w.svg"/>
+            <img class="portal-logo-primary" src="/assets/theme_image/logo-b-w.svg"/>
             </a> 
             <!-- 
-                    Desktop Logo 
+                Desktop Logo 
                 -->
             ##logo##
         </div>
         <!-- Main Navigation Menu -->
         <div class="portal-navigation">
-           <ul class="ods-front-header__menu"
-    ng-init="variables = { 'menuState' : false }">
-  <!-- START - CLASSIC MENU ITEM -->
-  <li class="ods-front-header__menu-item">
-    <!-- ITEM MENU LINK HERE -->
-    <a href="/pages/home/" class="ods-front-header__menu-item-link">
-      <!-- ITEM MENU FR TITLE HERE -->
-      <span ng-if="'fr'|currentLanguage">Accueil</span>
-      <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'en'|currentLanguage">Home</span>
-        <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'de'|currentLanguage">Home</span>
-    </a>
-    <a href="/explore/" class="ods-front-header__menu-item-link">
-      <!-- ITEM MENU FR TITLE HERE -->
-      <span ng-if="'fr'|currentLanguage">Données</span>
-      <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'en'|currentLanguage">Data</span>
-        <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'de'|currentLanguage">Daten</span>
-    </a>
-    <a href="/api/" class="ods-front-header__menu-item-link">
-      <!-- ITEM MENU FR TITLE HERE -->
-      <span ng-if="'fr'|currentLanguage">API</span>
-      <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'en'|currentLanguage">API</span>
-        <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'de'|currentLanguage">API</span>
-    </a>
-    <a href="https://help.opendatasoft.com/platform/de" class="ods-front-header__menu-item-link">
-      <!-- ITEM MENU FR TITLE HERE -->
-      <span ng-if="'fr'|currentLanguage">Documentation</span>
-      <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'en'|currentLanguage">Documentation</span>
-        <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'de'|currentLanguage">Dokumentation</span>
-    </a>
-    <a href="/pages/reuses/" class="ods-front-header__menu-item-link">
-      <!-- ITEM MENU FR TITLE HERE -->
-      <span ng-if="'fr'|currentLanguage">Réutilisations</span>
-      <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'en'|currentLanguage">Reuses</span>
-      <!-- ITEM MENU EN TITLE HERE -->
-      <span ng-if="'de'|currentLanguage">Weiterverwendungen</span>
-    </a>
-    <a href="/pages/dashboards/" class="ods-front-header__menu-item-link">
-       <!-- ITEM MENU FR TITLE HERE -->
-       <span ng-if="'fr'|currentLanguage">Dashboards</span>
-       <!-- ITEM MENU EN TITLE HERE -->
-       <span ng-if="'en'|currentLanguage">Dashboards</span>
-       <!-- ITEM MENU EN TITLE HERE -->
-       <span ng-if="'de'|currentLanguage">Dashboards</span>
-    </a>
-  </li>
-  <!-- END - CLASSIC MENU ITEM -->
-</ul>
+            <ul class="ods-front-header__menu"
+                ng-init="variables = { 'menuState' : false }">
+                <!-- START - CLASSIC MENU ITEM -->
+                <li class="ods-front-header__menu-item">
+                    <!-- ITEM MENU LINK HERE -->
+                    <a href="/pages/home/" class="ods-front-header__menu-item-link">
+                        <!-- ITEM MENU FR TITLE HERE -->
+                        <span ng-if="'fr'|currentLanguage">Accueil</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'en'|currentLanguage">Home</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'de'|currentLanguage">Home</span>
+                    </a>
+                    <a href="/explore/" class="ods-front-header__menu-item-link">
+                        <!-- ITEM MENU FR TITLE HERE -->
+                        <span ng-if="'fr'|currentLanguage">Données</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'en'|currentLanguage">Data</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'de'|currentLanguage">Daten</span>
+                    </a>
+                    <a href="/api/" class="ods-front-header__menu-item-link">
+                        <!-- ITEM MENU FR TITLE HERE -->
+                        <span ng-if="'fr'|currentLanguage">API</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'en'|currentLanguage">API</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'de'|currentLanguage">API</span>
+                    </a>
+                    <a href="https://help.opendatasoft.com/platform/de" class="ods-front-header__menu-item-link">
+                        <!-- ITEM MENU FR TITLE HERE -->
+                        <span ng-if="'fr'|currentLanguage">Documentation</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'en'|currentLanguage">Documentation</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'de'|currentLanguage">Dokumentation</span>
+                    </a>
+                    <a href="/pages/reuses/" class="ods-front-header__menu-item-link">
+                        <!-- ITEM MENU FR TITLE HERE -->
+                        <span ng-if="'fr'|currentLanguage">Réutilisations</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'en'|currentLanguage">Reuses</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'de'|currentLanguage">Weiterverwendungen</span>
+                    </a>
+                    <a href="/pages/dashboards/" class="ods-front-header__menu-item-link">
+                        <!-- ITEM MENU FR TITLE HERE -->
+                        <span ng-if="'fr'|currentLanguage">Dashboards</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'en'|currentLanguage">Dashboards</span>
+                        <!-- ITEM MENU EN TITLE HERE -->
+                        <span ng-if="'de'|currentLanguage">Dashboards</span>
+                    </a>
+                    <!-- Vector Search -->
+                    ##quick-find##
+                </li>
+                <!-- END - CLASSIC MENU ITEM -->
+            </ul>
         </div>
-        <!-- Management Menu -->
         <div class="portal-management-menu">
+            <!-- Management Menu -->
             ##secondary-menu##
         </div>
     </ods-responsive-menu-collapsible>

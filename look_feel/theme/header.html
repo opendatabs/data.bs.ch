@@ -75,44 +75,19 @@
       <span ng-if="'fr'|currentLanguage">Réutilisations</span>
       <!-- ITEM MENU EN TITLE HERE -->
       <span ng-if="'en'|currentLanguage">Reuses</span>
-        <!-- ITEM MENU EN TITLE HERE -->
+      <!-- ITEM MENU EN TITLE HERE -->
       <span ng-if="'de'|currentLanguage">Weiterverwendungen</span>
+    </a>
+    <a href="/pages/dashboards/" class="ods-front-header__menu-item-link">
+       <!-- ITEM MENU FR TITLE HERE -->
+       <span ng-if="'fr'|currentLanguage">Dashboards</span>
+       <!-- ITEM MENU EN TITLE HERE -->
+       <span ng-if="'en'|currentLanguage">Dashboards</span>
+       <!-- ITEM MENU EN TITLE HERE -->
+       <span ng-if="'de'|currentLanguage">Dashboards</span>
     </a>
   </li>
   <!-- END - CLASSIC MENU ITEM -->
-  <!-- START - DROPDOWN MENU ITEM -->
-  <!-- ITEM MENU FR AND EN TITLES HERE -->
-  <li class="ods-front-header__menu-item dropdown-menu"
-      ng-init="titre = 'Dashboards'; title = 'Dashboards';titel = 'Dashboards'"
-      ng-if="true">
-    <!-- ITEM MENU LINK HERE -->
-    <a class="ods-front-header__menu-item-link"
-       ng-class="{'ods-front-header__menu-item-link--active': variables.menuState == title}"
-       ng-click="variables.menuState = (variables.menuState == title ? variables.menuState = false : variables.menuState = title)">
-      <span ng-if="'fr'|currentLanguage">{{titre}}</span>
-      <span ng-if="'en'|currentLanguage">{{title}}</span>
-      <span ng-if="'de'|currentLanguage">{{titel}}</span>
-      <i class="fa fa-angle-down" aria-hidden="true"></i>
-    </a>
-    <!-- START - SUBMENU -->
-    <ul class="dropdown-menu-submenu"
-        ng-class="{'dropdown-menu-submenu__active': variables.menuState == title}">
-      <li class="dropdown-menu-submenu-item" >
-        <!-- ITEM SUBMENU LINK HERE -->
-        <a href="/pages/covid-19-dashboard/">
-          <!-- ITEM SUBMENU FR TITLE HERE -->
-          <span style="color:white;" ng-if="'fr'|currentLanguage">COVID-19 Dashboard</span>
-          <!-- ITEM SUBMENU EN TITLE HERE -->
-          <span style="color:white;" ng-if="'en'|currentLanguage">COVID-19 Dashboard</span>
-            <!-- ITEM SUBMENU EN TITLE HERE -->
-          <span style="color:white;" ng-if="'de'|currentLanguage">COVID-19 Dashboard</span>
-        </a>
-      </li>
-    </ul>
-    <!-- END - SUBMENU -->
-  </li>
-
-  <!-- END - DROPDOWN MENU ITEM -->
 </ul>
         </div>
         <!-- Management Menu -->

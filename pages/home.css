@@ -631,4 +631,8 @@ tspan.highcharts-text-outline {
 .highcharts-data-label span {
     text-align: center;
 }
-      
+
+.my-search-box {
+    text-align: left;
+    z-index: 2;
+}

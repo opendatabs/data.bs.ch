@@ -1,0 +1,71 @@
+<ods-dataset-context context="ctx,ctxdates,ctxlastdate"
+    ctx-dataset="100345"
+    ctx-parameters= ""
+    ctxdates-dataset="100345"
+    ctxdates-parameters= ""
+    ctxlastdate-dataset="100345"
+    ctxlastdate-parameters= ""
+    ng-init="values = {};
+    selected = {}">
+    <div ods-adv-analysis="dates"
+        ods-adv-analysis-context="ctxdates"
+        ods-adv-analysis-group-by="abst_datum_text"
+        ods-adv-analysis-order-by="abst_datum_text DESC"
+        ods-adv-analysis-limit="100">
+        {{ values.dates = dates; ""}}
+    </div>
+    <div ods-adv-analysis="lastdate"
+        ods-adv-analysis-context="ctxlastdate"
+        ods-adv-analysis-select="max(abst_datum) as maxdate"
+        ods-adv-analysis-group-by="abst_datum_text as field"
+        ods-adv-analysis-limit="1"
+        ods-adv-analysis-order-by="maxdate DESC">
+        {{ values.lastdate = lastdate ; ""}}
+    </div>
+    <h4>
+        Welches Abstimmungsdatum soll abgebildet werden?
+    </h4>
+    <div ng-if="[values.lastdate[0].field]">
+        <ods-select ng-if="values.lastdate[0].field"
+            ng-init="ctx.parameters['refine.abst_datum_text'] = [values.lastdate[0].field]"
+            options="values.dates"
+            selected-values="ctx.parameters['refine.abst_datum_text']"
+            label-modifier="abst_datum_text | date:'d. MMMM yyyy'"
+            value-modifier="abst_datum_text"
+            placeholder="Wählen Sie ein Abstimmungsdatum"></ods-select>
+        <br /><br />
+        <div ng-if="ctx.parameters['refine.abst_datum_text'][0]">
+            <div ods-facet-results="items"
+                ods-facet-results-context="ctx"
+                ods-facet-results-facet-name="abst_id_titel"
+                ods-facet-results-sort="alphanum"
+                ng-repeat="item in items">
+                <ods-dataset-context context="ctx"
+                    ctx-dataset="100345"
+                    ctx-parameters="{'sort':'-abst_id','refine.abst_id_titel':''+item.name}">
+                    <b>Diese Abbildung zeigt die Stimmenanteile der Vorlage {{item.name}} nach Wahllokal</b>
+                    <br /><br />
+                    <ods-chart single-y-axis="true" scientific-display="false" labels-x-length="30" align-month="true">
+                        <ods-chart-query context="ctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
+                            <ods-chart-serie expression-y="ja_anz" 
+                                             chart-type="column" 
+                                             function-y="AVG" 
+                                             color="#51BFD9" 
+                                             scientific-display="true" 
+                                             label-y="Ja-Stimmen">
+                            </ods-chart-serie>
+                            <ods-chart-serie expression-y="nein_anz" 
+                                             chart-type="column" 
+                                             function-y="AVG" 
+                                             color="#F6C024" 
+                                             scientific-display="true" 
+                                             label-y="Nein-Stimmen">
+                            </ods-chart-serie>
+                        </ods-chart-query>
+                    </ods-chart>
+                </ods-dataset-context>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+</ods-dataset-context>

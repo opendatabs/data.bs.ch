@@ -1,0 +1,42 @@
+<div ods-facet-results="items"
+     ods-facet-results-context="ctx"
+     ods-facet-results-facet-name="datum_urnengang_text"
+     ods-facet-results-sort="-alphanum"
+     ng-repeat="item in items">
+    <ods-dataset-context context="ctx"
+                         ctx-dataset="{{ ctx.dataset.datasetid }}"
+                         ctx-parameters="{'refine.datum_urnengang_text':''+item.name}">
+
+
+    <b>Stimmbeteiligung für die Abstimmungen/Wahlen vom {{item.name | date:'d. MMMM yyyy'}}</b>
+    <br /><br />
+    <ods-chart scientific-display="false" 
+               labels-x-length="30"
+               align-month="true"
+               display-legend="false">
+        <ods-chart-query context="ctx" 
+                         field-x="datum"
+                         timescale="day"
+                         maxpoints="0" 
+                         sort="-serie1-1">
+            <ods-chart-serie expression-y="stimmbeteiligung" 
+                             chart-type="column" 
+                             function-y="SUM" 
+                             color="#358e50"
+                             scientific-display="true" 
+                             label-y="Stimmbeteiligung (%)"
+                             display-values="true"
+                             max="100">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+    </ods-dataset-context>
+    <br /><br />
+    <!-- Areas and item background -->
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="gradient-top-bottom" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#235c33"></stop>
+            <stop offset="100%" stop-color="#358e50"></stop>
+        </linearGradient>
+    </svg>
+</div>

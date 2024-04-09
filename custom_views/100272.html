@@ -1,0 +1,463 @@
+<ods-simple-tabs>
+    <ods-simple-tab label="Wasserstand" keep-content="true">
+        <h2>
+            Wasserstand
+        </h2>
+        <h3>
+            Vorhersage des Wasserstands der Birs basierend auf den probabilistischen Meteo-Modellen COSMO-2E
+        </h3>
+        <ods-dataset-context context="myctx" 
+                             myctx-dataset="100272" 
+                             myctx-parameters="{'sort':'timestamp','refine.methode':'COSMO-2E ctrl'}">
+            <ods-chart scientific-display="false" 
+                       id="myid" 
+                       timescale="day" 
+                       single-y-axis="true" 
+                       singleYAxisLabel="Wasserstand (m.ü.M)"
+                       align-month="true">
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand" 
+                                     chart-type="arearange" 
+                                     function-y="COUNT" 
+                                     label-y="25.-75. Perzentil" 
+                                     color="#ffdfe5" 
+                                     scientific-display="false" 
+                                     subseries='[{"func":"AVG","yAxis":"h_p25"},{"func":"AVG","yAxis":"h_p75"}]'>
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0"
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_p50" 
+                                     chart-type="line" 
+                                     function-y="SUM"
+                                     label-y="Median" 
+                                     color="#10067a" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Wasserstand" 
+                                     color="#BA0129" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_min"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Minimum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_max"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Maximum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+            </ods-chart>
+        </ods-dataset-context>
+        <h3>
+            Vorhersage des Wasserstands der Birs basierend auf den probabilistischen Meteo-Modellen COSMO-1E
+        </h3>
+        <ods-dataset-context context="myctx" 
+                             myctx-dataset="100272" 
+                             myctx-parameters="{'sort':'timestamp','refine.methode':'COSMO-1E ctrl'}">
+            <ods-chart scientific-display="false" 
+                       id="myid" 
+                       timescale="day" 
+                       single-y-axis="true" 
+                       singleYAxisLabel="Wasserstand (m.ü.M)"
+                       align-month="true">
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand" 
+                                     chart-type="arearange" 
+                                     function-y="COUNT" 
+                                     label-y="25.-75. Perzentil" 
+                                     color="#ffdfe5" 
+                                     scientific-display="false" 
+                                     subseries='[{"func":"AVG","yAxis":"h_p25"},{"func":"AVG","yAxis":"h_p75"}]'>
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0"
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_p50" 
+                                     chart-type="line" 
+                                     function-y="SUM"
+                                     label-y="Median" 
+                                     color="#10067a" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Wasserstand" 
+                                     color="#BA0129" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_min"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Minimum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_max"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Maximum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+            </ods-chart>
+        </ods-dataset-context>
+        <h3>
+            Vorhersage des Wasserstands der Birs basierend auf IFS
+        </h3>
+        <ods-dataset-context context="myctx" 
+                             myctx-dataset="100272" 
+                             myctx-parameters="{'sort':'timestamp','refine.methode':'IFS'}">
+            <ods-chart scientific-display="false" 
+                       id="myid" 
+                       timescale="day" 
+                       single-y-axis="true" 
+                       singleYAxisLabel="Wasserstand (m.ü.M)"
+                       align-month="true">
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand" 
+                                     chart-type="arearange" 
+                                     function-y="COUNT" 
+                                     label-y="25.-75. Perzentil" 
+                                     color="#ffdfe5" 
+                                     scientific-display="false" 
+                                     subseries='[{"func":"AVG","yAxis":"h_p25"},{"func":"AVG","yAxis":"h_p75"}]'>
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0"
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_p50" 
+                                     chart-type="line" 
+                                     function-y="SUM"
+                                     label-y="Median" 
+                                     color="#10067a" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Wasserstand" 
+                                     color="#BA0129" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_min"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Minimum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="h_max"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Maximum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+            </ods-chart>
+        </ods-dataset-context>
+    </ods-simple-tab>
+    <ods-simple-tab label="Abfluss" keep-content="true">
+        <h2>
+            Abfluss
+        </h2>
+        <h3>
+            Vorhersage der Abflussmenge der Birs basierend auf den probabilistischen Meteo-Modellen COSMO-2E
+        </h3>
+        <ods-dataset-context context="myctx" 
+                             myctx-dataset="100272" 
+                             myctx-parameters="{'sort':'timestamp','refine.methode':'COSMO-2E ctrl'}">
+            <ods-chart scientific-display="false" 
+                       id="myid" 
+                       timescale="day" 
+                       single-y-axis="true" 
+                       singleYAxisLabel="Abflussmenge (m3/s)"
+                       align-month="true">
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand" 
+                                     chart-type="arearange" 
+                                     function-y="COUNT" 
+                                     label-y="25.-75. Perzentil" 
+                                     color="#ffdfe5" 
+                                     scientific-display="false" 
+                                     subseries='[{"func":"AVG","yAxis":"q_p25"},{"func":"AVG","yAxis":"q_p75"}]'>
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0"
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_p50" 
+                                     chart-type="line" 
+                                     function-y="SUM"
+                                     label-y="Median"
+                                     color="#10067a" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="abfluss"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Abfluss" 
+                                     color="#BA0129" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_min"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Minimum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_max"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Maximum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+            </ods-chart>
+        </ods-dataset-context>
+
+        <h3>
+            Vorhersage der Abflussmenge der Birs basierend auf den probabilistischen Meteo-Modellen COSMO-1E
+        </h3>
+        <ods-dataset-context context="myctx" 
+                             myctx-dataset="100272" 
+                             myctx-parameters="{'sort':'timestamp','refine.methode':'COSMO-1E ctrl'}">
+            <ods-chart scientific-display="false" 
+                       id="myid" 
+                       timescale="day" 
+                       single-y-axis="true" 
+                       singleYAxisLabel="Abflussmenge (m3/s)"
+                       align-month="true">
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand" 
+                                     chart-type="arearange" 
+                                     function-y="COUNT" 
+                                     label-y="25.-75. Perzentil" 
+                                     color="#ffdfe5" 
+                                     scientific-display="false" 
+                                     subseries='[{"func":"AVG","yAxis":"q_p25"},{"func":"AVG","yAxis":"q_p75"}]'>
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0"
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_p50" 
+                                     chart-type="line" 
+                                     function-y="SUM"
+                                     label-y="Median"
+                                     color="#10067a" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="abfluss"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Abfluss" 
+                                     color="#BA0129" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_min"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Minimum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_max"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Maximum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+            </ods-chart>
+        </ods-dataset-context>
+        <h3>
+            Vorhersage der Abflussmenge der Birs basierend auf IFS
+        </h3>
+        <ods-dataset-context context="myctx" 
+                             myctx-dataset="100272" 
+                             myctx-parameters="{'sort':'timestamp','refine.methode':'IFS'}">
+            <ods-chart scientific-display="false" 
+                       id="myid" 
+                       timescale="day" 
+                       single-y-axis="true" 
+                       singleYAxisLabel="Abflussmenge (m3/s)"
+                       align-month="true">
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="wasserstand" 
+                                     chart-type="arearange" 
+                                     function-y="COUNT" 
+                                     label-y="25.-75. Perzentil" 
+                                     color="#ffdfe5" 
+                                     scientific-display="false" 
+                                     subseries='[{"func":"AVG","yAxis":"q_p25"},{"func":"AVG","yAxis":"q_p75"}]'>
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0"
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_p50" 
+                                     chart-type="line" 
+                                     function-y="SUM"
+                                     label-y="Median"
+                                     color="#10067a" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="abfluss"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Abfluss" 
+                                     color="#BA0129" 
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_min"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Minimum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+                <ods-chart-query context="myctx" 
+                                 field-x="timestamp" 
+                                 maxpoints="0" 
+                                 timescale="hour">
+                    <ods-chart-serie expression-y="q_max"
+                                     chart-type="line" 
+                                     function-y="SUM" 
+                                     label-y="Maximum" 
+                                     color="#ff57ff"
+                                     scientific-display="false">
+                    </ods-chart-serie>
+                </ods-chart-query>
+            </ods-chart>
+        </ods-dataset-context>
+    </ods-simple-tab>
+</ods-simple-tabs>

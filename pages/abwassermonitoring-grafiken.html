@@ -2,14 +2,14 @@
     Grafische Darstellungen zum Abwassermonitoring
 </h1>
 <ods-simple-tabs>
-    <ods-simple-tab label="SARS-CoV-2" keep-content="false">
+    <ods-simple-tab label="SARS-CoV-2" keep-content="true">
         <ods-dataset-context context="myctx"
             myctx-dataset="100167" 
             myctx-parameters="{'sort':'-date_start'}">
             <h3>
                 Zeitraum wählen
             </h3>
-            <ods-date-range-slider context="myctx"
+            <ods-date-range-slider class="slider"context="myctx"
                 date-format="DD MMM YYYY"
                 initial-from="'2021/05/01'"
                 initial-to="'now'"
@@ -549,13 +549,13 @@
             </div>
         </ods-dataset-context>
     </ods-simple-tab>
-    <ods-simple-tab label="RSV" keep-content="false">
+    <ods-simple-tab label="RSV" keep-content="true">
         <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
             <!-- RS-Virus -->
             <h3>
                 Zeitraum wählen
             </h3>
-            <ods-date-range-slider context="myctx" 
+            <ods-date-range-slider class="slider" context="myctx" 
                 date-format="DD MMM YYYY" 
                 initial-from="'2021/08/14'" 
                 initial-to="'now'"
@@ -585,13 +585,13 @@
                                 scientific-display="true"
                                 min=0 max=12E5 step=3E5>
                             </ods-chart-serie>
-                            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
-                                expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                            <ods-chart-serie label-y="Anzahl wöchentliche RSV-Fälle"
+                                expression-y="kw_anz_pos_rsv_usb"
                                 chart-type="line"
                                 function-y="AVG"
                                 color="rgb(0,0,0)"
                                 scientific-display="true"
-                                min=0 max=320 step=80>
+                                min=0 max=40 step=10>
                             </ods-chart-serie>
                             <ods-chart-serie label-y="RSV (gc/L)"
                                 expression-y="rsv_gc_l_7_d_median"
@@ -626,13 +626,13 @@
                                 scientific-display="true"
                                 min=0 max=0.04 step=0.01>
                             </ods-chart-serie>
-                            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
-                                expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                            <ods-chart-serie label-y="Anzahl wöchentliche RSV-Fälle"
+                                expression-y="kw_anz_pos_rsv_usb"
                                 chart-type="line"
                                 function-y="AVG"
                                 color="rgb(0,0,0)"
                                 scientific-display="true"
-                                min=0 max=320 step=80>
+                                min=0 max=40 step=10>
                             </ods-chart-serie>
                             <ods-chart-serie label-y="RSV (gc/PMMoV)"
                                 expression-y="rsv_gc_pmmov_7_d_median"
@@ -667,13 +667,13 @@
                                 scientific-display="true"
                                 min=0 max=24E12 step=6E12>
                             </ods-chart-serie>
-                            <ods-chart-serie label-y="Anzahl monatliche RSV-Fälle"
-                                expression-y="monthly_rsv_cases_usb_ukbb_in_outpatients"
+                            <ods-chart-serie label-y="Anzahl wöchentliche RSV-Fälle"
+                                expression-y="kw_anz_pos_rsv_usb"
                                 chart-type="line"
                                 function-y="AVG"
                                 color="rgb(0,0,0)"
                                 scientific-display="true"
-                                min=0 max=320 step=80>
+                                min=0 max=40 step=10>
                             </ods-chart-serie>
                             <ods-chart-serie label-y="RSV (gc/100'000 P.)"
                                 expression-y="rsv_gc_100_000_p_7_d_median"
@@ -689,13 +689,13 @@
             </div>
         </ods-dataset-context>
     </ods-simple-tab>
-    <ods-simple-tab label="Influenza A, B (gc/L)" keep-content="false">
+    <ods-simple-tab label="Influenza A, B (gc/L)" keep-content="true">
         <!-- Influenza A, B Genkopien / Liter Abwasser -->
         <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
             <h3>
                 Zeitraum wählen
             </h3>
-            <ods-date-range-slider context="myctx" 
+            <ods-date-range-slider class="slider" context="myctx" 
                 date-format="DD MMM YYYY" 
                 initial-from="'2021/10/03'" 
                 initial-to="'now'"
@@ -834,12 +834,12 @@
             </div>
         </ods-dataset-context>
     </ods-simple-tab>
-    <ods-simple-tab label="Influenza A, B (gc/PMMoV)" keep-content="false">
+    <ods-simple-tab label="Influenza A, B (gc/PMMoV)" keep-content="true">
         <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
             <h3>
                 Zeitraum wählen
             </h3>
-            <ods-date-range-slider context="myctx" 
+            <ods-date-range-slider class="slider" context="myctx" 
                 date-format="DD MMM YYYY" 
                 initial-from="'2021/10/03'" 
                 initial-to="'now'"
@@ -978,12 +978,12 @@
             </div>
         </ods-dataset-context>
     </ods-simple-tab>
-    <ods-simple-tab label="Influenza A, B (gc/100'000 P.)" keep-content="false">
+    <ods-simple-tab label="Influenza A, B (gc/100'000 P.)" keep-content="true">
         <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
             <h3>
                 Zeitraum wählen
             </h3>
-            <ods-date-range-slider context="myctx" 
+            <ods-date-range-slider class="slider" context="myctx" 
                 date-format="DD MMM YYYY" 
                 initial-from="'2021/10/03'" 
                 initial-to="'now'"

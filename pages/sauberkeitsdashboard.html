@@ -1,14 +1,12 @@
 <div class="container-fluid">
-    <ods-dataset-context context="wohnviertel,gesamtctx,viertelctx,sauberkeit,sauberkeit2,refinectx"
+    <ods-dataset-context context="wohnviertel,gesamtctx,viertelctx,sauberkeit,refinectx"
                          wohnviertel-dataset="100042" 
                          wohnviertel-parameters="{'sort':'wov_id','refine.gemeinde_name':'Basel'}" 
                          gesamtctx-dataset="100362"
                          gesamtctx-parameters="{'refine.wohnviertel': 'gesamtes Stadtgebiet'}"
                          viertelctx-dataset="100362"
-                         viertelctx-parameters=""
+                         viertelctx-parameters="{'exclude.wohnviertel': 'gesamtes Stadtgebiet'}"
                          sauberkeit-dataset="100362"
-                         sauberkeit2-parameters=""
-                         sauberkeit2-dataset="100362"
                          sauberkeit-parameters=""
                          refinectx-dataset="100362"
                          refinectx-parameters="{'sort':'-quartal',
@@ -17,6 +15,9 @@
                                                 'refine.wohnviertel': [refinectx.parameters['refine.wohnviertel'], 'gesamtes Stadtgebiet']}">
     <div>
         <div>
+            <h2>
+                Sauberkeitsindex für folgende Quartale: {{ sauberkeit.parameters['refine.quartal'] }}
+            </h2>
             <div class="col-md-2">
                 <ods-facets context="sauberkeit">
                     <ods-facet name="quartal" 
@@ -27,55 +28,35 @@
                     </ods-facet>
                 </ods-facets>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6"
+                 ods-color-gradient="colorgradient"
+                 ods-color-gradient-context="sauberkeit"
+                 ods-color-gradient-x="wohnviertel"
+                 ods-color-gradient-serie="AVG(ski)"
+                 ods-color-gradient-high="rgb(20, 33, 96)"
+                 ods-color-gradient-low="rgb(180, 197, 241)">
                 <ods-map no-refit="true" 
                          scroll-wheel-zoom="false" 
                          basemap="9fffa5"
                          location="12,47.55689,7.58537">
                     <ods-map-layer-group>
-                        <ods-map-layer context="wohnviertel" 
-                                       color="#C32D1C" 
-                                       picto="ods-circle" 
-                                       show-marker="true" 
-                                       display="auto" 
-                                       shape-opacity="0.5" 
-                                       point-opacity="1"
-                                       border-color="#FFFFFF" 
-                                       border-opacity="1" 
-                                       border-size="1" 
-                                       border-pattern="solid" 
-                                       caption-picto-color="#E5E5E5"
-                                       size="4" size-min="3" size-max="5" 
-                                       size-function="linear">
-                        </ods-map-layer>
-                    </ods-map-layer-group>
-                    <ods-map-layer-group>
                         <ods-map-layer context="sauberkeit" 
-                                       color-numeric-ranges="{'2.990':'#BA0129','3.990':'#F7B133','4.124':'#0A71B5','4.249':'#609DC6','4.374':'#8EBAD8','4.490':'#BBD6E8','4.624':'#BCD1B9','4.749':'#8FAF89','4.874':'#628E5A','5.000':'#19630A'}" 
-                                       color-undefined="#FFFFFF" 
-                                       color-out-of-bounds="#000000" 
-                                       color-numeric-range-min="0" 
-                                       picto="ods-circle"
-                                       show-marker="true" 
-                                       display="choropleth" 
-                                       function="AVG" 
-                                       expression="ski" 
-                                       shape-opacity="1" 
-                                       point-opacity="1" 
+                                       color-categories="colorgradient['colors']"
+                                       color-by-field="wohnviertel"
+                                       color-categories-other="lightgrey"
+                                       display="categories"
+                                       shape-opacity="0.85"
                                        border-color="#FFFFFF" 
                                        border-opacity="1" 
                                        border-size="2" 
                                        border-pattern="solid" 
-                                       caption="false" 
-                                       caption-picto-color="#E5E5E5" 
                                        title="Sauberkeitsindex pro Quartal und Wohnviertel" 
                                        description="Dieser Datensatz enthält den Sauberkeitsindex für alle Wohnviertel in der Stadt Basel. Zur Berechnung des Sauberkeitsindex wird wie folgt vorgegangen: " 
-                                       size="4"
                                        refine-on-click-context="[refinectx, viertelctx]"
-                                       refine-on-click-refinectx-replace-refine="false"
+                                       refine-on-click-refinectx-replace-refine="true"
                                        refine-on-click-refinectx-map-field="wohnviertel"
                                        refine-on-click-refinectx-context-field="wohnviertel"
-                                       refine-on-click-viertelctx-replace-refine="false"
+                                       refine-on-click-viertelctx-replace-refine="true"
                                        refine-on-click-viertelctx-map-field="wohnviertel"
                                        refine-on-click-viertelctx-context-field="wohnviertel">
                         </ods-map-layer>
@@ -107,7 +88,7 @@
                     </p>
                 </div>
                 <div class="kpi-card">
-                    <h2> gesamtes Stadtgebiet </h2>
+                    <h2> Wohnviertel: {{ viertelctx.parameters['refine.wohnviertel'] }} </h2>
                     <p class="kpi-title"
                        ods-aggregation="avgviertel"
                        ods-aggregation-context="viertelctx"

@@ -1,147 +1,516 @@
 <div class="container-fluid">
-    <ods-dataset-context context="wohnviertel,gesamtctx,viertelctx,sauberkeit,refinectx"
-                         wohnviertel-dataset="100042" 
-                         wohnviertel-parameters="{'sort':'wov_id','refine.gemeinde_name':'Basel'}" 
-                         gesamtctx-dataset="100362"
-                         gesamtctx-parameters="{'refine.wohnviertel': 'gesamtes Stadtgebiet'}"
-                         viertelctx-dataset="100362"
-                         viertelctx-parameters="{'exclude.wohnviertel': 'gesamtes Stadtgebiet'}"
-                         sauberkeit-dataset="100362"
-                         sauberkeit-parameters=""
-                         refinectx-dataset="100362"
-                         refinectx-parameters="{'sort':'-quartal',
-                                                'disjunctive.wohnviertel':true,
-                                                'disjunctive.quartal':true,
-                                                'refine.wohnviertel': [refinectx.parameters['refine.wohnviertel'], 'gesamtes Stadtgebiet']}">
-    <div>
-        <div>
-            <h2>
-                Sauberkeitsindex für folgende Quartale: {{ sauberkeit.parameters['refine.quartal'] }}
-            </h2>
-            <div class="col-md-2">
-                <ods-facets context="sauberkeit">
-                    <ods-facet name="quartal" 
-                               refine-also="[gesamtctx, viertelctx]"
-                               gesamtctx-facet-name="quartal"
-                               title="Quartal(e) wählen"
-                               disjunctive="true">
-                    </ods-facet>
-                </ods-facets>
-            </div>
-            <div class="col-md-6"
-                 ods-color-gradient="colorgradient"
-                 ods-color-gradient-context="sauberkeit"
-                 ods-color-gradient-x="wohnviertel"
-                 ods-color-gradient-serie="AVG(ski)"
-                 ods-color-gradient-high="rgb(20, 33, 96)"
-                 ods-color-gradient-low="rgb(180, 197, 241)">
-                <ods-map no-refit="true" 
-                         scroll-wheel-zoom="false" 
-                         basemap="9fffa5"
-                         location="12,47.55689,7.58537">
-                    <ods-map-layer-group>
-                        <ods-map-layer context="sauberkeit" 
-                                       color-categories="colorgradient['colors']"
-                                       color-by-field="wohnviertel"
-                                       color-categories-other="lightgrey"
-                                       display="categories"
-                                       shape-opacity="0.85"
-                                       border-color="#FFFFFF" 
-                                       border-opacity="1" 
-                                       border-size="2" 
-                                       border-pattern="solid" 
-                                       title="Sauberkeitsindex pro Quartal und Wohnviertel" 
-                                       description="Dieser Datensatz enthält den Sauberkeitsindex für alle Wohnviertel in der Stadt Basel. Zur Berechnung des Sauberkeitsindex wird wie folgt vorgegangen: " 
-                                       refine-on-click-context="[refinectx, viertelctx]"
-                                       refine-on-click-refinectx-replace-refine="true"
-                                       refine-on-click-refinectx-map-field="wohnviertel"
-                                       refine-on-click-refinectx-context-field="wohnviertel"
-                                       refine-on-click-viertelctx-replace-refine="true"
-                                       refine-on-click-viertelctx-map-field="wohnviertel"
-                                       refine-on-click-viertelctx-context-field="wohnviertel">
-                        </ods-map-layer>
-                    </ods-map-layer-group>
-                    <ods-map-layer-group>
-                        <ods-map-layer context="refinectx"
-                                       show-if="refinectx.parameters['refine.wohnviertel']"
-                                       color="transparent"
-                                       border-color="black"
-                                       border-opacity="1"
-                                       border-size="3">
-                        </ods-map-layer>
-                    </ods-map-layer-group>
-                </ods-map>
-            </div>
-            <div class="col-md-4">
-                <!-- KPI box component -->
-                <div class="kpi-card">
-                    <h2> gesamtes Stadtgebiet </h2>
-                    <p class="kpi-title"
-                       ods-aggregation="avggesamt"
-                       ods-aggregation-context="gesamtctx"
-                       ods-aggregation-function="AVG"
-                       ods-aggregation-expression="ski">
-                        {{ avggesamt | number : 2 }}
-                    </p>
-                    <p class="kpi-description">
-                        Durchschnitt SKI gewählter Quartale
-                    </p>
+    <section>
+        <div class="heading">
+            <h1 class="title">Dashboard Sauberkeitsindex</h1>
+            <p class="subtitle">Sauberkeitsindex pro Quartal pro Wohnviertel</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam atque commodi cupiditate, deserunt
+                dolores dolorum ducimus ea fugiat non quidem repellat soluta voluptate voluptatem. Illo illum maxime
+                nemo officia velit.
+            </p>
+        </div>
+    </section>
+    <ods-simple-tabs>
+        <ods-simple-tab label="Grafiken">
+            <ods-dataset-context context="wohnviertel,gesamtctx,gesamtkpictx,viertelctx,viertelkpictx,sauberkeit"
+                wohnviertel-dataset="100042" 
+                wohnviertel-parameters="{'sort':'wov_id','refine.gemeinde_name':'Basel'}"
+                gesamtkpictx-dataset="100362"
+                gesamtkpictx-parameters="{'sort':'-quartal',
+                'disjunctive.wohnviertel':true,
+                'disjunctive.quartal':true,
+                'disjunctive.jahr':true,
+                'disjunctive.quartalsnummer':true,
+                'refine.wohnviertel': 'gesamtes Stadtgebiet'}"
+                viertelctx-dataset="100362"
+                viertelctx-parameters="{'sort':'-quartal',
+                'disjunctive.wohnviertel':true,
+                'disjunctive.quartal':true,
+                'disjunctive.jahr':true,
+                'disjunctive.quartalsnummer':true,
+                'refine.wohnviertel': ['gesamtes Stadtgebiet']}"
+                viertelkpictx-dataset="100362"
+                viertelkpictx-parameters="{'sort':'-quartal',
+                'disjunctive.wohnviertel':true,
+                'disjunctive.quartal':true,
+                'disjunctive.jahr':true,
+                'disjunctive.quartalsnummer':true,
+                'exclude.wohnviertel': 'gesamtes Stadtgebiet'}"
+                sauberkeit-dataset="100362"
+                sauberkeit-parameters="{'sort':'-quartal',
+                'disjunctive.wohnviertel':true,
+                'disjunctive.quartal':true,
+                'disjunctive.jahr':true,
+                'disjunctive.quartalsnummer':true}">
+                <section>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <ods-facets context="sauberkeit">
+                                <h3>
+                                    <span ng-if="sauberkeit.parameters['refine.jahr'].length === 0">
+                                    Jahr <i>(alle)</i>
+                                    </span>
+                                    <span ng-if="sauberkeit.parameters['refine.jahr'].length > 0">
+                                    Jahr <i>({{ sauberkeit.parameters['refine.jahr'].join(', ') }} )</i>
+                                    </span>
+                                </h3>
+                                <div ods-facet-results="jahre"
+                                    ods-facet-results-context="sauberkeit"
+                                    ods-facet-results-facet-name="jahr"
+                                    ods-facet-results-sort="alphanum">
+                                    <ods-select options="jahre"
+                                        selected-values="sauberkeit.parameters['refine.jahr']"
+                                        placeholder="alle Jahre"
+                                        label-modifier="name"
+                                        value-modifier="name"
+                                        multiple="true"></ods-select>
+                                    {{ viertelkpictx.parameters['refine.jahr'] = sauberkeit.parameters['refine.jahr'] ; gesamtkpictx.parameters['refine.jahr'] = sauberkeit.parameters['refine.jahr'] ; '' }}
+                                </div>
+                                <h3>
+                                    <span ng-if="sauberkeit.parameters['refine.quartalsnummer'].length === 0">
+                                    Quartal <i>(alle)</i>
+                                    </span>
+                                    <span ng-if="sauberkeit.parameters['refine.quartalsnummer'].length > 0">
+                                    Quartal <i>({{ sauberkeit.parameters['refine.quartalsnummer'].join(', ') }}. Quartal)</i>
+                                    </span>
+                                </h3>
+                                <div ods-facet-results="quartale"
+                                    ods-facet-results-context="sauberkeit"
+                                    ods-facet-results-facet-name="quartalsnummer"
+                                    ods-facet-results-sort="alphanum">
+                                    <ods-select options="quartale"
+                                        selected-values="sauberkeit.parameters['refine.quartalsnummer']"
+                                        placeholder="alle Quartale"
+                                        label-modifier="name + '. Quartal'"
+                                        value-modifier="name"
+                                        multiple="true"></ods-select>
+                                    {{ viertelkpictx.parameters['refine.quartalsnummer'] = sauberkeit.parameters['refine.quartalsnummer'] ; gesamtkpictx.parameters['refine.quartalsnummer'] = sauberkeit.parameters['refine.quartalsnummer'] ; '' }}
+                                </div>
+                                <br />
+                                <br />
+                                <h3>
+                                    <span ng-if="viertelctx.parameters['refine.wohnviertel'].length === 0">
+                                    Wohnviertel <i>(alle)</i>
+                                    </span>
+                                    <span ng-if="viertelctx.parameters['refine.wohnviertel'].length > 0">
+                                    Wohnviertel <i>({{ viertelctx.parameters['refine.wohnviertel'].join(', ') }})</i>
+                                    </span>
+                                </h3>
+                                <div ods-facet-results="wohnviertels"
+                                    ods-facet-results-context="viertelctx"
+                                    ods-facet-results-facet-name="wohnviertel"
+                                    ods-facet-results-sort="alphanum">
+                                    <ods-select ng-init="viertelctx.parameters['refine.wohnviertel'] = ['gesamtes Stadtgebiet']"
+                                        options="wohnviertels"
+                                        selected-values="viertelctx.parameters['refine.wohnviertel']"
+                                        placeholder="alle Wohnviertel"
+                                        label-modifier="name"
+                                        value-modifier="name"
+                                        multiple="true"></ods-select>
+                                    {{ viertelkpictx.parameters['refine.wohnviertel'] = viertelctx.parameters['refine.wohnviertel'] ; '' }}
+                                </div>
+                            </ods-facets>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="box white flat">
+                                <div class="advanced-kpi">
+                                    <div class="advanced-kpi--top">
+                                        <h3 class="title">
+                                            Sauberkeitsindex pro Wohnviertel
+                                        </h3>
+                                        <i class="description">
+                                        Wohnviertel klicken um danach zu filtern
+                                        </i>
+                                    </div>
+                                    <div class="advanced-kpi--middle no-bg mb-0">
+                                        <div class="map-container"
+                                            ods-color-gradient="colorgradient"
+                                            ods-color-gradient-context="sauberkeit"
+                                            ods-color-gradient-x="wohnviertel"
+                                            ods-color-gradient-serie="AVG(ski)"
+                                            ods-color-gradient-high="rgb(180, 197, 241)"
+                                            ods-color-gradient-low="rgb(20, 33, 96)"
+                                            ods-color-gradient-pow-exponent="2">
+                                            <ods-map no-refit="true" 
+                                                scroll-wheel-zoom="false" 
+                                                basemap="9fffa5"
+                                                location="12,47.55689,7.58537">
+                                                <ods-map-layer-group>
+                                                    <ods-map-layer context="sauberkeit" 
+                                                        color-categories="colorgradient['colors']"
+                                                        color-by-field="wohnviertel"
+                                                        color-categories-other="lightgrey"
+                                                        display="categories"
+                                                        shape-opacity="0.85"
+                                                        border-color="#FFFFFF" 
+                                                        border-opacity="1" 
+                                                        border-size="2" 
+                                                        border-pattern="solid" 
+                                                        title="Sauberkeitsindex pro Quartal und Wohnviertel" 
+                                                        description="Dieser Datensatz enthält den Sauberkeitsindex für alle Wohnviertel in der Stadt Basel. Zur Berechnung des Sauberkeitsindex wird wie folgt vorgegangen: " 
+                                                        refine-on-click-context="viertelctx"
+                                                        refine-on-click-viertelctx-replace-refine="false"
+                                                        refine-on-click-viertelctx-map-field="wohnviertel"
+                                                        refine-on-click-viertelctx-context-field="wohnviertel">
+                                                    </ods-map-layer>
+                                                </ods-map-layer-group>
+                                                <ods-map-layer-group>
+                                                    <ods-map-layer context="viertelctx"
+                                                        show-if="viertelctx.parameters['refine.wohnviertel']"
+                                                        color="transparent"
+                                                        border-color="black"
+                                                        border-opacity="1"
+                                                        border-size="3">
+                                                    </ods-map-layer>
+                                                </ods-map-layer-group>
+                                            </ods-map>
+                                            <ods-legend title="Sauberkeitsindex (SKI)"
+                                                color-gradient="colorgradient"
+                                                display="linear"
+                                                no-value-color="lightgrey"
+                                                decimal-precision="0"></ods-legend>
+                                        </div>
+                                    </div>
+                                    <div class="advanced-kpi--bottom">
+                                        <div class="advanced-kpi--bottom-second-stage">
+                                            <a class="source"
+                                                href="https://data.bs.ch/explore/dataset/100362"
+                                                title="Title">Quelle: Daten zu SKI <i class="fa fa-long-arrow-right"
+                                                aria-hidden="true"></i>
+                                            </a>
+                                            <a class="source"
+                                                href="https://data.bs.ch/explore/dataset/100042"
+                                                title="Title">Quelle: Geodaten <i class="fa fa-long-arrow-right"
+                                                aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="row full-height">
+                                <div class="col-md-12">
+                                    <div class="box white flat">
+                                        <div class="advanced-kpi">
+                                            <div class="advanced-kpi--top">
+                                                <h3 class="title">
+                                                    Gesamtes Stadtgebiet
+                                                </h3>
+                                                <p class="description">
+                                                    Durchschnitt SKI
+                                                </p>
+                                            </div>
+                                            <div class="advanced-kpi--middle centered">
+                                                <p class="value"
+                                                    ods-aggregation="avggesamt"
+                                                    ods-aggregation-context="gesamtkpictx"
+                                                    ods-aggregation-function="AVG"
+                                                    ods-aggregation-expression="ski">
+                                                    {{ avggesamt | number : 2 }}
+                                                </p>
+                                            </div>
+                                            <div class="advanced-kpi--bottom">
+                                                <div class="advanced-kpi--bottom-second-stage">
+                                                    <a class="source"
+                                                        href="https://data.bs.ch/explore/dataset/100362"
+                                                        title="Title">
+                                                    Quelle <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 no-mb">
+                                    <div class="box white flat">
+                                        <div class="advanced-kpi">
+                                            <div class="advanced-kpi--top">
+                                                <h3 class="title">
+                                                    Gewählte Wohnviertel
+                                                </h3>
+                                                <p class="description">
+                                                    Durchschnitt SKI
+                                                </p>
+                                            </div>
+                                            <div class="advanced-kpi--middle centered">
+                                                <p class="value"
+                                                    ods-aggregation="avgviertel"
+                                                    ods-aggregation-context="viertelkpictx"
+                                                    ods-aggregation-function="AVG"
+                                                    ods-aggregation-expression="ski">
+                                                    {{ avgviertel | number : 2 }}
+                                                </p>
+                                            </div>
+                                            <div class="advanced-kpi--bottom">
+                                                <div class="advanced-kpi--bottom-second-stage">
+                                                    <a class="source"
+                                                        href="https://data.bs.ch/explore/dataset/100362"
+                                                        title="Title">
+                                                    Quelle <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box white flat">
+                                <div class="advanced-kpi">
+                                    <div class="advanced-kpi--top">
+                                        <h3 class="title">
+                                            Sauberkeitsindex pro Quartal und Jahr
+                                        </h3>
+                                        <i class="description">
+                                        Lorem ipsum descriptum this
+                                        </i>
+                                    </div>
+                                    <div class="advanced-kpi--middle no-bg mb-0">
+                                        <ods-chart style="height:400px"
+                                                   scientific-display="false" 
+                                            align-month="true">
+                                            <ods-chart-query context="viertelctx" 
+                                                field-x="quartal" 
+                                                maxpoints="0" 
+                                                series-breakdown="wohnviertel">
+                                                <ods-chart-serie expression-y="ski"
+                                                    chart-type="line" 
+                                                    function-y="AVG" 
+                                                    color="range-Accent"
+                                                                 display-values="true" 
+                                                                 display-stack-values="false" 
+                                                                 min="4" max="5" 
+                                                                 scientific-display="true">
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                    <div class="advanced-kpi--bottom">
+                                        <div class="advanced-kpi--bottom-second-stage">
+                                            <a class="source"
+                                               href="https://data.bs.ch/explore/dataset/100362"
+                                               title="Title">
+                                                Quelle <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="box white flat">
+                                <div class="advanced-kpi">
+                                    <div class="advanced-kpi--top">
+                                        <h3 class="title">
+                                            Sauberkeitsindex pro Quartal
+                                        </h3>
+                                        <i class="description">
+                                        Lorem ipsum descriptum this
+                                        </i>
+                                    </div>
+                                    <div class="advanced-kpi--middle no-bg mb-0">
+                                        <ods-chart style="height:400px"
+                                                   scientific-display="false" 
+                                            align-month="true">
+                                            <ods-chart-query context="viertelctx" 
+                                                field-x="quartalsnummer" 
+                                                maxpoints="0" 
+                                                series-breakdown="wohnviertel">
+                                                <ods-chart-serie expression-y="ski"
+                                                    chart-type="column" 
+                                                    function-y="AVG" 
+                                                    color="range-Accent"
+                                                    display-values="true" 
+                                                                 display-stack-values="false" 
+                                                                 min="4" max="5" 
+                                                                 scientific-display="true">
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                    <div class="advanced-kpi--bottom">
+                                        <div class="advanced-kpi--bottom-second-stage">
+                                            <a class="source"
+                                               href="https://data.bs.ch/explore/dataset/100362"
+                                               title="Title">
+                                                Quelle <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="box white flat">
+                                <div class="advanced-kpi">
+                                    <div class="advanced-kpi--top">
+                                        <h3 class="title">
+                                            Sauberkeitsindex pro Jahr
+                                        </h3>
+                                        <i class="description">
+                                            Lorem ipsum descriptum this
+                                        </i>
+                                    </div>
+                                    <div class="advanced-kpi--middle no-bg mb-0">
+                                        <ods-chart style="height:400px"
+                                                   scientific-display="false" 
+                                                   align-month="true">
+                                            <ods-chart-query context="viertelctx" 
+                                                             field-x="jahr" 
+                                                             maxpoints="0" 
+                                                             series-breakdown="wohnviertel">
+                                                <ods-chart-serie expression-y="ski"
+                                                                 chart-type="column" 
+                                                                 function-y="AVG" 
+                                                                 color="range-Accent"
+                                                                 display-values="true" 
+                                                                 display-stack-values="false" 
+                                                                 min="4" max="5" 
+                                                                 scientific-display="true">
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                    <div class="advanced-kpi--bottom">
+                                        <div class="advanced-kpi--bottom-second-stage">
+                                            <a class="source"
+                                               href="https://data.bs.ch/explore/dataset/100362"
+                                               title="Title">
+                                                Quelle <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ods-dataset-context>
+        </ods-simple-tab>
+        <ods-simple-tab label="Vergleiche">
+            <ods-dataset-context context="wohnviertel2,gesamtctx2,viertelctx2,sauberkeit2"
+                wohnviertel2-dataset="100042" 
+                wohnviertel2-parameters="{'sort':'wov_id','refine.gemeinde_name':'Basel'}" 
+                gesamtctx2-dataset="100362"
+                gesamtctx2-parameters="{'sort':'-quartal',
+                'disjunctive.wohnviertel':true,
+                'disjunctive.quartal':true,
+                'refine.wohnviertel': 'gesamtes Stadtgebiet'}"
+                viertelctx2-dataset="100362"
+                viertelctx2-parameters="{'sort':'-quartal',
+                'disjunctive.wohnviertel':true,
+                'disjunctive.quartal':true,
+                'exclude.wohnviertel': 'gesamtes Stadtgebiet'}"
+                sauberkeit2-dataset="100362"
+                sauberkeit2-parameters="{'sort':'-quartal',
+                'disjunctive.wohnviertel':true,
+                'disjunctive.quartal':true}">
+                <div>
+                    <div>
+                        <h2>
+                            Sauberkeitsindex für folgende Quartale: {{ sauberkeit2.parameters['refine.quartal'] }}
+                        </h2>
+                        <div class="col-md-2">
+                            <div ods-facet-results="quartale"
+                                ods-facet-results-context="sauberkeit2"
+                                ods-facet-results-facet-name="quartal"
+                                ods-facet-results-sort="alphanum">
+                                <ods-select options="quartale"
+                                    selected-values="sauberkeit2.parameters['refine.quartal']"
+                                    placeholder="Quartal wählen"
+                                    label-modifier="name"
+                                    value-modifier="name"
+                                    multiple="true"></ods-select>
+                                {{ viertelctx2.parameters['refine.quartal'] = sauberkeit2.parameters['refine.quartal'] ; gesamtctx2.parameters['refine.quartal'] = sauberkeit2.parameters['refine.quartal'] ; '' }}
+                            </div>
+                            <div ods-facet-results="viertel"
+                                ods-facet-results-context="viertelctx2"
+                                ods-facet-results-facet-name="wohnviertel"
+                                ods-facet-results-sort="alphanum">
+                                <ods-select options="viertel"
+                                    selected-values="viertelctx2.parameters['refine.wohnviertel']"
+                                    placeholder="Wohnviertel wählen"
+                                    label-modifier="name"
+                                    value-modifier="name"
+                                    multiple="true"></ods-select>
+                            </div>
+                        </div>
+                        <div class="col-md-6"
+                            ods-color-gradient="colorgradient"
+                            ods-color-gradient-context="sauberkeit2"
+                            ods-color-gradient-x="wohnviertel"
+                            ods-color-gradient-serie="AVG(ski)"
+                            ods-color-gradient-high="rgb(20, 33, 96)"
+                            ods-color-gradient-low="rgb(180, 197, 241)">
+                            <ods-map no-refit="true" 
+                                scroll-wheel-zoom="false" 
+                                basemap="9fffa5"
+                                location="12,47.55689,7.58537">
+                                <ods-map-layer-group>
+                                    <ods-map-layer context="sauberkeit2" 
+                                        color-categories="colorgradient['colors']"
+                                        color-by-field="wohnviertel"
+                                        color-categories-other="lightgrey"
+                                        display="categories"
+                                        shape-opacity="0.85"
+                                        border-color="#FFFFFF" 
+                                        border-opacity="1" 
+                                        border-size="2" 
+                                        border-pattern="solid" 
+                                        title="Sauberkeitsindex pro Quartal und Wohnviertel" 
+                                        description="Dieser Datensatz enthält den Sauberkeitsindex für alle Wohnviertel in der Stadt Basel. Zur Berechnung des Sauberkeitsindex wird wie folgt vorgegangen: ">
+                                    </ods-map-layer>
+                                </ods-map-layer-group>
+                                <ods-map-layer-group>
+                                    <ods-map-layer context="viertelctx2"
+                                        show-if="viertelctx2.parameters['refine.wohnviertel']"
+                                        color="transparent"
+                                        border-color="black"
+                                        border-opacity="1"
+                                        border-size="3">
+                                    </ods-map-layer>
+                                </ods-map-layer-group>
+                            </ods-map>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- KPI box component -->
+                            <div class="kpi-card">
+                                <h2> gesamtes Stadtgebiet </h2>
+                                <p class="kpi-title"
+                                    ods-aggregation="avggesamt"
+                                    ods-aggregation-context="gesamtctx2"
+                                    ods-aggregation-function="AVG"
+                                    ods-aggregation-expression="ski">
+                                    {{ avggesamt | number : 2 }}
+                                </p>
+                                <p class="kpi-description">
+                                    Durchschnitt SKI gewählter Quartale
+                                </p>
+                            </div>
+                            <div class="kpi-card">
+                                <h2> Wohnviertel: {{ viertelctx2.parameters['refine.wohnviertel'] }} </h2>
+                                <p class="kpi-title"
+                                    ods-aggregation="avgviertel"
+                                    ods-aggregation-context="viertelctx2"
+                                    ods-aggregation-function="AVG"
+                                    ods-aggregation-expression="ski">
+                                    {{ avgviertel | number : 2 }}
+                                </p>
+                                <p class="kpi-description">
+                                    Durchschnitt SKI gewählter Quartale
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="kpi-card">
-                    <h2> Wohnviertel: {{ viertelctx.parameters['refine.wohnviertel'] }} </h2>
-                    <p class="kpi-title"
-                       ods-aggregation="avgviertel"
-                       ods-aggregation-context="viertelctx"
-                       ods-aggregation-function="AVG"
-                       ods-aggregation-expression="ski">
-                        {{ avgviertel | number : 2 }}
-                    </p>
-                    <p class="kpi-description">
-                        Durchschnitt SKI gewählter Quartale
-                    </p>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div ng-if="refinectx.parameters['refine.wohnviertel']">
-            <div class="col-md-6">
-                <h3>
-                    Sauberkeitsindex pro Quartal
-                </h3>
-                <ods-chart scientific-display="false" 
-                           align-month="true">
-                    <ods-chart-query context="refinectx" 
-                                     field-x="quartal" 
-                                     maxpoints="0" 
-                                     series-breakdown="wohnviertel">
-                        <ods-chart-serie expression-y="ski"
-                                         chart-type="line" 
-                                         function-y="AVG" 
-                                         color="range-Accent"
-                                         scientific-display="true">
-                        </ods-chart-serie>
-                    </ods-chart-query>
-                </ods-chart>
-            </div>
-            <div class="col-md-6">
-                <h3>
-                    Sauberkeitsindex pro Jahr
-                </h3>
-                <ods-chart scientific-display="false" 
-                           align-month="true">
-                    <ods-chart-query context="refinectx" 
-                                     field-x="jahr" 
-                                     maxpoints="0" 
-                                     series-breakdown="wohnviertel">
-                        <ods-chart-serie expression-y="ski"
-                                         chart-type="line" 
-                                         function-y="AVG" 
-                                         color="range-Accent"
-                                         scientific-display="true">
-                        </ods-chart-serie>
-                    </ods-chart-query>
-                </ods-chart>
-            </div>
-        </div>
-    </ods-dataset-context>
+            </ods-dataset-context>
+        </ods-simple-tab>
+    </ods-simple-tabs>
 </div>

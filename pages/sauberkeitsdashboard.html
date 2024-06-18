@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <section>
         <div class="heading">
-            <h1 class="title">Sauberkeitsindex</h1>
+            <h1 class="title">Sauberkeitsindex (SKI)</h1>
             <p>Auf den Kehrrichtfahrzeugen sind Kameras installiert, 
                 die während der Einsätze Videoaufnahmen der Strassen machen. 
                 Ein Computer durchsucht anschliessend diese Videoaufnahmen nach Abfällen. 
@@ -10,21 +10,22 @@
                 Zusätzlich wird für jede Abfallkategorie der Verschmutzungsgrad und der Störfaktor bestimmt. 
                 Daraus wird der Sauberkeitsindex berechnet. 
                 Danach werden die Videoaufnahmen aus Datenschutzgründen umgehend gelöscht.<br/>
-                Die Daten für das Dashboard werden aus dem Datensatz "Sauberkeitsindex pro Quartal und Wohnviertel" gewonnen.
+                Die Daten für das Dashboard werden aus dem Datensatz <b>Sauberkeitsindex pro Quartal und Wohnviertel</b> gewonnen.
                 <a class="source"
                     href="https://data.bs.ch/explore/dataset/100362"
                     title="Title"><i class="fa fa-long-arrow-right"
                     aria-hidden="true"></i>Daten im Datenportal
                 </a>
                 <br/>
-                Die Geodaten für die räumliche Ansicht wurde aus dem  Datensatz "Statistische Raumeinheiten: Wohnviertel" gewonnen.
+                Die Geodaten für die räumliche Ansicht wurde aus dem  Datensatz <b>Statistische Raumeinheiten: Wohnviertel</b> gewonnen.
                 <a class="source"
                     href="https://data.bs.ch/explore/dataset/100342"
                     title="Title"><i class="fa fa-long-arrow-right"
                     aria-hidden="true"></i>Geodaten im Datenportal
                 </a>
                 <br/><br/>
-                Im folgenden Dashboard kann man zwischen zwei Ansichten wechseln. Der "Analyse"-Tab bietet die Möglichkeit die Daten sowohl räumlich, als auch zeitlich zu entdecken. Der "Wohnviertel-Vergleich"-Tab bietet die Möglichkeit die Sauberkeit der Stadt ganzheitlich zwischen zwei Zeitperioden zu vergleichen.
+                Im folgenden Dashboard kann man zwischen zwei Ansichten wechseln. Der <b>Analyse</b>-Tab bietet die Möglichkeit die Daten sowohl räumlich, als auch zeitlich zu entdecken.
+                Der <b>Wohnviertel-Vergleich</b>-Tab bietet die Möglichkeit die Sauberkeit der Stadt ganzheitlich zwischen zwei Zeitperioden zu vergleichen.
             </p>
         </div>
     </section>
@@ -45,50 +46,54 @@
                 'disjunctive.quartalsnummer':true}">
                 <section>
                     <div class="row">
-                        <ods-facets context="sauberkeit">
-                            <div style="margin:0 1em 1em" class="col-md-3">
-                                <h3>
-                                    <span ng-if="sauberkeit.parameters['refine.jahr'].length === 0">
-                                    Jahr <i>(alle)</i>
-                                    </span>
-                                    <span ng-if="sauberkeit.parameters['refine.jahr'].length > 0">
-                                    Jahr <i>({{ sauberkeit.parameters['refine.jahr'].join(', ') }})</i>
-                                    </span>
-                                </h3>
-                                <div ods-facet-results="jahre"
-                                    ods-facet-results-context="sauberkeit"
-                                    ods-facet-results-facet-name="jahr"
-                                    ods-facet-results-sort="alphanum">
-                                    <ods-select options="jahre"
-                                        selected-values="sauberkeit.parameters['refine.jahr']"
-                                        placeholder="alle Jahre"
-                                        label-modifier="name"
-                                        value-modifier="name"
-                                        multiple="true"></ods-select>
+                        <div class="col-md-6">
+                            <ods-facets context="sauberkeit">
+                                <div class="col-md-6">
+                                    <h3>
+                                        <span ng-if="sauberkeit.parameters['refine.jahr'].length === 0">
+                                        Jahr <i>(alle)</i>
+                                        </span>
+                                        <span ng-if="sauberkeit.parameters['refine.jahr'].length > 0">
+                                        Jahr <i>({{ sauberkeit.parameters['refine.jahr'].join(', ') }})</i>
+                                        </span>
+                                    </h3>
+                                    <div ods-facet-results="jahre"
+                                        ods-facet-results-context="sauberkeit"
+                                        ods-facet-results-facet-name="jahr"
+                                        ods-facet-results-sort="alphanum">
+                                        <ods-select options="jahre"
+                                            selected-values="sauberkeit.parameters['refine.jahr']"
+                                            placeholder="alle Jahre"
+                                            label-modifier="name"
+                                            value-modifier="name"
+                                            multiple="true"></ods-select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <h3>
-                                    <span ng-if="sauberkeit.parameters['refine.quartalsnummer'].length === 0">
-                                    Quartal <i>(alle)</i>
-                                    </span>
-                                    <span ng-if="sauberkeit.parameters['refine.quartalsnummer'].length > 0">
-                                    Quartal <i>({{ sauberkeit.parameters['refine.quartalsnummer'].join(', ') }}. Quartal)</i>
-                                    </span>
-                                </h3>
-                                <div ods-facet-results="quartale"
-                                    ods-facet-results-context="sauberkeit"
-                                    ods-facet-results-facet-name="quartalsnummer"
-                                    ods-facet-results-sort="alphanum">
-                                    <ods-select options="quartale"
-                                        selected-values="sauberkeit.parameters['refine.quartalsnummer']"
-                                        placeholder="alle Quartale"
-                                        label-modifier="name + '. Quartal'"
-                                        value-modifier="name"
-                                        multiple="true"></ods-select>
+                                <div class="col-md-6">
+                                    <h3>
+                                        <span ng-if="sauberkeit.parameters['refine.quartalsnummer'].length === 0">
+                                        Quartal <i>(alle)</i>
+                                        </span>
+                                        <span ng-if="sauberkeit.parameters['refine.quartalsnummer'].length > 0">
+                                        Quartal <i>({{ sauberkeit.parameters['refine.quartalsnummer'].join(', ') }}. Quartal)</i>
+                                        </span>
+                                    </h3>
+                                    <div ods-facet-results="quartale"
+                                        ods-facet-results-context="sauberkeit"
+                                        ods-facet-results-facet-name="quartalsnummer"
+                                        ods-facet-results-sort="alphanum">
+                                        <ods-select options="quartale"
+                                            selected-values="sauberkeit.parameters['refine.quartalsnummer']"
+                                            placeholder="alle Quartale"
+                                            label-modifier="name + '. Quartal'"
+                                            value-modifier="name"
+                                            multiple="true"></ods-select>
+                                    </div>
                                 </div>
-                            </div>
-                        </ods-facets>
+                            </ods-facets>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
                     </div>
                     <div class="row"
                         ods-color-gradient="colorgradient"
@@ -183,7 +188,7 @@
                                 <div class="advanced-kpi">
                                     <div class="advanced-kpi--top">
                                         <h3 class="title">
-                                            Rangliste - Sauberkeitsindex (SKI) pro Wohnviertel
+                                            Sauberkeitsindex (SKI) pro Wohnviertel
                                         </h3>
                                         <i class="description">
                                         Durchschnitt
@@ -222,11 +227,11 @@
                                                 <ods-chart-serie expression-y="ski"
                                                     chart-type="bar" 
                                                     function-y="AVG"
-                                                    color="range-Accent"
+                                                    color="range-Dark2"
                                                     display-values="true" 
                                                     display-stack-values="false" 
                                                     label-y="Sauberkeitsindex (SKI)"
-                                                    min="4" max="5" 
+                                                    min="0" max="5" 
                                                     scientific-display="true">
                                                 </ods-chart-serie>
                                             </ods-chart-query>
@@ -243,8 +248,9 @@
                 </section>
                 <section>
                     <div class="row">
-                        <ods-facets>
-                            <div style="margin:0 1em 1em" class="col-md-6">
+                        <div class="col-md-6">
+                            <ods-facets>
+                            <div class="col-md-12">
                                 <h3>
                                     <span ng-if="viertelctx.parameters['refine.wohnviertel'].length === 0">
                                     Wohnviertel <i>(alle)</i>
@@ -267,6 +273,9 @@
                                 </div>
                             </div>
                         </ods-facets>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
                     </div>
                     <div style="font-size: 1.5em; margin: 0 1em 1em" ng-if="viertelctx.parameters['refine.wohnviertel'].length === 0">
                         <i>Keine Wohnviertel ausgewählt</i>
@@ -294,10 +303,10 @@
                                                     <ods-chart-serie expression-y="ski"
                                                         chart-type="line" 
                                                         function-y="AVG" 
-                                                        color="range-Set1"
+                                                        color="range-Dark2"
                                                         display-values="false" 
                                                         display-stack-values="false" 
-                                                        min="4" max="5" 
+                                                        min="0" max="5" 
                                                         scientific-display="true"
                                                         label-y="Sauberkeitsindex (SKI)">
                                                     </ods-chart-serie>
@@ -335,10 +344,10 @@
                                                     <ods-chart-serie expression-y="ski"
                                                         chart-type="column" 
                                                         function-y="AVG" 
-                                                        color="range-Set1"
+                                                        color="range-Dark2"
                                                         display-values="true" 
                                                         display-stack-values="false" 
-                                                        min="4" max="5" 
+                                                        min="0" max="5" 
                                                         scientific-display="true"
                                                         label-y="Sauberkeitsindex (SKI)">
                                                     </ods-chart-serie>
@@ -374,10 +383,10 @@
                                                     <ods-chart-serie expression-y="ski"
                                                         chart-type="column" 
                                                         function-y="AVG" 
-                                                        color="range-Set1"
+                                                        color="range-Dark2"
                                                         display-values="true" 
                                                         display-stack-values="false" 
-                                                        min="4" max="5" 
+                                                        min="0" max="5" 
                                                         scientific-display="true"
                                                         label-y="Sauberkeitsindex (SKI)">
                                                     </ods-chart-serie>
@@ -588,10 +597,10 @@
                                     seit 2020
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length === 1">
-                                    für das Jahr {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
+                                    für das Jahr {{ sauberkeit2.parameters['refine.jahr'].join(', ') }}
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length > 1">
-                                    für die Jahre {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
+                                    für die Jahre {{ sauberkeit2.parameters['refine.jahr'].join(', ') }}
                                     </span>
                                     </i>
                                 </div>
@@ -638,137 +647,135 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 chart-1"
-                        ods-color-gradient="colorgradient3"
-                        ods-color-gradient-context="sauberkeit1"
-                        ods-color-gradient-x="wohnviertel"
-                        ods-color-gradient-serie="AVG(ski)"
-                        ods-color-gradient-high="rgb(180, 197, 241)"
-                        ods-color-gradient-low="rgb(20, 33, 96)">
-                        <div class="box white flat">
-                            <div class="advanced-kpi">
-                                <div class="advanced-kpi--top">
-                                    <h3 class="title">
-                                        Rangliste - Sauberkeitsindex (SKI) pro Wohnviertel
-                                    </h3>
-                                    <i class="description">
+                <div class="col-md-6 chart-1"
+                     ods-color-gradient="colorgradient3"
+                     ods-color-gradient-context="sauberkeit1"
+                     ods-color-gradient-x="wohnviertel"
+                     ods-color-gradient-serie="AVG(ski)"
+                     ods-color-gradient-high="rgb(180, 197, 241)"
+                     ods-color-gradient-low="rgb(20, 33, 96)">
+                    <div class="box white flat">
+                        <div class="advanced-kpi">
+                            <div class="advanced-kpi--top">
+                                <h3 class="title">
+                                    Sauberkeitsindex (SKI) pro Wohnviertel
+                                </h3>
+                                <i class="description">
                                     Durchschnitt
                                     <span ng-if="sauberkeit1.parameters['refine.quartalsnummer'].length === 0 || sauberkeit1.parameters['refine.quartalsnummer'].length === 4">
-                                    aller Quartale
+                                        aller Quartale
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.quartalsnummer'].length === 3">
-                                    {{ sauberkeit1.parameters['refine.quartalsnummer'][0]}}., {{ sauberkeit1.parameters['refine.quartalsnummer'][1]}}. und {{ sauberkeit1.parameters['refine.quartalsnummer'][2]}}. Quartal
+                                        {{ sauberkeit1.parameters['refine.quartalsnummer'][0]}}., {{ sauberkeit1.parameters['refine.quartalsnummer'][1]}}. und {{ sauberkeit1.parameters['refine.quartalsnummer'][2]}}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.quartalsnummer'].length > 0 && sauberkeit1.parameters['refine.quartalsnummer'].length < 3">
-                                    {{ sauberkeit1.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
+                                        {{ sauberkeit1.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.jahr'].length === 0">
-                                    seit 2020
+                                        seit 2020
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.jahr'].length === 1">
-                                    für das Jahr {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
+                                        für das Jahr {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.jahr'].length > 1">
-                                    für die Jahre {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
+                                        für die Jahre {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
                                     </span>
-                                    </i>
-                                </div>
-                                <div class="advanced-kpi--middle no-bg mb-0">
-                                    <ods-chart 
-                                        style="height:600px"
-                                        scientific-display="false"
-                                        display-legend="false"
-                                        align-month="true"
-                                        labels-x-length="20">
-                                        <ods-chart-query context="sauberkeit1" 
-                                            field-x="wohnviertel" 
-                                            maxpoints="0"
-                                            sort="serie1-1" 
-                                            category-colors="colorgradient3['colors']">
-                                            <ods-chart-serie expression-y="ski"
-                                                chart-type="bar" 
-                                                function-y="AVG" 
-                                                color="range-Accent"
-                                                display-values="true" 
-                                                display-stack-values="false" 
-                                                label-y="Sauberkeitsindex (SKI)"
-                                                min="4" max="5" 
-                                                scientific-display="true">
-                                            </ods-chart-serie>
-                                        </ods-chart-query>
-                                    </ods-chart>
-                                </div>
-                                <div class="advanced-kpi--bottom">
-                                    <div class="advanced-kpi--bottom-second-stage">
-                                    </div>
+                                </i>
+                            </div>
+                            <div class="advanced-kpi--middle no-bg mb-0">
+                                <ods-chart 
+                                           style="height:600px"
+                                           scientific-display="false"
+                                           display-legend="false"
+                                           align-month="true"
+                                           labels-x-length="20">
+                                    <ods-chart-query context="sauberkeit1" 
+                                                     field-x="wohnviertel" 
+                                                     maxpoints="0"
+                                                     sort="serie1-1" 
+                                                     category-colors="colorgradient3['colors']">
+                                        <ods-chart-serie expression-y="ski"
+                                                         chart-type="bar" 
+                                                         function-y="AVG" 
+                                                         color="range-Accent"
+                                                         display-values="true" 
+                                                         display-stack-values="false" 
+                                                         label-y="Sauberkeitsindex (SKI)"
+                                                         min="0" max="5" 
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </div>
+                            <div class="advanced-kpi--bottom">
+                                <div class="advanced-kpi--bottom-second-stage">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 chart-2"
-                        ods-color-gradient="colorgradient4"
-                        ods-color-gradient-context="sauberkeit2"
-                        ods-color-gradient-x="wohnviertel"
-                        ods-color-gradient-serie="AVG(ski)"
-                        ods-color-gradient-high="rgb(180, 197, 241)"
-                        ods-color-gradient-low="rgb(20, 33, 96)">
-                        <div class="box white flat">
-                            <div class="advanced-kpi">
-                                <div class="advanced-kpi--top">
-                                    <h3 class="title">
-                                        Rangliste - Sauberkeitsindex (SKI) pro Wohnviertel
-                                    </h3>
-                                    <i class="description">
+                </div>
+                <div class="col-md-6 chart-2"
+                     ods-color-gradient="colorgradient4"
+                     ods-color-gradient-context="sauberkeit2"
+                     ods-color-gradient-x="wohnviertel"
+                     ods-color-gradient-serie="AVG(ski)"
+                     ods-color-gradient-high="rgb(180, 197, 241)"
+                     ods-color-gradient-low="rgb(20, 33, 96)">
+                    <div class="box white flat">
+                        <div class="advanced-kpi">
+                            <div class="advanced-kpi--top">
+                                <h3 class="title">
+                                    Sauberkeitsindex (SKI) pro Wohnviertel
+                                </h3>
+                                <i class="description">
                                     Durchschnitt
                                     <span ng-if="sauberkeit2.parameters['refine.quartalsnummer'].length === 0 || sauberkeit2.parameters['refine.quartalsnummer'].length === 4">
-                                    aller Quartale
+                                        aller Quartale
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.quartalsnummer'].length === 3">
-                                    {{ sauberkeit2.parameters['refine.quartalsnummer'][0]}}., {{ sauberkeit2.parameters['refine.quartalsnummer'][1]}}. und {{ sauberkeit2.parameters['refine.quartalsnummer'][2]}}. Quartal
+                                        {{ sauberkeit2.parameters['refine.quartalsnummer'][0]}}., {{ sauberkeit2.parameters['refine.quartalsnummer'][1]}}. und {{ sauberkeit2.parameters['refine.quartalsnummer'][2]}}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.quartalsnummer'].length > 0 && sauberkeit2.parameters['refine.quartalsnummer'].length < 3">
-                                    {{ sauberkeit2.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
+                                        {{ sauberkeit2.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length === 0">
-                                    seit 2020
+                                        seit 2020
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length === 1">
-                                    für das Jahr {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
+                                        für das Jahr {{ sauberkeit2.parameters['refine.jahr'].join(', ') }}
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length > 1">
-                                    für die Jahre {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
+                                        für die Jahre {{ sauberkeit2.parameters['refine.jahr'].join(', ') }}
                                     </span>
-                                    </i>
-                                </div>
-                                <div class="advanced-kpi--middle no-bg mb-0">
-                                    <ods-chart 
-                                        style="height:600px"
-                                        scientific-display="false"
-                                        display-legend="false"
-                                        align-month="true"
-                                        labels-x-length="20">
-                                        <ods-chart-query context="sauberkeit2" 
-                                            field-x="wohnviertel" 
-                                            maxpoints="0"
-                                            sort="serie1-1" 
-                                            category-colors="colorgradient4['colors']">
-                                            <ods-chart-serie expression-y="ski"
-                                                chart-type="bar" 
-                                                function-y="AVG" 
-                                                color="range-Accent"
-                                                display-values="true" 
-                                                display-stack-values="false" 
-                                                label-y="Sauberkeitsindex (SKI)"
-                                                min="4" max="5" 
-                                                scientific-display="true">
-                                            </ods-chart-serie>
-                                        </ods-chart-query>
-                                    </ods-chart>
-                                </div>
-                                <div class="advanced-kpi--bottom">
-                                    <div class="advanced-kpi--bottom-second-stage">
-                                    </div>
+                                </i>
+                            </div>
+                            <div class="advanced-kpi--middle no-bg mb-0">
+                                <ods-chart 
+                                           style="height:600px"
+                                           scientific-display="false"
+                                           display-legend="false"
+                                           align-month="true"
+                                           labels-x-length="20">
+                                    <ods-chart-query context="sauberkeit2" 
+                                                     field-x="wohnviertel" 
+                                                     maxpoints="0"
+                                                     sort="serie1-1" 
+                                                     category-colors="colorgradient4['colors']">
+                                        <ods-chart-serie expression-y="ski"
+                                                         chart-type="bar" 
+                                                         function-y="AVG" 
+                                                         color="range-Accent"
+                                                         display-values="true" 
+                                                         display-stack-values="false" 
+                                                         label-y="Sauberkeitsindex (SKI)"
+                                                         min="0" max="5" 
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </div>
+                            <div class="advanced-kpi--bottom">
+                                <div class="advanced-kpi--bottom-second-stage">
                                 </div>
                             </div>
                         </div>

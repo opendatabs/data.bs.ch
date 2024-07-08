@@ -1,13 +1,10 @@
 <ods-dataset-context context="ctx,ctxdates,ctxlastdate"
     ctx-dataset="100346"
-    ctx-parameters= "{'refine.gemein_name':'Basel-Stadt',
-    'exclude.abst_typ':'Initiative mit Gegenvorschlag und Stichfrage'}"
+    ctx-parameters= "{'refine.gemein_name':'Basel-Stadt'}"
     ctxdates-dataset="100346"
     ctxlastdate-dataset="100346"
-    ctxdates-parameters= "{'refine.gemein_name':'Basel-Stadt',
-    'exclude.abst_typ':'Initiative mit Gegenvorschlag und Stichfrage'}"
-    ctxlastdate-parameters= "{'refine.gemein_name':'Basel-Stadt',
-    'exclude.abst_typ':'Initiative mit Gegenvorschlag und Stichfrage'}"
+    ctxdates-parameters= "{'refine.gemein_name':'Basel-Stadt'}"
+    ctxlastdate-parameters= "{'refine.gemein_name':'Basel-Stadt'}"
     ng-init="values = {};
     selected = {}">
     <div ods-adv-analysis="dates"
@@ -37,11 +34,11 @@
             value-modifier="abst_datum_text"
             placeholder="Wählen Sie ein Abstimmungsdatum"></ods-select>
         <div ng-if="ctx.parameters['refine.abst_datum_text'][0]">
-            <b>Anteil Ja-Stimmen</b>
+            <b>Anteil Ja-Stimmen der Stimmbevölkerung im Kanton Basel-Stadt</b>
             <br />
-            Diese Grafik zeigt den Anteil der Ja-Stimmmen für alle Vorlagen des gewählten Abstimmungstermins.
+            Diese Grafik zeigt den Anteil der Ja-Stimmen der Stimmbevölkerung im Kanton Basel-Stadt für alle Vorlagen des gewählten Abstimmungstermins.
             <br />
-            <ods-chart display-legend="false" 
+            <ods-chart display-legend="true" 
                 label-x="" labels-x-length=30 
                 single-y-axis="true" 
                 single-y-axis-label="Anteil Ja-Stimmen (%)">
@@ -51,6 +48,20 @@
                         function-y="AVG" 
                         color="#51BFD9" 
                         label-y="Anteil Ja-Stimmen (%)"
+                        multiplier="100">
+                    </ods-chart-serie>
+                    <ods-chart-serie expression-y="gege_anteil_ja_stimmen" 
+                        chart-type="bar" 
+                        function-y="AVG" 
+                        color="#00546F" 
+                        label-y="Anteil Ja-Stimmen Gegenvorschlag (%)"
+                        multiplier="100">
+                    </ods-chart-serie>
+                    <ods-chart-serie expression-y="sti_anteil_init_stimmen" 
+                        chart-type="bar" 
+                        function-y="AVG" 
+                        color="#F6C024" 
+                        label-y="Anteil Stimmen für Initiative in Stichfrage (%)"
                         multiplier="100">
                     </ods-chart-serie>
                 </ods-chart-query>
@@ -65,7 +76,7 @@
                     ctx-parameters="{'sort':'-abst_id','refine.abst_id_titel':''+item.name}">
                     <b>{{item.name}}</b>
                     <br /><br />
-                    Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen nach Gemeinde und für den ganzen Kanton.
+                    Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen nach Gemeinde und für den ganzen Kanton Basel-Stadt.
                     <br />
                     <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
                         <ods-chart-query context="ctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
@@ -83,6 +94,46 @@
                             </ods-chart-serie>
                         </ods-chart-query>
                     </ods-chart>
+                    <div ng-if="item.name.indexOf('Gegenvorschlag') !== -1">
+                        <br />
+                        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für den <b>Gegenvorschlag</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
+                        <br />
+                        <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+                            <ods-chart-query context="ctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
+                                <ods-chart-serie expression-y="gege_ja_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#00546F" 
+                                                 label-y="Ja-Stimmen Gegenvorschlag">
+                                </ods-chart-serie>
+                                <ods-chart-serie expression-y="gege_nein_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#F6C024" 
+                                                 label-y="Nein-Stimmen Gegenvorschlag">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                        </ods-chart>
+                        <br />
+                        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für die <b>Stichfrage</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
+                        <br />
+                        <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+                            <ods-chart-query context="ctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
+                                <ods-chart-serie expression-y="sti_initiative_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#51BFD9" 
+                                                 label-y="Stimmen für Initiative">
+                                </ods-chart-serie>
+                                <ods-chart-serie expression-y="sti_gegenvorschlag_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#00546F" 
+                                                 label-y="Stimmen für Gegenvorschlag">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                        </ods-chart>
+                    </div>
                 </ods-dataset-context>
                 <br /><br />
             </div>

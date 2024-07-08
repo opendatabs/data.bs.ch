@@ -63,6 +63,46 @@
                             </ods-chart-serie>
                         </ods-chart-query>
                     </ods-chart>
+                    <div ng-if="item.name.indexOf('Gegenvorschlag') !== -1">
+                        <br />
+                        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für den <b>Gegenvorschlag</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
+                        <br />
+                        <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+                            <ods-chart-query context="ctx" field-x="wahllok_name" stacked="percent" sort="serie1-1">
+                                <ods-chart-serie expression-y="gege_ja_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#00546F" 
+                                                 label-y="Ja-Stimmen Gegenvorschlag">
+                                </ods-chart-serie>
+                                <ods-chart-serie expression-y="gege_nein_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#F6C024" 
+                                                 label-y="Nein-Stimmen Gegenvorschlag">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                        </ods-chart>
+                        <br />
+                        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für die <b>Stichfrage</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
+                        <br />
+                        <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
+                            <ods-chart-query context="ctx" field-x="wahllok_name" stacked="percent" sort="serie1-1">
+                                <ods-chart-serie expression-y="sti_initiative_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#51BFD9" 
+                                                 label-y="Stimmen für Initiative">
+                                </ods-chart-serie>
+                                <ods-chart-serie expression-y="sti_gegenvorschlag_anz" 
+                                                 chart-type="column" 
+                                                 function-y="AVG" 
+                                                 color="#00546F" 
+                                                 label-y="Stimmen für Gegenvorschlag">
+                                </ods-chart-serie>
+                            </ods-chart-query>
+                        </ods-chart>
+                    </div>
                 </ods-dataset-context>
                 <br /><br />
             </div>

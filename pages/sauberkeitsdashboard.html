@@ -2,6 +2,20 @@
     <section>
         <div class="heading">
             <h1 class="title">Sauberkeitsindex (SKI)</h1>
+            <p> Der Sauberkeitsindex ist eine Metrik zur Beschreibung der Sauberkeit von Strassenabschnitten. Er wird von der Stadtreinigung des Kantons Basel-Stadt berechnet und publiziert.</p>
+            <div ng-init="showDetails = false;">
+                <button class="button-see-more"
+                        ng-click="showDetails = !showDetails">
+                    <span ng-show="showDetails == false">
+                        Weitere Informationen
+                        <i class="fa fa-long-arrow-down fa-fw" aria-hidden="true"></i>
+                    </span>
+                    <span ng-show="showDetails == true">
+                        Weitere Informationen
+                        <i class="fa fa-long-arrow-up fa-fw" aria-hidden="true"></i>
+                    </span>
+                </button>
+                <div ng-if="showDetails == true">
             <p>Auf den Kehrrichtfahrzeugen sind Kameras installiert, 
                 die während der Einsätze Videoaufnahmen der Strassen machen. 
                 Ein Computer durchsucht anschliessend diese Videoaufnahmen nach Abfällen. 
@@ -9,27 +23,40 @@
                 Papier, PET-Flaschen etc.) und zählt die Anzahl der gefundenen Abfälle jeder Kategorie. 
                 Zusätzlich wird für jede Abfallkategorie der Verschmutzungsgrad und der Störfaktor bestimmt. 
                 Daraus wird der Sauberkeitsindex berechnet. 
-                Danach werden die Videoaufnahmen aus Datenschutzgründen umgehend gelöscht.<br/>
-                Die Daten für das Dashboard werden aus dem Datensatz <b>Sauberkeitsindex pro Quartal und Wohnviertel</b> gewonnen.
+               Danach werden die Videoaufnahmen aus Datenschutzgründen umgehend gelöscht.</p>
+            <p> Der Sauberkeitsindex wird auf einer Skala von 0 bis 5 angegeben, wobei die Werte folgendermassen beurteilt werden:<br/> 
+                Kleiner als 3: schlecht<br/>
+                Zwischen 3 und 4: mittel<br/>
+                Grösser als 4: gut<br/>
+                Der Grosse Rat beauftragt das Tiefbauamt mit dem Erreichen eines Indexes für die gesamte Stadt von mindestens 4.5.<br/></p>
+            <p> Hier sind die Daten im Datenportal 
                 <a class="source"
                     href="https://data.bs.ch/explore/dataset/100362"
                     title="Title"><i class="fa fa-long-arrow-right"
-                    aria-hidden="true"></i>Daten im Datenportal
-                </a>
-                <br/>
-                Die Geodaten für die räumliche Ansicht wurde aus dem  Datensatz <b>Statistische Raumeinheiten: Wohnviertel</b> gewonnen.
+                    aria-hidden="true"></i>Sauberkeitsindex pro Quartal und Wohnviertel
+                </a><br/>
+                Hier sind die Geodaten im Datenportal
                 <a class="source"
-                    href="https://data.bs.ch/explore/dataset/100342"
+                    href="https://data.bs.ch/explore/dataset/100042"
                     title="Title"><i class="fa fa-long-arrow-right"
-                    aria-hidden="true"></i>Geodaten im Datenportal
+                    aria-hidden="true"></i>Statistische Raumeinheiten: Wohnviertel
+                </a><br/>
+                Weitere Daten im Datenportal zu diesem Thema
+                <a class="source"
+                    href="https://data.bs.ch/explore/dataset/100288"
+                    title="Title"><i class="fa fa-long-arrow-right"
+                    aria-hidden="true"></i>Sauberkeitsindex pro Monat und Strassenabschnitt
                 </a>
-                <br/><br/>
-                Im folgenden Dashboard kann man zwischen zwei Ansichten wechseln. Der <b>Analyse</b>-Tab bietet die Möglichkeit die Daten sowohl räumlich, als auch zeitlich zu entdecken.
-                Der <b>Wohnviertel-Vergleich</b>-Tab bietet die Möglichkeit die Sauberkeit der Stadt ganzheitlich zwischen zwei Zeitperioden zu vergleichen.
-            </p>
+                <br/></p>
+               <p> Das Dashboard bietet zwei Ansichten. Im <b>Analyse</b>-Tab können die Daten sowohl räumlich als auch zeitlich erkundet werden.
+                Der <b>Wohnviertel-Vergleich</b>-Tab bietet die Möglichkeit, den Sauberkeitsindex zweier Zeitperioden zu vergleichen.
+               </p>                
+                </div>
+            </div>
         </div>
     </section>
-    <ods-simple-tabs>
+    <div class="heading">
+        <ods-simple-tabs>
         <ods-simple-tab label="Analyse">
             <ods-dataset-context context="gesamtctx,viertelctx,sauberkeit"
                 viertelctx-dataset="100362"
@@ -121,7 +148,7 @@
                                         {{ sauberkeit.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                         </span>
                                         <span ng-if="sauberkeit.parameters['refine.jahr'].length === 0">
-                                        seit 2020
+                                        seit 2021
                                         </span>
                                         <span ng-if="sauberkeit.parameters['refine.jahr'].length === 1">
                                         für das Jahr {{ sauberkeit.parameters['refine.jahr'].join(', ') }}
@@ -202,7 +229,7 @@
                                         {{ sauberkeit.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                         </span>
                                         <span ng-if="sauberkeit.parameters['refine.jahr'].length === 0">
-                                        seit 2020
+                                        seit 2021
                                         </span>
                                         <span ng-if="sauberkeit.parameters['refine.jahr'].length === 1">
                                         für das Jahr {{ sauberkeit.parameters['refine.jahr'].join(', ') }}
@@ -232,7 +259,9 @@
                                                     display-stack-values="false" 
                                                     label-y="Sauberkeitsindex (SKI)"
                                                     min="0" max="5" 
-                                                    scientific-display="true">
+                                                    scientific-display="true"
+                                                    refine-on-click-context="viertelctx"
+                                                    refine-on-click-viertelctx-context-field="wohnviertel">
                                                 </ods-chart-serie>
                                             </ods-chart-query>
                                         </ods-chart>
@@ -290,15 +319,16 @@
                                                 Sauberkeitsindex (SKI) pro Quartal und Jahr
                                             </h3>
                                             <i class="description">
-                                            Quartalswerte der einzelnen Quartale seit 2020
+                                            Quartalswerte der einzelnen Quartale seit 2021
                                             </i>
                                         </div>
                                         <div class="advanced-kpi--middle no-bg mb-0">
                                             <ods-chart style="height:400px"
                                                 align-month="true">
                                                 <ods-chart-query context="viertelctx" 
-                                                    field-x="quartal" 
+                                                    field-x="quartal_beginn" 
                                                     maxpoints="0" 
+                                                    timescale="month"
                                                     series-breakdown="wohnviertel">
                                                     <ods-chart-serie expression-y="ski"
                                                         chart-type="line" 
@@ -330,7 +360,7 @@
                                                 Sauberkeitsindex (SKI) pro Quartal
                                             </h3>
                                             <i class="description">
-                                            Durchschnitt gruppiert nach Quartalen seit 2020
+                                            Durchschnitt gruppiert nach Quartalen seit 2021
                                             </i>
                                         </div>
                                         <div class="advanced-kpi--middle no-bg mb-0">
@@ -481,7 +511,7 @@
                                     {{ sauberkeit1.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.jahr'].length === 0">
-                                    seit 2020
+                                    seit 2021
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.jahr'].length === 1">
                                     für das Jahr {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
@@ -594,7 +624,7 @@
                                     {{ sauberkeit2.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length === 0">
-                                    seit 2020
+                                    seit 2021
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length === 1">
                                     für das Jahr {{ sauberkeit2.parameters['refine.jahr'].join(', ') }}
@@ -672,7 +702,7 @@
                                         {{ sauberkeit1.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.jahr'].length === 0">
-                                        seit 2020
+                                        seit 2021
                                     </span>
                                     <span ng-if="sauberkeit1.parameters['refine.jahr'].length === 1">
                                         für das Jahr {{ sauberkeit1.parameters['refine.jahr'].join(', ') }}
@@ -739,7 +769,7 @@
                                         {{ sauberkeit2.parameters['refine.quartalsnummer'].join('. und ') }}. Quartal
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length === 0">
-                                        seit 2020
+                                        seit 2021
                                     </span>
                                     <span ng-if="sauberkeit2.parameters['refine.jahr'].length === 1">
                                         für das Jahr {{ sauberkeit2.parameters['refine.jahr'].join(', ') }}
@@ -783,5 +813,6 @@
                 </div>
             </ods-dataset-context>
         </ods-simple-tab>
-    </ods-simple-tabs>
+    </ods-simple-tabs>        
+    </div>
 </div>

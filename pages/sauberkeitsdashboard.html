@@ -16,7 +16,7 @@
                     </span>
                 </button>
                 <div ng-if="showDetails == true">
-            <p>Auf den Kehrrichtfahrzeugen sind Kameras installiert, 
+            <p>Auf den Kehrichtfahrzeugen sind Kameras installiert, 
                 die während der Einsätze Videoaufnahmen der Strassen machen. 
                 Ein Computer durchsucht anschliessend diese Videoaufnahmen nach Abfällen. 
                 Dieser sortiert die Abfälle in verschiedene Abfallkategorien (Zigarettenstummel, 
@@ -258,7 +258,9 @@
                                                     display-values="true" 
                                                     display-stack-values="false" 
                                                     label-y="Sauberkeitsindex (SKI)"
-                                                    min="0" max="5" 
+                                                    min="0" 
+                                                    max="5.9"
+                                                    step="1"
                                                     scientific-display="true"
                                                     refine-on-click-context="viertelctx"
                                                     refine-on-click-viertelctx-context-field="wohnviertel">
@@ -731,7 +733,9 @@
                                                          display-values="true" 
                                                          display-stack-values="false" 
                                                          label-y="Sauberkeitsindex (SKI)"
-                                                         min="0" max="5" 
+                                                         min="0"
+                                                         max="5.9"
+                                                         step="1"
                                                          scientific-display="true">
                                         </ods-chart-serie>
                                     </ods-chart-query>
@@ -798,7 +802,9 @@
                                                          display-values="true" 
                                                          display-stack-values="false" 
                                                          label-y="Sauberkeitsindex (SKI)"
-                                                         min="0" max="5" 
+                                                         min="0" 
+                                                         max="5.9"
+                                                         step="1"
                                                          scientific-display="true">
                                         </ods-chart-serie>
                                     </ods-chart-query>

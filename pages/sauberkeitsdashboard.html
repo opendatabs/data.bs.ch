@@ -258,9 +258,9 @@
                                                     display-values="true" 
                                                     display-stack-values="false" 
                                                     label-y="Sauberkeitsindex (SKI)"
-                                                    min="0" 
-                                                    max="5.9"
-                                                    step="1"
+                                                    min="{{ axisRangeToggle1 ? 4 : 0 }}" 
+                                                    max="{{ axisRangeToggle1 ? 5 : 5.9 }}"
+                                                    step="{{ axisRangeToggle1 ? 0.1 : 1 }}"
                                                     scientific-display="true"
                                                     refine-on-click-context="viertelctx"
                                                     refine-on-click-viertelctx-context-field="wohnviertel">
@@ -270,6 +270,10 @@
                                     </div>
                                     <div class="advanced-kpi--bottom">
                                         <div class="advanced-kpi--bottom-second-stage">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" ng-model="axisRangeToggle1">
+                                                <label class="form-check-label" for="axisRangeToggle1">Achsenbereich zwischen 4 und 5</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -338,7 +342,9 @@
                                                         color="range-Dark2"
                                                         display-values="false" 
                                                         display-stack-values="false" 
-                                                        min="0" max="5" 
+                                                        min="{{ axisRangeToggle2 ? 4 : 0 }}" 
+                                                        max="5"
+                                                        step="{{ axisRangeToggle2 ? 0.1 : 1 }}"
                                                         scientific-display="true"
                                                         label-y="Sauberkeitsindex (SKI)">
                                                     </ods-chart-serie>
@@ -347,6 +353,10 @@
                                         </div>
                                         <div class="advanced-kpi--bottom">
                                             <div class="advanced-kpi--bottom-second-stage">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" ng-model="axisRangeToggle2">
+                                                    <label class="form-check-label" for="axisRangeToggle2">Achsenbereich zwischen 4 und 5</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -379,7 +389,9 @@
                                                         color="range-Dark2"
                                                         display-values="true" 
                                                         display-stack-values="false" 
-                                                        min="0" max="5" 
+                                                        min="{{ axisRangeToggle3 ? 4 : 0 }}" 
+                                                        max="{{ axisRangeToggle3 ? 5 : 5.9 }}" 
+                                                        step="{{ axisRangeToggle3 ? 0.1 : 1 }}"
                                                         scientific-display="true"
                                                         label-y="Sauberkeitsindex (SKI)">
                                                     </ods-chart-serie>
@@ -388,6 +400,10 @@
                                         </div>
                                         <div class="advanced-kpi--bottom">
                                             <div class="advanced-kpi--bottom-second-stage">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" ng-model="axisRangeToggle3">
+                                                    <label class="form-check-label" for="axisRangeToggle3">Achsenbereich zwischen 4 und 5</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -418,7 +434,9 @@
                                                         color="range-Dark2"
                                                         display-values="true" 
                                                         display-stack-values="false" 
-                                                        min="0" max="5" 
+                                                        min="{{ axisRangeToggle4 ? 4 : 0 }}" 
+                                                        max="{{ axisRangeToggle4 ? 5 : 5.9 }}" 
+                                                        step="{{ axisRangeToggle4 ? 0.1 : 1 }}"
                                                         scientific-display="true"
                                                         label-y="Sauberkeitsindex (SKI)">
                                                     </ods-chart-serie>
@@ -427,6 +445,10 @@
                                         </div>
                                         <div class="advanced-kpi--bottom">
                                             <div class="advanced-kpi--bottom-second-stage">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" ng-model="axisRangeToggle4">
+                                                    <label class="form-check-label" for="axisRangeToggle4">Achsenbereich zwischen 4 und 5</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -733,9 +755,9 @@
                                                          display-values="true" 
                                                          display-stack-values="false" 
                                                          label-y="Sauberkeitsindex (SKI)"
-                                                         min="0"
-                                                         max="5.9"
-                                                         step="1"
+                                                         min="{{ axisRangeToggle5 ? 4 : 0 }}"
+                                                         max="{{ axisRangeToggle5 ? 5 : 5.9 }}"
+                                                         step="{{ axisRangeToggle5 ? 0.1 : 1 }}"
                                                          scientific-display="true">
                                         </ods-chart-serie>
                                     </ods-chart-query>
@@ -743,6 +765,10 @@
                             </div>
                             <div class="advanced-kpi--bottom">
                                 <div class="advanced-kpi--bottom-second-stage">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" ng-model="axisRangeToggle5">
+                                        <label class="form-check-label" for="axisRangeToggle5">Achsenbereich zwischen 4 und 5</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -802,9 +828,9 @@
                                                          display-values="true" 
                                                          display-stack-values="false" 
                                                          label-y="Sauberkeitsindex (SKI)"
-                                                         min="0" 
-                                                         max="5.9"
-                                                         step="1"
+                                                         min="{{ axisRangeToggle6 ? 4 : 0 }}"
+                                                         max="{{ axisRangeToggle6 ? 5 : 5.9 }}"
+                                                         step="{{ axisRangeToggle6 ? 0.1 : 1 }}"
                                                          scientific-display="true">
                                         </ods-chart-serie>
                                     </ods-chart-query>
@@ -812,6 +838,10 @@
                             </div>
                             <div class="advanced-kpi--bottom">
                                 <div class="advanced-kpi--bottom-second-stage">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" ng-model="axisRangeToggle6">
+                                        <label class="form-check-label" for="axisRangeToggle6">Achsenbereich zwischen 4 und 5</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,12 @@
         <div class="heading">
             <h1 class="title">Sauberkeitsindex (SKI)</h1>
             <p> Der Sauberkeitsindex ist eine Metrik zur Beschreibung der Sauberkeit von Strassenabschnitten. Er wird von der Stadtreinigung des Kantons Basel-Stadt berechnet und publiziert.</p>
+            <p> Der Sauberkeitsindex wird auf einer Skala von 0 bis 5 angegeben, wobei die Werte folgendermassen beurteilt werden:<br/> 
+                Kleiner als 3: schlecht<br/>
+                Zwischen 3 und 4: mittel<br/>
+                Grösser als 4: gut<br/>
+                Der Grosse Rat beauftragt das Tiefbauamt mit dem Erreichen eines Indexes für die gesamte Stadt von mindestens 4.5.<br/></p>
+            
             <div ng-init="showDetails = false;">
                 <button class="button-see-more"
                         ng-click="showDetails = !showDetails">
@@ -24,11 +30,6 @@
                 Zusätzlich wird für jede Abfallkategorie der Verschmutzungsgrad und der Störfaktor bestimmt. 
                 Daraus wird der Sauberkeitsindex berechnet. 
                Danach werden die Videoaufnahmen aus Datenschutzgründen umgehend gelöscht.</p>
-            <p> Der Sauberkeitsindex wird auf einer Skala von 0 bis 5 angegeben, wobei die Werte folgendermassen beurteilt werden:<br/> 
-                Kleiner als 3: schlecht<br/>
-                Zwischen 3 und 4: mittel<br/>
-                Grösser als 4: gut<br/>
-                Der Grosse Rat beauftragt das Tiefbauamt mit dem Erreichen eines Indexes für die gesamte Stadt von mindestens 4.5.<br/></p>
             <p> Hier sind die Daten im Datenportal 
                 <a class="source"
                     href="https://data.bs.ch/explore/dataset/100362"

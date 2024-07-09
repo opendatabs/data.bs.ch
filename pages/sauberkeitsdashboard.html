@@ -51,7 +51,7 @@
                 <br/></p>
                <p> Das Dashboard bietet zwei Ansichten. Im <b>Analyse</b>-Tab können die Daten sowohl räumlich als auch zeitlich erkundet werden.
                 Der <b>Wohnviertel-Vergleich</b>-Tab bietet die Möglichkeit, den Sauberkeitsindex zweier Zeitperioden zu vergleichen.
-               </p>                
+               </p>
                 </div>
             </div>
         </div>
@@ -157,6 +157,8 @@
                                         <span ng-if="sauberkeit.parameters['refine.jahr'].length > 1">
                                         für die Jahre {{ sauberkeit.parameters['refine.jahr'].join(', ') }}
                                         </span>
+                                        <br/><br/>
+                                        Durch das Klicken der Wohnviertel in der Karte können die untenstehenden Grafiken gefiltert werden.
                                         </i>
                                     </div>
                                     <div class="advanced-kpi--middle no-bg mb-0">
@@ -238,6 +240,8 @@
                                         <span ng-if="sauberkeit.parameters['refine.jahr'].length > 1">
                                         für die Jahre {{ sauberkeit.parameters['refine.jahr'].join(', ') }}
                                         </span>
+                                        <br/><br/>
+                                        Durch das Klicken auf die Balken in dem Diagramm können die untenstehenden Grafiken gefiltert werden.
                                         </i>
                                     </div>
                                     <div class="advanced-kpi--middle no-bg mb-0">

@@ -84,6 +84,10 @@ section {
 .heading p {
     font-size: 1.2em;
 }
+.heading ul {
+    font-size: 1.2em;
+    margin: 0 0 1em 0
+}
 @media screen and (min-width: 640px) {
     .heading {
         margin: 2rem;

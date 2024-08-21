@@ -1,0 +1,862 @@
+<div>
+ <div>
+   <h1>
+       Gesundheitsversorgung Basel-Stadt
+       <br/>
+       Dashboard
+   </h1>
+   <p class="description">
+Auf dem Dashboard Gesundheitsversorgung Basel-Stadt «Spitäler» sind Kennzahlen und Graphiken zu Spitälern, Kliniken und Geburtshäusern des Kantons Basel-Stadt seit dem Jahr 2018 abrufbar. Es liefert Informationen zu finanziellen und betrieblichen Kennzahlen der einzelnen Spitäler, zu medizinischen Leistungen und den behandelten Patientinnen und Patienten.     </p>
+    </div>
+</div>
+    <br/>
+<a class="basic-button-s"
+   href="#"
+   role="button">
+    Spitäler
+</a>
+<a class="basic-button-p"
+   href="https://data.bs.ch/pages/gsv-dashboard-pflegeheime-magnolia/?headless=true"
+   role="button">
+    Pflegeheime
+</a>
+            <h2>
+                <strong>Kennzahlen Spitäler </strong>                       
+     </h2>
+<ods-dataset-context
+    context="myctx"
+    myctx-dataset="100320"
+    myctx-parameters="{'disjunctive.jahr':true,'disjunctive.spital':true,'disjunctive.angebot_akutsomatik':true,'disjunctive.angebot_psychiatrie':true,'disjunctive.angebot_rehabilitation':true,'sort':'-jahr'}">
+          <div class="sticky-content"
+               ng-init="variables = {}">
+                    <div ods-adv-analysis="dateanalysis"
+                           ods-adv-analysis-context="myctx"
+                           ods-adv-analysis-select="max(jahr) as maxdate">
+                           {{variables['lastdate'] = (dateanalysis[0].maxdate|date : "yyyy"); ""}} 
+                      </div>
+               <div class="advanced-kpi--top">
+                  <h2>
+                   <strong>Filtern nach Spital und Jahr:</strong></h2> 
+                <div class="shared-width-ods-selects">
+                    <div ods-facet-results="reglist"
+                         ods-facet-results-facet-name="spital"
+                         ods-facet-results-context="myctx"
+                         ods-facet-results-sort="alphanum">
+                        <ods-select options="reglist"
+                                    selected-values="myctx.parameters['refine.spital']"
+                                    label-modifier="name"
+                                    value-modifier="name"
+                                    placeholder="Alle Spitäler"
+                                    multiple="true">
+                        </ods-select>
+                    </div>
+                    <div 
+                         ods-facet-results="deplist"
+                         ods-facet-results-facet-name="jahr"
+                         ods-facet-results-context="myctx"
+                         ods-facet-results-sort="alphanum"
+                         >
+                        <ods-select ng-if="variables.lastdate"
+                                    ng-init="myctx.parameters['refine.jahr'] = [variables.lastdate]"
+                                    options="deplist"
+                                    selected-values="myctx.parameters['refine.jahr']"
+                                    label-modifier="name"
+                                    value-modifier="name"
+                                    placeholder="Alle Jahre"
+                                    multiple="true">
+                        </ods-select>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+    <br>
+<div class="grid md:grid-2">
+        <div class="grid">
+               <div class="cell-1 box pink flat">
+                <div class="advanced-kpi">    
+                    <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Behandlungen </strong>
+                                    </h3>
+                                </div>                                
+              <!--       <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div> 
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                        <p class="description">
+                            Aggregierte Gesamtanzahl der stationären Behandlungen im Kanton Basel-Stadt. 
+                        </p>
+                    <div class="advanced-kpi--middle centered">
+                        <p class="value"
+                           ods-aggregation="faelle"
+                           ods-aggregation-context="myctx"
+                           ods-aggregation-expression="anz_faelle_alle"
+                           ods-aggregation-function="SUM">
+                            {{ faelle | number }}
+                        </p>
+                        </div>
+                        <p class="description">
+Erhoben wird die Anzahl der Austritte aus einer stationären Behandlung im angegebenen Zeitabschnitt.
+                        </p>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-1 box gelb flat">
+                <div class="advanced-kpi">
+                   <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl Pflegetage</strong>
+                                    </h3>
+                                </div>                                
+            <!--         <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                        <p class="description">
+                            Die kumulierte Anzahl der Pflegetage.
+                        </p>
+                    <div class="advanced-kpi--middle centered">
+                        <p class="value"
+                           ods-aggregation="pflege"
+                           ods-aggregation-context="myctx"
+                           ods-aggregation-expression="pflegetage"
+                           ods-aggregation-function="SUM">
+                            {{ pflege | number }}
+                        </p>
+                    </div>
+                    <p class="description">
+                        Pflegetage sind die Anzahl Tage (24 Stunden), die für die stationäre Untersuchung, Behandlung und Pflege von Patientinnen und Patienten im Spital aufgewendet werden. Der Aufnahmetag gilt als Pflegetag, nicht aber der Tag der Entlassung bzw. Verlegung.
+                    </p>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-1 box pink flat">
+                <div class="advanced-kpi">
+                   <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer baselstädtischer Fälle</strong>
+                                    </h3>
+                                </div>                                
+            <!--         <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                    <div class="advanced-kpi--middle centered">
+                        <p class="value"
+                           ods-aggregation="bs"
+                           ods-aggregation-context="myctx"
+                           ods-aggregation-expression="bs"
+                           ods-aggregation-function="SUM">
+                            {{ bs | number }}
+                        </p>
+                    </div>
+                    <p class="description">
+                            Aggregierte Gesamtanzahl der stationär behandelten Patientinnen und Patienten mit Wohnort im Kanton Basel-Stadt.
+                        </p>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="md:cell-1 box gelb flat">
+                   <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Spitäler im Kanton Basel-Stadt</strong>
+                                    </h3>
+                                </div>                                
+          <!--           <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>-->
+                    </div>    
+                <div class="advanced-kpi--middle no-bg mb-0">
+<ods-map style="height: 750px" 
+                 no-refit="true" 
+                 scroll-wheel-zoom="false" 
+                 basemap="9fffa5" 
+                 location="12,47.56216,7.61868">
+        <ods-map-layer-group>
+            <ods-map-layer context="myctx" 
+                           color="#253791" 
+                           picto="dot" 
+                           show-marker="false" 
+                           display="auto" 
+                           shape-opacity="0.5" 
+                           point-opacity="1" 
+                           border-color="#FFFFFF" 
+                           border-opacity="1" 
+                           border-size="1" 
+                           border-pattern="solid" 
+                           caption-picto-color="#E5E5E5" 
+                           size="6" 
+                           size-min="3" 
+                           size-max="5" 
+                           size-function="linear">
+            </ods-map-layer>
+        </ods-map-layer-group>
+    </ods-map>   
+                </div>
+                <div class="advanced-kpi--bottom">
+                    <div class="advanced-kpi--bottom-second-stage">
+                        <a class="source"
+                           href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                           title="Title">
+                            Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>      
+        </div>
+    <br>
+        <div class="grid md:grid-2">
+        <div class="grid">
+               <div class="cell-1 box gelb flat">
+                <div>
+               <div>
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Fälle nach Hauptleistungsbereich</strong>
+                                    </h3>
+                                </div>                                
+     <!--                <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                        <br/>
+    <p  ods-aggregation="akut"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="total_akutsomatik"
+          ods-aggregation-function="SUM">             
+           Gesamtzahl der Fälle der Akutsomatik: <strong> {{ akut | number }}</strong>
+    </p>
+    <p  ods-aggregation="psy"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="total_psych"
+          ods-aggregation-function="SUM">             
+           Gesamtzahl der Fälle der Psychiatrie: <strong> {{ psy | number }}</strong>
+    </p>
+    <p  ods-aggregation="reha"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="total_reha"
+          ods-aggregation-function="SUM">             
+           Gesamtzahl der Fälle der Rehabilitation: <strong> {{ reha | number }}</strong>
+    </p>
+                    </div>
+                  <br/>
+    <div>
+                        <h3 class="title">
+                            <strong> Anzahl stationärer Fälle</strong>
+                        </h3>
+                        <p>
+                           Nach Jahren  
+                        </p>
+                    </div>
+    <ods-chart single-y-axis="true" step="1000" scientific-display="false" align-month="true" style="height: 300px;">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="anz_faelle_alle" chart-type="column" function-y="SUM" label-y="Anzahl Fälle" color="#BC4960" display-values="false" step="5000" scientific-display="false">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                    <br/>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                    <div class="grid">
+               <div class="cell-1 box blau flat">
+                <div>
+                       <div>
+                                <div>
+                                    <h3>
+                                        <strong> Finanz- und Betriebs-Kennzahlen</strong>
+                                    </h3>
+                                </div>                                
+          <!--           <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                        <br/>
+    <p    ods-aggregation="ertrag"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="total_betriebsertrag"
+          ods-aggregation-function="SUM">             
+           Totaler Betriebsertrag (Mio CHF): <strong> {{ ertrag | number }}</strong>
+    </p>
+    <p  ods-aggregation="aufwand"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="betriebsaufwand_in_mio_chf"
+          ods-aggregation-function="SUM">             
+          Totaler Betriebsaufwand (Mio CHF): <strong> {{ aufwand | number }}</strong>
+    </p>
+    <p  ods-aggregation="bett"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="bettenbetriebstage"
+          ods-aggregation-function="SUM">             
+          Bettenbetriebstage: <strong> {{ bett | number }}</strong>
+    </p>
+    <p  ods-aggregation="fte"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="fte"
+          ods-aggregation-function="SUM">             
+          Anzahl Mitarbeitende 100% Stellen (Summe aus dem Jahresdurchschnitt): <strong> {{ fte | number }}</strong>
+    </p>
+    <p  ods-aggregation="pers"
+          ods-aggregation-context="myctx"
+          ods-aggregation-expression="anz_ma"
+          ods-aggregation-function="SUM">             
+          Anzahl Mitarbeitende in Personen (Summe aus dem Jahresdurchschnitt): <strong> {{ pers | number }}</strong>
+    </p>                        
+
+                    </div>
+                    <br/>
+    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong> Jährlicher Betriebsertrag und -aufwand (in Mio. CHF)</strong>
+                        </h3>
+                        <p>
+                            Nach Art der Kosten
+                        </p>
+                    </div>
+    <ods-chart single-y-axis="true" scientific-display="false" align-month="true" style="height: 300px;">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="total_betriebsertrag" chart-type="column" function-y="SUM" label-y="Betriebsertrag" color="#2A99C6" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="total_betriebsertrag" chart-type="line" function-y="SUM" label-y="Gesamtbetriebsertrag" color="#2A99C6" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" stacked="normal">
+            <ods-chart-serie expression-y="ubriger_aufwand_in_mio_chf" chart-type="column" function-y="SUM" label-y="Übriger Aufwand" color="#8a96c8" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="medizinischer_bedarf_in_mio_chf" chart-type="column" function-y="SUM" label-y="Medizinischer Bedarf" color="#e78ac3" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="personalkosten_in_mio_chf" chart-type="column" function-y="SUM" label-y="Personalkosten" color="#FFDAF1" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="betriebsaufwand_in_mio_chf" chart-type="line" function-y="SUM" label-y="Totaler Betriebsaufwand" color="#FF93E9" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                   <br/>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br>
+            <div class="grid">
+               <div class="box pink flat">
+                    <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Behandlungen nach Wohnort der Patientinnen und Patienten</strong>
+                                    </h3>
+                                </div>                                
+        <!--             <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                   <br/>
+    <ods-chart single-y-axis="true" step="1000" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="bs" chart-type="column" function-y="SUM" label-y="Kanton Basel-Stadt" color="#fc0000" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" stacked="normal">
+            <ods-chart-serie expression-y="ausland" chart-type="column" function-y="SUM" label-y="Ausland" color="#892f2c" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="restschweiz" chart-type="column" function-y="SUM" label-y="Restschweiz" color="#7a3051" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="ag_so" chart-type="column" function-y="SUM" label-y="AG/SO" color="#ec3f79" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="bl" chart-type="column" function-y="SUM" label-y="Kanton Basel-Landschaft" color="#ed812f" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                   <br/>
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>
+        <br>
+    <div class="grid md:grid-2">
+            <div class="grid">
+               <div class="box pink flat">
+                <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Fälle nach Geschlecht der Patientinnen und Patienten</strong>
+                                    </h3>
+                                </div>                                
+               <!--      <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                   <br/>
+    <ods-chart single-y-axis="true" step="5000" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="maennlich" chart-type="column" function-y="SUM" label-y="männlich" color="#8A64A8" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="weiblich" chart-type="column" function-y="SUM" label-y="weiblich" color="#E87274" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                   <br/>
+                   <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>            
+    <div class="grid">
+               <div class="box pink flat">
+                   <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Fälle nach Alter der Patientinnen und Patienten</strong>
+                                    </h3>
+                                </div>                                
+             <!--        <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>
+                   <br/>
+    <ods-chart single-y-axis="true" step="2500" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="jahre_0_20" chart-type="column" function-y="SUM" label-y="0-20 Jahre" color="#F9D6A3" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="jahre_21_40" chart-type="column" function-y="SUM" label-y="21-40 Jahre" color="#F7AB82" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="jahre_41_60" chart-type="column" function-y="SUM" label-y="41-60 Jahre" color="#E87274" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="jahre_61_80" chart-type="column" function-y="SUM" label-y="61-80 Jahre" color="#CC516D" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="jahre_ueber80" chart-type="column" function-y="SUM" label-y="ab 81 Jahre" color="#AF60A2" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>           
+                   <br/>
+                   <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>  
+    </div>
+    <br>      
+                <div class="grid">
+               <div class="box gelb flat">
+                       <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Fälle nach Hauptleistungsbereichen</strong>
+                                    </h3>
+                                </div>                                
+             <!--        <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>               
+                   <br/>
+    <ods-chart single-y-axis="true" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" stacked="normal">
+            <ods-chart-serie expression-y="total_reha" chart-type="column" function-y="SUM" label-y="Rehabilitation" color="#ec3f79" display-values="false" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="total_psych" chart-type="column" function-y="SUM" label-y="Psychiatrie" color="#7a3051" display-values="false" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="total_akutsomatik" chart-type="column" function-y="SUM" label-y="Akutsomatik" color="#ed812f" display-values="false" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>            
+                   <br/>
+                   <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div> 
+            <br>
+                <div class="grid">
+               <div class="box gelb flat">
+                           <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Fälle der Akutsomatik nach Leistungsbereichen</strong>
+                                    </h3>
+                                </div>                                
+               <!--      <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>                
+                   <br/>
+    <ods-chart single-y-axis="true" step="" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="basispaket" chart-type="column" function-y="SUM" label-y="Basispaket" color="#F7B133" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="gastroenterologie" chart-type="column" function-y="SUM" label-y="Gastroenterologie" color="#F98C44" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="geburtshilfe" chart-type="column" function-y="SUM" label-y="Geburtshilfe" color="#E5362E" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="gefaesse" chart-type="column" function-y="SUM" label-y="Gefässe" color="#BA0129" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="gynaekologie" chart-type="column" function-y="SUM" label-y="Gynäkologie" color="#93117F" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="hno" chart-type="column" function-y="SUM" label-y="Hals-Nasen-Ohren" color="#5A1887" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="haematologie" chart-type="column" function-y="SUM" label-y="Hämatologie" color="#253791" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="herz" chart-type="column" function-y="SUM" label-y="Herz" color="#0A71B5" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="neugeborene" chart-type="column" function-y="SUM" label-y="Neugeborene" color="#00737C" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="neurologie" chart-type="column" function-y="SUM" label-y="Neurologie" color="#18630A" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="orthopaedie" chart-type="column" function-y="SUM" label-y="Orthopädie" color="#2C3F56" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="radio_onkologie" chart-type="column" function-y="SUM" label-y="(Radio-) Onkologie" color="#66c2a5" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="pneumologie" chart-type="column" function-y="SUM" label-y="Pneumologie" color="#fc8d62" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="urologie" chart-type="column" function-y="SUM" label-y="Urologie" color="#8da0cb" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="viszeralchirurgie" chart-type="column" function-y="SUM" label-y="Viszeralchirurgie" color="#e78ac3" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="uebrige" chart-type="column" function-y="SUM" label-y="Übrige Akutsomatik" color="#a6d854" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                  <p>
+                  * Das «Basispaket Chirurgie und Innere Medizin» entspricht in der Grafik dem «Basispaket».    
+                   </p>  
+                   <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>
+            <br>
+        <div class="grid md:grid-2">
+                         <div class="grid">
+               <div class="box gelb flat">
+                   <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Fälle der Psychiatrie nach Leistungsbereichen</strong>
+                                    </h3>
+                                </div>                                
+             <!--        <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div>  
+                   <br/>
+    <ods-chart single-y-axis="true" step="" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="psych_affektiv" chart-type="column" function-y="SUM" label-y="Affektive Störungen" color="#F7B133" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="psych_neurotisch" chart-type="column" function-y="SUM" label-y="Neurotische Störungen" color="#F98C44" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="psych_organisch" chart-type="column" function-y="SUM" label-y="Organische psy. Störungen" color="#E5362E" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="psych_psychisch" chart-type="column" function-y="SUM" label-y="Verhaltensstörungen" color="#BA0129" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="psych_schizophren" chart-type="column" function-y="SUM" label-y="Schizophrenie" color="#93117F" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="psych_uebrige" chart-type="column" function-y="SUM" label-y="Übrige Psychiatrie" color="#5A1887" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>      
+                   <br/>
+                   <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>        
+                       <div class="grid">
+               <div class="box gelb flat">
+                     <div class="advanced-kpi--top">
+                                <div>
+                                    <h3>
+                                        <strong> Anzahl stationärer Fälle der Rehabilitation nach Leistungsbereichen</strong>
+                                    </h3>
+                                </div>                                
+                <!--     <div ng-if="myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>{{results[0].fields.spital}}</strong>
+                                    </h3>
+                      </div>
+                      <div ng-if="!myctx.parameters['refine.spital'].length>0">
+                                    <h3 class="title kpi-description blue"
+                                        ods-results="results"
+                                        ods-results-context="myctx"
+                                        ods-results-max=1
+                                        >
+                                        <strong>Alle Spitäler</strong>
+                                    </h3>
+                      </div>-->
+                    </div> 
+                   <br/>
+    <ods-chart single-y-axis="true" step="" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="reha_muskelskelett" chart-type="column" function-y="SUM" label-y="Bewegungsapparat" color="#F7B133" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="reha_verletzung" chart-type="column" function-y="SUM" label-y="Verletzungen/Vergiftungen" color="#F98C44" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="reha_kreislauf" chart-type="column" function-y="SUM" label-y="Kreislaufsystem" color="#E5362E" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="reha_labor" chart-type="column" function-y="SUM" label-y="nicht klassifizierbare Laborbefunde" color="#BA0129" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="reha_neubildungen" chart-type="column" function-y="SUM" label-y="Neubildungen" color="#93117F" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="reha_uebrige" chart-type="column" function-y="SUM" label-y="Übrige Rehabilitation" color="#5A1887" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                   <br/>
+                   <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100320/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Spitalkennzahlen <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>
+       </div>      
+</ods-dataset-context>
+<!-- 
+Boris Djakovic
+boris.djakovic@bs.ch
+-->

@@ -1,0 +1,301 @@
+.sticky-content {
+    position: sticky;
+    background-color: #faf8f7;
+    padding: 2px 2px;
+}
+
+/***** Share width inlined ods-select *****/
+.shared-width-ods-selects {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.shared-width-ods-selects > div > .odswidget-select {
+    margin: 3px 6px 3px 0px;
+    flex: 1;
+    /*
+        To assure a minimum width, set a min-width property here.
+     */
+    min-width: 200px;
+}
+
+/***** Clear filters button *****/
+
+.clear-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.clear-filters-button {
+    background: none;
+    border: none;
+    color: var(--text);
+}
+
+.clear-filters-button:hover {
+    opacity: 0.65;
+}
+
+/**** Dashboard ****/
+:root {
+    --boxes-radius: 6px;
+}
+
+/* Basic button
+   ========================================================================== */
+.basic-button-s {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #D88396; /* Button background color */
+    border: 1px solid #D88396; /* Button border color */
+}
+.basic-button-p {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #8FAF89; /* Button background color */
+    border: 1px solid #8FAF89; /* Button border color */
+}
+.basic-button-s:hover {
+    outline: none;
+    text-decoration: none;
+    background-color: #BC7282; /* Button background color on mouse hover */
+    border-color: #BC7282; /* Button border color on mouse hover */
+}
+.basic-button-p:hover {
+    outline: none;
+    text-decoration: none;
+    background-color: #748E6F; /* Button background color on mouse hover */
+    border-color: #748E6F; /* Button border color on mouse hover */
+}
+
+section1 {
+    margin: 0;
+    color: green;
+}
+
+section {
+    padding: 1.5rem 0;
+}
+
+.header {
+    margin: 3rem 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.box {
+    position: relative;
+    padding: 13px;
+}
+.box.gelb {
+    background-color: #fff2e3;
+}
+.box.pink {
+    background-color: #fdebef;
+}
+
+.box.green {
+    background-color: #f7fae9;
+}
+.box.blau {
+    background-color: #CDEBFF;
+}
+.box.flat {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16);
+    border-radius: var(--boxes-radius);
+}
+
+.advanced-kpi {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.advanced-kpi--top .title {
+    font-size: 1.2em;
+    margin: 0;
+}
+.advanced-kpi--top .description {
+    margin: 0 auto;
+    color: #565656;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.advanced-kpi--middle {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+.advanced-kpi--middle.centered {
+    align-items: center;
+}
+.advanced-kpi--middle > * {
+    margin: 5px 0;
+}
+.advanced-kpi--middle .value {
+    color: var(--highlight);
+    font-weight: 500;
+    font-size: 2.5rem;
+}
+
+.advanced-kpi--bottom {
+    font-size: 0.8em;
+}
+.advanced-kpi--bottom .advanced-kpi--bottom-second-stage {
+    display: flex;
+    justify-content: space-between;
+}
+.advanced-kpi--bottom .source {
+    text-decoration: underline;
+    color: var(--links);
+}
+.advanced-kpi--bottom .source i {
+    margin-left: 6px;
+}
+.advanced-kpi--bottom .source:hover {
+    opacity: 0.65;
+}
+.advanced-kpi--bottom .source:hover i {
+    animation: bounce 0.7s ease infinite;
+}
+
+@keyframes bounce {
+    from {
+        margin-left: 6px;
+        margin-right: 0;
+    }
+    50% {
+        margin-left: 2px;
+        margin-right: 4px;
+    }
+    to {
+        margin-left: 6px;
+        margin-right: 0;
+    }
+}
+.no-bg rect.highcharts-background {
+    fill: transparent !important;
+}
+
+/***** GRID ******/
+[class^=grid] {
+    display: grid;
+    grid-gap: 1rem;
+}
+
+@media screen and (min-width: 640px), print {
+    .sm\:grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media screen and (min-width: 768px), print {
+    .md\:grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .md\:grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+       
+    }
+
+    .md\:grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .md\:grid-rows-3 {
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+    }
+}
+
+[class^=cell],
+[class*=":cell"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.cell-1 {
+    grid-column: span 1/span 1;
+}
+
+.cell-row-2 {
+    grid-row: span 2/span 2;
+}
+@media screen and (min-width: 768px), print {
+
+    .md\:cell-1 {
+        grid-column: span 1/span 1;
+    }
+
+    .md\:cell-2 {
+        grid-column: span 2/span 2;
+    }
+}
+
+.gap-6,
+.gap-6 [class^=grid] {
+    gap: 1.5rem;
+}
+
+.gap-10,
+.gap-10 [class^=grid] {
+    gap: 2.5rem;
+}
+
+
+/* DO NOT COPY, just for Code Library resource */
+.chart-placeholder {
+    background-color: #fff1f1;
+    height: 350px;
+}
+.chart-placeholder:before {
+    display: block;
+    font-size: 2rem;
+    margin: 0.2rem 0.5rem;
+    content: "Chart";
+}
+
+/* Sticky Content
+   ========================================================================== */
+.sticky-content {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}

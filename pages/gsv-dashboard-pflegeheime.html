@@ -1,0 +1,471 @@
+
+<div class="container">
+<div>
+ <div>
+   <h1>
+       Gesundheitsversorgung Basel-Stadt
+       <br/>
+       Dashboard
+   </h1>   
+   <p class="description">
+Das Dashboard Pflegeheime zeigt die wichtigsten Kennzahlen, wie Kosten und Taxeinnahmen, Anzahl Pensions- und Pflegetage sowie die prozentuale Auslastung der Pflegeheime im Kanton Basel-Stadt im Zeitvergleich und gibt einen Überblick über die PflegeheimbewohnerInnen, sowie die durchschnittliche Pflegestufe, das Geschlecht oder die Aufenthaltsdauer.
+     </p>
+    </div>
+    </div>
+    <br/>
+<a class="basic-button-s"
+   href="https://data.bs.ch/pages/gsv-dashboard-spitaeler/"
+   role="button">
+    Spitäler
+</a>
+<a class="basic-button-p"
+   href="#"
+   role="button">
+    Pflegeheime
+</a>
+     <h2>
+        <strong>Kennzahlen Pflegeheime</strong>                   
+     </h2>     
+ <ods-dataset-context context="myctx" 
+                     myctx-dataset="100318" 
+                     myctx-parameters="{'disjunctive.jahr':true,'disjunctive.name':true}">   
+ 
+    <!--Karte-->
+        <div class="grid md:grid-2">
+                
+        <div class="grid">
+               <div class="cell-1 box green flat">
+                <div class="advanced-kpi">
+                    <p>
+                        Stand Ende 2022
+                    </p>
+   <ods-dataset-context context="myctx" 
+                        myctx-dataset="100318" 
+                        myctx-parameters="{'disjunctive.jahr':true,'disjunctive.name':true,'refine.jahr':'2022'}">
+    <ods-map style="height: 700px" no-refit="true" scroll-wheel-zoom="false" 
+             basemap="9fffa5" 
+             location="12,47.56216,7.61868">
+        <ods-map-layer-group>
+            <ods-map-layer context="myctx" color="#aac64c" 
+                           picto="dot" show-marker="false" 
+                           display="auto" shape-opacity="0.5" 
+                           point-opacity="1" border-color="#FFFFFF" 
+                           border-opacity="1" border-size="1" border-pattern="solid" 
+                           size="7" size-min="3" size-max="5" size-function="linear">
+            </ods-map-layer>
+        </ods-map-layer-group>
+    </ods-map>
+</ods-dataset-context>
+                    <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/erhebungen/somed.html" target="_blank"
+                               title="Title">
+                                Quelle: SOMED-Statistik (Bundesamt für Statistik)
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100318/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Kennzahlen Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                </div>
+            </div>
+            </div>
+            
+  <!--Filter-->            
+        <div class="grid">            
+            <div class="cell-1 box green flat">
+           <b> Filtern nach Pflegeheime:</b>
+                <br/>
+Verwenden Sie den Filter, um die Graphiken zu Kosten und Taxeinnahmen der Pflegeheime, Anzahl Pensions- und Pflegetage der Pflegeheime, Auslastung der Pflegeheime in Prozent und durchschnittliche Pflegestufe der PflegeheimbewohnerInnen anzupassen. Klicken Sie auf "Pflegeheim auswählen" und wählen Sie das gewünschte Pflegeheim aus. Durch das Setzen des Filters passen sich die vier genannten Graphiken automatisch an und zeigen diese für das gewählte Pflegeheim an.                
+                <br/><br/>
+                <div class="shared-width-ods-selects">
+                    <div ods-facet-results="reglist"
+                         ods-facet-results-facet-name="name"
+                         ods-facet-results-context="myctx"
+                         ods-facet-results-sort="alphanum">
+                        <ods-select ng-init="myctx.parameters['refine.name'] = ['Alle Pflegeheime']"
+                                    options="reglist"
+                                    selected-values="myctx.parameters['refine.name']"
+                                    multiple="false"
+                                    label-modifier="name"
+                                    value-modifier="name"
+                                    placeholder="Pflegeheime auswählen">
+                        </ods-select>
+                    </div>
+                </div>
+                <br/>
+  <div ng-if="myctx.parameters['refine.name'].length>0 ||
+                    myctx.parameters['refine.name'].length>0 ">
+                    <button ng-click="myctx.parameters['refine.name'] = ['Alle Pflegeheime'];
+                       myctx.parameters['refine.name'] = ['Alle Pflegeheime'];">
+                        Auswahl löschen
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            
+             <!--Taxeinnahmen--> 
+               <div class="cell-1 box green flat">
+                <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong> Kosten und Taxeinnahmen der Pflegeheime</strong>
+                        </h3>
+                    </div>
+                   <br/>
+                   <div class="advanced-kpi">
+    <ods-chart style="height: 300px" single-y-axis="true" single-y-axis-label="in CHF" scientific-display="true" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" stacked="normal">
+            <ods-chart-serie expression-y="kvg_pflegekosten" chart-type="column" label-y="KVG-Pflegekosten" function-y="SUM" color="#a1c436" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="kosten_pension_betreuung" chart-type="column" label-y="Kosten Pension" function-y="SUM" color="#009a92" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="ertraege_taxeinnahmen" chart-type="column" label-y="Erträge Taxeinnahmen" function-y="SUM" color="#1f5647" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                  <!--     <p>
+                           * Für den Standort Murtengasse liegt im Jahr 2018 keine Kostenrechnung vor.
+                       </p>
+                        <br/>-->
+                                     <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/erhebungen/somed.html" target="_blank"
+                               title="Title">
+                                Quelle: SOMED-Statistik (Bundesamt für Statistik)
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100318/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Kennzahlen Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+       </div>
+     <br>
+     <div class="grid md:grid-3">
+            <div class="grid">
+               <div class="box green flat">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong>Anzahl Pensions- und Pflegetage der Pflegeheime            </strong>            
+                        </h3>
+                    </div>
+                   <br/>
+    <ods-chart single-y-axis="true" single-y-axis-label="Anzahl Tage" scientific-display="false" display-legend="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="anzahl_pensions_pflegetage" chart-type="column" function-y="SUM" color="#009a92" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                   <br/>
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/erhebungen/somed.html" target="_blank"
+                               title="Title">
+                                Quelle: SOMED-Statistik (Bundesamt für Statistik)
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100318/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Kennzahlen Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>
+                    <div class="grid">
+               <div class="box green flat">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong>Auslastung der Pflegeheime in Prozent        </strong>              
+                        </h3>
+                    </div>
+                   <br/>
+    <ods-chart single-y-axis="true" single-y-axis-label="in Prozent" scientific-display="false" display-legend="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="auslastung"
+                             chart-type="column" 
+                             function-y="SUM" 
+                             color="#a1c436" 
+                             display-values="false" 
+                             display-stack-values="false" 
+                             scientific-display="true"
+                             display-units="true" 
+                             max="110">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                   <br/>
+                   <p>
+                       * Auslastung ohne Pflegetage in ausserkantonalen Pflegeheimen.
+                   </p>
+                   <p>
+                       Erläuterung: Die Auslastung berechnet sich wie folgt: Die Anzahl der abgerechneten Pensions- und Pflegetage dividiert durch die maximal mögliche Anzahl Pensions- und Pflegetage.
+                   </p>
+                                       <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/erhebungen/somed.html" target="_blank"
+                               title="Title">
+                                Quelle: SOMED-Statistik (Bundesamt für Statistik)
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100318/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Kennzahlen Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>
+                <div class="grid">
+               <div class="box green flat">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong>Durchschnittliche Pflegestufe der PflegeheimbewohnerInnen               </strong>       
+                        </h3>
+                    </div>
+                   <br/>
+    <ods-chart scientific-display="false" display-legend="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie min="1" max="12" step="1" expression-y="pflegestufe" label-y="Pflegestufe" chart-type="column" function-y="SUM" color="#1f5647" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+                   <br/>
+                   <p>
+                       Die Pflegestufe gibt an, wie viel Pflege eine Person pro Tag benötigt.
+In der Schweiz gibt es zwölf Pflegebedarfsstufen. Pflegestufe 1 zeigt einen Pflegebedarf von bis zu 20 Minuten am Tag an und die Pflegestufe 12 von mehr als 220 Minuten. Pflegestufen gemäss Art. 7a Krankenpflege-Leistungsverordnung (KLV).
+                   <a class="source"
+                               href="https://www.fedlex.admin.ch/eli/cc/1995/4964_4964_4964/de" target="_blank"
+                               title="Title">
+                                Krankenpflege-Leistungsverordnung (KLV)
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                   </a>
+                   </p>
+                   
+                                      <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bfs.admin.ch/bfs/de/home/statistiken/gesundheit/erhebungen/somed.html" target="_blank"
+                               title="Title">
+                                Quelle: SOMED-Statistik (Bundesamt für Statistik)
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100318/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Kennzahlen Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>
+</div>
+<br>    
+    <!--Bewohnerdaten-->
+<h2>
+    <strong> Bewohnerdaten   </strong>                     
+     </h2>
+            <div class="grid">
+               <div class="box green flat">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong>Anzahl BewohnerInnen in den Pflegeheimen </strong>
+                        </h3>
+                        <p>
+                            Erläuterung: Anzahl BewohnerInnen in den Pflegeheimen zum Stichdatum 2. Januar des Jahres für das Vorjahr berechnet.
+                        </p>
+                    </div>
+<ods-simple-tabs> 
+            <ods-simple-tab
+                        label="Absolute Angaben"
+                        keep-content="true">
+<ods-dataset-context context="myctx" myctx-dataset="100319" myctx-parameters="{'disjunctive.jahr':true,'sort':'jahr'}">
+    <ods-chart single-y-axis="true" single-y-axis-label="Anzahl" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" stacked="normal">
+            <ods-chart-serie expression-y="anzahl_maenner" chart-type="column" function-y="SUM" label-y="Anzahl Männer" color="#a1c436" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="anzahl_frauen" chart-type="column" function-y="SUM" label-y="Anzahl Frauen" color="#009884" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="bewohner" chart-type="line" function-y="SUM" label-y="BewohnerInnen Total" color="#545453" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+    </ods-simple-tab>
+                <ods-simple-tab
+                        label="Prozentuale Angaben"
+                        keep-content="true">
+<ods-dataset-context context="myctx" myctx-dataset="100319" myctx-parameters="{'disjunctive.jahr':true,'sort':'jahr'}">
+    <ods-chart single-y-axis="true" single-y-axis-label="in Prozent" max="100" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0" stacked="normal">
+            <ods-chart-serie expression-y="anteil_maenner" chart-type="column" function-y="SUM" label-y="Anteil Männer" color="#a1c436" display-units="true" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="anteil_frauen" chart-type="column" function-y="SUM" label-y="Anteil Frauen" color="#009884" display-units="true" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+    </ods-simple-tab>
+</ods-simple-tabs>
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100319/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Bewohnerdaten Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>  
+     <br/>
+                 <div class="grid">
+               <div class="box green flat">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong>Durchschnittsalter der PflegeheimbewohnerInnen   </strong>
+                        </h3>
+                    </div>
+          <br/>        
+            
+  <ods-dataset-context context="myctx" myctx-dataset="100319" myctx-parameters="{'disjunctive.jahr':true,'sort':'jahr'}">
+    <ods-chart single-y-axis="true" single-y-axis-label="in Jahren" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="mean_alter_frauen" chart-type="column" function-y="SUM" label-y="Durchschnittsalter Frauen" color="#009884" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="mean_alter_maenner" chart-type="column" function-y="SUM" label-y="Durchschnittsalter Männer" color="#a1c436" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="mean_alter_bewohner" chart-type="column" function-y="SUM" label-y="Durchschnittsalter PflegeheimbewohnerInnen" color="#18630A" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+                   <br/>
+                   <p>
+                       Erläuterung: Das Durchschnittsalter der PflegeheimbewohnerInnen ist jeweils auf den 2. Januar des Jahres für das Vorjahr berechnet.
+                   </p>
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100319/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Bewohnerdaten Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div> 
+     <br/>
+                         <div class="grid">
+               <div class="box green flat">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong> Durchschnittliche Aufenthaltsdauer der PflegeheimbewohnerInnen</strong>
+                        </h3>
+                    </div>
+                   <br/>
+<ods-dataset-context context="myctx" myctx-dataset="100319" myctx-parameters="{'disjunctive.jahr':true,'sort':'jahr'}">
+    <ods-chart single-y-axis="true" single-y-axis-label="in Jahren" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="alos_frauen" chart-type="column" function-y="SUM" label-y="Durchschnittliche Aufenthaltsdauer Frauen" color="#009884" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="alos_maenner" chart-type="column" function-y="SUM" label-y="Durchschnittliche Aufenthaltsdauer Männer" color="#a1c436" scientific-display="true">
+            </ods-chart-serie>
+            <ods-chart-serie expression-y="alos" chart-type="column" function-y="SUM" label-y="Durchschnittliche Aufenthaltsdauer" color="#18630A" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context> 
+                    <br/>
+                   <p>
+                       Erläuterung: Die Datenbasis der durchschnittliche Aufenthaltsdauer ist das Alter bei Austritt minus das Alter bei Eintritt. Die Datenbasis sind die im Vorjahr verstorbenen BewohnerInnen.
+                   </p>
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100319/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Bewohnerdaten Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+        </div>
+     <br/>
+                       <div class="grid">
+               <div class="box green flat">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            <strong>  Anzahl verstorbene PflegeheimbewohnerInnen</strong>
+                        </h3>
+                    </div>
+                   <br/>
+<ods-dataset-context context="myctx" myctx-dataset="100319" myctx-parameters="{'disjunctive.jahr':true,'sort':'jahr'}">
+    <ods-chart single-y-axis="true" single-y-axis-label="Anzahl" step="100" scientific-display="false" align-month="true">
+        <ods-chart-query context="myctx" field-x="jahr" maxpoints="0">
+            <ods-chart-serie expression-y="verstorben_bewohner" chart-type="column" function-y="SUM" label-y="Anzahl verstorbene PflegeheimbewohnerInnen" color="#18630A" scientific-display="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+                   <br/>
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://www.bs.ch/gd" target="_blank"
+                               title="Title">
+                                Quelle: Gesundheitsdepartement des Kantons Basel-Stadt <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a><br>
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100319/" target="_blank"
+                               title="Title">
+                                Quelle: OGD-Bewohnerdaten Pflegeheime <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+            </div>
+       </div>       
+    </ods-dataset-context>
+</div>
+<!-- 
+Boris Djakovic
+boris.djakovic@bs.ch
+-->

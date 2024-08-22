@@ -1,0 +1,203 @@
+<div class="container"
+     ng-init="domain = 'data.bs.ch';
+              datasetid = '100380';
+
+              sort = 'jahr';
+
+              filters = [
+                {'id':'jahr','multiple':true},
+                {'id':'staat','multiple':true},
+                {'id':'region','multiple':true},
+                {'id':'sachgebiet','multiple':true}
+              ];
+              fieldDate = '';
+              resetFiltersButton = true;
+              resetFiltersButtonLabel = 'Supprimer tous les filtres';
+              fieldDefaultRangeStartsNow = false;
+
+              view = 'cards';
+              fieldsList = ['staat','jahr','organisation','betrag_entscheid'];
+              fieldsList2 = ['projektbeschrieb'];
+ 
+
+              cardTitle = 'projekt_titel';
+              fieldPhoto = 'image';
+              imagePosition = 'left';
+              itemsPerRow = '2';
+
+              mapView = false;
+              mapPicto = '';
+              mapPictoColor = '';
+
+              kpis = [
+                {
+                'title': 'Anzahl Projekte',
+                'select': 'count(*)'
+                }
+              ];
+
+              sourceLinkLabel = 'Auf die Quelldaten zugreifen';
+              noResultMsg = 'Kein Ergebnis';
+
+              DO_NOT_MODIFY_BELOW;
+
+              localctxfields = {};
+              values = {};
+              activeFilters = {};
+              localctx = undefined;
+    ">
+
+    <ods-dataset-context context="localctx"
+                       localctx-domain="{{ domain || localctx.domain }}"
+                       localctx-dataset="{{ datasetid || localctx.dataset.datasetid }}">
+      {{ localctx = ctx || localctx ; '' }}
+
+      <!-- Private datasets can be accessed by adding an API Key.
+           Add this param to the <ods-dataset-context above,
+           where XXX is your apikey :
+           localctx-apikey="XXX"
+      -->
+      <ods-dataset-context ng-if="localctx.dataset.datasetid"
+                           context="localctxdate"
+                           localctxdate-domain="{{ localctx.domain }}"
+                           localctxdate-dataset="{{ localctx.dataset.datasetid }}">
+
+          <span ng-if="sort">
+            {{localctx.parameters['sort'] = sort; ''}}
+          </span>
+
+          <span ng-if="fieldDefaultRangeStartsNow">
+            {{localctxdate.parameters={'q.jahr': fieldDate + '&gt;#now()'}; ''}}
+          </span>
+          <div ng-show="!$parent.$parent.$parent.$parent.$parent || blocks">
+              <h1 class="page-title">
+                  {{ localctx.dataset.metas.title }}
+              </h1>
+
+              <p>
+              Der Kanton Basel-Stadt unterstützt im Rahmen der Entwicklungszusammenarbeit mit jährlich 2 Millionen Franken Projekte im Ausland. 
+<br>Mehr dazu: <a href="https://www.bs.ch/eza" target="_blank">www.bs.ch/eza</a>
+
+              </p>
+          </div>
+
+          
+          <span ng-repeat="field in localctx.dataset.fields">
+            {{ localctxfields[field.name] = field.label; '' }}
+          </span>
+
+          <div ng-if="!$parent.$parent.$parent.$parent.$parent || blocks">
+            <span ng-repeat="filter in filters">
+            {{ localctx.parameters['refine.' + filter.id] = activeFilters[filter.id] ; '' }}
+            </span>
+    </div>
+  <section class="sticky-content">
+          <div ng-show="!$parent.$parent.$parent.$parent.$parent || blocks" 
+               class="kpi-card">
+              <!-- SEARCH -->
+              <div class="search-module">      
+                  <i class="fa fa-search search-module-icon" aria-hidden="true"></i>
+                  <input placeholder="Suchen"
+                         ng-model="localctx.parameters['q']"
+                         ng-model-options="{ updateOn: 'keyup', debounce: { 'default': 300, 'blur': 0 }}"
+                         ng-change="localctx.parameters['start'] = undefined"
+                         class="search-module-input"
+                         type="text"/>
+                  <button class="search-module-clear"
+                          ng-if="localctx.parameters['q']"
+                          ng-click="localctx.parameters['q'] = undefined;
+                  localctx.parameters['start'] = undefined">
+                      <i class="fa fa-times-circle" aria-hidden="true"></i>
+                  </button>                  
+              </div>
+
+              <!-- FILTERS Search & Select -->
+              <div class="filter-list"
+                   ng-init="dropdown.open = '';
+                            select = {}"
+                   style="text-align: left;">
+                  <div ng-repeat="filter in filters">
+                      {{ localctx.parameters['disjunctive.' + filter.id] = true; '' }}
+                      <div ods-facet-results="categories"
+                           ods-facet-results-facet-name="{{ filter.id }}"
+                           ods-facet-results-context="localctx"
+                           ods-facet-results-sort="alphanum">
+                          <ods-select ng-if="categories"
+                                      selected-values="activeFilters[filter.id]"
+                                      multiple="filter.multiple"
+                                      options="categories"
+                                      label-modifier="name"
+                                      value-modifier="name"
+                                      on-change="localctx.parameters['start'] = undefined"
+                                      placeholder="{{ filter.label || localctxfields[filter.id] }}"></ods-select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</section>
+<div style="display: flex; justify-content: space-between; align-items: flex-start;padding-top: 20px;">
+    <!-- KPIs -->
+    <div style="flex: 1;">
+        <div ng-repeat="kpi in kpis">
+            <!-- KPI box component -->
+            <div class="margin-bottom-20" style="text-align: left; width: 100%"
+                 tabindex="0"
+                 ods-adv-analysis="agg"
+                 ods-adv-analysis-context="localctx"
+                 ods-adv-analysis-select="{{ kpi.select }} as x">
+                <p>
+                    Anzahl Projekte:  {{ (agg[0].x || 0) | number : (kpi.precision || 0) }}
+                    <span ng-if="kpi.unit">{{ kpi.unit }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Source link -->
+    <div ng-show="!$parent.$parent.$parent.$parent.$parent" style="flex-shrink: 0;">
+        <div class="margin-bottom-20" style="text-align: right;">
+            <a href="https://{{ domain }}/explore/dataset/{{ datasetid }}/" target="_blank">{{ sourceLinkLabel }}</a>
+        </div>
+    </div>
+</div>
+
+          <!-- CARDS -->
+          <section ng-if="view == 'cards'">
+                  <ods-infinite-scroll-results context="localctx"
+                                               result-class="margin-bottom-20"
+                                               no-results-message="{{ noResultMsg }}">
+                      <div class="content-card">
+                          <div class="content-card-body">
+                              <h2 class="content-card-title text-center">
+                                  {{ item.fields[$parent.$parent.$parent.$parent.$parent.cardTitle] }}
+                              </h2>
+                              <div class="content-card-fields">
+                                  <!-- If fieldsList is an array of fields ID -->
+                                  <dl ng-if="!$parent.$parent.$parent.$parent.$parent.fieldsList[0].field">
+                                      <dt ng-repeat-start="field in $parent.$parent.$parent.$parent.$parent.fieldsList">
+                                          {{ $parent.$parent.$parent.$parent.$parent.localctxfields[field] }}
+                                      </dt>
+                                      <dd ng-repeat-end>
+                                          {{ item.fields[field] }}
+                                      </dd>
+                                  </dl>
+                              </div>                              
+                              <div class="content-card-fields2">
+                                  <!-- If fieldsList2 is an array of fields ID -->
+                                  <dl ng-if="!$parent.$parent.$parent.$parent.$parent.fieldsList2[0].field">
+                                      <dt ng-repeat-start="field in $parent.$parent.$parent.$parent.$parent.fieldsList2">
+                                          {{ $parent.$parent.$parent.$parent.$parent.localctxfields[field]}}
+                                      </dt>
+                                      <dd ng-repeat-end>
+                                          {{ item.fields[field] }}
+                                      </dd>
+                                  </dl>
+                              </div>
+                          </div>
+                      </div>
+                  </ods-infinite-scroll-results>
+          </section>
+      </ods-dataset-context>
+    </ods-dataset-context>
+
+</div>

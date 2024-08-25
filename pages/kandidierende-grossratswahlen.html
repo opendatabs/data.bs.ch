@@ -1,0 +1,472 @@
+<div class="container-fluid">
+    <section>
+        <div class="container">
+            <div class="heading">
+                <h1 class="title">Kandidierende 2024</h1>
+                <h2>
+                    Hintergrundinformationen zu den Grossratswahlen 2024 in Basel-Stadt
+                </h2>
+                <p>
+                    Zu den Grossratswahlen 2024 treten insgesamt ____ Kandidatinnen und Kandidaten an, __,__ Prozent mehr/weniger als 2020.
+                    Damit kandidieren __,__ Personen pro Sitz, deutlich weniger als im Rekordjahr 1988 mit 10,3 Kandidaturen pro Sitz.
+                </p>
+                <p>
+                    Insgesamt stehen __ Listen zur Wahl. 4 Listen treten nur im Wahlkreis Kleinbasel an.
+                    In Bettingen bewirbt sich neben dem bisherigen Kandidaten des Aktiven Bettingen 1 Gegenkandidat der Bettinger Dorfvereinigung um den Bettinger Sitz.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="heading">
+                <div class="advanced-kpi">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            Kandidierende 2020 und 2024 nach Alter
+                        </h3>
+                        <i class="description">
+                            Alter der Kandidierenden Ende Wahljahr 2020/2024
+                            <br/><br/>
+                            Durch das Klicken der ....
+                        </i>
+                    </div>
+                    <div class="advanced-kpi--middle no-bg mb-0">
+                       <div class="legend-horizontal-container">
+                            <div class="legend-horizontal">
+                                <div class="legend-item-hor">
+                                    <div class="color-box" style="background-color: #333399;"></div>
+                                    <span>60 Jahre und älter</span>
+                                </div>
+                                <div class="legend-item-hor">
+                                    <div class="color-box" style="background-color: #FF9900;"></div>
+                                    <span>50-59 Jahre</span>
+                                </div>
+                                <div class="legend-item-hor">
+                                    <div class="color-box" style="background-color: #C8C8C8;"></div>
+                                    <span>40-49 Jahre</span>
+                                </div>
+                                <div class="legend-item-hor">
+                                    <div class="color-box" style="background-color: #CD9C00;"></div>
+                                    <span>30-39 Jahre</span>
+                                </div>
+                                <div class="legend-item-hor">
+                                    <div class="color-box" style="background-color: #71A3B5;"></div>
+                                    <span>25-29 Jahre</span>
+                                </div>
+                                <div class="legend-item-hor">
+                                    <div class="color-box" style="background-color: #933F8D;"></div>
+                                    <span>18-24 Jahre</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ods-dataset-context context="myctx" 
+                                             myctx-dataset="100392">
+                            <ods-chart class="lightgrey-data-values"
+                                       scientific-display="false" 
+                                       align-month="true">
+                                <ods-chart-query context="myctx" 
+                                                 field-x="wahljahr" 
+                                                 maxpoints="0" 
+                                                 stacked="normal" 
+                                                 series-breakdown="altersgruppe"
+                                                 category-colors="{'18-24 Jahre':'#933F8D',
+                                                                  '25-29 Jahre':'#71A3B5',
+                                                                  '30-39 Jahre':'#CD9C00',
+                                                                  '40-49 Jahre':'#C8C8C8',
+                                                                  '50-59 Jahre':'#FF9900',
+                                                                  '60 Jahre und älter':'#333399'}">
+                                    <ods-chart-serie expression-y="anteil" 
+                                                     chart-type="bar" 
+                                                     function-y="SUM" 
+                                                     color="range-Dark2" 
+                                                     scientific-display="true"
+                                                     display-units="true" 
+                                                     display-values="true" 
+                                                     label-y="Prozent (%)"
+                                                     step=10
+                                                     max="100">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </ods-dataset-context>
+                    </div>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100392" target="_blank"
+                               title="Title">
+                                Quelle
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <p>
+                    Ein gutes Drittel der Kandidierenden ist unter 40 Jahre alt. 
+                    Dies hat sich im Vergleich zu 2016 kaum verändert, etwas abgenommen hat der Anteil der unter 25-Jährigen. 
+                    Leicht zugenommen haben die Anteile in den Alterssegmenten der 30- bis 39-Jährigen sowie der 50- bis 59-Jährigen; 
+                    Letztere machen jetzt gut ein Viertel aus.
+                </p>
+                <p>
+                    Das Durchschnittsalter aller Kandidierenden beträgt 47 Jahre. 
+                    Der Median ist mit 48 Jahren nur unwesentlich höher: 
+                    Die eine Hälfte der Kandidierenden ist also älter, die andere Hälfte jünger als 48 Jahre. 
+                    Die VA-Liste weist mit 56 Jahren den höchsten Altersdurchschnitt auf, die Kommunistische Liste - Partei der Arbeit Schweiz mit 32 bzw. der Bettinger Gegenkandidat mit 24 Jahren den tiefsten Wert.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="heading">
+                <div class="advanced-kpi">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            Kandidierende 2024 nach Berufsgruppe
+                        </h3>
+                        <i class="description">
+                            Kandidierende 2024 nach Berufsgruppe
+                        </i>
+                    </div>
+                    <div class="advanced-kpi--middle no-bg mb-0">
+                        <ods-dataset-context context="myctx" 
+                                             myctx-dataset="100394" 
+                                             myctx-parameters="{'refine.wahljahr':'2024'}">
+                            <ods-chart style="height:700px"
+                                       scientific-display="false" 
+                                       align-month="true"
+                                       labels-x-length="50"
+                                       display-legend="false"
+                                       single-y-axis="true"
+                                       single-y-axis-label="Prozent (%)"
+                                       max=20
+                                       step=5>
+                                <ods-chart-query context="myctx" 
+                                                 field-x="berufsgruppe" 
+                                                 maxpoints="0" 
+                                                 sort="serie1-1">
+                                    <ods-chart-serie expression-y="anteil" 
+                                                     chart-type="bar" 
+                                                     function-y="SUM" 
+                                                     color="#933F8D" 
+                                                     scientific-display="true"
+                                                     display-units="true" 
+                                                     display-values="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+
+                        </ods-dataset-context>
+                    </div>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100394" target="_blank"
+                               title="Title">
+                                Quelle
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <p>
+                    Die grösste Berufsgruppe der Kandidierenden 2020 entfällt wie schon 2016 auf die Unternehmensdienstleistungen – 
+                    hier insbesondere Juristen, Anwälte und Treuhänder, die insgesamt einen Anteil von 18,4 Prozent erreichen. 
+                    Auch die zweitgrösste Gruppe der administrativen und kaufmännischen Berufe ist (auch anteilsmässig) die gleiche wie 2016. 
+                </p>
+                <p>
+                    Leicht abgenommen haben die Anteile der Bildung und Administration, dafür ist 2020 der Geschäftsführungsbereich leicht besser vertreten. 
+                    Sowohl der Anteil der Studierenden wie auch der Anteil der pensionierten Kandidierenden ist leicht rückläufig.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="heading">
+                <div class="advanced-kpi">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            Geschlechterverteilung der Kandidierenden 2024 nach Alter
+                        </h3>
+                        <i class="description">
+                            Geschlechterverteilung (amtlich) in den verschiedenen Altersgruppen
+                            <br/><br/>
+                            Durch das Klicken der ....
+                        </i>
+                    </div>
+                    <div class="advanced-kpi--middle no-bg mb-0">
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="color-box" style="background-color: #B70000;"></div>
+                                <span>Frauenanteil</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="color-box" style="background-color: #71A3B5;"></div>
+                                <span>Männeranteil</span>
+                            </div>
+                        </div>
+                        <ods-dataset-context context="myctx" 
+                                             myctx-dataset="100392" 
+                                             myctx-parameters="{'refine.wahljahr':'2024'}">
+                            <ods-chart scientific-display="false" 
+                                       align-month="true"
+                                       single-y-axis="true"
+                                       single-y-axis-label="Prozent (%)"
+                                       display-legend="false">
+                                <ods-chart-query context="myctx" 
+                                                 field-x="altersgruppe"
+                                                 maxpoints="0"
+                                                 series-breakdown="geschlecht"
+                                                 category-colors="{'f':'#B70000','m':'#71A3B5'}">
+                                    <ods-chart-serie expression-y="anteil_altersgruppe"
+                                                     chart-type="column"
+                                                     function-y="SUM"
+                                                     color="range-Accent"
+                                                     scientific-display="true"
+                                                     display-units="true"
+                                                     display-values="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </ods-dataset-context>
+                    </div>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100392" target="_blank"
+                               title="Title">
+                                Quelle
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <p>
+                    Den höchsten Frauenanteil weist die Altersgruppe der 25- bis 29-Jährigen mit 42,6 Prozent auf. 
+                    Mit zunehmendem Alter nimmt der Frauenanteil tendenziell ab: 
+                    Bei den über 39-Jährigen ist jede dritte Kandidierende eine Frau.
+                </p>
+                <p>
+                    Bei den Grossratswahlen 2016 war die Wahlquote der Frauen, das heisst der Anteil gewählter Frauen im Verhältnis zum Anteil kandidierender Frauen mit 31 zu 35 wie schon 2012 negativ.
+                    Dies, nachdem das Verhältnis 2008 mit 37 zu 35 erstmals positiv ausgefallen war.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="heading">
+                <div class="advanced-kpi">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            Geschlechterverteilung der Kandidierenden 2024 nach Liste
+                        </h3>
+                        <i class="description">
+                            Geschlechterverteilung (amtlich) in den verschiedenen Listen
+                            <br/><br/>
+                            Durch das Klicken der ....
+                        </i>
+                    </div>
+                    <div class="advanced-kpi--middle no-bg mb-0">
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="color-box" style="background-color: #B70000;"></div>
+                                <span>Frauenanteil</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="color-box" style="background-color: #71A3B5;"></div>
+                                <span>Männeranteil</span>
+                            </div>
+                        </div>
+                        <ods-dataset-context context="myctx" 
+                                             myctx-dataset="100392" 
+                                             myctx-parameters="{'refine.wahljahr':'2024'}">
+                            <ods-chart class="lightgrey-data-values"
+                                       style="height:700px"
+                                       scientific-display="false" 
+                                       align-month="true"
+                                       display-legend="false">
+                                <ods-chart-query context="myctx"
+                                                 field-x="frauenanteil_liste"
+                                                 maxpoints="0"
+                                                 stacked="percent"
+                                                 series-breakdown="geschlecht"
+                                                 category-colors="{'f':'#B70000','m':'#71A3B5'}">
+                                    <ods-chart-serie expression-y="anteil_liste"
+                                                     chart-type="bar"
+                                                     function-y="SUM"
+                                                     color="range-Accent"
+                                                     scientific-display="true"
+                                                     display-units="true"
+                                                     display-values="true"
+                                                     label-y="Prozent (%)">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                                <ods-chart-query context="myctx"
+                                                 field-x="wahljahr"
+                                                 maxpoints="0"
+                                                 stacked="percent"
+                                                 series-breakdown="geschlecht"
+                                                 category-colors="{'f':'#B70000','m':'#71A3B5'}">
+                                    <ods-chart-serie expression-y="anteil"
+                                                     chart-type="bar" 
+                                                     function-y="SUM" 
+                                                     color="range-Accent" 
+                                                     scientific-display="true"
+                                                     display-units="true"
+                                                     display-values="true"
+                                                     label-y="Prozent (%)">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </ods-dataset-context>
+                    </div>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100392" target="_blank"
+                               title="Title">
+                                Quelle
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <p>
+                    Den höchsten Frauenanteil weisen die Listen des Grünen Bündnis und der SP auf: Dort sind 51 der 99 Kandidierenden Frauen.
+                    Ebenfalls überdurchschnittlich ist die Frauenvertretung mit 44 Prozent bei der EVP.
+                </p>
+                <p>
+                    Wie schon in den letzten Jahren bewerben sich keine Frauen für den Bettinger Grossratssitz.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="heading">
+                <div class="advanced-kpi">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            Weibliche Kandidierende seit 1968
+                        </h3>
+                        <i class="description">
+                            Entwicklung des Frauenanteils
+                        </i>
+                    </div>
+                    <div class="advanced-kpi--middle no-bg mb-0">
+                        <ods-dataset-context context="myctx" 
+                                             myctx-dataset="100391" 
+                                             myctx-parameters="{'sort':'-wahljahr'}">
+                            <ods-chart scientific-display="false" 
+                                       align-month="true"
+                                       single-y-axis="true"
+                                       single-y-axis-label="Prozent (%)"
+                                       max=50>
+                                <ods-chart-query context="myctx" 
+                                                 field-x="wahljahr" 
+                                                 maxpoints="0">
+                                    <ods-chart-serie expression-y="frauenanteil_kand" 
+                                                     chart-type="column" 
+                                                     function-y="AVG" 
+                                                     label-y="Kandidierende" 
+                                                     color="#933F8D" 
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                    <ods-chart-serie expression-y="frauenanteil_gew" 
+                                                     chart-type="column" 
+                                                     function-y="AVG" 
+                                                     label-y="Gewählte" 
+                                                     color="#F5C80B" 
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+
+                        </ods-dataset-context>
+                    </div>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100391" target="_blank"
+                               title="Title">
+                                Quelle
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <p>
+                    Seit Einführung des kantonalen Frauenstimmrechts 1966 hat sich der Frauenanteil unter den Kandidierenden von anfangs einem Fünftel bis im Jahr 1996 verdoppelt und ging bis 2012 kontinuierlich zurück. 
+                    2020 beträgt er 35,6 Prozent (+0,5 Prozentpunkte).
+                </p>
+                <p>
+                    Die Entwicklung der Frauen-Vertretung im baselstädtischen Kantonsparlament war 2012 nach einer längeren Wachstumsphase (Höchstwert 2008 mit 37 Prozent) erstmals wieder rückläufig und beträgt Stand 1. September 2020 33 Prozent (seit den Wahlen 2016 sind gesamthaft für zwei zurückgetretene Männer Frauen nachgerückt).
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="heading">
+                <div class="advanced-kpi">
+                    <div class="advanced-kpi--top">
+                        <h3 class="title">
+                            Kandidierende 2024 nach Häufigkeit der Kandidatur seit 2008
+                        </h3>
+                        <i class="description">
+                            Durck Klick ....
+                        </i>
+                    </div>
+                    <div class="advanced-kpi--middle no-bg mb-0">
+                        <ods-dataset-context context="myctx" 
+                                             myctx-dataset="100393">
+                            <ods-chart single-y-axis="true" 
+                                       scientific-display="false" 
+                                       align-month="true">
+                                <ods-chart-query context="myctx" 
+                                                 field-x="haufigkeit" 
+                                                 maxpoints="0" 
+                                                 stacked="normal" 
+                                                 series-breakdown="gewahlt">
+                                    <ods-chart-serie expression-y="anzahl" 
+                                                     chart-type="bar" 
+                                                     function-y="SUM" 
+                                                     color="range-Set2" 
+                                                     scientific-display="true">
+                                    </ods-chart-serie>
+                                </ods-chart-query>
+                            </ods-chart>
+                        </ods-dataset-context>
+                    </div>
+                    <div class="advanced-kpi--bottom">
+                        <div class="advanced-kpi--bottom-second-stage">
+                            <a class="source"
+                               href="https://data.bs.ch/explore/dataset/100393" target="_blank"
+                               title="Title">
+                                Quelle
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <p>
+                    365 aktuell Kandidierende (46 Prozent) sind seit 2008 noch nie zur Wahl in den Grossen Rat angetreten, 18 Prozent versucht sich nach 2016 ein zweites Mal. 
+                    Insgesamt 427 Personen sind seit 2008 mindestens 1 weiteres Mal zur Wahl angetreten.
+                </p>
+                <p>
+                    Wenn Kandidierende öfter antreten, dann tun sie dies häufig mehrmals hintereinander ohne grössere Pausen dazwischen: 
+                    So sind 106 Personen zu den letzten drei Wahlen ohne Unterbruch angetreten, 117 weitere gar zu den letzten vier.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>

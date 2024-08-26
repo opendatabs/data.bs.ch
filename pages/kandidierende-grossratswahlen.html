@@ -26,13 +26,11 @@
                             Kandidierende 2020 und 2024 nach Alter
                         </h3>
                         <i class="description">
-                            Alter der Kandidierenden Ende Wahljahr 2020/2024
-                            <br/><br/>
-                            Durch das Klicken der ....
+                            Alter der Kandidierenden am Ende des jeweiligen Wahljahres
                         </i>
                     </div>
                     <div class="advanced-kpi--middle no-bg mb-0">
-                       <div class="legend-horizontal-container">
+                       <!--div class="legend-horizontal-container">
                             <div class="legend-horizontal">
                                 <div class="legend-item-hor">
                                     <div class="color-box" style="background-color: #333399;"></div>
@@ -59,36 +57,55 @@
                                     <span>18-24 Jahre</span>
                                 </div>
                             </div>
-                        </div>
-                        <ods-dataset-context context="myctx" 
-                                             myctx-dataset="100392">
-                            <ods-chart class="lightgrey-data-values"
-                                       scientific-display="false" 
-                                       align-month="true">
-                                <ods-chart-query context="myctx" 
-                                                 field-x="wahljahr" 
-                                                 maxpoints="0" 
-                                                 stacked="normal" 
-                                                 series-breakdown="altersgruppe"
-                                                 category-colors="{'18-24 Jahre':'#933F8D',
-                                                                  '25-29 Jahre':'#71A3B5',
-                                                                  '30-39 Jahre':'#CD9C00',
-                                                                  '40-49 Jahre':'#C8C8C8',
-                                                                  '50-59 Jahre':'#FF9900',
-                                                                  '60 Jahre und älter':'#333399'}">
-                                    <ods-chart-serie expression-y="anteil" 
-                                                     chart-type="bar" 
-                                                     function-y="SUM" 
-                                                     color="range-Dark2" 
-                                                     scientific-display="true"
-                                                     display-units="true" 
-                                                     display-values="true" 
-                                                     label-y="Prozent (%)"
-                                                     step=10
-                                                     max="100">
-                                    </ods-chart-serie>
-                                </ods-chart-query>
-                            </ods-chart>
+                        </div-->
+                        <ods-dataset-context context="myctx,refinectx" 
+                                             myctx-dataset="100392"
+                                             refinectx-dataset="100390" 
+                                             refinectx-parameters="{'sort':'-wahljahr'}">
+                            <div ng-if="!refinectx.parameters['refine.altersgruppe']">
+                                <ods-chart scientific-display="false" 
+                                           align-month="true">
+                                    <ods-chart-query context="myctx" 
+                                                     field-x="wahljahr" 
+                                                     maxpoints="0" 
+                                                     stacked="normal" 
+                                                     series-breakdown="altersgruppe"
+                                                     category-colors="{'18-24 Jahre':'#933F8D',
+                                                                      '25-29 Jahre':'#71A3B5',
+                                                                      '30-39 Jahre':'#CD9C00',
+                                                                      '40-49 Jahre':'#C8C8C8',
+                                                                      '50-59 Jahre':'#FF9900',
+                                                                      '60 Jahre und älter':'#333399'}">
+                                        <ods-chart-serie expression-y="anteil" 
+                                                         chart-type="bar" 
+                                                         function-y="SUM" 
+                                                         color="range-Dark2" 
+                                                         scientific-display="true"
+                                                         display-units="true" 
+                                                         display-values="true" 
+                                                         label-y="Prozent (%)"
+                                                         step=10
+                                                         max="100">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </div>
+                            <div ng-if="refinectx.parameters['refine.altersgruppe']">
+                                <ods-chart scientific-display="false" 
+                                           align-month="true">
+                                    <ods-chart-query context="refinectx" 
+                                                     field-x="alter" 
+                                                     maxpoints="0" 
+                                                     series-breakdown="wahljahr">
+                                        <ods-chart-serie expression-y="listen_nr" 
+                                                         chart-type="column" 
+                                                         function-y="COUNT" 
+                                                         color="range-Accent" 
+                                                         scientific-display="true">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </div>
                         </ods-dataset-context>
                     </div>
                     <div class="advanced-kpi--bottom">
@@ -127,7 +144,7 @@
                             Kandidierende 2024 nach Berufsgruppe
                         </h3>
                         <i class="description">
-                            Kandidierende 2024 nach Berufsgruppe
+                            
                         </i>
                     </div>
                     <div class="advanced-kpi--middle no-bg mb-0">
@@ -139,8 +156,6 @@
                                        align-month="true"
                                        labels-x-length="50"
                                        display-legend="false"
-                                       single-y-axis="true"
-                                       single-y-axis-label="Prozent (%)"
                                        max=20
                                        step=5>
                                 <ods-chart-query context="myctx" 
@@ -153,7 +168,8 @@
                                                      color="#933F8D" 
                                                      scientific-display="true"
                                                      display-units="true" 
-                                                     display-values="true">
+                                                     display-values="true"
+                                                     label-y="Prozent (%)">
                                     </ods-chart-serie>
                                 </ods-chart-query>
                             </ods-chart>
@@ -195,55 +211,136 @@
                         <i class="description">
                             Geschlechterverteilung (amtlich) in den verschiedenen Altersgruppen
                             <br/><br/>
-                            Durch das Klicken der ....
+                            Durch das Klicken der Säulen wird die genaue Anzahl der Kandidierenden pro Jahrgang angezeigt.
                         </i>
                     </div>
-                    <div class="advanced-kpi--middle no-bg mb-0">
-                        <div class="legend">
-                            <div class="legend-item">
-                                <div class="color-box" style="background-color: #B70000;"></div>
-                                <span>Frauenanteil</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="color-box" style="background-color: #71A3B5;"></div>
-                                <span>Männeranteil</span>
-                            </div>
-                        </div>
-                        <ods-dataset-context context="myctx" 
+                    <ods-dataset-context context="myctx,refinectx" 
                                              myctx-dataset="100392" 
-                                             myctx-parameters="{'refine.wahljahr':'2024'}">
-                            <ods-chart scientific-display="false" 
-                                       align-month="true"
-                                       single-y-axis="true"
-                                       single-y-axis-label="Prozent (%)"
-                                       display-legend="false">
-                                <ods-chart-query context="myctx" 
-                                                 field-x="altersgruppe"
-                                                 maxpoints="0"
-                                                 series-breakdown="geschlecht"
-                                                 category-colors="{'f':'#B70000','m':'#71A3B5'}">
-                                    <ods-chart-serie expression-y="anteil_altersgruppe"
-                                                     chart-type="column"
-                                                     function-y="SUM"
-                                                     color="range-Accent"
-                                                     scientific-display="true"
-                                                     display-units="true"
-                                                     display-values="true">
-                                    </ods-chart-serie>
-                                </ods-chart-query>
-                            </ods-chart>
-                        </ods-dataset-context>
-                    </div>
-                    <div class="advanced-kpi--bottom">
-                        <div class="advanced-kpi--bottom-second-stage">
-                            <a class="source"
-                               href="https://data.bs.ch/explore/dataset/100392" target="_blank"
-                               title="Title">
-                                Quelle
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </a>
+                                             myctx-parameters="{'refine.wahljahr':'2024'}"
+                                             refinectx-dataset="100385"
+                                             refinectx-parameters="{'disjunctive.wahlkreis':true,
+                                                                   'disjunctive.listen_nr':true,
+                                                                   'disjunctive.listenkurzbezeichnung':true,
+                                                                   'disjunctive.listenbezeichnung':true,
+                                                                   'disjunctive.bisher':true,
+                                                                   'disjunctive.name_vorname':true,
+                                                                   'disjunctive.name':true,
+                                                                   'disjunctive.vorname':true,
+                                                                   'disjunctive.geschlecht':true,
+                                                                   'disjunctive.jahrgang':true,
+                                                                   'disjunctive.altersgruppe':true,
+                                                                   'disjunctive.alter':true,
+                                                                   'sort':'kand_nr',}">
+                        <div class="advanced-kpi--middle no-bg mb-0">
+                                <div class="col-md-12">
+                                    <div class="col-md-9">
+                                        <div class="legend">
+                                            <div class="legend-item">
+                                                <div class="color-box" style="background-color: #B70000;"></div>
+                                                <span ng-if="!refinectx.parameters['refine.altersgruppe']">Frauenanteil</span>
+                                                <span ng-if="refinectx.parameters['refine.altersgruppe']">Anzahl Frauen</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <div class="color-box" style="background-color: #71A3B5;"></div>
+                                                <span ng-if="!refinectx.parameters['refine.altersgruppe']">Männeranteil</span>
+                                                <span ng-if="refinectx.parameters['refine.altersgruppe']">Anzahl Männer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-if="refinectx.parameters['refine.altersgruppe']"
+                                         class="col-md-3 filters">
+                                        <p class="appliedfilter" ng-repeat="filter in ([].concat(refinectx.parameters['refine.altersgruppe']))">
+                                            {{filter}}
+                                        </p>
+                                        <a href class="resetfilter"
+                                           ng-if="refinectx.parameters['refine.altersgruppe']"
+                                           ng-click="refinectx.parameters['refine.altersgruppe'] = undefined">&larr; Filter zurücksetzen</a>
+                                    </div>
+                                </div>
+                                <div ng-if="!refinectx.parameters['refine.altersgruppe']">
+                                    <ods-chart scientific-display="false" 
+                                               align-month="true"
+                                               single-y-axis="true"
+                                               single-y-axis-label="Prozent (%)"
+                                               display-legend="false"
+                                                labels-x-length=20>
+                                        <ods-chart-query context="myctx" 
+                                                         field-x="altersgruppe"
+                                                         maxpoints="0"
+                                                         series-breakdown="geschlecht"
+                                                         category-colors="{'f':'#B70000','m':'#71A3B5'}">
+                                            <ods-chart-serie expression-y="anteil_altersgruppe"
+                                                             chart-type="column"
+                                                             function-y="SUM"
+                                                             scientific-display="true"
+                                                             display-units="true"
+                                                             display-values="true"
+                                                             refine-on-click-context="refinectx"
+                                                             refine-on-click-refinectx-context-field="altersgruppe">
+                                            </ods-chart-serie>
+                                        </ods-chart-query>
+                                    </ods-chart>
+                                </div>
+                                <div ng-if="refinectx.parameters['refine.altersgruppe'] && refinectx.parameters['refine.altersgruppe'] != '60 Jahre und älter'">
+                                        <ods-chart scientific-display="false" 
+                                                   align-month="true"
+                                                   display-legend="false">
+                                            <ods-chart-query context="refinectx"
+                                                             field-x="jahrgang" 
+                                                             maxpoints="0" 
+                                                             stacked="normal"
+                                                             series-breakdown="geschlecht"
+                                                             category-colors="{'f':'#B70000','m':'#71A3B5'}">
+                                                <ods-chart-serie expression-y="listen_nr" 
+                                                                 chart-type="bar" 
+                                                                 function-y="COUNT" 
+                                                                 scientific-display="true"
+                                                                 display-values="true"
+                                                                 step=1>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                <div ng-if="refinectx.parameters['refine.altersgruppe'] == '60 Jahre und älter'">
+                                        <ods-chart scientific-display="false" 
+                                                   align-month="true"
+                                                   display-legend="false"
+                                                   style="height:1000px">
+                                            <ods-chart-query context="refinectx"
+                                                             field-x="jahrgang" 
+                                                             maxpoints="0" 
+                                                             stacked="normal"
+                                                             series-breakdown="geschlecht"
+                                                             category-colors="{'f':'#B70000','m':'#71A3B5'}">
+                                                <ods-chart-serie expression-y="listen_nr" 
+                                                                 chart-type="bar" 
+                                                                 function-y="COUNT" 
+                                                                 scientific-display="true"
+                                                                 display-values="true">
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
                         </div>
-                    </div>
+                        <div class="advanced-kpi--bottom">
+                            <div class="advanced-kpi--bottom-second-stage">
+                                <a class="source"
+                                   ng-if="!refinectx.parameters['refine.altersgruppe']"
+                                   href="https://data.bs.ch/explore/dataset/100392" target="_blank"
+                                   title="Title">
+                                    Quelle
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </a>
+                                <a class="source"
+                                   ng-if="refinectx.parameters['refine.altersgruppe']"
+                                   href="https://data.bs.ch/explore/dataset/100385" target="_blank"
+                                   title="Title">
+                                    Quelle
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </ods-dataset-context>
                 </div>
                 <br/>
                 <p>
@@ -267,9 +364,7 @@
                             Geschlechterverteilung der Kandidierenden 2024 nach Liste
                         </h3>
                         <i class="description">
-                            Geschlechterverteilung (amtlich) in den verschiedenen Listen
-                            <br/><br/>
-                            Durch das Klicken der ....
+                            Geschlechterverteilung (amtlich) in den kandidierenden Listen/Parteien
                         </i>
                     </div>
                     <div class="advanced-kpi--middle no-bg mb-0">
@@ -286,8 +381,7 @@
                         <ods-dataset-context context="myctx" 
                                              myctx-dataset="100392" 
                                              myctx-parameters="{'refine.wahljahr':'2024'}">
-                            <ods-chart class="lightgrey-data-values"
-                                       style="height:700px"
+                            <ods-chart style="height:700px"
                                        scientific-display="false" 
                                        align-month="true"
                                        display-legend="false">
@@ -354,13 +448,27 @@
                 <div class="advanced-kpi">
                     <div class="advanced-kpi--top">
                         <h3 class="title">
-                            Weibliche Kandidierende seit 1968
+                            Kandidierende nach Geschlecht seit 1968
                         </h3>
                         <i class="description">
-                            Entwicklung des Frauenanteils
+                            Entwicklung des Frauenanteils unter allen und gewählten Kandidierenden der Grossratswahlen.
                         </i>
                     </div>
                     <div class="advanced-kpi--middle no-bg mb-0">
+                        <div class="legend col-md-2">
+                            <div class="legend-item">
+                                <div class="color-box" style="background-color: #933F8D;"></div>
+                                <span>Kandidierende</span>
+                                <span class="info-icon">ℹ️</span>
+                                <div class="info-box">Frauenanteil unter <b>allen</b> Kandidierenden</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="color-box" style="background-color: #F5C80B;"></div>
+                                <span>Gewählte</span>
+                                <span class="info-icon">ℹ️</span>
+                                <div class="info-box">Frauenanteil unter <b>gewählten</b> Kandidierenden</div>
+                            </div>
+                        </div>
                         <ods-dataset-context context="myctx" 
                                              myctx-dataset="100391" 
                                              myctx-parameters="{'sort':'-wahljahr'}">
@@ -368,6 +476,7 @@
                                        align-month="true"
                                        single-y-axis="true"
                                        single-y-axis-label="Prozent (%)"
+                                       display-legend="false"
                                        max=50>
                                 <ods-chart-query context="myctx" 
                                                  field-x="wahljahr" 
@@ -422,30 +531,92 @@
                             Kandidierende 2024 nach Häufigkeit der Kandidatur seit 2008
                         </h3>
                         <i class="description">
-                            Durck Klick ....
+                            Durch das Klicken der Balken werden desweiteren die genauen Wahljahre der Kandidaturen angezeigt.
                         </i>
                     </div>
-                    <div class="advanced-kpi--middle no-bg mb-0">
-                        <ods-dataset-context context="myctx" 
-                                             myctx-dataset="100393">
-                            <ods-chart single-y-axis="true" 
-                                       scientific-display="false" 
-                                       align-month="true">
-                                <ods-chart-query context="myctx" 
-                                                 field-x="haufigkeit" 
-                                                 maxpoints="0" 
-                                                 stacked="normal" 
-                                                 series-breakdown="gewahlt">
-                                    <ods-chart-serie expression-y="anzahl" 
-                                                     chart-type="bar" 
-                                                     function-y="SUM" 
-                                                     color="range-Set2" 
-                                                     scientific-display="true">
-                                    </ods-chart-serie>
-                                </ods-chart-query>
-                            </ods-chart>
-                        </ods-dataset-context>
-                    </div>
+                    <ods-dataset-context context="myctx,refinectx" 
+                                         myctx-dataset="100393"
+                                         refinectx-dataset="100393" 
+                                         refinectx-parameters="{'disjunctive.haufigkeit':true,
+                                                               'disjunctive.kandidaturen':true,
+                                                               'disjunctive.gewahlt':true,
+                                                               'sort': '-kandidaturen'}">
+                        <div class="advanced-kpi--middle no-bg mb-0">
+                            <div class="col-md-12">
+                                <div class="col-md-2">
+                                    <div class="legend">
+                                        <div class="legend-item">
+                                            <div class="color-box" style="background-color: #933F8D;"></div>
+                                            <span>Nicht Gewählt</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="color-box" style="background-color: #F5C80B;"></div>
+                                            <span>Gewählt</span>
+                                            <span class="info-icon">ℹ️</span>
+                                            <div class="info-box">Mindestens einmal gewählt zwischen 2008 und 2020</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-if="refinectx.parameters['refine.haufigkeit']"
+                                     class="col-md-10 filters">
+                                    <p class="appliedfilter" ng-repeat="filter in ([].concat(refinectx.parameters['refine.haufigkeit']))">
+                                        {{filter}}-mal kandidiert
+                                    </p>
+                                    <a href class="resetfilter"
+                                       ng-if="refinectx.parameters['refine.haufigkeit']"
+                                       ng-click="refinectx.parameters['refine.haufigkeit'] = undefined">
+                                        &larr; Filter zurücksetzen</a>
+                                </div>
+                            </div>
+                            <div ng-if="!refinectx.parameters['refine.haufigkeit']">
+                                <ods-chart single-y-axis="true" 
+                                           scientific-display="false" 
+                                           align-month="true"
+                                           label-x="Häufigkeit Kandidaturen seit 2008"
+                                           display-legend="false"
+                                           max=400>
+                                    <ods-chart-query context="myctx" 
+                                                     field-x="haufigkeit" 
+                                                     maxpoints="0" 
+                                                     series-breakdown="gewahlt"
+                                                     stacked="normal"
+                                                     category-colors="{'Gewählt':'#F5C80B','Nicht Gewählt':'#933F8D'}">
+                                        <ods-chart-serie expression-y="anzahl"
+                                                         chart-type="bar" 
+                                                         function-y="SUM" 
+                                                         scientific-display="true"
+                                                         display-values="true"
+                                                         refine-on-click-context="refinectx"
+                                                         refine-on-click-refinectx-context-field="haufigkeit">
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </div>
+                            <div ng-if="refinectx.parameters['refine.haufigkeit']">
+                                <ods-chart single-y-axis="true" 
+                                           scientific-display="false" 
+                                           align-month="true"
+                                           labels-x-length="50"
+                                           display-legend="false">
+                                    <ods-chart-query context="refinectx" 
+                                                     field-x="kandidaturen" 
+                                                     maxpoints="0" 
+                                                     series-breakdown="gewahlt"
+                                                     stacked="normal"
+                                                     category-colors="{'Gewählt':'#F5C80B','Nicht Gewählt':'#933F8D'}"
+                                                     sort="-kandidaturen">
+                                        <ods-chart-serie expression-y="anzahl" 
+                                                         chart-type="bar" 
+                                                         function-y="SUM" 
+                                                         scientific-display="true"
+                                                         display-values="true"
+                                                         step=5>
+                                        </ods-chart-serie>
+                                    </ods-chart-query>
+                                </ods-chart>
+                            </div>
+                        </div>
+                    </ods-dataset-context>
                     <div class="advanced-kpi--bottom">
                         <div class="advanced-kpi--bottom-second-stage">
                             <a class="source"

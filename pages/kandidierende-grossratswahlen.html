@@ -12,7 +12,7 @@
                 </p>
                 <p>
                     Insgesamt stehen 16 Listen zur Wahl. 3 Listen treten nur im Wahlkreis Kleinbasel an.
-                    In Bettingen bewirbt sich neben dem bisherigen Kandidaten des Aktiven Bettingen 1 Gegenkandidat der GRÜNE Basel-Stadt und junges grünes bündnis (GP) um den Bettinger Sitz. 
+                    Um den Bettinger Sitz bewirbt sich neben dem bisherigen Kandidaten des Aktiven Bettingen 1 Gegenkandidat der GRÜNE Basel-Stadt und junges grünes bündnis (GP). 
                     Die GP ist somit auch die einzige Liste, die in allen fünf Wahlkreisen kandidiert.
                 </p>
             </div>
@@ -31,7 +31,7 @@
                         </i>
                     </div>
                     <div class="advanced-kpi--middle no-bg mb-0">
-                       <!--div class="legend-horizontal-container">
+                       <div class="legend-horizontal-container">
                             <div class="legend-horizontal">
                                 <div class="legend-item-hor">
                                     <div class="color-box" style="background-color: #333399;"></div>
@@ -58,7 +58,7 @@
                                     <span>18-24 Jahre</span>
                                 </div>
                             </div>
-                        </div-->
+                        </div>
                         <ods-dataset-context context="myctx,refinectx" 
                                              myctx-dataset="100392"
                                              refinectx-dataset="100390" 
@@ -122,16 +122,17 @@
                 </div>
                 <br/>
                 <p>
-                    Ein gutes Drittel der Kandidierenden ist am Ende des Wahljahres unter 40 Jahre alt. 
-                    Dies hat sich im Vergleich zu 2020 kaum verändert, etwas abgenommen hat der Anteil der unter 25- bis 39-Jährigen. 
                     Leicht zugenommen haben die Anteile in den Alterssegmenten der 18- bis 24-Jährigen sowie der über 50-Jährigen; 
                     Letztere machen jetzt gut die Hälfte aus.
+                    Ein gutes Drittel der Kandidierenden ist am Ende des Wahljahres unter 40 Jahre alt. 
+                    Dies hat sich im Vergleich zu 2020 kaum verändert.
+                    Etwas abgenommen hat der Anteil der unter 25- bis 39-Jährigen. 
                 </p>
                 <p>
-                    Das Durchschnittsalter aller Kandidierenden beträgt 47,93 Jahre. 
+                    Das Durchschnittsalter aller Kandidierenden beträgt 48 Jahre. 
                     Der Median ist mit 49 Jahren nur unwesentlich höher: 
-                    Die eine Hälfte der Kandidierenden ist also älter, die andere Hälfte jünger als 49 Jahre. 
-                    Die VA-Liste weist mit 63,69 Jahren den höchsten Altersdurchschnitt auf, die Sozialdemokratische Partei Basel-Stadt (SP) und JUSO mit 40.73 Jahren den tiefsten Wert.
+                    Die eine Hälfte der Kandidierenden ist somit älter, die andere Hälfte jünger als 49 Jahre. 
+                    Die Liste, Volks-Aktion gegen zuviele Ausländer und Asylanten in unserer Heimat (VA) weist mit 64 Jahren den höchsten Altersdurchschnitt auf, die Sozialdemokratische Partei Basel-Stadt (SP) und JUSO mit 41 Jahren den tiefsten.
                 </p>
             </div>
         </div>
@@ -155,7 +156,7 @@
                             <ods-chart style="height:700px"
                                        scientific-display="false" 
                                        align-month="true"
-                                       labels-x-length="50"
+                                       labels-x-length="45"
                                        display-legend="false"
                                        max=20
                                        step=5>
@@ -166,7 +167,7 @@
                                     <ods-chart-serie expression-y="anteil" 
                                                      chart-type="bar" 
                                                      function-y="SUM" 
-                                                     color="#933F8D" 
+                                                     color="#333399" 
                                                      scientific-display="true"
                                                      display-units="true" 
                                                      display-values="true"
@@ -192,12 +193,12 @@
                 <p>
                     Die grösste Berufsgruppe der Kandidierenden 2024 entfällt wie schon 2020 auf die Unternehmensdienstleistungen – 
                     hier insbesondere Juristen, Anwälte und Treuhänder, die insgesamt einen Anteil von 16,1 Prozent erreichen. 
-                    Auch die zweitgrösste Gruppe der administrativen und kaufmännischen Berufe ist (auch anteilsmässig) die gleiche wie 2020.
+                    Auch die zweitgrösste Gruppe der administrativen und kaufmännischen Berufe ist (auch anteilsmässig) gegenüber 2020 unverändert.
                     Dies obwohl beide Berufsgruppen anteilsmässig leicht abgenommen haben.
                 </p>
                 <p>
-                    Stark Abgenommen hat der Anteil des Gewerbe und der Gastronomie, dafür ist 2024 das Gesundheitswesen leicht besser vertreten. 
-                    Sowohl der Anteil des Geschäftsführungsbereich wie auch der Anteil der pensionierten Kandidierenden hat leicht zugenommen.
+                    Stark abgenommen hat der Anteil von Gewerbe und Gastronomie, dafür ist 2024 das Gesundheitswesen leicht besser vertreten. 
+                    Sowohl der Anteil der Berufsgruppe Geschäftsführung/Unternehmensleistung, wie auch der Anteil der pensionierten Kandidierenden hat leicht zugenommen.
                 </p>
             </div>
         </div>
@@ -211,9 +212,9 @@
                             Geschlechterverteilung der Kandidierenden 2024 nach Alter
                         </h3>
                         <i class="description">
-                            Geschlechterverteilung (amtlich) in den verschiedenen Altersgruppen
+                            Amtliche Geschlechterverteilung in den verschiedenen Altersgruppen
                             <br/><br/>
-                            Durch das Klicken der Säulen wird die genaue Anzahl der Kandidierenden pro Jahrgang angezeigt.
+                            Detailierte Informationen zu den Altersgruppen wird durch das Klicken der Säulen angezeigt.
                         </i>
                     </div>
                     <ods-dataset-context context="myctx,refinectx" 
@@ -239,12 +240,12 @@
                                         <div class="legend">
                                             <div class="legend-item">
                                                 <div class="color-box" style="background-color: #B70000;"></div>
-                                                <span ng-if="!refinectx.parameters['refine.altersgruppe']">Frauenanteil</span>
+                                                <span ng-if="!refinectx.parameters['refine.altersgruppe']">Frauen</span>
                                                 <span ng-if="refinectx.parameters['refine.altersgruppe']">Anzahl Frauen</span>
                                             </div>
                                             <div class="legend-item">
                                                 <div class="color-box" style="background-color: #71A3B5;"></div>
-                                                <span ng-if="!refinectx.parameters['refine.altersgruppe']">Männeranteil</span>
+                                                <span ng-if="!refinectx.parameters['refine.altersgruppe']">Männer</span>
                                                 <span ng-if="refinectx.parameters['refine.altersgruppe']">Anzahl Männer</span>
                                             </div>
                                         </div>
@@ -347,12 +348,12 @@
                 <br/>
                 <p>
                     Den höchsten Frauenanteil weist die Altersgruppe der 18- bis 24-Jährigen mit 43,3 Prozent auf. 
-                    Die Altersgruppe der 50- bis 59-Jährigen weist mit 34,5 Prozent den niedrigsten Frauenanteil auf.
-                    Mit den 24- bis 29-Jährigen ist es die einzige Altersgruppe, die anteilsmässig rückläufig ist.
+                    Die Altersgruppe der 50- bis 59-Jährigen weist mit 34,6 Prozent den niedrigsten Frauenanteil auf.
+                    Der Frauenanteil ist einzig bei den 24- bis 29-Jährigen tiefer als im Jahr 2020.
                 </p>
                 <p>
-                    Bei den Grossratswahlen 2020 war die Wahlquote der Frauen, das heisst der Anteil gewählter Frauen im Verähltnis zum Anteil kandidierender Frauen mit 42 zu 35,6 zum zweiten Mal positiv.
-                    Dies, nachdem das Verhältnis 2016 mit 31 zu 35 wie schon 2012 negativ ausgefallen war.
+                    Bei den Grossratswahlen 2020 war die Wahlquote der Frauen, das heisst der Anteil gewählter Frauen im Verhältnis zum Anteil kandidierender Frauen, mit 42 zu 35,6 zum zweiten Mal positiv.
+                    Dies, nachdem das Verhältnis 2016, mit 31 zu 35 wie schon 2012 negativ ausgefallen war.
                 </p>
             </div>
         </div>
@@ -366,18 +367,18 @@
                             Geschlechterverteilung der Kandidierenden 2024 nach Liste
                         </h3>
                         <i class="description">
-                            Geschlechterverteilung (amtlich) in den kandidierenden Listen/Parteien
+                            Amtliche Geschlechterverteilung in den kandidierenden Listen/Parteien
                         </i>
                     </div>
                     <div class="advanced-kpi--middle no-bg mb-0">
                         <div class="legend">
                             <div class="legend-item">
                                 <div class="color-box" style="background-color: #B70000;"></div>
-                                <span>Frauenanteil</span>
+                                <span>Frauen</span>
                             </div>
                             <div class="legend-item">
                                 <div class="color-box" style="background-color: #71A3B5;"></div>
-                                <span>Männeranteil</span>
+                                <span>Männer</span>
                             </div>
                         </div>
                         <ods-dataset-context context="myctx" 
@@ -435,7 +436,7 @@
                 </div>
                 <br/>
                 <p>
-                    Den höchsten Frauenanteil weisen die Listen der BastA, des Grünen Bündnis und der SP auf: Dort sind 50 der 94 Kandidierenden Frauen.
+                    Den höchsten Frauenanteil weisen die Listen von der BastA, dem Grünen Bündnis und der SP auf: Dort sind 50 der 94 Kandidierenden Frauen.
                     Bei der GP-Liste und der SP sind ebenfalls mehr als die Hälfte Frauen.
                 </p>
                 <p>
@@ -454,7 +455,7 @@
                             Kandidierende nach Geschlecht seit 1968
                         </h3>
                         <i class="description">
-                            Entwicklung des Frauenanteils unter allen und gewählten Kandidierenden der Grossratswahlen.
+                            Entwicklung des Frauenanteils bei Grossratswahlen.
                         </i>
                     </div>
                     <div class="advanced-kpi--middle no-bg mb-0">
@@ -521,7 +522,7 @@
                 </p>
                 <p>
                     Die Entwicklung der Frauen-Vertretung im baselstädtischen Kantonsparlament war 2012 nach einer längeren Wachstumsphase (Höchstwert 2008 mit 37 Prozent) bis 2020 wieder rückläufig. 
-                    Nach den letzten Wahlen hat die Frauen-Vertretung im Grossen Rat wieder stark zugenommen und hat Stand 1. September 2024 43 Prozent.
+                    Nach den letzten Wahlen hat die Frauen-Vertretung im Grossen Rat wieder stark zugenommen und steht Stand September 2024 bei 43 Prozent.
                     Dies ist neuer Höchstwert.
                 </p>
             </div>
@@ -536,7 +537,7 @@
                             Kandidierende 2024 nach Häufigkeit der Kandidatur seit 2008
                         </h3>
                         <i class="description">
-                            Durch das Klicken der Balken werden desweiteren die genauen Wahljahre der Kandidaturen angezeigt.
+                            Detailiierte Informationen zu den Kandidaturen wird durch das Klicken der Balken angezeigt.
                         </i>
                     </div>
                     <ods-dataset-context context="myctx,refinectx" 
@@ -635,7 +636,11 @@
                 </div>
                 <br/>
                 <p>
-                    388 aktuell Kandidierende (44,6 Prozent) sind seit 2008 noch nie zur Wahl in den Grossen Rat angetreten, 20,2 Prozent versucht sich nach 2020 ein zweites Mal (seit 2008). 
+                    96 Bisherige treten 2024 zur Wiederwahl an.  
+                </p>
+                <p>
+                    388 aktuell Kandidierende (44,6%) sind seit 2008 noch nie zur Wahl in den Grossen Rat angetreten, 
+                    177 Kandidierende (20,2%) unternehmen nach 2020 einen zweiten Versuch. 
                     Insgesamt 482 Personen sind seit 2008 mindestens 1 weiteres Mal zur Wahl angetreten.
                 </p>
                 <p>

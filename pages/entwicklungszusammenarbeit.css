@@ -170,12 +170,38 @@
 
 /* Content Card
 ========================================================================== */
+.odswidget-infinite-scroll-results {
+    display: block !important; /* Override flexbox with block display */
+    width: 100% !important;    /* Ensure it takes the full width */
+}
+
+.odswidget-infinite-scroll-results .content-card {
+    width: 100% !important;    /* Ensure each card takes the full width */
+    margin-bottom: 20px;       /* Adjust spacing between cards */
+    box-sizing: border-box;    /* Include padding and border in the width calculation */
+}
+
+/* Optionally, if you want the cards to take the full width only on smaller screens */
+@media screen and (max-width: 1024px) {
+    .odswidget-infinite-scroll-results {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .odswidget-infinite-scroll-results .content-card {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+}
 
 .content-card {
     background-color: var(--boxes-background);
     border-radius: 4px;
-    height: 100%;
+    width: 100%; /* Ensure full width */
+    flex-grow: 1;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.13);
+    display: flex; /* Added to ensure the card behaves like a block */
+    flex-direction: column; /* Ensure content stacks vertically */
 }
 
 .content-card-body {
@@ -188,7 +214,7 @@
     line-height: 1.5;
     font-weight: normal;
     margin-top: 0;
-    margin-bottom: 13px;
+    margin-bottom: 0;
     max-width: 100%;
 }
 
@@ -221,6 +247,7 @@
 .content-card-fields2 dd {
     margin-left: 0;
 }
+
 
 .content-card-icon {
     color: var(--highlight);
@@ -259,6 +286,11 @@
     background-color: var(--highlight);
     color: #FFFFFF;
     text-decoration: none;
+}
+
+.bold-dl dt,
+.bold-dl dd {
+    font-weight: bold; /* Apply bold to both dt and dd */
 }
 
 
@@ -423,3 +455,6 @@
         max-width: 100%;
     }
 }
+
+
+

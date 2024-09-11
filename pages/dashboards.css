@@ -1,0 +1,124 @@
+/* Image Card
+   ========================================================================== */
+
+.image-card {
+	background-color: rgba(0,0,0,.1);
+	background-color: var(--highlight);
+	color: #FFFFFF;
+	padding: 39px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	height: 300px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
+	text-align: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+	text-decoration: none;
+}
+.image-card:hover,
+.image-card:focus {
+	text-decoration: none;
+    -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+            transform: scale(1.02);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+}
+.image-title {
+	color: inherit;
+	font-size: 1.733rem;
+	line-height: 2.26;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 13px;
+}
+.image-description {
+	color: inherit;
+	font-size: 1rem;
+	line-height: 1.5;
+	font-weight: bold;
+	margin: 0;
+}
+/* Image card backgrounds
+   ========================================================================== */
+/**
+ * - Replace the background image URL.
+ * - Change the class name to something related to your project and update the HTML as well.
+ */
+.image-card-rosental-dashboard {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/rosental_dashboard.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/rosental_dashboard.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/rosental_dashboard.png');
+}
+.image-card-unfall {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/verkehrsunfall_dashboard_basel.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/verkehrsunfall_dashboard_basel.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/verkehrsunfall_dashboard_basel.png');
+}
+.image-card-covid {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/Covid-19_Dashboard.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Covid-19_Dashboard.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Covid-19_Dashboard.png');
+}
+.image-card-smarte-strasse {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/smart_strasse_dashboard.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/smart_strasse_dashboard.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/smart_strasse_dashboard.png');
+}
+.image-card-sportanlagen {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/sportanlagen_finder.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sportanlagen_finder.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sportanlagen_finder.png');
+}
+.image-card-allmend {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/allmendbewilligungen.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/allmendbewilligungen.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/allmendbewilligungen.png');
+}
+.image-card-feinstaub-bvb {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/Feinstaub_BVB.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Feinstaub_BVB.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Feinstaub_BVB.png');
+}
+.image-card-gesundheitsversorgung {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/gesundheitsversorgung.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/gesundheitsversorgung.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/gesundheitsversorgung.png');
+}
+.image-card-virenmonitoring {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/virenmonitoring.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/virenmonitoring.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/virenmonitoring.png');
+}
+.image-card-sauberkeitsindex {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/sauberkeitsindex.PNG');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sauberkeitsindex.PNG');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sauberkeitsindex.PNG');
+}
+.image-card-entwicklung {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/entwicklungszusammenarbeit.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/entwicklungszusammenarbeit.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/entwicklungszusammenarbeit.png');
+}
+.image-card-grossratswahlen {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/kandidierende-grossratswahlen.png');
+	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/kandidierende-grossratswahlen.png');
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/kandidierende-grossratswahlen.png');
+}
+

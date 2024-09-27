@@ -1,0 +1,156 @@
+<h2>Stimmen</h2>
+
+Diese Abbildung zeigt die Anzahl Stimmen aller Kandidierenden
+
+<br /><br />
+
+<ods-dataset-context context="rr2024" rr2024-dataset="100400" rr2024-parameters="{'sort':'stimmen'}">
+    <ods-chart align-month="true"
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen" 
+               labels-x-length="35" label-x="">
+        <ods-chart-query context="rr2024" field-x="ganzer_name" maxpoints="0" sort="serie1-2">
+            <ods-chart-serie expression-y="absolutes_mehr" 
+                             chart-type="line" 
+                             function-y="max" 
+                             color="#71a3b5" 
+                             scientific-display="true" 
+                             label-y="Absolutes Mehr ">
+            </ods-chart-serie>
+            <ods-chart-serie 
+                             expression-y="stimmen" 
+                             chart-type="column" 
+                             function-y="max" 
+                             color="#A6A6A6" 
+                             scientific-display="true"
+                             color-thresholds="[{'value': 59, 'color': '#C00000'}]"
+                             label-y="Anzahl erhaltene Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="rr2024" field-x="vereinzelte" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="vereinzelte_stimmen" 
+                             chart-type="column" 
+                             function-y="max" 
+                             color="#A6A6A6" 
+                             scientific-display="true"
+                             label-y="Vereinzelte Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<h2>Stimmen nach Gemeinde</h2>
+
+Diese Abbildung zeigt die Anzahl Stimmen pro kandidierende Person für die Stadt <b>Basel</b>
+
+<br /><br />
+
+<ods-dataset-context context="rr2024" 
+                     rr2024-dataset="100400" 
+                     rr2024-parameters="{'sort':'stimmen','refine.wahlkreis_nr':'2701'}">
+    <ods-chart align-month="true"
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen" 
+               display-legend="false" 
+               labels-x-length="35" label-x="">
+        <ods-chart-query context="rr2024" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="stimmen" 
+                             chart-type="column" 
+                             function-y="max" 
+                             color="#51BFD9" 
+                             scientific-display="true"
+                             label-y="Anzahl erhaltene Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="rr2024" field-x="vereinzelte" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="vereinzelte_stimmen" 
+                             chart-type="column" 
+                             function-y="max" 
+                             color="#51BFD9" 
+                             scientific-display="true"
+                             label-y="Vereinzelte Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+</ods-dataset-context>
+<br /><br />
+
+Diese Abbildung zeigt die Anzahl Stimmen pro kandidierende Person für die Gemeinde <b>Bettingen</b>
+
+<br /><br />
+
+<ods-dataset-context context="rr2024" 
+                     rr2024-dataset="100400" 
+                     rr2024-parameters="{'sort':'stimmen','refine.wahlkreis_nr':'2702'}">
+    <ods-chart align-month="true"
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" label-x="">
+        <ods-chart-query context="rr2024" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="stimmen" 
+                             chart-type="column" 
+                             function-y="SUM" 
+                             color="#51BFD9" 
+                             scientific-display="true"
+                             label-y="Anzahl erhaltene Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="rr2024" field-x="vereinzelte" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="vereinzelte_stimmen" 
+                             chart-type="column" 
+                             function-y="max" 
+                             color="#51BFD9" 
+                             scientific-display="true"
+                             label-y="Vereinzelte Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>
+
+<br /><br />
+
+Diese Abbildung zeigt die Anzahl Stimmen pro kandidierende Person für die Gemeinde <b>Riehen</b>
+
+<br /><br />
+
+<ods-dataset-context context="rr2024" 
+                     rr2024-dataset="100400" 
+                     rr2024-parameters="{'sort':'stimmen','refine.wahlkreis_nr':'2703'}">
+    <ods-chart align-month="true"
+               single-y-axis="true" 
+               single-y-axis-label="Anzahl Stimmen"
+               display-legend="false" 
+               labels-x-length="35" 
+               label-x="">
+        <ods-chart-query context="rr2024" field-x="ganzer_name" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="stimmen" 
+                             chart-type="column"
+                             function-y="SUM" 
+                             color="#51BFD9" 
+                             scientific-display="true"
+                             label-y="Anzahl erhaltene Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+        <ods-chart-query context="rr2024" field-x="vereinzelte" maxpoints="0" sort="serie1-1">
+            <ods-chart-serie expression-y="vereinzelte_stimmen" 
+                             chart-type="column" 
+                             function-y="max" 
+                             color="#51BFD9" 
+                             scientific-display="true"
+                             label-y="Vereinzelte Stimmen"
+                             display-values="true">
+            </ods-chart-serie>
+        </ods-chart-query>
+    </ods-chart>
+
+</ods-dataset-context>

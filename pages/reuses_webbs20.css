@@ -1,0 +1,881 @@
+/* General Layout
+========================================================================== */
+main {
+    margin: 6rem 0 3em 0;
+}
+
+a {
+    color: #1C0F31;
+}
+
+html {
+    --links: #1C0F31;
+    --page-background: #f4f5f6;
+    --header-links: #FFFFFF;
+    --titles: #204453;
+    --section-titles: #FFFFFF;
+    --highlight: #204453;
+    --footer-links: #a7bfaf;
+    --boxes-border: #AAAAAA;
+    --boxes-background: #f4f5f6;
+    --header-background: #204453;
+    --footer-background: #204453;
+    --text: #000000;
+    --section-titles-background: #204453;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: -45px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Responsive Padding for Page Header */
+.page-header {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+.page-title {
+    color: #32834A;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.page-description {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 30px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .page-header {
+        max-width: 728px;
+        padding: 30px 20px;
+    }
+    
+    .page-title {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .page-description {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .page-header {
+        max-width: 796px;
+        padding: 40px 20px;
+    }
+    
+    .page-title {
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+/* The largest */
+@media (min-width: 1210px) {
+    .page-header {
+        max-width: 1040px;
+        padding: 50px 40px;
+    }
+    
+    .page-title {
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    .page-description {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+/* Search
+========================================================================== */
+.search-module-container {
+    width: 100vw; /* Full width of the viewport */
+    margin-left: calc(-50vw + 50%); /* Center the container */
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: var(--header-background); /* Your background color */
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.13);
+    position: relative; 
+}
+
+.search-module-content {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 40px;  /* Adjust to your needs */
+    margin-bottom: 30px;  /* Adjust to your needs */
+}
+
+@media (min-width: 768px) {
+    .search-module-content {
+        max-width: 728px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .search-module-content {
+        max-width: 960px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+}
+
+
+@media (min-width: 1210px) {
+    .search-module-content {
+        max-width: 1200px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: 70px;
+        margin-bottom: 60px;
+    }
+}
+
+
+.search-module {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Full width */
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap; /* Ensure the elements stay in one line by default */
+}
+
+
+/* Add a media query for smaller screens */
+@media (max-width: 600px) {
+    .search-module {
+        flex-wrap: wrap; /* Allow wrapping on small screens */
+    }
+
+    /* Ensure the input takes full width on small screens */
+    .search-module-input {
+        width: 100%;
+        margin-bottom: 10px; /* Add margin to prevent overlap with button */
+        border-radius: 30px;
+    }
+
+    /* Ensure the button stays aligned and adjusts accordingly */
+    .search-module-btn {
+        width: 100%;
+        justify-content: center; /* Center-align the button's content */
+    }
+}
+
+/* Search Input Field */
+.search-module-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Placeholder Color */
+.search-module-input::placeholder {
+    color: #999;
+}
+
+/* Focus state: violet border when input is focused */
+.search-module:focus-within {
+    border-color: #9156b4;
+    box-shadow: 0 3px 5px rgba(145, 86, 180, 0.3); /* Violet focus effect */
+}
+
+/* Clear Button (Cancel) */
+.search-module-clear {
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: var(--highlight);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.search-module-clear:hover {
+    color: #146c8b;
+}
+
+/* Search Button */
+.search-module-btn {
+    background-color: var(--highlight);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-module-btn i {
+    margin-right: 5px;
+}
+
+/* Add a media query for smaller screens */
+@media (max-width: 600px) {
+    /* Hide the text in the button on mobile, show only the icon */
+    .search-module-btn {
+        padding: 10px; /* Reduce padding to keep the button small */
+        justify-content: center; /* Keep the icon centered */
+        width: auto; /* Allow the button to shrink to fit the icon */
+    }
+
+    .search-module-btn i {
+        margin-right: 0; /* Remove any extra space beside the icon */
+    }
+
+    /* Hide the 'Suchen' text on mobile */
+    .search-module-btn span {
+        display: none; /* Hide the text on smaller screens */
+    }
+}
+.search-module-btn:hover {
+    background-color: #146c8b;
+}
+
+/* Filters
+========================================================================== */
+
+/* odswidget-select-button */
+.odswidget-select-button {
+    border: 1px solid #cbd2db;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    background: white;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 100%; /* Dynamic width to match content */
+}
+
+.odswidget-select-button:focus,
+.odswidget-select-button:active {
+    border-color: #9156b4;
+    box-shadow: 0 3px 5px rgba(145, 86, 180, 0.3); /* Violet shadow */
+}
+
+.odswidget-select-button:hover {
+    border-color: #9156b4;
+    box-shadow: 0 0 5px rgba(145, 86, 180, 0.3);
+}
+
+/* Filter List */
+.filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allow elements to take up available space */
+}
+
+.filter-label {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.filter-list > * {
+    flex-grow: 1; /* Make sure elements take as much space as needed */
+    flex-shrink: 1; /* Prevent fixed width, allow dynamic resizing */
+}
+
+.odswidget-select-dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    max-width: 100%;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+}
+
+.odswidget-select-input-container input {
+    border: 1px solid #cbd2db;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 100%;
+    color: #333;
+    background: white;
+    outline: none;
+}
+
+.odswidget-select-input-container input:focus {
+    border-color: #9156b4;
+    box-shadow: 0 3px 5px rgba(145, 86, 180, 0.3);
+}
+
+/* Clear Filters Button */
+.clear-filters-button {
+    background-color: #e8e8e8;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.clear-filters-button:hover {
+    background-color: #ccc;
+}
+
+/* Timerange Filter
+========================================================================== */
+/* Timerange Filter - Desktop */
+.odswidget-timerange {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.odswidget-timerange__label {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+/* Timerange Input Fields */
+.odswidget-timerange input[type="text"],
+.odswidget-timerange input[type="date"] {
+    border: 1px solid #cbd2db;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+    background: white;
+    outline: none;
+}
+
+.odswidget-timerange input:focus {
+    border-color: #9156b4;
+    box-shadow: 0 3px 5px rgba(145, 86, 180, 0.3);
+}
+
+/* Add media query to stack inputs on mobile */
+@media (max-width: 600px) {
+    .odswidget-timerange {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .odswidget-timerange input {
+        width: 100%;
+    }
+}
+
+/* Access Cards
+========================================================================== */
+.row-equal-height {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+@media screen and (min-width: 992px) {
+    .row-equal-height {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }   
+    /* Fix for early content wrapping in Safari*/
+    .row-equal-height:before,
+    .row-equal-height:after {
+        content: normal;
+    }
+}
+
+.centered-container {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 40px;  /* Adjust to your needs */
+    margin-bottom: 30px;  /* Adjust to your needs */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+@media (min-width: 768px) {
+    .centered-container {
+        max-width: 728px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .centered-container {
+        max-width: 960px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 1210px) {
+    .centered-container {
+        max-width: 1200px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: 70px;
+        margin-bottom: 60px;
+    }
+}
+
+.kpi-info {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 30px;
+    flex: 1; /* Allows the KPI to take up space on the left */
+}
+
+.access-card {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    height: 100%;
+    background-color: var(--custom-background);
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.13);
+    color: var(--secondary-color);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.access-card:hover {
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.5);
+}
+
+/* Remove text decoration and inherit color for all child elements */
+.access-card * {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+/* Specific styling for headers and paragraphs */
+.access-card h3,
+.access-card h2,
+.access-card h4,
+.access-card p {
+    text-decoration: none !important;
+}
+
+/* Ensure the button and icon don't inherit unwanted styles */
+.access-card a.custom-button {
+    text-decoration: none !important;
+}
+
+.access-card-container {
+    flex-grow: 1;
+}
+
+.access-card-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    position: relative;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.access-card-content {
+    padding: 26px;
+    position: relative;
+}
+
+.access-card-pretitle {
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-weight: 400;
+    margin: 0px;
+    font-size: 12px;
+}
+
+.access-card-further-info {
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-weight: 400;
+    margin: 10px 0px;
+    font-size: 12px;
+}
+
+.access-card-title {
+    font-weight: 400;
+    margin: 10px 0px;
+    font-size: 22px;
+    color: var(--secondary-color);
+}
+
+.access-card-subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.access-card:hover .access-card-title,
+.access-card:hover .access-card-subtitle {
+    color: #049bc9;
+}
+
+.access-card-content p {
+    margin: 5px 0px;
+}
+
+/* New Button Container Styling */
+.access-card-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 26px;
+    padding-top: 0;
+}
+
+/* Custom Button Styling */
+.custom-button {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #1C0F31;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Maintain no underline on hover */
+.custom-button:hover {
+    background-color: #146c8b;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Arrow Icons */
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.default-icon {
+    display: block;
+}
+
+.hover-icon {
+    display: none;
+}
+
+/* Show the white icon on hover */
+.custom-button:hover .default-icon {
+    display: none;
+}
+
+.custom-button:hover .hover-icon {
+    display: block;
+}
+
+/* Icon movement on hover */
+.access-card:hover .left-button .arrow-icon {
+    transform: translate(4px, -4px);
+}
+
+.access-card:hover .right-button .arrow-icon {
+    transform: translate(4px);
+}
+
+.odswidget.odswidget-picto.ods-card-theme-picto {
+    margin-right: 05px;
+    
+}
+
+
+/* KPI Card
+========================================================================== */
+
+@media screen and (min-width: 992px) {
+    .kpis-container {
+        display: flex;
+        justify-content: flex-start;
+        margin-left:10px;
+    }
+}
+
+/*.kpi-card {
+    background-color: #FFFFFF;
+    height: 100%;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.13);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}*/
+
+.kpi-card {
+    /* background-color: #FFFFFF; */
+    height: 100%;
+    /* padding: 20px; */
+    /* border-radius: 4px; */
+    /* box-shadow: 0px 1px 3px rgb(0 0 0 / 13%); */
+    /* display: -webkit-box; */
+    display: -ms-flexbox;
+    display: flex;
+    /* -webkit-box-orient: vertical; */
+    /* -webkit-box-direction: normal; */
+    -ms-flex-direction: column;
+    /* flex-direction: column; */
+    /* -webkit-box-align: center; */
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: unset;
+    text-align: center;
+}
+
+
+
+.kpi-icon {
+    color: #1C0F31;
+    color:#1C0F31;
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 13px;  
+    max-width: 100%;
+}
+
+.kpi-title {
+    font-weight: normal;
+    color: var(--highlight);
+    font-size: 2.6rem;
+    margin-top: 0;
+    margin-bottom: 13px;
+    max-width: 100%;
+    margin-right: 06px;
+    
+}
+
+.kpi-unit {
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+.kpi-description { 
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+
+/* Table Module Basic
+========================================================================== */
+
+.table-module {
+    height: 1000px;
+    overflow-y: auto;
+}
+
+.table-basic {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    white-space: nowrap;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.table-basic thead th {
+    color: var(--titles);
+    background-color: #f6f8fb;
+    font-weight: 500;
+    padding: 13px 3px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-basic thead th:first-child,
+.table-basic tbody td:first-child {
+    padding-left: 13px;
+}
+
+.table-basic tr td, 
+.table-basic tbody th {
+    font-weight: normal;
+    border-top: 1px solid #dee5ef;
+}
+
+.table-basic tr td {
+    padding: 13px 3px;
+}
+
+.table-basic td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.table-dropdown-button {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-left: auto;
+}
+
+.table-basic tr:hover .table-dropdown-button {
+    border-color: var(--highlight);
+    text-decoration: none;
+}
+
+.content-card-body{
+    position:relative;
+    height: 100%;
+   /*border: 3px solid #8AC007;*/
+}
+.bottom1{
+    width: 100%;
+    /*border: 3px solid #8AC007;*/
+    padding-bottom: 50px!important;
+}
+.bottom2{
+    width: 100%;
+    position: absolute;
+    bottom: 25px;
+    display: flex;
+    /*border: 3px solid #8AC007;*/
+    padding-right: 50px!important;
+    padding-left: 30px!important;
+    padding-top: 10px!important;
+}
+
+p.bnt-themes {
+    margin-left: 20px!important;
+    margin: auto;
+}
+.odswidget-theme-picto {
+    min-width: 33px!important;
+    max-width: 33px!important;
+}
+
+p.bnt-more {
+    background: #1C0F31;
+    color: white;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .6);
+}
+a.bnt-more {
+    background: #1C0F31;
+    color: white;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 35px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .6);margin-left: auto;
+}
+a.bnt-more:hover, a.bnt-more:active, a.bnt-more:focus {
+    background: white;
+    color: #1C0F31;
+    text-decoration: none;
+}

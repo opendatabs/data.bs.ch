@@ -9,7 +9,7 @@
         datasetidsource = '100080';
         filters = [
         {'id':'publisher','multiple':true},
-        {'id':'theme_picto','multiple':true},
+        {'id':'themes','multiple':true},
         {'id':'reuse_category','multiple':true},
         {'id':'dataset_title','multiple':true},
         {'id':'creator_category','multiple':true}
@@ -245,13 +245,9 @@
                                     <div class="access-card-content">
                                         <!-- Wrap content in <a> -->
                                         <a href="{{ item.fields[fieldLink] }}" target="_blank">
-                                            <ods-theme-picto theme="{{item.fields.theme_picto }}" color="white"></ods-theme-picto>
-                                            <h3 class="access-card-pretitle">{{item.fields.theme_picto}}</h3>
                                             <h2 class="access-card-title">{{ item.fields.title }}</h2>
                                             <h4 class="access-card-subtitle" ng-bind-html="item.fields.description|shortSummary|prettyText"></h4>
-                                            <h3 class="access-card-further-info">{{item.fields.reuse_category }}</h3>
-                                            <h3 class="access-card-further-info">Datensatz: {{item.fields.dataset_title }}</h3>
-                                            <h3 class="access-card-further-info">Übermittelt durch {{item.fields.user_full_name}} am {{ item.fields.created_at|moment:"DD. MMMM YYYY"}}</h3>
+                                            <h3 class="access-card-further-info">{{item.fields.user_full_name}}, {{ item.fields.created_at|moment:"DD. MMMM YYYY"}}</h3>
                                         </a>
                                     </div>
                                 </div>

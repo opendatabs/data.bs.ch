@@ -17,22 +17,9 @@
         fieldDate = 'created_at';
         resetFiltersButton = true;
         fieldDefaultRangeStartsNow = true;
-        view = 'cards';
-        fieldsList = ['reuse_category','description','user_full_name'];
         fieldLink = 'url';
         fieldLinkLabel = 'Details';
-        cardTitle = 'title';
-        fieldPhoto = 'thumbnail';
-        imagePosition = 'left';
         itemsPerRow = '3';
-        kpis = [
-        {
-        'title': 'Reuses',
-        'function': 'COUNT',
-        'precision': 0,
-        'unit': ''
-        }
-        ];
         DO_NOT_MODIFY_BELOW;
         ctxfields = {};
         values = {};
@@ -56,72 +43,15 @@
         <!-- resetFiltersButton : reset date period button true/false -->
         <!-- fieldDefaultRangeStartsNow : false make the default range selection start from the first date, and end to the last date, if set to true, the range starts from now, to the last date -->
         <!-- ### LIST VIEW SETTINGS ### -->
-        <!-- view (List view type) : Type of the view to list results, can be 'table' or 'cards'
-            -->
-        <!-- fieldsList (List configuration) : Set the list of field IDs 
-            ex: ['title','category','genre','date']
-            -->
         <!-- fieldLink (Link to an external resource) : If available, the field ID of some external resource as a web URL
             ex: 'link'
             -->
         <!-- fieldLinkLabel (The label of that link) : Label of the link button
             ex: 'Read more here'
             -->
-        <!-- Specific to the 'cards' view mode, set a title and a background image if any -->
-        <!-- cardTitle (Title of the card) : Field id of the card title
-            ex: 'title'
-            -->
-        <!-- fieldPhoto (Field id of the image field if any) 
-            ex: 'image' 
-            -->
-        <!-- imagePosition (Image position) : Image position in the card, can be 'top' or 'left' 
-            ex: 'left'
-            -->
         <!-- itemsPerRow (Number of columns) : Modify the columns layout. The division by 12 must be a whole number, ie it can be 1, 2, 3, 4, 6 or 12. But 6 and 12 will generaly be two norrow 
             ex: '3' 
             -->
-        <!-- ### KPIS SETTINGS ### -->
-        <!-- KPIS settings is a list of object that describes each KPI
-            List of available keys are :
-            - title (Name of the KPI) ex: 'Average # of citizens'
-            - function (function of the aggregation) ex: 'SUM'
-            - expression (field id that contains numerical values to aggregate) ex: 'population'
-            - precision (Decimal precision of the KPI) ex: 2
-            - unit (KPI unit) ex: 'citizens'
-            - faicon (FontAwesome icon id) ex: 'square-o'
-            
-            title, function, expression are MANDATORY
-            the others are optionnal 
-            
-            Available functions are SUM, AVG, COUNT, STD, MAX, MIN.
-            Please see the documentation for more information
-            https://help.opendatasoft.com/widgets/#/api/ods-widgets.directive:odsAggregation
-            
-            Please see all available icons here
-            https://fontawesome.com/v4.7.0/icons/
-            
-            ex: 
-            kpis = [
-                     {
-                         'title': 'Taille moyenne',
-                         'function': 'AVG',
-                         'expression': 'surface',
-                         'precision': 2,
-                         'unit': 'm2',
-                         'faicon': 'square-o'
-                     },
-                     {
-                         'title': 'Nombre d\'oeuvre référencées',
-                         'function': 'COUNT'
-                     }
-                  ];
-            
-            -->
-        <!-- MUST READ 
-            A common error is forget to protect commas with a leading backslash, as commas are used to declare values of variable it will break the settings
-            wrongVariable = 'I'll be freed from commas'
-            correctVariable = 'I\'ll be freed from commas'
-            --> 
         <!-- DO NOT MODIFY -->
         <!-- Technical fields, do not modify please -->
         <ods-dataset-context context="ctx,ctxdate"
@@ -231,7 +161,7 @@
                         ods-results-context="ctx"
                         ods-results-max="100">
                         <div ng-repeat="item in items"
-                            class="{{ 'col-md-' + (12/itemsPerRow) }} margin-bottom-20">
+                            class="{{ 'col-md-' + (12/itemsPerRow) }} access-cards">
                             <div class="access-card">
                                 <div class="access-card-container">
                                     <!-- Wrap image in <a> -->

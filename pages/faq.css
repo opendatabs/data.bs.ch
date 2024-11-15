@@ -1,0 +1,596 @@
+/* Variables & Shared classes
+   ========================================================================== */
+
+:root {
+    --page-title: #32834A;
+    --header-title: #2A713F;
+    --title: #333333;
+    --subtitle: #333333;
+    --text-normal: #333333;
+    --link-item: #1E4557;
+    --highlight: #512E61;
+    --header-background: #DDECDE;
+    --accordion-border: #C2CEC3;
+    --accordion-label-on-hover: #146C8B;
+    --accordion-border-on-hover: #8A908B;
+    --test-color: #FF0000;
+}
+
+.page-title {
+    color: var(--page-title);
+}
+
+.green-card {
+    background-color: var(--header-background);
+    margin: 30px 0px 25px;
+    padding: 30px 0px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.centered-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    width: 100%;
+    height: 400px;
+    border-radius: 6px;
+    background-color: #eee;
+}
+
+
+/* Accordion
+   ========================================================================== */
+
+.accordion {
+    max-width: 100%;
+    width: 100%;
+    margin: 0px auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: transparent;
+    color: var(--text-normal);
+}
+
+.accordion__label,
+.accordion__content {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+}
+
+.accordion__label {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+    background-color: #FFFFFF;
+    border: 1px solid var(--accordion-border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: var(--link-item);
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.accordion__label:hover {
+    color: var(--accordion-label-on-hover);
+    border: 1px solid var(--accordion-border-on-hover);
+}
+
+.accordion__label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23333333;" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+}
+
+.accordion__content {
+    background: #FFFFFF;
+    line-height: 1.6;
+    font-size: 1em;
+    color: var(--text-normal);
+    display: none;
+    margin: 0px;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.accordion__input {
+    display: none;
+}
+
+.accordion__input:checked~.accordion__content {
+    display: block;
+    border-left: 1px solid var(--accordion-border-on-hover);
+    border-right: 1px solid var(--accordion-border-on-hover);
+    border-bottom: 1px solid var(--accordion-border-on-hover);
+    margin-bottom: 10px;
+}
+
+
+.accordion__input:checked~.accordion__label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+}
+
+/* Add this new style for when accordion is open */
+.accordion__input:checked ~ .accordion__label {
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0px;
+    border-color: var(--accordion-border-on-hover);
+}
+
+@media (min-width: 768px) {
+    .accordion__label,
+    .accordion__content {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .accordion__label,
+    .accordion__content {
+        padding: 15px 20px;
+        font-size: 20px;
+    }
+}
+
+
+/* Content Card
+   ========================================================================== */
+
+.content-card {
+    background-color: var(--boxes-background);
+    padding: 26px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.content-card-title {
+    color: var(--titles);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 13px;
+    max-width: 100%;
+}
+
+.content-card-description {
+    color: var(--text-normal);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 26px;
+    max-width: 100%;
+}
+
+.content-card-icon {
+    color: var(--highlight);
+    font-size: 2rem;
+    margin-bottom: 13px;
+    max-width: 100%;
+}
+
+.content-card-link {
+    color: var(--links);
+    font-weight: bold;
+    transition: all .2s;
+    opacity: 1;
+    max-width: 100%;
+}
+
+.content-card-link:hover {
+    opacity: .7;
+    text-decoration: none;
+}
+
+.content-card-button {
+    color: var(--highlight);
+    border: 1px solid var(--highlight);
+    background: transparent;
+
+    display: inline-block;
+    text-align: center;
+    font-size: .867rem;
+    border-radius: 4px;
+    padding: .5rem 1.15rem;
+    text-decoration: none;
+    transition: all .2s;
+}
+
+.content-card-button:hover {
+    background-color: var(--highlight);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* Shared Styles
+========================================================================== */
+
+main {
+    /* Overrides an existing CSS rule so the banner image can be "edge-to-edge" */
+    margin: 20px 0 0 0;
+}
+
+@media screen and (min-width: 992px) {
+    .row-equal-height {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    /* Fix for early content wrapping in Safari*/
+    .row-equal-height:before,
+    .row-equal-height:after {
+        content: normal;
+    }
+}
+
+/* Responsive Padding for Page Header */
+.page-header {
+    width: 100%;
+    max-width: 610px;
+    margin: 20px auto;
+    padding: 0px 15px;
+}
+
+.page-title {
+    color: var(--page-title);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.page-description {
+    color: var(--text-normal);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 30px 0px 0px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .page-header {
+        max-width: 768px;
+        margin: 30px auto;
+        padding: 0px 20px;
+    }
+
+    .page-title {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .page-description {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .page-header {
+        max-width: 836px;
+        margin: 40px auto;
+        padding: 0px 20px;
+    }
+
+    .page-title {
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+/* The largest */
+@media (min-width: 1210px) {
+    .page-header {
+        max-width: 1120px;
+        margin: 50px auto;
+        padding: 0px 40px;
+    }
+
+    .page-title {
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    .page-description {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+.green-card {
+    background-color: var(--header-background);
+    width: 100%;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+}
+
+/* Header title styling inside green bar */
+.green-card h2 {
+    color: var(--header-title);
+    font-size: 14px;
+    max-width: 1120px;
+    /* Align with page-header for the largest screens */
+    margin: 0 auto;
+    /* Centered */
+    padding: 20px 15px 10px;
+    /* Reduced bottom padding */
+    text-align: left;
+}
+
+/* Grid container for links inside green bar */
+.link-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Single column on smaller screens */
+    gap: 10px;
+    /* Gap between items */
+    max-width: 1120px;
+    /* Align with page-header for the largest screens */
+    margin: 0 auto;
+    /* Center the grid inside the green bar */
+    padding: 0 15px 15px;
+    /* Added bottom padding */
+    list-style: none;
+    /* Remove bullet points */
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .green-card h2 {
+        max-width: 768px;
+        padding: 20px 20px 10px;
+    }
+
+    .link-container {
+        max-width: 768px;
+        /* Same max-width as page-header */
+        padding: 0 20px 15px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .green-card h2 {
+        max-width: 836px;
+        padding: 20px 20px 10px;
+    }
+
+    .link-container {
+        max-width: 836px;
+        /* Same max-width as page-header */
+        padding: 0 20px;
+    }
+}
+
+/* The largest screens */
+@media (min-width: 1210px) {
+    .green-card h2 {
+        max-width: 1120px;
+        padding: 25px 40px 10px;
+    }
+
+    .link-container {
+        max-width: 1120px;
+        /* Same max-width as page-header */
+        padding: 0 40px 20px;
+    }
+}
+
+/* Style for each link item */
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--link-item);
+    transition: color 0.25s ease-in-out;
+    font-size: 1.25rem;
+}
+
+/* Arrow icon styling */
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    fill: currentColor;
+}
+
+/* Responsive styles: On small screens, use single-column layout */
+@media (max-width: 768px) {
+    .link-container {
+        grid-template-columns: 1fr;
+        /* Single column */
+    }
+}
+
+.header-title {
+    color: var(--highlight);
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.container {
+    padding: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style the links container */
+.links-wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+/* Content Section
+   ========================================================================== */
+.content {
+    max-width: 610px;
+    margin: 0 auto;
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+.content h1 {
+    color: var(--title);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .content {
+        max-width: 768px;
+        padding: 0 20px;
+    }
+
+    .content h1 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .content {
+        max-width: 836px;
+        padding: 0 20px;
+        font-size: 18px;
+    }
+
+    .content h1 {
+        font-size: 30px;
+        line-height: 48px;
+    }
+}
+
+/* The largest */
+@media (min-width: 1210px) {
+    .content {
+        max-width: 1120px;
+        padding: 0 40px;
+        font-size: 20px;
+    }
+
+    .content h1 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+
+/* Content Green Card Section
+   ========================================================================== */
+.green-card .content h1.green-card-title {
+    color: var(--page-title);
+    font-size: 24px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .green-card .content h1.green-card-title {
+        font-size: 24px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .green-card .content h1.green-card-title {
+        font-size: 30px;
+    }
+}
+
+/* The largest */
+@media (min-width: 1210px) {
+    .green-card .content h1.green-card-title {
+        font-size: 36px;
+    }
+}
+
+/* Button contact email */
+.custom-button {
+    /* Display and alignment */
+    display: inline-block; /* Use inline grid layout */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align content to the left */
+    grid-auto-flow: column; /* Auto flow in a column */
+    grid-template-columns: 40px 237px; /* Define grid columns */
+    
+    /* Background properties */
+    background-color: rgb(30, 69, 87); /* Background color */
+    background-attachment: scroll; /* Background scrolls with the page */
+    background-clip: border-box; /* Background extends to border */
+    background-origin: padding-box; /* Background starts at the padding */
+    background-position: 0% 0%; /* Background position */
+    background-repeat: repeat; /* Background repeats */
+    background-size: auto; /* Background size is automatic */
+
+    /* Border properties */
+    border: 1px solid rgb(30, 69, 87); /* Solid border with specified color */
+    border-top-left-radius: 20px; /* Rounded top-left corner */
+    border-top-right-radius: 20px; /* Rounded top-right corner */
+    border-bottom-left-radius: 20px; /* Rounded bottom-left corner */
+    border-bottom-right-radius: 20px; /* Rounded bottom-right corner */
+    
+    /* Text properties */
+    color: rgb(255, 255, 255); /* Text color (white) */
+    font-size: 14px; /* Font size */
+    font-weight: 700; /* Bold font weight */
+    line-height: 20px; /* Line height */
+    text-align: left; /* Left-align text */
+    text-decoration: none; /* Remove text decoration */
+    text-decoration-color: rgb(255, 255, 255); /* Text decoration color */
+    
+    /* Dimensions */
+    width: auto; /* Width */
+    height: 40px; /* Height */
+    min-height: 40px; /* Minimum height */
+    min-width: 40px; /* Minimum width */
+    padding: 10px 14px 10px; /* Padding: top, left/right, bottom */
+    
+    /* Overflow properties */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: hidden; /* Hide vertical overflow */
+    
+    /* Other styles */
+    box-sizing: border-box; /* Include padding and border in total width/height */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: relative; /* Set position to relative */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Disable tap highlight */
+    
+    /* Additional spacing properties */
+    column-gap: 15px; /* Space between columns */
+    row-gap: 15px; /* Space between rows */
+    hyphens: auto; /* Automatic hyphenation */
+    tab-size: 4; /* Set tab size */
+    display: inline-block;
+    margin-bottom: 10px; /* Add consistent spacing between buttons */
+}

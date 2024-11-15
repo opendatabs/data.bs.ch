@@ -1,0 +1,840 @@
+:root {
+    --color-main: #DDECDE;
+    --color-secondary: #32834A;
+    --color-dark-gray: #333333;
+    --color-light-gray: #666;
+    --color-bg-gray: #f4f5f6;
+    --color-white: #ffffff;
+    --link-item: #1E4557;
+    --header-title: #2A713F;
+    --color-highlight: #049bc9;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-shadow-hover: rgba(0, 0, 0, 0.3);
+    --header-background: var(--color-main);
+
+    --page-title: #32834A;
+    --text-normal: #333333;
+
+    --access-card-text: #1E4557;
+    --access-card-text-hover: #0E81A7;
+}
+
+/* Header and title
+============================================= */
+.page-header {
+    width: 100%;
+    max-width: 610px;
+    margin: 0px auto;
+    padding: 20px 15px;
+}
+
+.page-title {
+    color: var(--page-title);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.page-description {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 30px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .page-header {
+        max-width: 768px;
+        padding: 30px 20px;
+    }
+
+    .page-title {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .page-description {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .page-header {
+        max-width: 836px;
+        padding: 40px 20px;
+    }
+
+    .page-title {
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+/* The largest */
+@media (min-width: 1210px) {
+    .page-header {
+        max-width: 1120px;
+        padding: 50px 40px;
+    }
+
+    .page-title {
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    .page-description {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+/* Green bar
+========================================================= */
+html {
+    overflow-x: hidden;
+}
+
+.green-bar {
+    background-color: var(--header-background);
+    border-top: 2px solid var(--color-secondary);
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    position: relative;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.green-bar h2 {
+    color: var(--header-title);
+    font-size: 14px;
+    max-width: 610px;
+    margin: 0px auto;
+    padding: 20px 15px 10px;
+    text-align: left;
+}
+
+.link-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 610px;
+    margin: 0px auto;
+    padding: 0px 15px 15px;
+    list-style: none;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .green-bar h2 {
+        max-width: 768px;
+        padding: 20px 20px 10px;
+    }
+
+    .link-container {
+        max-width: 768px;
+        padding: 0px 20px 15px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .green-bar h2 {
+        max-width: 836px;
+        padding: 20px 20px 10px;
+    }
+
+    .link-container {
+        max-width: 836px;
+        padding: 0px 20px;
+    }
+}
+
+/* The largest screens */
+@media (min-width: 1210px) {
+    .green-bar h2 {
+        max-width: 1120px;
+        padding: 25px 40px 10px;
+    }
+
+    .link-container {
+        max-width: 1120px;
+        padding: 0px 40px 20px;
+    }
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--link-item);
+    transition: color 0.25s ease-in-out;
+    font-size: 1.25rem;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+.links-wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Content Section
+   ========================================================================== */
+.content {
+    width: 100%;
+    max-width: 610px;
+    margin: 20px auto;
+    padding: 0px 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: var(--text-normal);
+
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.content h1 {
+    color: var(--title);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .content {
+        max-width: 768px;
+        font-size: 18px;
+        margin: 20px auto;
+        padding: 0px 20px;
+    }
+
+    .content h1 {
+        font-size: 24px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .content {
+        max-width: 836px;
+        font-size: 18px;
+        margin: 20px auto 30px;
+        padding: 0px 20px;
+    }
+
+    .content h1 {
+        font-size: 30px;
+        margin: 30px auto;
+    }
+}
+
+/* The largest */
+@media (min-width: 1210px) {
+    .content {
+        max-width: 1120px;
+        margin: 20px auto 30px;
+        padding: 0px 220px 0px 40px;
+        font-size: 20px;
+    }
+
+    .content h1 {
+        font-size: 36px;
+    }
+}
+
+
+
+/* ODS Container with access cards
+========================================================= */
+.page-content {
+    color: var(--color-dark-gray);
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+
+.ods-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+}
+
+@media (min-width: 768px) {
+    .ods-container {
+        max-width: 75%
+    }
+}
+
+.ods-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ods-col {
+    flex: 1;
+    padding: 15px;
+}
+
+.ods-content-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 10px 20px var(--color-shadow);
+}
+
+.scrollable-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-height: 650px;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.timeline-card {
+    width: 100%;
+    margin: 0 auto 20px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.timeline-item {
+    width: 100%;
+    margin-bottom: 40px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.timeline-img-header {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timeline-img-header:hover {
+    transform: scale(1.02);
+}
+
+.timeline-img-header h2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--color-white);
+    font-size: 20px;
+    text-shadow:
+        -1px -1px 0 #000000,
+        1px -1px 0 #000000,
+        -1px 1px 0 #000000,
+        1px 1px 0 #000000;
+}
+
+.date {
+    font-size: 14px;
+    color: var(--link-item);
+    background-color: var(--color-main);
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 15px;
+}
+
+.date h2 {
+    margin: 0;
+}
+
+.timeline-access {
+    padding: 0px 15px 15px;
+    font-size: 14px;
+    color: var(--color-dark-gray);
+}
+
+.timeline-access:hover {
+    color: #049bc9;
+}
+
+.timeline-access h3 {
+    color: var(--color-dark-gray);
+}
+
+.timeline-access:hover h3 {
+    color: #049bc9;
+}
+
+.timeline-access strong {
+    display: block;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.card-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.timeline-bottom {
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px;
+    padding-top: 0;
+}
+
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #1C0F31;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+.custom-button:hover {
+    background-color: #146c8b;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.default-icon {
+    display: block;
+}
+
+.hover-icon {
+    display: none;
+}
+
+.custom-button:hover .default-icon {
+    display: none;
+}
+
+.custom-button:hover .hover-icon {
+    display: block;
+}
+
+.theme-label {
+    font-size: 14px;
+    color: var(--color-dark-gray);
+    font-weight: bold;
+}
+
+.more-link {
+    color: var(--link-item);
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.more-link:hover {
+    color: var(--color-highlight);
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/*
+@media (max-width: 768px) {
+    .ods-container,
+    .timeline-card {
+        padding: 15px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .timeline-img-header {
+        height: 120px;
+    }
+
+    .timeline-img-header h2 {
+        font-size: 16px;
+        top: 5px;
+        left: 10px;
+    }
+
+    .date {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+
+    .timeline-access {
+        font-size: 12px;
+    }
+
+    .custom-button {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+
+    .timeline-bottom {
+        right: 0;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-img-header h2 {
+        font-size: 14px;
+    }
+
+    .date {
+        font-size: 10px;
+    }
+
+    .timeline-access {
+        font-size: 10px;
+    }
+
+    .custom-button {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ods-container {
+        max-width: 90%;
+        padding: 10px;
+        margin: 0 auto;
+    }
+
+    .scrollable-div {
+        max-height: 300px;
+        overflow-y: auto;
+
+    }
+}
+
+@media (max-width: 480px) {
+
+    .timeline-card,
+    .ods-container {
+        max-width: 95%;
+        padding: 0px;
+    }
+
+    .scrollable-div {
+        padding: 0px;
+        max-width: 100%;
+    }
+}
+*/
+
+
+
+
+/* Access Cards
+========================================================================== */
+.row-equal-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 992px) {
+    .row-equal-height {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .row-equal-height:before,
+    .row-equal-height:after {
+        content: normal;
+    }
+}
+
+.centered-container {
+    width: 100%;
+    max-width: 610px;
+    margin: 20px auto;
+    padding: 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .centered-container {
+        max-width: 768px;
+        margin: 20px auto;
+        padding: 0px 20px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .centered-container {
+        max-width: 836px;
+        margin: 30px auto;
+        padding: 0px 20px;
+    }
+}
+
+@media (min-width: 1210px) {
+    .centered-container {
+        max-width: 1120px;
+        margin: 30px auto;
+        padding: 0px 40px;
+    }
+}
+
+.kpi-info {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 30px;
+    flex: 1;
+    color: var(--text-normal);
+}
+
+.access-cards {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.access-cards {
+    width: 100%; /* Default: full width (1 column) */
+    margin-bottom: 20px;
+}
+
+.access-card {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    height: 100%;
+    background-color: var(--custom-background);
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.13);
+    color: var(--secondary-color);
+    transition: all 0.3s;
+    position: relative;
+}
+
+/* Remove text decoration and inherit color for all child elements */
+.access-card * {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+/* Specific styling for headers and paragraphs */
+.access-card h3,
+.access-card h2,
+.access-card h4,
+.access-card p {
+    text-decoration: none !important;
+}
+
+/* Ensure the button and icon don't inherit unwanted styles */
+.access-card a.custom-button {
+    text-decoration: none !important;
+}
+
+.access-card-container {
+    flex-grow: 1;
+}
+
+.access-card-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    position: relative;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 10px;
+}
+
+.access-card-content {
+    padding: 15px;
+    position: relative;
+}
+
+/* 2 columns for screens larger than 768px */
+@media (min-width: 768px) {
+    .access-cards {
+        width: calc(50%);
+    }
+
+    .access-card-content {
+        padding: 26px;
+    }
+}
+
+/* 3 columns for screens larger than 1210px */
+@media (min-width: 1210px) {
+    .access-cards {
+        width: calc(33.333%);
+    }
+}
+
+.access-card-pretitle {
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-weight: 400;
+    margin: 0px;
+    font-size: 12px;
+}
+
+.access-card-further-info {
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-weight: 400;
+    margin: 10px 0px;
+    font-size: 12px;
+    color: var(--access-card-text);
+}
+
+.access-card-title {
+    font-weight: 700;
+    margin: 10px 0px;
+    font-size: 22px;
+    color: var(--access-card-text);
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.access-card-subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0px;
+    color: var(--access-card-text);
+}
+
+.access-card:hover .access-card-title,
+.access-card:hover .access-card-subtitle,
+.access-card:hover .access-card-further-info {
+    color: var(--access-card-text-hover);
+}
+
+.access-card-content p {
+    margin: 5px 0px;
+}
+
+/* New Button Container Styling */
+.access-card-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 26px;
+    padding-top: 0;
+}
+
+/* Custom Button Styling */
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #1C0F31;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: var(--access-card-text);
+}
+
+/* Maintain no underline on hover */
+.custom-button:hover {
+    background-color: var(--access-card-text-hover);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Arrow Icons */
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.default-icon {
+    display: block;
+}
+
+.hover-icon {
+    display: none;
+}
+
+/* Show the white icon on hover */
+.custom-button:hover .default-icon {
+    display: none;
+}
+
+.custom-button:hover .hover-icon {
+    display: block;
+}
+
+/* Icon movement on hover */
+.access-card:hover .left-button .arrow-icon {
+    transform: translate(4px);
+}
+
+
+/* Hide scrollable div by default and show for larger screens */
+.scrollable-content {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .scrollable-content {
+        display: none;
+    }
+}
+
+/* Show access cards by default and hide for larger screens */
+.access-cards-content {
+    display: block;
+}
+
+@media (min-width: 1024px) {
+    .access-cards-content {
+        display: block;
+    }
+}
+

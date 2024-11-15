@@ -1,0 +1,177 @@
+<ods-catalog-context context="catalog">
+    <section class="page-header">
+        <h1 class="page-title">News</h1>
+        <p class="page-description">
+            Hier finden Sie alle Neuigkeiten zu Open Government Data (OGD) im Kanton Basel-Stadt. Möchten Sie diese
+            Neuigkeiten über soziale Medien erhalten? Dann können Sie uns auf den folgenden Plattformen folgen:
+            <a href="https://x.com/OpenDataBS" target="_blank" style="color: #1E4557;">X</a>,
+            <a href="https://www.linkedin.com/company/100319044/admin/feed/posts/" target="_blank"
+                style="color: #1E4557;">LinkedIn</a>,
+            <a href="https://www.instagram.com/opendatabs/" target="_blank" class="link text-lg lg:text-xl with-icon"
+                style="color: #1E4557;">Instagram</a>,
+            <a href="https://swiss.social/@opendatabs" target="_blank" class="link text-lg lg:text-xl with-icon"
+                style="color: #1E4557;">Mastodon</a>,
+            <a href="https://bsky.app/profile/opendatabs.bsky.social" target="_blank"
+                class="link text-lg lg:text-xl with-icon" style="color: #1E4557;">Bluesky</a>, und
+            <a href="https://www.youtube.com/@opendatabasel-stadt7029" target="_blank"
+                class="link text-lg lg:text-xl with-icon" style="color: #1E4557;">YouTube</a>.
+        </p>
+    </section>
+
+    <section class="green-bar">
+        <h2>Auf dieser Seite</h2>
+        <nav class="links-wrapper">
+            <ul class="link-container">
+
+                <li>
+                    <a href="#neuedatensaetze" class="link-item">
+                        <svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <path d="M12 3L12 21M12 21L20.5 12.5M12 21L3.5 12.5" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>Neue OGD-Datensätze
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#praesentationen" class="link-item">
+                        <svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <path d="M12 3L12 21M12 21L20.5 12.5M12 21L3.5 12.5" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>Präsentationen
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </section>
+
+
+    <div class="content">
+        <h1 id="neuedatensaetze">Neue OGD-Datensätze</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <content>
+                    <p>Zuletzt neu veröffentlichte Datensätze im kantonalen Datenportal finden sie untenstehend in einer
+                        chronologischen Auflistung nach Publikationsdatum. Der neuste Datensatz ist jeweils zuoberst
+                        gelistet. Neben einer Kurzbeschreibung finden Sie jeweils Angaben zum Herausgeber, zum Thema
+                        sowie den direkten Link auf den Datensatz im Datenportal.</p>
+                </content>
+            </div>
+        </div>
+    </div>
+
+    <div class="scrollable-content">
+        <div class="content">
+            <section class="ods-container">
+                <div class="ods-content-card">
+                    <div class="scrollable-div">
+                        <ods-dataset-context context="myctx" myctx-dataset="100057" myctx-domain="https://data.bs.ch/"
+                            myctx-parameters="{'sort':'issued'}">
+                            <ods-infinite-scroll-results context="myctx" scroll-top-when-refresh="false"
+                                result-class="timeline-item" no-results-message="Keine weiteren Datensätze...">
+                                <div class="timeline-card">
+                                    <a href="{{ context.domainUrl + '/explore/dataset/' + item.fields.dataset_identifier + '/' }}"
+                                        target="_blank" class="card-link">
+                                        <div class="timeline-img-header"
+                                            style="background-image: url('https://data.bs.ch/assets/theme_image/{{ item.fields.themes.split(&apos;;&apos;)[0] | uriEncode }}.jpg');">
+                                            <h2>{{ item.fields.themes.split(';')[0]}}</h2>
+                                        </div>
+                                        <div class="date">
+                                            <h2>{{ item.fields.title }}</h2>
+                                        </div>
+
+                                        <div class="timeline-access">
+                                            <span ng-bind-html="item.fields.description | shortSummary:800"></span>
+                                            <p><strong>Herausgeber: {{ item.fields.publisher }}</strong></p>
+                                        </div>
+                                    </a>
+
+                                    <div class="timeline-bottom">
+                                        <a href="{{ context.domainUrl + '/explore/dataset/' + item.fields.dataset_identifier + '/' }}"
+                                            target="_blank" class="custom-button left-button">
+                                            <img src="https://data.bs.ch/assets/theme_image/arrow-east.png"
+                                                class="arrow-icon default-icon" />
+                                            <img src="https://data.bs.ch/assets/theme_image/arrow-east-white.png"
+                                                class="arrow-icon hover-icon" />
+                                            Details
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </ods-infinite-scroll-results>
+                        </ods-dataset-context>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="access-cards-content">
+        <div ng-app="ods-widgets">
+            <ods-dataset-context context="ctx" ctx-dataset="100057" ctx-domain="data.bs.ch"
+                ctx-parameters="{'sort':'issued'}">
+                <div class="centered-container">
+                    <div class="row row-equal-height">
+                        <div ng-repeat="item in items" class="col-md-4 access-cards" ods-results="items"
+                            ods-results-context="ctx" ods-results-max="9">
+                            <div class="access-card">
+                                <div class="access-card-container">
+                                    <div class="access-card-content">
+                                        <a href="{{ ctx.domainUrl + '/explore/dataset/' + item.fields.dataset_identifier + '/' }}"
+                                            target="_blank">
+                                            <div class="access-card-img" ng-style="{
+                                                    'background-image': 'url(\'https://data.bs.ch/assets/theme_image/' + (item.fields.themes.split(';')[0]) + '.jpg\')',
+                                                    'background-color': '#5c5c5c',
+                                                    'background-blend-mode': 'overlay'
+                                                }">
+                                            </div>
+                                            <h2 class="access-card-title">{{ item.fields.title }}</h2>
+                                            <h4 class="access-card-subtitle"
+                                                ng-bind-html="item.fields.description | shortSummary:800"></h4>
+                                            <h3 class="access-card-further-info">Herausgeber: {{ item.fields.publisher
+                                                }}
+                                            </h3>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="access-card-button-container">
+                                    <a href="{{ ctx.domainUrl + '/explore/dataset/' + item.fields.dataset_identifier + '/' }}"
+                                        target="_blank" class="custom-button left-button">
+                                        <img src="https://data.bs.ch/assets/theme_image/arrow-east.png"
+                                            class="arrow-icon default-icon" />
+                                        <img src="https://data.bs.ch/assets/theme_image/arrow-east-white.png"
+                                            class="arrow-icon hover-icon" />
+                                        Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ods-dataset-context>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1 id="praesentationen">Präsentationen</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <content>
+                    <p>Eine der Aufgaben der Fachstelle OGD ist es, der Öffentlichkeit das Thema Open Data näher zu
+                        bringen.
+                        Das Team der Fachstelle OGD ist deshalb an verschiedenen Veranstaltungen präsent.
+                        Sie können sich diese Präsentationen auch auf unserem <a
+                            href="https://www.youtube.com/@opendatabasel-stadt7029" target="_blank">
+                            YouTube-Kanal ansehen</a>.
+                        Die Termine von kommenden Veranstaltungen können Sie in der <a
+                            href="https://www.bs.ch/pd/statistik/daten-events" target="_blank">
+                            Agenda</a> auf der Website des Statistischen Amtes finden.
+                    </p>
+                </content>
+            </div>
+        </div>
+    </div>
+
+</ods-catalog-context>

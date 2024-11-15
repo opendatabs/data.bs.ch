@@ -1,165 +1,61 @@
-<div class="container-fluid">
+<div ng-app="ods-widgets">
+    <div class="container-fluid" ng-init="domain = 'data.bs.ch';
+        datasetidsource = '100406';
+        fieldLink = 'url';
+        itemsPerRow = '3';
+        ">
+        <ods-dataset-context context="ctx" ctx-domain="{{ domain }}" ctx-dataset="{{ datasetidsource }}"
+            ctx-parameters="{'sort':'published_at'}">
+            <section class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h1 class="page-title">Dashboards von OGD-Datensätzen</h1>
+                        <p class="page-description">
+                            Dashboards bieten eine übersichtliche Darstellung von Daten in Form von Grafiken und
+                            Diagrammen. Sie ermöglichen Nutzerinnen und Nutzer, Informationen schnell zu erfassen und individuell zu filtern.
+                            Wenn Sie an der Erstellung eines Dashboards mit Ihren Daten interessiert sind, kontaktieren Sie uns unter <a href= "mailto: opendata@bs.ch"> opendata@bs.ch</a>.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-<div class="row">
-    <div class="col-sm-6" >
-        <a href="https://data.bs.ch/pages/entwicklungszusammenarbeit/"
-           class="image-card image-card-entwicklung">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Entwicklungszummenarbeit: Unterstützte Projekte
-                </h3>
-                <p class="image-description">
-                    Der Kanton Basel-Stadt unterstützt im Rahmen der Entwicklungszusammenarbeit mit jährlich 2 Millionen Franken Projekte im Ausland.
-                    <br/>
-                    In diesem Dashboard können sie diese Projekte nach Jahr, Staat, Region und Sachgebiet filtern und durchsuchen.
-                </p>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6" >
-        <a href="https://data.bs.ch/pages/kandidierende-grossratswahlen/"
-           class="image-card image-card-grossratswahlen">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Kandidierende für die Wahlen in den Grossen Rat 2024
-                </h3>
-                <p class="image-description">
-                    Zu den Grossratswahlen 2024 treten insgesamt 870 Kandidatinnen und Kandidaten an.
-                    <br/>
-                    In diesem Dashboard sind verschiedene Hintergrundinformationen der Kandidierenden grafisch und als Text zusammengefasst. 
-                </p>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6" >
-        <a href="https://data.bs.ch/pages/sauberkeitsdashboard/"
-           class="image-card image-card-sauberkeitsindex">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Sauberkeitsindex (SKI)
-                </h3>
-                <p class="image-description">
-                    Der Sauberkeitsindex ist eine Metrik zur Beschreibung der Sauberkeit von Strassenabschnitten.
-                </p>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6" >
-        <a href="https://data.bs.ch/pages/abwassermonitoring-dashboard/"
-           class="image-card image-card-virenmonitoring">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Virenmonitoring im Abwasser
-                </h3>
-                <p class="image-description">
-Das Kantonale Laboratorium Basel-Stadt veröffentlicht auf dem Datenportal Basel-Stadt neu ein zusammenfassendes Abwassermonitoring mit aktuellen Messergebnissen für den Covid 19-Erreger, die Grippeviren Influenza A und Influenza B und das Respiratorische Synzytialvirus (RSV). Die Daten können auf dem neuen Dashboard «Virenmonitoring im Abwasser» laufend eingesehen werden.
-                </p>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6" >
-        <a href="https://data.bs.ch/pages/gsv-dashboard-spitaeler/"
-           class="image-card image-card-gesundheitsversorgung">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Gesundheitsversorgung Basel-Stadt
-                </h3>
-                <p class="image-description">
-Auf dem Dashboard Gesundheitsversorgung Basel-Stadt sind Kennzahlen und Graphiken zu Spitälern und Pflegeheimen abrufbar.
-                </p>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6" >
-        <a href="https://data.bs.ch/pages/verkehrsunfall_dashboard_basel/"
-           class="image-card image-card-unfall">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Verkehrsunfall-Dashboard
-                </h3>
-                <p class="image-description">
-Der Datensatz der Strassenverkehrsunfälle zeigt Einzeldaten von Unfällen auf den Strassen von Basel-Stadt. Verfügbar sind Angaben wie Art und Schwere des Unfalls, dem Unfallzeitpunkt und dem Ort des Unfalls. Die Daten über die Strassenverkehrsunfälle sind ab dem Jahr 2011 verfügbar. Die Daten eines Kalenderjahres sind jeweils im Frühjahr des darauffolgenden Jahres verfügbar.                </p>
-            </div>
-        </a>
-    </div>
-        <div class="col-sm-6">
-        <!-- Image card. Replace the href to link the card to something useful -->
-        <a href="https://data.bs.ch/pages/rosental-dashboard/"
-           class="image-card image-card-rosental-dashboard">
-            <div class="image-content">
-                <h3 class="image-title">
-Messungen Luftqualität Rosental Mitte
-                </h3>
-                <p class="image-description">
-Rosental Mitte soll etappenweise für die Öffentlichkeit zugänglich gemacht und transformiert werden. Auf dem Areal der ehemaligen Firma Geigy wurden in über 150 Jahren Chemiegeschichte Farbstoffe, Schädlingsbekämpfungsmittel, chemische Grundstoffe und Medikamente produziert und geforscht. Bedingt durch die frühere Nutzung des Geländes ist der Untergrund mit Schadstoffen belastet.                </p>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6">
-        <!-- Image card. Replace the href to link the card to something useful -->
-        <a href="https://data.bs.ch/pages/covid-19-dashboard/"
-           class="image-card image-card-covid">
-            <div class="image-content">
-                <h3 class="image-title">
-                    COVID-19-Dashboard
-                </h3>
-                <p class="image-description">
-                   Das Covid-19-Dashboard zeigt Daten rund um SARS-CoV-2 für den Kanton Basel-Stadt in Form von interaktiven Grafiken. Die jeweiligen Datenquellen sind verlinkt. Das Dashboard enthält Angaben zu positiv getesteten Personen, Inzidenzen, Tests, SARS-CoV-2 im Abwasser, Hospitalisierugnen, verabreichten Impfungen und geimpften Personen mit Wohnsitz in Basel-Stadt. Die Zahlen werden laufend aktualisiert.
-                </p>
-            </div>
-        </a>
-    </div>
-        <div class="col-sm-6">
-        <!-- Image card. Replace the href to link the card to something useful -->
-        <a href="https://data.bs.ch/pages/smart_dashboard/"
-           class="image-card image-card-smarte-strasse">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Smarte Strasse Analytics Dashboard
-                </h3>
-                <p class="image-description">
-Das Dashboard zeigt die täglichen Aufrufe der Microsites, die per QR-Code auf der «Smarte Strasse» erreichbar sind. </p>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6">
-        <!-- Image card. Replace the href to link the card to something useful -->
-        <a href="https://data.bs.ch/explore/embed/dataset/100151/custom/"
-           class="image-card image-card-sportanlagen">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Sportanlagen-Finder
-                </h3>
-                <p class="image-description">
-Der Sportanlagen-Finder bildet vom Kanton Basel-Stadt betriebenen Sport- und Bewegungsanlagen ab sowie auch alle kantonalen Sportanlagen ausserhalb der Kantons- und Landesgrenzen. Im Datensatz sind zusätzlich kantonale Räumlichkeiten aufgeführt, welche für den Sportbetrieb genutzt und gemietet werden.            </div>
-        </a>
-    </div>
-        <div class="col-sm-6">
-        <!-- Image card. Replace the href to link the card to something useful -->
-        <a href="https://data.bs.ch/explore/embed/dataset/100018/custom/"
-           class="image-card image-card-allmend">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Allmendbewilligungen: Art und Anzahl Belegungen
-                </h3>
-                <p class="image-description">
-Mit der folgenden Visualisierung kann man nach der Belegungsart, nach dem Belegungsstart, sowie nach der Bezeichnung der Allmendnutzung filtern.
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6">
-        <!-- Image card. Replace the href to link the card to something useful -->
-        <a href="https://data.bs.ch/explore/embed/dataset/100113/custom/"
-           class="image-card image-card-feinstaub-bvb">
-            <div class="image-content">
-                <h3 class="image-title">
-                    Feinstaubmessungen auf Basler Tramlinien
-                </h3>
-                <p class="image-description">
-Mit der folgenden Visualisierung kann man nach der Sensorennummer und nach dem Zeitfenster filtern.
-            </div>
-        </a>
+            <!-- CARDS -->
+            <section>
+                <div class="centered-container">
+                    <div class="row row-equal-height" ods-results="items" ods-results-context="ctx"
+                        ods-results-max="100">
+                        <div ng-repeat="item in items" class="{{ 'col-md-' + (12/itemsPerRow) }} access-cards">
+                            <div class="access-card">
+                                <div class="access-card-container">
+                                    <a href="{{ item.fields[fieldLink] }} " target="_blank">
+                                        <div class="access-card-img" style="background-image: url('{{ item.fields.foto }}');
+                                            background-color: #5c5c5c;
+                                            background-blend-mode: overlay;">
+                                        </div>
+                                    </a>
+                                    <div class="access-card-content">
+                                        <a href="{{ item.fields[fieldLink] }} " target="_blank">
+                                            <h2 class="access-card-title">{{ item.fields.title }}</h2>
+                                            <h4 class="access-card-subtitle"
+                                                ng-bind-html="item.fields.description|shortSummary|prettyText"></h4>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="access-card-button-container">
+                                    <a href="{{ item.fields[fieldLink] }}" target="_blank"
+                                        class="custom-button left-button">
+                                        <img src="https://data.bs.ch/assets/theme_image/arrow-north-east.png"
+                                            class="arrow-icon default-icon" />
+                                        <img src="https://data.bs.ch/assets/theme_image/arrow-north-east-white.png"
+                                            class="arrow-icon hover-icon" />
+                                        Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </ods-dataset-context>
     </div>
 </div>
-</div>
-<!-- for further questions contact Boris Djakovic boris.djakovic@bs.ch -->

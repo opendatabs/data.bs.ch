@@ -1,124 +1,345 @@
-/* Image Card
-   ========================================================================== */
-
-.image-card {
-	background-color: rgba(0,0,0,.1);
-	background-color: var(--highlight);
-	color: #FFFFFF;
-	padding: 39px;
-	border-radius: 4px;
-	margin-bottom: 20px;
-	height: 300px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-align: stretch;
-	    -ms-flex-align: stretch;
-	        align-items: stretch;
-	text-align: center;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	-webkit-transition: all .2s;
-	-o-transition: all .2s;
-	transition: all .2s;
-	text-decoration: none;
-}
-.image-card:hover,
-.image-card:focus {
-	text-decoration: none;
-    -webkit-transform: scale(1.02);
-        -ms-transform: scale(1.02);
-            transform: scale(1.02);
-    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
-            box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
-}
-.image-title {
-	color: inherit;
-	font-size: 1.733rem;
-	line-height: 2.26;
-	font-weight: bold;
-	margin-top: 0;
-	margin-bottom: 13px;
-}
-.image-description {
-	color: inherit;
-	font-size: 1rem;
-	line-height: 1.5;
-	font-weight: bold;
-	margin: 0;
-}
-/* Image card backgrounds
-   ========================================================================== */
-/**
- * - Replace the background image URL.
- * - Change the class name to something related to your project and update the HTML as well.
- */
-.image-card-rosental-dashboard {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/rosental_dashboard.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/rosental_dashboard.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/rosental_dashboard.png');
-}
-.image-card-unfall {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/verkehrsunfall_dashboard_basel.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/verkehrsunfall_dashboard_basel.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/verkehrsunfall_dashboard_basel.png');
-}
-.image-card-covid {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/Covid-19_Dashboard.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Covid-19_Dashboard.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Covid-19_Dashboard.png');
-}
-.image-card-smarte-strasse {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/smart_strasse_dashboard.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/smart_strasse_dashboard.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/smart_strasse_dashboard.png');
-}
-.image-card-sportanlagen {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/sportanlagen_finder.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sportanlagen_finder.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sportanlagen_finder.png');
-}
-.image-card-allmend {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/allmendbewilligungen.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/allmendbewilligungen.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/allmendbewilligungen.png');
-}
-.image-card-feinstaub-bvb {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/Feinstaub_BVB.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Feinstaub_BVB.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/Feinstaub_BVB.png');
-}
-.image-card-gesundheitsversorgung {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/gesundheitsversorgung.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/gesundheitsversorgung.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/gesundheitsversorgung.png');
-}
-.image-card-virenmonitoring {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/virenmonitoring.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/virenmonitoring.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/virenmonitoring.png');
-}
-.image-card-sauberkeitsindex {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/sauberkeitsindex.PNG');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sauberkeitsindex.PNG');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/sauberkeitsindex.PNG');
-}
-.image-card-entwicklung {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/entwicklungszusammenarbeit.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/entwicklungszusammenarbeit.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/entwicklungszusammenarbeit.png');
-}
-.image-card-grossratswahlen {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.5))), url('/assets/theme_image/kandidierende-grossratswahlen.png');
-	background-image: -o-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/kandidierende-grossratswahlen.png');
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/theme_image/kandidierende-grossratswahlen.png');
+a {
+    color: #1C0F31;
 }
 
+html {
+    --links: #1C0F31;
+    --page-background: #f4f5f6;
+    --header-links: #FFFFFF;
+    --titles: #204453;
+    --section-titles: #FFFFFF;
+    --highlight: #204453;
+    --footer-links: #a7bfaf;
+    --boxes-border: #AAAAAA;
+    --boxes-background: #f4f5f6;
+    --header-background: #204453;
+    --footer-background: #204453;
+    --text-normal: #333333;
+    --section-titles-background: #204453;
+    --page-title: #32834A;
+
+    --access-card-text: #1E4557;
+    --access-card-text-hover: #0E81A7;
+}
+
+/* Responsive Padding for Page Header */
+.page-header {
+    width: 100%;
+    max-width: 610px;
+    margin: 0px auto;
+    padding: 20px 0px;
+}
+
+.page-title {
+    color: var(--page-title);
+    font-size: 30px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.page-description {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 30px;
+    color: var(--text-normal);
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .page-header {
+        max-width: 768px;
+        padding: 30px 20px;
+    }
+
+    .page-title {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .page-description {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .page-header {
+        max-width: 836px;
+        padding: 40px 20px;
+    }
+
+    .page-title {
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+/* The largest */
+@media (min-width: 1210px) {
+    .page-header {
+        max-width: 1120px;
+        padding: 50px 40px;
+    }
+
+    .page-title {
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    .page-description {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+/* Access Cards
+========================================================================== */
+.row-equal-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 992px) {
+    .row-equal-height {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .row-equal-height:before,
+    .row-equal-height:after {
+        content: normal;
+    }
+}
+
+.centered-container {
+    width: 100%;
+    max-width: 610px;
+    margin: 20px auto;
+    padding: 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .centered-container {
+        max-width: 768px;
+        margin: 20px auto;
+        padding: 0px 20px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .centered-container {
+        max-width: 836px;
+        margin: 30px auto;
+        padding: 0px 20px;
+    }
+}
+
+@media (min-width: 1210px) {
+    .centered-container {
+        max-width: 1120px;
+        margin: 30px auto;
+        padding: 0px 40px;
+    }
+}
+
+.kpi-info {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 30px;
+    flex: 1;
+    color: var(--text-normal);
+}
+
+.access-cards {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.access-cards {
+    width: 100%; /* Default: full width (1 column) */
+    margin-bottom: 20px;
+}
+
+.access-card {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    height: 100%;
+    background-color: var(--custom-background);
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.13);
+    color: var(--secondary-color);
+    transition: all 0.3s;
+    position: relative;
+}
+
+/* Remove text decoration and inherit color for all child elements */
+.access-card * {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+/* Specific styling for headers and paragraphs */
+.access-card h3,
+.access-card h2,
+.access-card h4,
+.access-card p {
+    text-decoration: none !important;
+}
+
+/* Ensure the button and icon don't inherit unwanted styles */
+.access-card a.custom-button {
+    text-decoration: none !important;
+}
+
+.access-card-container {
+    flex-grow: 1;
+}
+
+.access-card-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    position: relative;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.access-card-content {
+    padding: 15px;
+    position: relative;
+}
+
+/* 2 columns for screens larger than 768px */
+@media (min-width: 768px) {
+    .access-cards {
+        width: calc(50%);
+    }
+
+    .access-card-content {
+        padding: 26px;
+    }
+}
+
+/* 3 columns for screens larger than 1210px */
+@media (min-width: 1210px) {
+    .access-cards {
+        width: calc(33.333%);
+    }
+}
+
+.access-card-pretitle {
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-weight: 400;
+    margin: 0px;
+    font-size: 12px;
+}
+
+.access-card-further-info {
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-weight: 400;
+    margin: 10px 0px;
+    font-size: 12px;
+    color: var(--access-card-text);
+}
+
+.access-card-title {
+    font-weight: 700;
+    margin: 10px 0px;
+    font-size: 22px;
+    color: var(--access-card-text);
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.access-card-subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0px;
+    color: var(--access-card-text);
+}
+
+.access-card:hover .access-card-title,
+.access-card:hover .access-card-subtitle,
+.access-card:hover .access-card-further-info {
+    color: var(--access-card-text-hover);
+}
+
+.access-card-content p {
+    margin: 5px 0px;
+}
+
+/* New Button Container Styling */
+.access-card-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 26px;
+    padding-top: 0;
+}
+
+/* Custom Button Styling */
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #1C0F31;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: var(--access-card-text);
+}
+
+/* Maintain no underline on hover */
+.custom-button:hover {
+    background-color: var(--access-card-text-hover);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Arrow Icons */
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.default-icon {
+    display: block;
+}
+
+.hover-icon {
+    display: none;
+}
+
+/* Show the white icon on hover */
+.custom-button:hover .default-icon {
+    display: none;
+}
+
+.custom-button:hover .hover-icon {
+    display: block;
+}
+
+/* Icon movement on hover */
+.access-card:hover .left-button .arrow-icon {
+    transform: translate(4px, -4px);
+}

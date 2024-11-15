@@ -18,8 +18,10 @@ html {
     --section-titles-background: #204453;
     --page-title: #32834A;
     --filter-label: #535353;
-    --access-card-text: #333333;
     --search-box-border: #777777;
+
+    --access-card-text: #1E4557;
+    --access-card-text-hover: #0E81A7;
 }
 
 html, body {
@@ -567,7 +569,7 @@ html, body {
 }
 
 .access-card-title {
-    font-weight: 400;
+    font-weight: 700;
     margin: 10px 0px;
     font-size: 22px;
     color: var(--access-card-text);
@@ -583,8 +585,9 @@ html, body {
 }
 
 .access-card:hover .access-card-title,
-.access-card:hover .access-card-subtitle {
-    color: #049bc9;
+.access-card:hover .access-card-subtitle,
+.access-card:hover .access-card-further-info {
+    color: var(--access-card-text-hover);
 }
 
 .access-card-content p {
@@ -615,7 +618,7 @@ html, body {
 
 /* Maintain no underline on hover */
 .custom-button:hover {
-    background-color: #146c8b;
+    background-color: var(--access-card-text-hover);
     color: #ffffff;
     text-decoration: none;
 }

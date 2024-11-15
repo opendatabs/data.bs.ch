@@ -1,314 +1,317 @@
 <!-- 
-    The <ods-catalog-context> allows other widgets in this page to access the catalog of datasets in this platform.
-    Check the ods-widgets documentation to learn more about ods-catalog-context.
-    -->
+   The <ods-catalog-context> allows other widgets in this page to access the catalog of datasets in this platform.
+   Check the ods-widgets documentation to learn more about ods-catalog-context.
+   -->
 <ods-catalog-context context="catalog">
-    <ods-dataset-context context="domaindatasets"
-        domaindatasets-dataset="100057">
-        <!--domaindatasets-parameters="{'refine.visibility':'domain'}"-->    
-        <!-- Header Image
-            Check the .home-header class to change the background image
-            -->
-        <section class="home-header"></section>
-        <!-- Welcome card and KPI cards -->
-        <section class="container">
-            <div class="row row-equal-height">
-                <div class="col-md-4">
-                    <div class="welcome-card">
-                        <h1 class="welcome-card-title">
-                            Willkommen 
-                            <br /> auf dem Datenportal  
-                            <br />  
-                            Basel-Stadt
-                        </h1>
-                        <p class="welcome-card-description">
-                            Hier finden Sie Open Government Data (OGD) des Kantons Basel-Stadt.  
-                            <br />   <br />  
-                            Die <a href = 'https://www.bs.ch/pd/statistik/datenkontakt#open-government-data' target = '_blank' class="welcome-card-textlink"> Fachstelle für OGD Basel-Stadt </a>
-                            ist die Betreiberin des Datenportals und Ihre primäre Anlaufstelle für Fragen und Rückmeldungen.
-                            <br />   <br />
-                            Haben Sie Anmerkungen zu einem publizierten Datensatz? Schreiben Sie einen Kommentar.
-                            <br />   <br />
-                            Suchen Sie Daten zu einem Thema oder einen bestimmten Datensatz, den Sie nicht auf unserem Portal finden? Schreiben Sie uns eine
-                            <a href = 'mailto:opendata@bs.ch' class="welcome-card-textlink" >E-Mail</a>.
-                            <br />   <br />
-                            Alle Daten werden von den publizierenden Stellen kostenlos zur Verfügung gestellt. Wo nichts anderes vermerkt ist, dürfen Sie die Daten sowohl für nicht-kommerzielle als auch für kommerzielle Zwecke verwenden. Die Angabe einer Quelle ist erwünscht.
-                            <br />   <br />
-                        </p>
-                        <a href="/explore/"
-                            class="welcome-card-link">
-                        Zum Angebot an offenen Datensätzen <i class="fa fa-long-arrow-right fa-fw" aria-hidden="true"></i>
+   <ods-dataset-context context="domaindatasets" domaindatasets-dataset="100057">
+      <!--domaindatasets-parameters="{'refine.visibility':'domain'}"-->
+      <!-- Header Image
+                Check the .home-header class to change the background image
+                -->
+      <section class="home-header"></section>
+      <!-- Welcome card and KPI cards -->
+      <section class="container">
+         <div class="row row-equal-height">
+            <div class="col-md-4">
+               <div class="welcome-card">
+                  <h1 class="welcome-card-title">
+                     Willkommen
+                     <br /> auf dem Datenportal
+                     <br />
+                     Basel-Stadt
+                  </h1>
+                  <p class="welcome-card-description">
+                     Hier finden Sie Open Government Data (OGD) des Kantons Basel-Stadt.
+                     <br /> <br />
+                     Die <a href='https://www.bs.ch/pd/statistik/datenkontakt#open-government-data' target='_blank'
+                        class="welcome-card-textlink"> Fachstelle für OGD Basel-Stadt </a>
+                     ist die Betreiberin des Datenportals und Ihre primäre Anlaufstelle für Fragen und Rückmeldungen.
+                     <br /> <br />
+                     Alle Daten werden von den publizierenden Stellen kostenlos zur Verfügung gestellt. Wo nichts
+                     anderes vermerkt ist, dürfen Sie die Daten sowohl für nicht-kommerzielle als auch für kommerzielle
+                     Zwecke verwenden. Die Angabe einer Quelle ist erwünscht.
+                     <br /> <br />
+                  </p>
+                  <a href="/explore/" class="welcome-card-link">
+                     Zum Angebot an offenen Datensätzen <i class="fa fa-long-arrow-right fa-fw" aria-hidden="true"></i>
+                  </a>
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="search-module-container">
+                  <div class="search-module-content">
+                     <ods-catalog-search class-name="'my-search-box'" label="'Suche'">
+                     </ods-catalog-search>
+                  </div>
+               </div>
+               <!-- LOGO -->
+               <div class="col-md-6">
+                  <!-- KPI box component -->
+                  <div class="kpi-card-grey">
+                     <img class="logo-homepage" src="/assets/theme_image/ODBS_Logo_rund_dunkelblau.png">
+                  </div>
+               </div>
+               <!-- CONTACT CARD -->
+               <div class="col-md-6">
+                  <div class="contact-card">
+                     <h1 class="welcome-card-title">
+                        Kontakt
+                     </h1>
+                     <p class="welcome-card-text">
+                        Haben Sie Fragen oder Anmerkungen? <br>
+                        Kontaktieren Sie uns. <br>
+                        Fachstelle Open Government Data<br>
+                        Binningerstrasse 6, 4051 Basel <br>
+                        Öffnungszeiten Mo-Fr 08:00-12:00 <br>
+                     </p>
+                     <a href='mailto:opendata@bs.ch' style="
+                            margin-top: 0px; padding-left: 12px;" class="custom-button">opendata@bs.ch</a>
+                     <a href='tel:+41-61-267-87-17' style="
+                            margin-top: 0px; padding-left: 14px;" class="custom-button">+41 61 267 87 17</a>
+                     <div class="social-buttons">
+                        <!-- Twitter (or X) icon button -->
+                        <a class="button is-sm is-icon-only" href="https://twitter.com/opendatabs?lang=de"
+                           target="_blank">
+                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1" id="Layer_1" width="24px" height="24px" viewBox="0 0 24 24"
+                              style="enable-background:new 0 0 24 24;" xml:space="preserve">
+                              <path
+                                 d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z" />
+                           </svg>
+                           <span class="sr-only">X</span>
                         </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="col-md-12">
-                        <!-- KPI box component -->
-                        <div class="kpi-card-grey">
-                            <img class="logo-homepage" src="/assets/theme_image/ODBS_Logo_rund_gruen.png">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <!-- KPI box component -->
-                        <div class="kpi-card">
-                            <i class="kpi-icon fa fa-university" aria-hidden="true"></i>
-                            <h2 class="kpi-title">
-                                <span ods-analysis="publishercount"
-                                    ods-analysis-context="domaindatasets"
-                                    ods-analysis-x="publisher"
-                                    ods-analysis-serie-pub="COUNT(publisher)">
-                                {{publishercount.results.length}}
-                                </span>
-                            </h2>
-                            <p class="kpi-description">
-                                Aktuell bieten {{publishercount.results.length}} verschiedene Stellen aus Basel-Stadt offene Daten auf dem Datenportal Basel-Stadt an.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <!-- KPI box component -->
-                        <div class="kpi-card">
-                            <i class="kpi-icon fa fa-database" aria-hidden="true"></i>
-                            <h2 class="kpi-title">
-                                <span ods-results="items" ods-results-context="domaindatasets" class="ng-scope ng-binding"></span>
-                                {{domaindatasets.nhits}}
-                            </h2>
-                            <p class="kpi-description">
-                                Zurzeit stehen Ihnen {{domaindatasets.nhits}} Datensätze zur Verfügung. Das Angebot wird laufend erweitert.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Twitter feed is down (temporarily comment out) -->
-                <div class="col-md-4">
-                    <div class="twitter-timeline-container">
-                        <!-- To change the Twitter profile to display go to https://publish.twitter.com/# -->
-                        <a class="twitter-timeline" data-height="830" href="https://twitter.com/OpenDataBS?ref_src=twsrc%5Etfw">Tweets by OGD Basel-Stadt</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                    </div>
+                        <!-- LinkedIn icon button -->
+                        <a class="button is-sm is-icon-only"
+                           href="https://ch.linkedin.com/company/open-government-data-basel-stadt" target="_blank">
+                           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                              viewBox="0 0 50 50">
+                              <path
+                                 d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z">
+                              </path>
+                           </svg>
+                           <span class="sr-only">LinkedIn</span>
+                        </a>
+                        <!-- Instagram button -->
+                        <a class="button is-sm is-icon-only" href="https://www.instagram.com/opendatabs/"
+                           target="_blank">
+                           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.7 56.7"
+                              enable-background="new 0 0 56.7 56.7" xml:space="preserve">
+                              <g>
+                                 <path
+                                    d="M28.2,16.7c-7,0-12.8,5.7-12.8,12.8s5.7,12.8,12.8,12.8S41,36.5,41,29.5S35.2,16.7,28.2,16.7z M28.2,37.7
+                                        c-4.5,0-8.2-3.7-8.2-8.2s3.7-8.2,8.2-8.2s8.2,3.7,8.2,8.2S32.7,37.7,28.2,37.7z" />
+                                 <circle cx="41.5" cy="16.4" r="2.9" />
+                                 <path d="M49,8.9c-2.6-2.7-6.3-4.1-10.5-4.1H17.9c-8.7,0-14.5,5.8-14.5,14.5v20.5c0,4.3,1.4,8,4.2,10.7c2.7,2.6,6.3,3.9,10.4,3.9
+                                        h20.4c4.3,0,7.9-1.4,10.5-3.9c2.7-2.6,4.1-6.3,4.1-10.6V19.3C53,15.1,51.6,11.5,49,8.9z M48.6,39.9c0,3.1-1.1,5.6-2.9,7.3
+                                        s-4.3,2.6-7.3,2.6H18c-3,0-5.5-0.9-7.3-2.6C8.9,45.4,8,42.9,8,39.8V19.3c0-3,0.9-5.5,2.7-7.3c1.7-1.7,4.3-2.6,7.3-2.6h20.6
+                                        c3,0,5.5,0.9,7.3,2.7c1.7,1.8,2.7,4.3,2.7,7.2V39.9L48.6,39.9z" />
+                              </g>
+                           </svg>
+                           <span class="sr-only">Instagram</span>
+                        </a>
+                        <!-- Plus button -->
+                        <a class="button is-sm is-icon-only" href="https://data.bs.ch/pages/social-media/"
+                           target="_blank">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                              fill="none" stroke="currentColor">
+                              <line x1="12" y1="5" x2="12" y2="19" stroke="black" stroke-width="2"
+                                 stroke-linecap="round" />
+                              <line x1="5" y1="12" x2="19" y2="12" stroke="black" stroke-width="2"
+                                 stroke-linecap="round" />
+                           </svg>
+                           <span class="sr-only">More</span>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <!-- KPI box component -->
+                  <div class="kpi-card" style="margin-top:20px">
+                     <i class="kpi-icon fa fa-university" aria-hidden="true"></i>
+                     <h2 class="kpi-title">
+                        <span ods-analysis="publishercount" ods-analysis-context="domaindatasets"
+                           ods-analysis-x="publisher" ods-analysis-serie-pub="COUNT(publisher)">
+                           {{publishercount.results.length}}
+                        </span>
+                     </h2>
+                     <p class="kpi-description">
+                        Aktuell bieten {{publishercount.results.length}} verschiedene Stellen aus Basel-Stadt offene
+                        Daten auf dem Datenportal Basel-Stadt an.
+                     </p>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <!-- KPI box component -->
+                  <div class="kpi-card" style="margin-top:20px">
+                     <i class="kpi-icon fa fa-database" aria-hidden="true"></i>
+                     <h2 class="kpi-title">
+                        <span ods-results="items" ods-results-context="domaindatasets"
+                           class="ng-scope ng-binding"></span>
+                        {{domaindatasets.nhits}}
+                     </h2>
+                     <p class="kpi-description">
+                        Zurzeit stehen Ihnen {{domaindatasets.nhits}} Datensätze zur Verfügung. Das Angebot wird laufend
+                        erweitert.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </section>
-        <!-- Catalog Search Box -->
-        <section class="container">
-            <!-- Search box card -->
-            <div class="search-card">
-                <h2 class="search-card-title">
-                    Welche Daten suchen Sie?
-                </h2>
-                <div class="search-card-container">
-                    <ods-catalog-search
-                       class-name="'my-search-box'"
-                       label="'Suchen'">
-                    </ods-catalog-search>
-                </div>
+         </div>
+      </section>
+      <!-- Image cards with links -->
+      <section class="container" style="margin-bottom: 50px;">
+         <h2 class="home-subtitle">
+            Das Datenportal Basel-Stadt bietet Datensätze zu diversen verschiedenen Themen. Wählen Sie hier ein Thema
+            aus und entdecken Sie die Datensätze.
+         </h2>
+         <div class="row">
+            <div class="col-md-8">
+               <div class="row">
+                  <div class="col-md-6">
+                     <!-- Image card -->
+                     <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Mobilit%C3%A4t+und+Verkehr"
+                        class="color-card">
+                        <div class="color-content">
+                           <h3 class="color-title">
+                              Mobilität und Verkehr
+                           </h3>
+                           <svg width="170px" height="170px" stroke-width="0.7" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg" color="#000000">
+                              <path d="M8 10L16 10" stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"
+                                 stroke-linejoin="round"></path>
+                              <path d="M7 14L8 14" stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"
+                                 stroke-linejoin="round"></path>
+                              <path d="M16 14L17 14" stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"
+                                 stroke-linejoin="round"></path>
+                              <path
+                                 d="M3 18V11.4105C3 11.1397 3.05502 10.8716 3.16171 10.6227L5.4805 5.21216C5.79566 4.47679 6.51874 4 7.31879 4H16.6812C17.4813 4 18.2043 4.47679 18.5195 5.21216L20.8383 10.6227C20.945 10.8716 21 11.1397 21 11.4105V18M3 18V20.4C3 20.7314 3.26863 21 3.6 21H6.4C6.73137 21 7 20.7314 7 20.4V18M3 18H7M21 18V20.4C21 20.7314 20.7314 21 20.4 21H17.6C17.2686 21 17 20.7314 17 20.4V18M21 18H17M7 18H17"
+                                 stroke="#1E4557" stroke-width="0.7"></path>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-6">
+                     <!-- Image card -->
+                     <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Bev%C3%B6lkerung"
+                        class="color-card">
+                        <div class="color-content">
+                           <h3 class="color-title">
+                              Bevölkerung
+                           </h3>
+                           <svg width="170px" height="170px" stroke-width="0.7" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg" color="#1E4557">
+                              <path d="M1 20V19C1 15.134 4.13401 12 8 12V12C11.866 12 15 15.134 15 19V20"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"></path>
+                              <path d="M13 14V14C13 11.2386 15.2386 9 18 9V9C20.7614 9 23 11.2386 23 14V14.5"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"></path>
+                              <path
+                                 d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12Z"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                              <path
+                                 d="M18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 7.65685 16.3431 9 18 9Z"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-6">
+                     <!-- Image card -->
+                     <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=%C3%96ffentliche+Ordnung+und+Sicherheit"
+                        class="color-card ">
+                        <div class="color-content">
+                           <h3 class="color-title">
+                              Öffentliche Ordnung <br /> und Sicherheit
+                           </h3>
+                           <svg width="170px" height="170px" stroke-width="0.7" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg" color="#1E4557">
+                              <path
+                                 d="M20.0429 21H3.95705C2.41902 21 1.45658 19.3364 2.22324 18.0031L10.2662 4.01533C11.0352 2.67792 12.9648 2.67791 13.7338 4.01532L21.7768 18.0031C22.5434 19.3364 21.581 21 20.0429 21Z"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"></path>
+                              <path d="M12 9V13" stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"></path>
+                              <path d="M12 17.01L12.01 16.9989" stroke="#1E4557" stroke-width="0.7"
+                                 stroke-linecap="round" stroke-linejoin="round"></path>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-6">
+                     <!-- Image card -->
+                     <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Statistische+Grundlagen"
+                        class="color-card">
+                        <div class="color-content">
+                           <h3 class="color-title">
+                              Statistische Grundlagen
+                           </h3>
+                           <svg width="170px" height="170px" stroke-width="0.7" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg" color="#000000">
+                              <path
+                                 d="M9 19L3.78974 20.7368C3.40122 20.8663 3 20.5771 3 20.1675L3 5.43246C3 5.1742 3.16526 4.94491 3.41026 4.86325L9 3M9 19L15 21M9 19L9 3M15 21L20.5897 19.1368C20.8347 19.0551 21 18.8258 21 18.5675L21 3.83246C21 3.42292 20.5988 3.13374 20.2103 3.26325L15 5M15 21L15 5M15 5L9 3"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-6">
+                     <!-- Image card -->
+                     <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Geographie" class="color-card">
+                        <div class="color-content">
+                           <h3 class="color-title">
+                              Geographie
+                           </h3>
+                           <svg width="170px" height="170px" stroke-width="0.7" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg" color="#000000">
+                              <path d="M7 21C7 21 7.5 16.5 11 12.5" stroke="#1E4557" stroke-width="0.7"
+                                 stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path
+                                 d="M19.1297 4.24224L19.7243 10.4167C20.0984 14.3026 17.1849 17.7626 13.2989 18.1367C9.486 18.5039 6.03191 15.7168 5.66477 11.9039C5.29763 8.09099 8.09098 4.70237 11.9039 4.33523L18.475 3.70251C18.8048 3.67074 19.098 3.91239 19.1297 4.24224Z"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-6">
+                     <!-- Image card -->
+                     <a href="https://data.bs.ch/explore/?sort=modified" class="color-card">
+                        <div class="color-content">
+                           <h3 class="color-title">
+                              Alle Themen
+                           </h3>
+                           <svg width="170px" height="170px" stroke-width="0.7" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg" color="#000000">
+                              <path d="M20.5 20.5L22 22" stroke="#1E4557" stroke-width="0.7" stroke-linecap="round"
+                                 stroke-linejoin="round"></path>
+                              <path
+                                 d="M16 18.5C16 19.8807 17.1193 21 18.5 21C19.1916 21 19.8175 20.7192 20.2701 20.2654C20.7211 19.8132 21 19.1892 21 18.5C21 17.1193 19.8807 16 18.5 16C17.1193 16 16 17.1193 16 18.5Z"
+                                 stroke="#1E4557" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                              <path d="M4 6V12C4 12 4 15 11 15C18 15 18 12 18 12V6" stroke="#1E4557" stroke-width="0.7"
+                                 stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path d="M11 3C18 3 18 6 18 6C18 6 18 9 11 9C4 9 4 6 4 6C4 6 4 3 11 3Z" stroke="#1E4557"
+                                 stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path d="M11 21C4 21 4 18 4 18V12" stroke="#1E4557" stroke-width="0.7"
+                                 stroke-linecap="round" stroke-linejoin="round"></path>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+               </div>
             </div>
-        </section>
-        <!-- Image cards with links -->
-        <section class="container">
-            <h2 class="home-subtitle">
-                Das Datenportal Basel-Stadt bietet Datensätze zu diversen verschiedenen Themen. Wählen Sie hier ein Thema aus und entdecken Sie die Datensätze.
-            </h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- Image card -->
-                    <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Mobilit%C3%A4t+und+Verkehr"
-                        class="image-card image-card-mobility">
-                        <div class="image-content">
-                            <h3 class="image-title">
-                                Mobilität und Verkehr
-                            </h3>
-                            <p class="image-description">
-                                Zum Thema Mobilität und Verkehr finden Sie bei uns Daten zu den Verkehrszählstellen, der Belegung der Parkhäuser und der Ladestationen für Elektroautos, verschiedene Velorouten und weitere Datensätze.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <!-- Image card -->
-                    <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Bev%C3%B6lkerung"
-                        class="image-card image-card-garden">
-                        <div class="image-content">
-                            <h3 class="image-title">
-                                Bevölkerung
-                            </h3>
-                            <p class="image-description">
-                                Im Thema Bevölkerung gibt es unter anderem Datensätze zu den Bevölkerungsszenarien, den zu- und abgewanderten Personen und zu Angeboten der offenen Kinder- und Jugendarbeit.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <!-- Image card -->
-                    <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=%C3%96ffentliche+Ordnung+und+Sicherheit"
-                        class="image-card image-card-gastronomy">
-                        <div class="image-content">
-                            <h3 class="image-title">
-                                Öffentliche Ordnung <br /> und Sicherheit
-                            </h3>
-                            <p class="image-description">
-                                Das Thema öffentliche Ordnung und Sicherheit umfasst Datensätze zu den Allmendbewilligungen, zu Abfall-Entsorgungs- und Recyclingstellen sowie den sanitären Anlagen.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <!-- Image card -->
-                    <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Statistische+Grundlagen"
-                        class="image-card image-card-sport">
-                        <div class="image-content">
-                            <h3 class="image-title">
-                                Statistische Grundlagen
-                            </h3>
-                            <p class="image-description">
-                                Die Datensätze zum Thema statistische Grundlagen umfassen Angaben zu den statistischen Raumeinheiten wie Blöcke, Bezirke und Wohnviertel sowie einen umfassenden Datensatz zu den Bevölkerungsszenarien.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <!-- Image card -->
-                    <a href="https://data.bs.ch/explore/?sort=modified&refine.theme=Geographie"
-                        class="image-card image-card-culture">
-                        <div class="image-content">
-                            <h3 class="image-title">
-                                Geographie
-                            </h3>
-                            <p class="image-description">
-                                Im Thema Geographie finden Sie diverse Datensätze mit Geobasisdaten, welche durch das Grundbuch- und Vermessungsamt gesammelt und aufbereitet werden. Diese Daten können alle in Kartenform visualisiert werden.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <!-- Image card -->
-                    <a href="https://data.bs.ch/explore/?sort=modified"
-                        class="image-card image-card-education">
-                        <div class="image-content">
-                            <h3 class="image-title">
-                                Alle Themen
-                            </h3>
-                            <p class="image-description">
-                                Wenn Sie keine thematische Einschränkung vornehmen wollen, finden Sie hier die Übersicht über alle auf dem Datenportal Basel-Stadt publizierten Daten. Aktuell sind dies
-                                <!--ods-dataset-context context="domaindatasets"
-                                    domaindatasets-dataset="dataset-of-datasets"-->
-                                <span ods-results="items" ods-results-context="domaindatasets" class="ng-scope ng-binding">{{ domaindatasets.nhits }}</span>
-                                <!--/ods-dataset-context-->
-                                verschiedene Datensätze.
-                            </p>
-                        </div>
-                    </a>
-                </div>
+            <!-- TWITTER -->
+            <!-- Twitter feed is down (temporarily comment out) -->
+            <div class="col-md-4">
+               <div class="twitter-timeline-container">
+                  <!-- To change the Twitter profile to display go to https://publish.twitter.com/# -->
+                  <a class="twitter-timeline" data-height="830"
+                     href="https://twitter.com/OpenDataBS?ref_src=twsrc%5Etfw">Tweets by OGD Basel-Stadt</a>
+                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+               </div>
             </div>
-        </section>
-    </ods-dataset-context>
-    <section class="container">
-        <!-- Content card -->
-        <div class="content-card">
-            <div class="row">
-                <div class="col-sm-8">
-                    <ods-dataset-context context="myctx" myctx-dataset="100088" myctx-parameters="{'disjunctive.title':true,'sort':'published'}">
-                        <ods-map no-refit="true" scroll-wheel-zoom="false" basemap="9fffa5" location="14,47.55649,7.604">
-                            <ods-map-layer-group>
-                                <ods-map-layer context="myctx" color-numeric-ranges="{'20':'#1196FF','40':'#4770C2','60':'#7D4B85','80':'#B32548','100':'#EA000C'}" color-undefined="#000000" color-out-of-bounds="#FFFFFF" color-by-field="auslastung_prozent" color-numeric-range-min="0" picto="dot" show-marker="false" display="choropleth" shape-opacity="0.5" point-opacity="1" border-color="#FFFFFF" border-opacity="1" border-size="1" border-pattern="solid" caption="true" caption-title="Aktuelle Belegung der öffentlichen Parkhäuser" caption-picto-color="#E5E5E5" size="7"></ods-map-layer>
-                            </ods-map-layer-group>
-                        </ods-map>
-                    </ods-dataset-context>
-                </div>
-                <div class="col-sm-4">
-                    <h2 class="content-card-title">
-                        Entdecken Sie unsere Echtzeit-Daten
-                    </h2>
-                    <p class="content-card-description">
-                        Das Datenportal Basel-Stadt bietet verschiedene Datensätze, welche in Echtzeit resp. beinahe in Echtzeit aktualisiert werden.
-                    </p>
-                    <p class="content-card-description">
-                        Unter anderem finden Sie Daten zum permanenten Parkleitsystem der Parkhäuser Basel-Stadt (im Kartenbeispiel links), zur lokalen Temperatur gemessen von den Sensoren des Smart City Climate Projekts, sowie zu den Messungen der Rheinüberwachungsstation Weil am Rhein des Amts für Umwelt und Energie (AUE) in unserem Angebot an Echtzeitdaten.
-                    </p>
-                    <a target="_blank" href="https://data.bs.ch/explore/dataset/100014/information/"
-                        class="content-card-link">
-                    &#8226; Belegung der öffentlichen Parkhäuser <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                    </a>
-                    <br />
-                    <a target="_blank" href="https://data.bs.ch/explore/dataset/100009/information/"
-                        class="content-card-link">
-                    &#8226; Smart Climate Luftklima <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                    </a>
-                    <br />
-                    <a target="_blank" href="https://data.bs.ch/explore/dataset/100046/information/"
-                        class="content-card-link">
-                    &#8226; Kontinuierliche Rheinmesswerte <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container">
-        <!-- Content card -->
-        <div class="content-card">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h2 class="content-card-title">
-                        Daten aus der öffentlichen Statistik
-                    </h2>
-                    <p class="content-card-description">
-                        Das Statistische Amt erhebt eine Vielzahl von Daten zu verschiedenen Themenbereichen und bereitet diese für unterschiedliche Nutzer auf. Auf dem Datenportal Basel-Stadt finden Sie eine wachsende Anzahl von rohen Datensätzen und längeren Zeitreihen aus der öffentlichen Statistik.
-                    </p>
-                    <p class="content-card-description">
-                        Untersuchen Sie die Datensätze und erstellen Sie eigene Visualisierungen wie die Treemap-Grafik aus dem Datensatz des Basler Index' der Konsumentenpreise. Versuchen Sie es und gewinnen Sie spannende Erkenntnisse aus Ihren Analysen.
-                    </p>
-                    <a target="_blank" href="https://data.bs.ch/pages/statistics"
-                        class="content-card-link">
-                    Das Angebot an OGD der öffentlichen Statistik <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                    </a>
-                </div>
-                <div class="col-sm-8">
-                    <ods-dataset-context context="bik"
-                        bik-dataset="100003"
-                        bik-parameters="{'refine.date':'2019-09-01','disjunctive.depth':true,'refine.depth':['0','1']}"
-                        >
-                        <ods-chart align-month="true" labels-x-length="11">
-                            <ods-chart-query context="bik" field-x="name2" maxpoints="0" sort="serie1-1">
-                                <ods-chart-serie expression-y="currentweight"
-                                    chart-type="treemap"
-                                    function-y="SUM"
-                                    color="range-Accent"
-                                    display-units="false"
-                                    scientific-display="true">
-                                </ods-chart-serie>
-                            </ods-chart-query>
-                        </ods-chart>
-                    </ods-dataset-context>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container">
-        <!-- Content card -->
-        <div class="content-card">
-            <div class="row">
-                <div class="col-sm-8">
-                    <a target="_blank" href="https://data.bs.ch/pages/geo/"><img src="https://data.bs.ch/assets/theme_image/Geoportal.jpg"alt="Geoportal" style="float:left;width:100%;height:100%;">
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <h2 class="content-card-title">
-                        Daten aus dem Geoportal
-                    </h2>
-                    <p class="content-card-description">
-                        Mit dem allgemein zugänglichen Geoportal bietet das Grundbuch- und Vermessungsamt einen direkten Zugang zu den öffentlichen Geoinformationen des Kantons Basel-Stadt.
-                    </p>
-                    <p class="content-card-description">
-                        Das Geoportal Kanton Basel-Stadt ist der zentrale Einstiegspunkt für interaktive Karten, Geodaten und Geodienste der kantonalen Verwaltung.
-                    </p>
-                    <p class="content-card-description">
-                        Alle im Kanton Basel-Stadt verfügbaren Geodaten sind im Geodaten-Katalog aufgelistet und kurz beschrieben.
-                    </p>
-                    <a target="_blank" href="https://data.bs.ch/pages/geo/"
-                        class="content-card-link">
-                    Das Angebot an OGD des Geoportals <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+         </div>
+      </section>
+   </ods-dataset-context>
 </ods-catalog-context>

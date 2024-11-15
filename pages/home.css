@@ -9,14 +9,23 @@
  * - KPI card
  * - Image card
  */
+
+
+/* No Search IA in the header in homepage
+   ========================================================================== */
+   .ods-front-header__quick-find-button {
+    display: none;
+}
+
 /* Variables & Shared classes
    ========================================================================== */
 .box{
     background-color: white;
 }
 :root {
-    --secondary-color: #142E7B;
+    --secondary-color: #DDECDE;
 }
+
 .text-center {
 	text-align: center;
 }
@@ -61,9 +70,10 @@
 	-webkit-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-	padding: 39px;
+	padding: 0px;
 	border-radius: 4px;
 	margin-bottom: 20px;
+    min-height: 270px;
 	height: 100%;
 	text-decoration: none;
 	-webkit-transition: all .2s;
@@ -92,7 +102,7 @@
 .color-card-title {
 	color: inherit;
 	font-size: 1.2rem;
-	line-height: 1.5; 
+	line-height: 1.5;
 	font-weight: normal;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -102,7 +112,7 @@
 	font-size: 1rem;
 	line-height: 1.5;
 	font-weight: normal;
-	color: inherit;
+	color: var(--highlight);
 	margin-top: 13px;
 	margin-bottom: 26px;
 	max-width: 100%;
@@ -113,7 +123,8 @@
 	margin-top: auto;
 	max-width: 100%;
 }
-/* Content Card 
+
+/* Content Card
    ========================================================================== */
 .content-card {
 	background-color: white;
@@ -125,7 +136,7 @@
 .content-card-title {
 	color: #204454;
 	font-size: 1.2rem;
-	line-height: 1.5; 
+	line-height: 1.5;
 	font-weight: bold;
 	margin-top: 0;
 	margin-bottom: 13px;
@@ -181,78 +192,7 @@
 	color: #FFFFFF;
 	text-decoration: none;
 }
-/* Search Box Card
-   ========================================================================== */
-.search-card {
-	background-color: rgba(0,0,0,.1);
-	padding: 39px;
-	border-radius: 4px;
-	margin-bottom: 20px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-align: stretch;
-	    -ms-flex-align: stretch;
-	        align-items: stretch;
-	text-align: center;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	text-align: center;
-}
-.search-card-container {
-    /*	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-*/
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	width: 100% !important;
-}
-.search-card-title {
-	color: var(--titles);
-	font-size: 1.2rem;
-	line-height: 1.5;
-	font-weight: normal;
-}
-.search-card-searchbox {
-	margin-bottom: 0;
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 1 auto;
-	        flex: 1 1 auto;
-}
-.search-card-searchbox .odswidget-searchbox__box {
-	font-size: 1rem;
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    padding: 8px 13px;
-    border-radius: 4px 0 0 4px;
-    border: none;
-    margin: 0 auto;
-}
-.search-card-submit-button {
-	border: none;
-	background-color: var(--highlight);
-	color: #FFFFFF;
-	font-size: .866rem;
-	font-weight: bold;
-	text-align: center;
-	padding: 8px 12px;
-	border-radius: 0 4px 4px 0;
-	-webkit-transition: opacity .2s;
-	-o-transition: opacity .2s;
-	transition: opacity .2s;
-}
-.search-card-submit-button:hover {
-	text-decoration: none;
-	opacity: .7;
-}
+
 /* KPI Card
    ========================================================================== */
 .kpi-card {
@@ -279,9 +219,9 @@
 }
 
 .kpi-card-grey {
-	background-color: #f4f5f6;
+	background-color: none;
 	height: 100%;
-	padding: 28px;
+	padding: 0px;
 	border-radius: 4px;
 	margin-bottom: 20px;
 	display: -webkit-box;
@@ -464,24 +404,17 @@ main {
 ========================================================================== */
 .home-header {
 	margin-bottom: 20px;
-    /* Change this value to make the background image taller or smaller */
-    height: 350px;
-    /* Background color before image loads */
+    height: 200px;
     background-color: var(--highlight);
     background-size: cover;
-    /* You can replace the background-image by uploading an image to the portal assets
-    and replacing the text in simple quotes below or use the URL of an image on the web */
     background-image: url('/assets/theme_image/OGD_Datenportal_Titelbild_by_Raphael_Alu_1018_web.jpg');
-    /* Position of the background-image on x y axis. Change these values to
-    modify where the image is centered.
-    */
     background-position: center center;
 }
 /* Home welcome card
 ========================================================================== */
 .welcome-card {
-	background-color: var(--highlight);
-	color: #FFFFFF;
+    background-color: var(--header-background);
+	color: var(--highlight);
 	margin-top: -90px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -525,7 +458,7 @@ main {
 }
 .welcome-card-link {
     font-size: 1.2rem;
-	color: inherit;
+	color: var(--highlight);
 	font-weight: bold;
 	margin-top: auto;
 	-webkit-transition: all .2s;
@@ -535,7 +468,7 @@ main {
 	max-width: 100%
 }
 .welcome-card-textlink {
-	color: #FFFFFF;
+
 	font-weight: bold;
     margin-top: auto;
 	-webkit-transition: all .2s;
@@ -566,6 +499,30 @@ main {
 		margin-bottom: 10;
 	}
 }
+
+/* Home contact card
+========================================================================== */
+.contact-card {
+    background-color: var(--header-background);
+	color: var(--highlight);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	padding: 39px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+
 /* Most Popular / Last Updated datasets section
 ========================================================================== */
 .odswidget-most-popular-datasets__datasets,
@@ -631,7 +588,411 @@ tspan.highcharts-text-outline {
     text-align: center;
 }
 
-.my-search-box {
+
+
+
+/* Search
+========================================================================== */
+.search-module-container {
+    margin-left: -50px;
+    padding: 20px;
+    padding-bottom: 0;
+    margin-top: -70px;
+    background-color: none;
+    border-radius: 4px;
+    position: relative;
+}
+
+.search-module-content {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+    .search-module-content {
+        max-width: 728px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+}
+
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .search-module-content {
+        max-width: 728px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+    .search-module-content {
+        max-width: 960px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+}
+
+
+@media (min-width: 1210px) {
+    .search-module-content {
+        max-width: 1200px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: 70px;
+        margin-bottom: 60px;
+    }
+}
+
+
+.search-module {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap;
+}
+
+
+.search-module-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #333;
+}
+
+.search-module-input::placeholder {
+    color: #999;
+}
+
+.search-module:focus-within {
+    border-color: #9156b4;
+    box-shadow: 0 3px 5px rgba(145, 86, 180, 0.3);
+}
+
+.search-module-clear {
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: var(--highlight);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.search-module-clear:hover {
+    color: #146c8b;
+}
+
+.search-module-btn {
+    background-color: var(--highlight);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-module-btn i {
+    margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+    .search-module-btn {
+        padding: 10px;
+        justify-content: center;
+        width: auto;
+    }
+
+    .search-module-btn i {
+        margin-right: 0;
+    }
+
+    .search-module-btn span {
+        display: none;
+    }
+}
+.search-module-btn:hover {
+    background-color: #146c8b;
+}
+
+/* Apply styles to the search wrapper inside ods-catalog-search */
+.my-search-box .rods-search-filter__wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap;
+}
+
+/* Input field styles */
+.my-search-box .rods-search-filter__input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #333;
+}
+
+.my-search-box .rods-search-filter__input::placeholder {
+    color: #999;
+}
+
+/* Search button/icon styles */
+.my-search-box .rods-search-filter__icon {
+    background-color: var(--highlight);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.my-search-box .rods-search-filter__icon:hover {
+    background-color: #146c8b;
+}
+
+/* Adjust the SVG icon size */
+.my-search-box .rods-search-filter__icon .rods-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+@media (max-width: 600px) {
+    /* Hide the text on small screens */
+    .my-search-box .rods-search-filter__icon::after {
+        content: 'Suchen';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    /* Adjust the search button */
+    .my-search-box .rods-search-filter__icon {
+        width: auto;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Adjust the input field */
+    .my-search-box .rods-search-filter__input {
+        width: calc(100% - 50px); /* Adjust based on button width */
+        border-radius: 30px 0 0 30px;
+        padding: 10px 15px;
+    }
+
+    /* Adjust the icon size */
+    .my-search-box .rods-search-filter__icon .rods-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Ensure the wrapper does not wrap */
+    .my-search-box .rods-search-filter__wrapper {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Focus styles */
+.my-search-box .rods-search-filter__wrapper:focus-within {
+    border-color: #9156b4;
+    box-shadow: 0 3px 5px rgba(145, 86, 180, 0.3);
+}
+
+.my-search-box .rods-search-filter__icon::after {
+    content: 'Suchen';
+    margin-left: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+
+.access-card-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 26px;
+    padding-top: 0;
+}
+
+.custom-button {
+    display: inline-block;
+    align-items: center;
+    justify-content: flex-start;
+    grid-auto-flow: column;
+    grid-template-columns: 40px 237px;
+
+    background-color: rgb(30, 69, 87);
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    background-size: auto;
+
+    border: 1px solid rgb(30, 69, 87);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
     text-align: left;
-    z-index: 2;
+    text-decoration: none;
+    text-decoration-color: rgb(255, 255, 255);
+
+    width: 159.516px;
+    height: auto;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 10px 14px 10px;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    column-gap: 15px;
+    row-gap: 15px;
+    hyphens: auto;
+    tab-size: 4;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.button.is-sm.is-icon-only {
+    height: 36px !important;
+    width: 36px !important;
+}
+
+.button.is-icon-only {
+    align-items: center;
+    height: 48px;
+    justify-content: center;
+    padding: 0;
+    width: 48px;
+}
+
+.button.is-sm {
+    border-radius: 24px;
+    font-size: 14px;
+    gap: 5px;
+    line-height: 1;
+    min-height: 36px;
+    min-width: 36px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button {
+    --button-text: #ffffff;
+    --button-bg: #f8f8f8;
+    --button-border: #1e4557;
+    background: #f8f8f8;
+    border-color: #1e4557;
+    color: var(--button-text);
+    align-items: center;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    gap: 5px;
+    text-align: center;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+    background: #0E81A7;
+    border-color: #0E81A7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.welcome-card-text {
+    margin-bottom: 15px;
 }

@@ -996,3 +996,22 @@ a {
 .welcome-card-text {
     margin-bottom: 15px;
 }
+
+/* Target ODS search button specifically */
+.my-search-box .rods-search-filter__icon {
+	padding: 8px 20px !important;
+    margin-right: -5px !important;
+	height: auto !important;
+}
+
+.my-search-box .rods-search-filter__wrapper {
+    padding: 3px 5px !important;
+}
+
+/* Adjust for mobile screens */
+@media screen and (max-width: 600px) {
+    .my-search-box .rods-search-filter__icon {
+        padding: 10px !important;
+        margin-right: 0px !important;
+    }
+}

@@ -205,21 +205,20 @@
 	text-align: center;
 }
 .search-card-container {
-	display: -webkit-box;
+    /*	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+*/
 	-webkit-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-	width: 100%;
-	max-width: 500px;
-	margin: 0 auto;
+	width: 100% !important;
 }
 .search-card-title {
 	color: var(--titles);
 	font-size: 1.2rem;
-	line-height: 1.5; 
-	font-weight: normal;	
+	line-height: 1.5;
+	font-weight: normal;
 }
 .search-card-searchbox {
 	margin-bottom: 0;
@@ -307,7 +306,7 @@
 	color: #204453;
 	font-size: 4rem;
 	margin-top: 0;
-	margin-bottom: 13px;	
+	margin-bottom: 13px;
 	max-width: 100%;
 }
 .kpi-title {
@@ -318,7 +317,7 @@
 	margin-bottom: 13px;
 	max-width: 100%;
 }
-.kpi-description { 
+.kpi-description {
 	color: var(--text);
 	font-size: 1.2rem;
 	line-height: 1.5;
@@ -386,8 +385,8 @@
 }
 /* Image card backgrounds
    ========================================================================== */
-/** 
- * - Replace the background image url. 
+/**
+ * - Replace the background image url.
  * - Change the class name to something related to your project.
  */
 .image-card-mobility {
@@ -423,16 +422,16 @@
 /* ==========================================================================
    Homepage Styles
    ========================================================================== */
-/* 
-The CSS rules below will only be applied to the HTML used in the </> HTML tab 
-and will not be applied to other pages of your platform. 
+/*
+The CSS rules below will only be applied to the HTML used in the </> HTML tab
+and will not be applied to other pages of your platform.
 The 'home-' prefix is used for classes that belong to this page only. This makes it easier
 to understand which classes are used here and which ones are in the Platform Theme Stylesheet.
 */
 /* Shared Styles
 ========================================================================== */
-/* 
-These styles are used by different elements in the home page 
+/*
+These styles are used by different elements in the home page
 */
 main {
     /* Overrides an existing CSS rule so the banner image can be "edge-to-edge" */
@@ -446,7 +445,7 @@ main {
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap;
 		margin-bottom: 20px;
-	}	
+	}
 	/* Fix for early content wrapping in Safari*/
 	.row-equal-height:before,
 	.row-equal-height:after {
@@ -457,9 +456,9 @@ main {
 .home-subtitle {
 	color: var(--titles);
 	font-size: 1.2rem;
-	line-height: 1.5; 
+	line-height: 1.5;
 	font-weight: normal;
-	margin-bottom: 20px;	
+	margin-bottom: 20px;
 }
 /* Header Image
 ========================================================================== */
@@ -470,10 +469,10 @@ main {
     /* Background color before image loads */
     background-color: var(--highlight);
     background-size: cover;
-    /* You can replace the background-image by uploading an image to the portal assets 
+    /* You can replace the background-image by uploading an image to the portal assets
     and replacing the text in simple quotes below or use the URL of an image on the web */
     background-image: url('/assets/theme_image/OGD_Datenportal_Titelbild_by_Raphael_Alu_1018_web.jpg');
-    /* Position of the background-image on x y axis. Change these values to 
+    /* Position of the background-image on x y axis. Change these values to
     modify where the image is centered.
     */
     background-position: center center;
@@ -504,7 +503,7 @@ main {
 .welcome-card-title {
 	color: inherit;
 	font-size: 2.36rem;
-	line-height: 1.5; 
+	line-height: 1.5;
 	font-weight: bold;
 	margin-top: 0;
 	margin-bottom: 13px;
@@ -563,9 +562,9 @@ main {
 	.welcome-card {
 		height: 107%;
 		position: relative;
-		margin-top: -30%
+		margin-top: -30%;
 		margin-bottom: 10;
-	}	
+	}
 }
 /* Most Popular / Last Updated datasets section
 ========================================================================== */
@@ -603,7 +602,7 @@ main {
 	border-bottom: none;
 	cursor: default;
 }
-.odswidget-most-popular-datasets__dataset-details-count .fa, 
+.odswidget-most-popular-datasets__dataset-details-count .fa,
 .odswidget-last-datasets-feed__dataset-details-modified .fa {
 	display: none;
 }

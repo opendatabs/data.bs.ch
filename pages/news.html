@@ -32,7 +32,7 @@
                         </svg>Neue OGD-Datensätze
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="#praesentationen" class="link-item">
                         <svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none"
@@ -149,11 +149,21 @@
                             </div>
                         </div>
                     </div>
+
+                    <a href="{{ ctx.domainUrl + '/explore/dataset/' + item.fields.dataset_identifier + '/' }}"
+                        target="_blank" class="custom-button left-button">
+                        <img src="https://data.bs.ch/assets/theme_image/arrow-east.png"
+                            class="arrow-icon default-icon" />
+                        <img src="https://data.bs.ch/assets/theme_image/arrow-east-white.png"
+                            class="arrow-icon hover-icon" />
+                        Alle Datensätze
+                    </a>
+
                 </div>
             </ods-dataset-context>
         </div>
     </div>
-    
+
     <div class="content">
         <h1 id="praesentationen">Präsentationen</h1>
         <div class="row">

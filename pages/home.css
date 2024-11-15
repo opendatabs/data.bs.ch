@@ -672,7 +672,6 @@ tspan.highcharts-text-outline {
     border-radius: 30px;
     padding: 5px;
     background-color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     flex-wrap: nowrap;
 }
 
@@ -752,11 +751,10 @@ tspan.highcharts-text-outline {
     max-width: 100%;
     margin: 0 auto;
     margin-bottom: 15px;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 30px;
     padding: 5px;
     background-color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     flex-wrap: nowrap;
 }
 

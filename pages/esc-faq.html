@@ -1,0 +1,167 @@
+<div class="container"
+    ng-init="domain = 'data.bs.ch';
+    datasetid = '100417';
+    sort = '-ranking';
+    filter = {'id':'thema','multiple':true, 'sort': 'alphanum'};
+    question = 'frage';
+    answer = 'antwort_html';
+    url = 'link';
+    url_shown_text = 'link_anzeigetext';
+    contact = 'kontakt';
+    last_updated = 'zuletzt_aktualisiert';
+    noResultMsg = 'Kein Ergebnis';
+    DO_NOT_MODIFY_BELOW;
+    localctxfields = {};
+    values = {};
+    activeFilters = {};
+    localctx = undefined;
+    ">
+    <ods-dataset-context context="localctx"
+        localctx-domain="{{ domain || localctx.domain }}"
+        localctx-dataset="{{ datasetid || localctx.dataset.datasetid }}">
+        {{ localctx = ctx || localctx ; '' }}
+        <ods-dataset-context ng-if="localctx.dataset.datasetid"
+            context="localctxdate"
+            localctxdate-domain="{{ localctx.domain }}"
+            localctxdate-dataset="{{ localctx.dataset.datasetid }}">
+            <span ng-if="sort">
+                {{localctx.parameters['sort'] = sort; ''}}
+            </span>
+            <span ng-repeat="field in localctx.dataset.fields">
+                {{ localctxfields[field.name] = field.label; '' }}
+            </span>
+            <div ng-if="!$parent.$parent.$parent.$parent.$parent || blocks">
+                <span>
+                    {{ localctx.parameters['refine.' + filter.id] = activeFilters[filter.id] ; '' }}
+                </span>
+            </div>
+            <section class="sticky-content">
+                <div ng-show="!$parent.$parent.$parent.$parent.$parent || blocks" class="kpi-card">
+                    <!-- Wrapper for search & filters side by side -->
+                    <div class="search-filter-container">
+                        <!-- SEARCH -->
+                        <div class="search-module">
+                            <!-- Search icon -->
+                            <i class="fa fa-search search-module-icon" aria-hidden="true"></i>
+                            <input placeholder="Suchen"
+                                   ng-model="localctx.parameters['q']"
+                                   ng-model-options="{ updateOn: 'keyup', debounce: { 'default': 300, 'blur': 0 }}"
+                                   ng-change="localctx.parameters['start'] = undefined"
+                                   class="search-module-input"
+                                   type="text" />
+                            <!-- Clear button -->
+                            <button class="search-module-clear"
+                                    ng-if="localctx.parameters['q']"
+                                    ng-click="localctx.parameters['q'] = undefined;
+                                              localctx.parameters['start'] = undefined">
+                                <i class="fa fa-times-circle" aria-hidden="true"></i>
+                            </button>                  
+                        </div>
+                        <!-- FILTER -->
+                        <div class="filter-list">
+                            <div>
+                                {{ localctx.parameters['disjunctive.' + filter.id] = true; '' }}
+                                <div ods-facet-results="categories"
+                                     ods-facet-results-facet-name="{{ filter.id }}"
+                                     ods-facet-results-context="localctx"
+                                     ods-facet-results-sort="{{ filter.sort }}">
+                                    <ods-select ng-if="categories"
+                                                selected-values="activeFilters[filter.id]"
+                                                multiple="filter.multiple"
+                                                options="categories"
+                                                label-modifier="name"
+                                                value-modifier="name"
+                                                on-change="localctx.parameters['start'] = undefined"
+                                                placeholder="Thema">
+                                    </ods-select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- CARDS -->
+            <section>
+                <ods-infinite-scroll-results context="localctx"
+                                             result-class="margin-bottom-20"
+                                             no-results-message="{{ noResultMsg }}">
+                    <hr class="content-card-divider" />
+                    <div class="content-card">
+                        <div class="content-card-body"
+                             ng-init="showDetails = false;">
+                             <!-- QUESTION -->
+                            <h2 class="content-card-title text-center"
+                                ng-click="showDetails = !showDetails"
+                                ng-class="{'opened': showDetails}">
+                                {{ item.fields[$parent.$parent.$parent.$parent.$parent.question] }}
+                                <!-- The SVG arrow -->
+                                <span class="arrow-icon" ng-class="{'opened': showDetails}">
+                                    <svg width="20" height="20" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+                                         fill="#000000" stroke="#000000" stroke-width="0.01024">
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M903.232 256l56.768 50.432L512 768 64 306.432 120.768 256 512 659.072z" />
+                                        </g>
+                                    </svg>
+                                </span>
+                            </h2>
+                            <!-- ANSWER -->
+                            <div class="content-card-answer">
+                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.answer.field && showDetails == true">
+                                    <dd ng-bind-html="item.fields[$parent.$parent.$parent.$parent.$parent.answer]"></dd>
+                                </dl>
+                            </div>
+                            <!-- URL -->
+                            <div class="content-card-url">
+                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.url.field && 
+                                           item.fields[$parent.$parent.$parent.$parent.$parent.url] && 
+                                           showDetails == true"
+                                    class="dl-inline">
+                                    <dt>
+                                        {{ $parent.$parent.$parent.$parent.$parent.localctxfields[$parent.$parent.$parent.$parent.$parent.url] }}:
+                                    </dt>
+                                    <dd>
+                                        <a ng-href="{{ item.fields[$parent.$parent.$parent.$parent.$parent.url] }}"
+                                           target="_blank">
+                                            {{ item.fields[$parent.$parent.$parent.$parent.$parent.url_shown_text] }}
+                                        </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- CONTACT -->
+                            <div class="content-card-contact">
+                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.contact.field && 
+                                           item.fields[$parent.$parent.$parent.$parent.$parent.contact] && 
+                                           showDetails == true"
+                                    class="dl-inline">
+                                    <dt>
+                                        {{ $parent.$parent.$parent.$parent.$parent.localctxfields[$parent.$parent.$parent.$parent.$parent.contact] }}:
+                                    </dt>
+                                    <dd>
+                                        <a ng-href="mailto:{{ item.fields[$parent.$parent.$parent.$parent.$parent.contact] }}">
+                                            {{ item.fields[$parent.$parent.$parent.$parent.$parent.contact] }}
+                                        </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- LAST UPDATED -->
+                            <div class="content-card-last-updated">
+                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.last_updated.field && 
+                                           item.fields[$parent.$parent.$parent.$parent.$parent.last_updated] && 
+                                           showDetails == true"
+                                    class="dl-inline">
+                                    <dt>
+                                        {{ $parent.$parent.$parent.$parent.$parent.localctxfields[$parent.$parent.$parent.$parent.$parent.last_updated] }}:
+                                    </dt>
+                                    <dd>
+                                        {{ item.fields[$parent.$parent.$parent.$parent.$parent.last_updated] | date:'dd.MM.yyyy' }}
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </ods-infinite-scroll-results>
+            </section>
+        </ods-dataset-context>
+    </ods-dataset-context>
+</div>

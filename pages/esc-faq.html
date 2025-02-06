@@ -3,12 +3,6 @@
     datasetid = '100417';
     sort = '-ranking';
     filter = {'id':'thema','multiple':true, 'sort': 'alphanum'};
-    question = 'frage';
-    answer = 'antwort_html';
-    url = 'link';
-    url_shown_text = 'link_anzeigetext';
-    contact = 'kontakt';
-    last_updated = 'zuletzt_aktualisiert';
     noResultMsg = 'Kein Ergebnis';
     DO_NOT_MODIFY_BELOW;
     localctxfields = {};
@@ -27,16 +21,11 @@
             <span ng-if="sort">
                 {{localctx.parameters['sort'] = sort; ''}}
             </span>
-            <span ng-repeat="field in localctx.dataset.fields">
-                {{ localctxfields[field.name] = field.label; '' }}
+            <span>
+                {{ localctx.parameters['refine.' + filter.id] = activeFilters[filter.id] ; '' }}
             </span>
-            <div ng-if="!$parent.$parent.$parent.$parent.$parent || blocks">
-                <span>
-                    {{ localctx.parameters['refine.' + filter.id] = activeFilters[filter.id] ; '' }}
-                </span>
-            </div>
             <section class="sticky-content">
-                <div ng-show="!$parent.$parent.$parent.$parent.$parent || blocks" class="kpi-card">
+                <div class="kpi-card">
                     <!-- Wrapper for search & filters side by side -->
                     <div class="search-filter-container">
                         <!-- SEARCH -->
@@ -59,25 +48,22 @@
                         </div>
                         <!-- FILTER -->
                         <div class="filter-list">
-                            <div>
-                                {{ localctx.parameters['disjunctive.' + filter.id] = true; '' }}
-                                <div ods-facet-results="categories"
-                                     ods-facet-results-facet-name="{{ filter.id }}"
-                                     ods-facet-results-context="localctx"
-                                     ods-facet-results-sort="{{ filter.sort }}">
-                                    <ods-select ng-if="categories"
-                                                selected-values="activeFilters[filter.id]"
-                                                multiple="filter.multiple"
-                                                options="categories"
-                                                label-modifier="name"
-                                                value-modifier="name"
-                                                on-change="localctx.parameters['start'] = undefined"
-                                                placeholder="Thema">
-                                    </ods-select>
-                                </div>
+                            {{ localctx.parameters['disjunctive.' + filter.id] = true; '' }}
+                            <div ods-facet-results="categories"
+                                 ods-facet-results-facet-name="{{ filter.id }}"
+                                 ods-facet-results-context="localctx"
+                                 ods-facet-results-sort="{{ filter.sort }}">
+                                <ods-select ng-if="categories"
+                                            selected-values="activeFilters[filter.id]"
+                                            multiple="filter.multiple"
+                                            options="categories"
+                                            label-modifier="name"
+                                            value-modifier="name"
+                                            on-change="localctx.parameters['start'] = undefined"
+                                            placeholder="Thema">
+                                </ods-select>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -94,7 +80,7 @@
                             <h2 class="content-card-title text-center"
                                 ng-click="showDetails = !showDetails"
                                 ng-class="{'opened': showDetails}">
-                                {{ item.fields[$parent.$parent.$parent.$parent.$parent.question] }}
+                                {{ item.fields['frage'] }}
                                 <!-- The SVG arrow -->
                                 <span class="arrow-icon" ng-class="{'opened': showDetails}">
                                     <svg width="20" height="20" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
@@ -107,54 +93,51 @@
                             </h2>
                             <!-- ANSWER -->
                             <div class="content-card-answer">
-                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.answer.field && showDetails == true">
-                                    <dd ng-bind-html="item.fields[$parent.$parent.$parent.$parent.$parent.answer]"></dd>
+                                <dl ng-if="showDetails == true">
+                                    <dd ng-bind-html="item.fields['antwort_html']"></dd>
                                 </dl>
                             </div>
                             <!-- URL -->
                             <div class="content-card-url">
-                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.url.field && 
-                                           item.fields[$parent.$parent.$parent.$parent.$parent.url] && 
+                                <dl ng-if="item.fields['link'] && 
                                            showDetails == true"
                                     class="dl-inline">
                                     <dt>
-                                        {{ $parent.$parent.$parent.$parent.$parent.localctxfields[$parent.$parent.$parent.$parent.$parent.url] }}:
+                                        Link:
                                     </dt>
                                     <dd>
-                                        <a ng-href="{{ item.fields[$parent.$parent.$parent.$parent.$parent.url] }}"
+                                        <a ng-href="{{ item.fields['link'] }}"
                                            target="_blank">
-                                            {{ item.fields[$parent.$parent.$parent.$parent.$parent.url_shown_text] }}
+                                            {{ item.fields['link_anzeigetext'] }}
                                         </a>
                                     </dd>
                                 </dl>
                             </div>
                             <!-- CONTACT -->
                             <div class="content-card-contact">
-                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.contact.field && 
-                                           item.fields[$parent.$parent.$parent.$parent.$parent.contact] && 
+                                <dl ng-if="item.fields['kontakt'] && 
                                            showDetails == true"
                                     class="dl-inline">
                                     <dt>
-                                        {{ $parent.$parent.$parent.$parent.$parent.localctxfields[$parent.$parent.$parent.$parent.$parent.contact] }}:
+                                        Kontakt:
                                     </dt>
                                     <dd>
-                                        <a ng-href="mailto:{{ item.fields[$parent.$parent.$parent.$parent.$parent.contact] }}">
-                                            {{ item.fields[$parent.$parent.$parent.$parent.$parent.contact] }}
+                                        <a ng-href="mailto:{{ item.fields['kontakt'] }}">
+                                            {{ item.fields['kontakt'] }}
                                         </a>
                                     </dd>
                                 </dl>
                             </div>
                             <!-- LAST UPDATED -->
                             <div class="content-card-last-updated">
-                                <dl ng-if="!$parent.$parent.$parent.$parent.$parent.last_updated.field && 
-                                           item.fields[$parent.$parent.$parent.$parent.$parent.last_updated] && 
+                                <dl ng-if="item.fields['zuletzt_aktualisiert'] && 
                                            showDetails == true"
                                     class="dl-inline">
                                     <dt>
-                                        {{ $parent.$parent.$parent.$parent.$parent.localctxfields[$parent.$parent.$parent.$parent.$parent.last_updated] }}:
+                                        Zuletzt aktualisiert:
                                     </dt>
                                     <dd>
-                                        {{ item.fields[$parent.$parent.$parent.$parent.$parent.last_updated] | date:'dd.MM.yyyy' }}
+                                        {{ item.fields['zuletzt_aktualisiert'] | date:'dd.MM.yyyy' }}
                                     </dd>
                                 </dl>
                             </div>

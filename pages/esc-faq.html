@@ -3,6 +3,12 @@
     datasetid = '100417';
     sort = '-ranking';
     filter = {'id':'thema','multiple':true, 'sort': 'alphanum'};
+    LANGUAGE_SPECIFIC_PLACEHOLDERS;
+    search_placeholder = 'Suchen';
+    filter_placeholder = 'Themen';
+    url_placeholder = 'Link';
+    contact_placeholder = 'Kontakt';
+    last_updated_placeholder = 'Zuletzt aktualisiert';
     noResultMsg = 'Kein Ergebnis';
     DO_NOT_MODIFY_BELOW;
     localctxfields = {};
@@ -32,7 +38,7 @@
                         <div class="search-module">
                             <!-- Search icon -->
                             <i class="fa fa-search search-module-icon" aria-hidden="true"></i>
-                            <input placeholder="Suchen"
+                            <input placeholder="{{ search_placeholder }}"
                                    ng-model="localctx.parameters['q']"
                                    ng-model-options="{ updateOn: 'keyup', debounce: { 'default': 300, 'blur': 0 }}"
                                    ng-change="localctx.parameters['start'] = undefined"
@@ -60,7 +66,7 @@
                                             label-modifier="name"
                                             value-modifier="name"
                                             on-change="localctx.parameters['start'] = undefined"
-                                            placeholder="Thema">
+                                            placeholder="{{ filter_placeholder }}">
                                 </ods-select>
                             </div>
                         </div>
@@ -103,7 +109,7 @@
                                            showDetails == true"
                                     class="dl-inline">
                                     <dt>
-                                        Link:
+                                        {{ $parent.$parent.$parent.$parent.$parent.url_placeholder }}:
                                     </dt>
                                     <dd>
                                         <a ng-href="{{ item.fields['link'] }}"
@@ -119,7 +125,7 @@
                                            showDetails == true"
                                     class="dl-inline">
                                     <dt>
-                                        Kontakt:
+                                        {{ $parent.$parent.$parent.$parent.$parent.contact_placeholder }}:
                                     </dt>
                                     <dd>
                                         <a ng-href="mailto:{{ item.fields['kontakt'] }}">
@@ -134,7 +140,7 @@
                                            showDetails == true"
                                     class="dl-inline">
                                     <dt>
-                                        Zuletzt aktualisiert:
+                                        {{ $parent.$parent.$parent.$parent.$parent.last_updated_placeholder }}:
                                     </dt>
                                     <dd>
                                         {{ item.fields['zuletzt_aktualisiert'] | date:'dd.MM.yyyy' }}

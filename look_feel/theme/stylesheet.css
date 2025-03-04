@@ -13,6 +13,17 @@ tab in the page edit section. This makes it easier to keep track of which classe
 are page specific and which ones are generic and apply to the whole portal.
 */
 
+/* Style for dataset-view
+========================================================================== */
+.ods-dataset-visualization__edit-dataset-link {
+    color: #fff;
+}
+
+/* Style for 404-webpage
+========================================================================== */
+.ods-error-page__home-link-item {
+    color: #fff;
+}
 
 /* Portal Header - Logo and main navigation
 ========================================================================== */
@@ -102,7 +113,7 @@ are page specific and which ones are generic and apply to the whole portal.
     border: none;
     font-size: 1rem;
     font-weight: bold;
-    text-transform: capitalize;
+    text-transform: none;
     letter-spacing: .8px;
     line-height: 59px;
     padding: 0 13px;
@@ -116,25 +127,67 @@ are page specific and which ones are generic and apply to the whole portal.
 }
 
 
+/* Carte du catalogue
+========================================================================== */
+
+.ods-catalog-card__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}    
+
 /* Management Menu
-   ========================================================================== */
+========================================================================== */
 
 .ods-front-header__management-menu {
-    position: absolute;
-    top: 78px;
+    position: relative;
+    top: 10px;
     right: 13px;
-    line-height: 59px;
     font-size: .833rem;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .ods-front-header__management-menu-item {
     margin: 0 0 0 26px;
+    background-color: #F8F8F8;  
+    border-radius: 8px;
+    color: #1E4557;
+    padding: 5px;
+    height: 34px;
+    align-items: center;
+    display: flex;
+
 }
 
+.ods-front-header__management-menu-item:hover:has(.rods-tooltip-wrapper__btn) {
+    background-color: #1E4557;
+}
+
+
+.ods-front-header__management-menu-item:hover .ods-front-header__management-menu-item-link--backoffice {
+    color: #FFFFFF;
+    background-color: #1E4557;
+}
+
+.ods-front-header__management-menu-item:hover:has(.rods-tooltip-wrapper__btn) .ods-front-header__login-signup-buttons-button {
+    background-color: #1E4557; 
+}
+
+
+.ods-front-header__management-menu-item:hover .rods-front-office-container {
+    --front-office__domain-theme-color__header-link: #FFFFFF !important;
+}
+
+.ods-front-header__management-menu-item-link {
+    padding-bottom: 0;
+    color: #1E4557;
+    font-size: 1.125rem;
+    
+}
 .ods-front-header__management-menu-item-link--active, 
 .ods-front-header__management-menu-item-link:hover {
     border: none;
-    color: var(--page-background);
+    color: #FFFFFF;
 }
 
 .ods-front-header__account-avatar-container {
@@ -142,35 +195,24 @@ are page specific and which ones are generic and apply to the whole portal.
     vertical-align: middle;
 }
 
-.ods-front-header__management-menu-item--backoffice {
-    padding: 0;
-    border: none;
-    background: none;
-}
-
 /* Button "Back Office" in header */
-.ods-front-header__management-menu-item--backoffice .ods-front-header__management-menu-item-link--backoffice {
-    display: inline-block;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    padding: 5px;
-    background-color: transparent;  
-    border-radius: 4px;
+.ods-front-header__management-menu-item--backoffice  {
+        background-color: #F8F8F8;  
+
 }
 
-.ods-front-header__management-menu-item-link--backoffice:hover {
-    color: #000000;
-    background-color: #FFFFFF;
-}
-
-.ods-front-header__management-menu-item-link {
-    padding-bottom: 0;
-    color: #FFFFFF;
+.ods-front-header__management-menu-item-link--backoffice {
+    /*display: inline-block;*/
+    color: #1E4557;
+    /*border: 1px solid #FFFFFF;*/
+    padding: 6px;
+    background-color: #F8F8F8;  
+    border-radius: 8px;
 }
 
 
 /* Header - Mobile (small screens)
-   ========================================================================== */
+========================================================================== */
 
 .ods-responsive-menu-placeholder.ods-responsive-menu-placeholder--active {
     height: 100%;
@@ -208,27 +250,45 @@ are page specific and which ones are generic and apply to the whole portal.
 }
 
 /* Management Menu - Mobile (small screens)
-   ========================================================================== */
+===================================================================== ===== */
+
+@media screen and (min-width: 1000px) {
+    .portal-management-menu-mobile{
+        display:none; 
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .ods-front-header__management-menu-item--backoffice {
+        background-color: #DDECDE;  
+
+    }
+    .ods-front-header__management-menu-item:not(:has(.rods-tooltip-wrapper__btn)) {
+        background-color: #DDECDE; 
+    }
+    
+}
 
 .ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu {
     padding: 13px;
+    flex-direction: column;
 }
 
 .ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu-item {
     padding-left: 0;
+    height: 35px; 
 }
 
 .ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu-item--backoffice {
-    padding: 0;
+    border-radius: 8px;
+    padding: 3px 3px;
+    display: inline;
+    margin : 20px 0;
 }
 
+
 .ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu-item-link--backoffice {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+display: flex;
 }
 
 
@@ -239,7 +299,9 @@ body {
 .logos-container{
     margin-left: 128px;
     margin-right: 128px;
-}/* DESKTOP SPECIFICS - STYLE OF DROPDOWN MENU
+}
+
+/* DESKTOP SPECIFICS - STYLE OF DROPDOWN MENU
 ========================================================================== */
 
 .ods-front-header__menu-item {
@@ -302,7 +364,6 @@ li.dropdown-menu-submenu-item:last-child {
     white-space: nowrap; 
 }
 
-
 /* MOBILE SPECIFICS
 ========================================================================== */
 .ods-responsive-menu-placeholder.ods-responsive-menu-placeholder--active {
@@ -332,4 +393,45 @@ li.dropdown-menu-submenu-item:last-child {
 .ods-responsive-menu-collapsible--collapsed .ods-front-header__management-menu
 {
     width: 100%;
+}
+
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/theme_font/Inter-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/theme_font/Inter-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight:800;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/theme_font/Inter-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight:400;
+}
+
+html, body, h1, h2, h3, h4, p {
+  font-family: 'Inter', 'Inter Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.25rem;
+}
+h3 {
+  font-size: 1.125rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+.font-bold {
+    font-weight: 700;
 }

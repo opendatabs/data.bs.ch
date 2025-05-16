@@ -43,8 +43,10 @@
                 <ods-dataset-context context="ctx"
                     ctx-dataset="100345"
                     ctx-parameters="{'sort':'-abst_id','refine.abst_id_titel':''+item.name}">
-                    <b>Diese Abbildung zeigt die Stimmenanteile im Kanton Basel-Stadt der Vorlage {{item.name}} nach Wahllokal</b>
-                    <br /><br />
+                    <b>Vorlage {{item.name}}</b>
+                    <br />
+                        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für die <b>Initiative</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
+                    <br />
                     <ods-chart single-y-axis="true" scientific-display="false" labels-x-length="30" align-month="true">
                         <ods-chart-query context="ctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
                             <ods-chart-serie expression-y="ja_anz" 

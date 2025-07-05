@@ -1,0 +1,223 @@
+<ANY ods-datetime="datetime">
+     {{ datetime|moment:'YYYY-MM-DD HH:mm:ss' }}
+</ANY>
+
+<div class="schulferien-container">
+    <div class="accordion">
+        <!-- Dropdown for 2026 - shown as expanded in the image -->
+        <div class="year-accordion">
+            <input type="checkbox" name="schulferien_accordion" id="schulferien2026" class="accordion__input" checked>
+            <label for="schulferien2026" class="accordion__label">Schulferien 2026</label>
+            <div class="accordion__content">
+                <div ods-dataset-context context="schulferien2026" 
+                    schulferien2026-domain="https://data.bs.ch"
+                    schulferien2026-dataset="100397"
+                    schulferien2026-parameters='{"q": "year:2026 AND (name:\"Fasnachts- und Sportferien\" OR name:\"Fruehjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "start_date"}'>
+                    
+                    <table class="holiday-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="begin-column">Beginn</th>
+                                <th class="end-column">Ende</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in items" ods-results="items" ods-results-context="schulferien2026">
+                                <td class="holiday-type">
+                                    <span ng-if="item.fields.name == 'Fasnachts- und Sportferien'">Fasnacht</span>
+                                    <span ng-if="item.fields.name == 'Fruehjahrsferien'">Frühling</span>
+                                    <span ng-if="item.fields.name == 'Sommerferien'">Sommer</span>
+                                    <span ng-if="item.fields.name == 'Herbstferien'">Herbst</span>
+                                    <span ng-if="item.fields.name == 'Weihnachtsferien'">Weihnachten</span>
+                                </td>
+                                <td class="date">{{ item.fields.start_date | date:'dd. MMMM yyyy' }}</td>
+                                <td class="date">{{ item.fields.end_date | date:'dd. MMMM yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dropdown for 2027 - collapsed -->
+        <div class="year-accordion">
+            <input type="checkbox" name="schulferien_accordion" id="schulferien2027" class="accordion__input">
+            <label for="schulferien2027" class="accordion__label">Schulferien 2027</label>
+            <div class="accordion__content">
+                <div ods-dataset-context context="schulferien2027" 
+                    schulferien2027-domain="https://data.bs.ch"
+                    schulferien2027-dataset="100397"
+                    schulferien2027-parameters='{"q": "year:2027 AND (name:\"Fasnachts- und Sportferien\" OR name:\"Fruehjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "start_date"}'>
+                    
+                    <table class="holiday-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="begin-column">Beginn</th>
+                                <th class="end-column">Ende</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in items" ods-results="items" ods-results-context="schulferien2027">
+                                <td class="holiday-type">
+                                    <span ng-if="item.fields.name == 'Fasnachts- und Sportferien'">Fasnacht</span>
+                                    <span ng-if="item.fields.name == 'Fruehjahrsferien'">Frühling</span>
+                                    <span ng-if="item.fields.name == 'Sommerferien'">Sommer</span>
+                                    <span ng-if="item.fields.name == 'Herbstferien'">Herbst</span>
+                                    <span ng-if="item.fields.name == 'Weihnachtsferien'">Weihnachten</span>
+                                </td>
+                                <td class="date">{{ item.fields.start_date | date:'dd. MMMM yyyy' }}</td>
+                                <td class="date">{{ item.fields.end_date | date:'dd. MMMM yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown for 2028 - collapsed -->
+        <div class="year-accordion">
+            <input type="checkbox" name="schulferien_accordion" id="schulferien2028" class="accordion__input">
+            <label for="schulferien2028" class="accordion__label">Schulferien 2028</label>
+            <div class="accordion__content">
+                <div ods-dataset-context context="schulferien2028" 
+                    schulferien2028-domain="https://data.bs.ch"
+                    schulferien2028-dataset="100397"
+                    schulferien2028-parameters='{"q": "year:2028 AND (name:\"Fasnachts- und Sportferien\" OR name:\"Fruehjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "start_date"}'>
+                    
+                    <table class="holiday-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="begin-column">Beginn</th>
+                                <th class="end-column">Ende</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in items" ods-results="items" ods-results-context="schulferien2028">
+                                <td class="holiday-type">
+                                    <span ng-if="item.fields.name == 'Fasnachts- und Sportferien'">Fasnacht</span>
+                                    <span ng-if="item.fields.name == 'Fruehjahrsferien'">Frühling</span>
+                                    <span ng-if="item.fields.name == 'Sommerferien'">Sommer</span>
+                                    <span ng-if="item.fields.name == 'Herbstferien'">Herbst</span>
+                                    <span ng-if="item.fields.name == 'Weihnachtsferien'">Weihnachten</span>
+                                </td>
+                                <td class="date">{{ item.fields.start_date | date:'dd. MMMM yyyy' }}</td>
+                                <td class="date">{{ item.fields.end_date | date:'dd. MMMM yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown for 2029 - collapsed -->
+        <div class="year-accordion">
+            <input type="checkbox" name="schulferien_accordion" id="schulferien2029" class="accordion__input">
+            <label for="schulferien2029" class="accordion__label">Schulferien 2029</label>
+            <div class="accordion__content">
+                <div ods-dataset-context context="schulferien2029" 
+                    schulferien2029-domain="https://data.bs.ch"
+                    schulferien2029-dataset="100397"
+                    schulferien2029-parameters='{"q": "year:2029 AND (name:\"Fasnachts- und Sportferien\" OR name:\"Fruehjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "start_date"}'>
+                    
+                    <table class="holiday-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="begin-column">Beginn</th>
+                                <th class="end-column">Ende</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in items" ods-results="items" ods-results-context="schulferien2029">
+                                <td class="holiday-type">
+                                    <span ng-if="item.fields.name == 'Fasnachts- und Sportferien'">Fasnacht</span>
+                                    <span ng-if="item.fields.name == 'Fruehjahrsferien'">Frühling</span>
+                                    <span ng-if="item.fields.name == 'Sommerferien'">Sommer</span>
+                                    <span ng-if="item.fields.name == 'Herbstferien'">Herbst</span>
+                                    <span ng-if="item.fields.name == 'Weihnachtsferien'">Weihnachten</span>
+                                </td>
+                                <td class="date">{{ item.fields.start_date | date:'dd. MMMM yyyy' }}</td>
+                                <td class="date">{{ item.fields.end_date | date:'dd. MMMM yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown for 2030 - collapsed -->
+        <div class="year-accordion">
+            <input type="checkbox" name="schulferien_accordion" id="schulferien2030" class="accordion__input">
+            <label for="schulferien2030" class="accordion__label">Schulferien 2030</label>
+            <div class="accordion__content">
+                <div ods-dataset-context context="schulferien2030" 
+                    schulferien2030-domain="https://data.bs.ch"
+                    schulferien2030-dataset="100397"
+                    schulferien2030-parameters='{"q": "year:2030 AND (name:\"Fasnachts- und Sportferien\" OR name:\"Fruehjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "start_date"}'>
+    
+    <table class="holiday-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th class="begin-column">Beginn</th>
+                <th class="end-column">Ende</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr ng-repeat="item in items" ods-results="items" ods-results-context="schulferien2030">
+                <td class="holiday-type">
+                    <span ng-if="item.fields.name == 'Fasnachts- und Sportferien'">Fasnacht</span>
+                    <span ng-if="item.fields.name == 'Fruehjahrsferien'">Frühling</span>
+                    <span ng-if="item.fields.name == 'Sommerferien'">Sommer</span>
+                    <span ng-if="item.fields.name == 'Herbstferien'">Herbst</span>
+                    <span ng-if="item.fields.name == 'Weihnachtsferien'">Weihnachten</span>
+                </td>
+                                <td class="date">{{ item.fields.start_date | date:'dd. MMMM yyyy' }}</td>
+                                <td class="date">{{ item.fields.end_date | date:'dd. MMMM yyyy' }}</td>
+            </tr>
+        </tbody>
+    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown for 2031 - collapsed -->
+        <div class="year-accordion">
+            <input type="checkbox" name="schulferien_accordion" id="schulferien2031" class="accordion__input">
+            <label for="schulferien2031" class="accordion__label">Schulferien 2031</label>
+            <div class="accordion__content">
+                <div ods-dataset-context context="schulferien2031" 
+                    schulferien2031-domain="https://data.bs.ch"
+                    schulferien2031-dataset="100397"
+                    schulferien2031-parameters='{"q": "year:2031 AND (name:\"Fasnachts- und Sportferien\" OR name:\"Fruehjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "start_date"}'>
+                    
+                    <table class="holiday-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="begin-column">Beginn</th>
+                                <th class="end-column">Ende</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in items" ods-results="items" ods-results-context="schulferien2031">
+                                <td class="holiday-type">
+                                    <span ng-if="item.fields.name == 'Fasnachts- und Sportferien'">Fasnacht</span>
+                                    <span ng-if="item.fields.name == 'Fruehjahrsferien'">Frühling</span>
+                                    <span ng-if="item.fields.name == 'Sommerferien'">Sommer</span>
+                                    <span ng-if="item.fields.name == 'Herbstferien'">Herbst</span>
+                                    <span ng-if="item.fields.name == 'Weihnachtsferien'">Weihnachten</span>
+                                </td>
+                                <td class="date">{{ item.fields.start_date | date:'dd. MMMM yyyy' }}</td>
+                                <td class="date">{{ item.fields.end_date | date:'dd. MMMM yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

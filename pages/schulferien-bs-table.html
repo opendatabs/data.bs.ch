@@ -2,7 +2,7 @@
 
 <div ng-init="currentYear = (datetime|moment:'YYYY')">
     <div ods-dataset-context context="schulferien" schulferien-domain="https://data.bs.ch" schulferien-dataset="100397"
-        schulferien-parameters='{"q": "year:"+currentYear+" AND (name:\"Fasnachts- und Sportferien\" OR name:\"Fruehjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "-start_date"}'>
+        schulferien-parameters='{"q": "year:"+currentYear+" AND (name:\"Fasnachts- und Sportferien\" OR name:\"Frühjahrsferien\" OR name:\"Sommerferien\" OR name:\"Herbstferien\" OR name:\"Weihnachtsferien\")", "sort": "-start_date"}'>
         <h1>
             Schulferien {{currentYear}} <!--  Here for debugging purposes  -->
         </h1>
@@ -17,11 +17,7 @@
             <tbody>
                 <tr ng-repeat="item in items" ods-results="items" ods-results-context="schulferien">
                     <td class="holiday-type">
-                        <span ng-if="item.fields.name == 'Fasnachts- und Sportferien'">Fasnacht</span>
-                        <span ng-if="item.fields.name == 'Fruehjahrsferien'">Frühling</span>
-                        <span ng-if="item.fields.name == 'Sommerferien'">Sommer</span>
-                        <span ng-if="item.fields.name == 'Herbstferien'">Herbst</span>
-                        <span ng-if="item.fields.name == 'Weihnachtsferien'">Weihnachten</span>
+                        {{ item.fields.name_short }}
                     </td>
                     <td class="date">{{ item.fields.start_date | date:'d. MMMM yyyy' }}</td>
                     <td class="date">{{ item.fields.end_date | date:'d. MMMM yyyy' }}</td>

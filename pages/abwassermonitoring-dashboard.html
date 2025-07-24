@@ -5,6 +5,9 @@
                 Virenmonitoring im Abwasser
             </h1>
             <div class="map box white flat">
+                <h3>
+                    Karte des Einzugsgebiets der ARA Basel
+                </h3>
                 <ods-dataset-context context="myctx,myctx0" myctx-dataset="100336">
                     <ods-map basemap="jawg.streets"
                              no-refit="true" 
@@ -21,9 +24,6 @@
                         </ods-map-layer-group>
                     </ods-map>
                 </ods-dataset-context>
-                <h3>
-                    Karte des Einzugsgebiets der ARA Basel
-                </h3>
             </div>
             <h3>
                 <b>Messung</b>
@@ -48,9 +48,12 @@
                     Dieses Dashboard zeigt den 7-Tage-Median der RNA-Kopien des angegebenen Virus jeweils pro Tag und 100‘000 Personen im Abwasser der Abwasserreinigungs-Anlage (ARA) Basel sowie den 7-Tage-Median der entsprechenden
                     Fallzahlen. Der Datensatz wird i.d.R. jeweils dienstags mit den Daten bis vorangegangenem Sonntag aktualisiert. In einzelnen Wochen kann es zu Verschiebungen kommen.
                 </p>
-                <b>Hinweis (02.09.2024)</b>
+                <b>Hinweis (16.05.2025)</b>
                 <p>
-                    Der Nachweis von Influenza und RSV wurde wieder aufgenommen, nachdem er seit dem 03.06.2024 ausgesetzt war. Der Nachweis von SARS-CoV-2 wird kontinuierlich fortgesetzt, da hier die Saisonalität noch nicht abschliessend nachgewiesen ist.
+                    Der Nachweis von Influenza und RSV wurde jeweils von ca. Mai bis August ausgesetzt. Der Nachweis von SARS-CoV-2 wurde hingegen bis 2024 kontinuierlich fortgesetzt, da die Saisonalität hier noch nicht ausreichend nachgewiesen war. Da sich das Coronavirus in den letzten zwei Jahren auch saisonal ausgebreitet hat, wird dieser Nachweis ab Mai 2025 ebenfalls unterbrochen. Alle Nachweise werden frühzeitig wieder aufgenommen, um einen eventuell verfrühten Anstieg der Virenlast beobachten zu können.
+                </p>
+                <p>
+                    Die bis zum 21.04.2025 verwendete RT-PCR-Nachweismethode für Influenza A & B sowie RSV wurde vom Hersteller durch ein anderes Kit ersetzt. Obwohl der Nachweis prinzipiell derselbe ist, war in unseren Tests ein leicht verändertes Detektionsverhalten zu beobachten. Dieses wird bei der Interpretation der aktuellen im Vergleich zur zurückliegenden Kurve berücksichtigt.
                 </p>
             </h3>
         </div>
@@ -59,220 +62,395 @@
             <div class="row">
                 <ods-simple-tabs>
                     <ods-simple-tab label="SARS-CoV-2" keep-content="false">
-                        <ods-dataset-context context="myctx" myctx-dataset="100187" myctx-parameters="{'sort':'-date_start'}">
-                            <h2>
-                                <b>SARS-CoV-2 im Abwasser und positiv auf SARS-CoV-2 getestete Personen </b>
-                            </h2>
-                            <h3>
-                                Zeitraum wählen
-                            </h3>
-                            <ods-date-range-slider class="slider" context="myctx" 
-                                date-format="DD MMM YYYY" 
-                                initial-from="'2021/07/06'" 
-                                initial-to="'now'"
-                                precision="day" 
-                                date-field="datum" 
-                                start-bound="'2021/07/06'" 
-                                end-bound="'now'">
-                            </ods-date-range-slider>
-                            <h3>
-                                SARS-CoV-2 im Abwasser (Genkopien pro 100 000 Personen) und positiv auf SARS-CoV-2 getestete Personen
-                            </h3>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ods-chart align-month="true">
-                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
-                                                label-y="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median"
-                                                chart-type="line"
-                                                function-y="AVG" 
-                                                color="#263891"
-                                                scientific-display="true"
-                                                min=0 max= 8E13 step=2E13>
-                                            </ods-chart-serie>
-                                            <ods-chart-serie expression-y="7t_median_bs_bl"
-                                                label-y="SARS-CoV-2-Fälle (BS&BL) 7-Tage Median"
-                                                chart-type="line"
-                                                function-y="AVG"
-                                                color="#AF5FA2"
-                                                scientific-display="true"
-                                                min=0 max= 1600 step=400>
-                                            </ods-chart-serie>
-                                        </ods-chart-query>
-                                    </ods-chart>
+                        <h4>
+                            <b>SARS-CoV-2 im Abwasser und positiv auf SARS-CoV-2 getestete Personen </b>
+                        </h4>
+                        <div class="switch-container">
+                            <span class="switch-label left">Zeitraum wählen</span>
+                            <label class="switch">
+                                <input class="switch-input" type="checkbox" id="overlayToggle" ng-model="overlayToggle">
+                                <span class="switch-button"></span>
+                            </label>
+                            <span class="switch-label right">Saisons überlagern</span>
+                        </div>
+                        <div ng-if="!overlayToggle">
+                            <ods-dataset-context context="myctx" myctx-dataset="100187" myctx-parameters="{'sort':'-date_start'}">
+                                <ods-date-range-slider class="slider" context="myctx" 
+                                                       date-format="DD MMM YYYY" 
+                                                       initial-from="'2021/07/06'" 
+                                                       initial-to="'now'"
+                                                       precision="day" 
+                                                       date-field="datum" 
+                                                       start-bound="'2021/07/06'" 
+                                                       end-bound="'now'">
+                                </ods-date-range-slider>
+                                <p>
+                                    SARS-CoV-2 im Abwasser (Genkopien pro 100 000 Personen) und positiv auf SARS-CoV-2 getestete Personen
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart align-month="true">
+                                            <ods-chart-query context="myctx" 
+                                                             field-x="datum" 
+                                                             maxpoints="0" 
+                                                             timescale="day">
+                                                <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                                                 label-y="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG" 
+                                                                 color="#263891"
+                                                                 scientific-display="true"
+                                                                 min=0 max= 8E13 step=2E13>
+                                                </ods-chart-serie>
+                                                <ods-chart-serie expression-y="7t_median_bs_bl"
+                                                                 label-y="SARS-CoV-2-Fälle (BS&BL) 7-Tage Median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 color="#AF5FA2"
+                                                                 scientific-display="true"
+                                                                 min=0 max= 1600 step=400>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
+                            </ods-dataset-context>
+                        </div>
+                        <div ng-if="overlayToggle">
+                            <ods-dataset-context context="myctx" 
+                                                 myctx-dataset="100187" 
+                                                 myctx-parameters="{'sort':'-saison',
+                                                                   'disjunctive.saison':true,}">
+                                <p>
+                                    SARS-CoV-2 im Abwasser (Genkopien pro 100 000 Personen) nach Saison
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart class="lighter-x-legend">
+                                            <ods-chart-query context="myctx" 
+                                                             field-x="tag_der_saison"
+                                                             maxpoints="0"
+                                                             series-breakdown="saison"
+                                                             category-colors="{'2021/2022':'#933F8D',
+                                                                              '2022/2023':'#71A3B5',
+                                                                              '2023/2024':'#CD9C00',
+                                                                              '2024/2025':'#C8C8C8',
+                                                                              '2025/2026':'#FF9900',
+                                                                              '2026/2027':'#333399'}">
+                                                <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                                                 label-y="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 scientific-display="true"
+                                                                 min=0>
+                                                </ods-chart-serie>
+                                                <!--ods-chart-serie expression-y="7t_median_bs_bl"
+                                                                 label-y="SARS-CoV-2-Fälle (BS&BL) 7-Tage Median"
+                                                                 chart-type="scatter"
+                                                                 function-y="AVG"
+                                                                 scientific-display="true"
+                                                                 min=0 max=1600 step=400>
+                                                </ods-chart-serie-->
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                </div>
+                            </ods-dataset-context>
+                        </div>
+                        <br>
+                        <div class="col-md-2">
+                            <a class="basic-button"
+                               href="https://data.bs.ch/explore/dataset/100187"
+                               role="button">
+                                Zum Datensatz
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="basic-button"
+                               href="https://data.bs.ch/pages/covid-19-dashboard/"
+                               role="button">
+                                Zum Covid-19 Dashboard
+                            </a>
+                        </div>
+                    </ods-simple-tab>
+                    <ods-simple-tab label="RSV" keep-content="false">
+                        <h4>
+                            <b>RS-Virus im Abwasser und positiv auf das RS-Virus getestete Personen </b>
+                        </h4>
+                        <div class="switch-container">
+                            <span class="switch-label left">Zeitraum wählen</span>
+                            <label class="switch">
+                                <input class="switch-input" type="checkbox" id="overlayToggle" ng-model="overlayToggle">
+                                <span class="switch-button"></span>
+                            </label>
+                            <span class="switch-label right">Saisons überlagern</span>
+                        </div>
+                        <div ng-if="!overlayToggle">
+                            <ods-dataset-context context="myctx" 
+                                                 myctx-dataset="100302" 
+                                                 myctx-parameters="{'sort':'-date_start'}">
+                                <ods-date-range-slider class="slider" context="myctx" 
+                                    date-format="DD MMM YYYY" 
+                                    initial-from="'2021/08/14'" 
+                                    initial-to="'now'"
+                                    precision="day" 
+                                    date-field="datum" 
+                                    start-bound="'2021/08/14'" 
+                                    end-bound="'now'">
+                                </ods-date-range-slider>
+                                <p>
+                                    RS-Virus im Abwasser (Genkopien pro 100 000 Personen) und positiv auf RS-Virus getestete Personen
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart scientific-display="false" align-month="true">
+                                            <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                                <ods-chart-serie label-y="RSV (gc/100'000 P.) 7-Tage Median"
+                                                                 expression-y="rsv_gc_100_000_p_7_d_median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 color="rgb(196,155,51)"
+                                                                 scientific-display="true"
+                                                                 min=0 max=2E13>
+                                                </ods-chart-serie>
+                                                <ods-chart-serie label-y="Anzahl wöchentliche RSV-Fälle"
+                                                                 expression-y="kw_anz_pos_rsv_usb"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 color="rgb(0,0,0)"
+                                                                 scientific-display="true"
+                                                                 min=0 max=40 step=10>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                </div>
+                            </ods-dataset-context>
+                        </div>
+                        <div ng-if="overlayToggle">
+                            <ods-dataset-context context="myctx" 
+                                                 myctx-dataset="100302" 
+                                                 myctx-parameters="{'sort':'-saison',
+                                                                   'disjunctive.saison':true}">
+                                <p>
+                                    RS-Virus im Abwasser (Genkopien pro 100 000 Personen) nach Saison
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart class="lighter-x-legend">
+                                            <ods-chart-query context="myctx" 
+                                                             field-x="tag_der_saison"
+                                                             maxpoints="0"
+                                                             series-breakdown="saison"
+                                                             category-colors="{'2021/2022':'#933F8D',
+                                                                              '2022/2023':'#71A3B5',
+                                                                              '2023/2024':'#CD9C00',
+                                                                              '2024/2025':'#C8C8C8',
+                                                                              '2025/2026':'#FF9900',
+                                                                              '2026/2027':'#333399'}">
+                                                <ods-chart-serie expression-y="rsv_gc_100_000_p_7_d_median"
+                                                                 label-y="RSV (gc/100'000 P.) 7-Tage Median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 scientific-display="true"
+                                                                 min=0>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                </div>
+                            </ods-dataset-context>
+                        </div>
+                        <br>
+                        <a class="basic-button"
+                           href="https://data.bs.ch/explore/dataset/100302"
+                           role="button">
+                            Zum Datensatz
+                        </a>
+                    </ods-simple-tab>
+                    <ods-simple-tab label="Influenza A" keep-content="false">
+                        <h4>
+                            <b>Influenza A im Abwasser und positiv auf das Influenza A getestete Personen </b>
+                        </h4>
+                        <div class="switch-container">
+                            <span class="switch-label left">Zeitraum wählen</span>
+                            <label class="switch">
+                                <input class="switch-input" type="checkbox" id="overlayToggle" ng-model="overlayToggle">
+                                <span class="switch-button"></span>
+                            </label>
+                            <span class="switch-label right">Saisons überlagern</span>
+                        </div>
+                        <div ng-if="!overlayToggle">
+                            <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+                                <ods-date-range-slider class="slider" context="myctx" 
+                                                       date-format="DD MMM YYYY" 
+                                                       initial-from="'2021/10/03'" 
+                                                       initial-to="'now'"
+                                                       precision="day" 
+                                                       date-field="datum" 
+                                                       start-bound="'2021/10/03'" 
+                                                       end-bound="'now'">
+                                </ods-date-range-slider>
+                                <p>
+                                    Influenza A im Abwasser (Genkopien pro 100 000 Personen) und positiv auf Influenza A getestete Personen
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart scientific-display="false" align-month="true">
+                                            <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                                <ods-chart-serie label-y="InfA (gc/100'000 P.) 7-Tage Median"
+                                                                 expression-y="infa_gc_100_000_p_7_d_median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 color="#FF796C" 
+                                                                 scientific-display="true"
+                                                                 min=0 max=6E12 step=15E11>
+                                                </ods-chart-serie>
+                                                <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
+                                                                 expression-y="7t_median_infa"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 color="#929591" 
+                                                                 scientific-display="true"
+                                                                 min=0 max=32 step=8>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                </div>
                                 <a class="basic-button"
-                                   href="https://data.bs.ch/explore/dataset/100187"
+                                   href="https://data.bs.ch/explore/dataset/100302"
                                    role="button">
                                     Zum Datensatz
                                 </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a class="basic-button"
-                                   href="https://data.bs.ch/pages/covid-19-dashboard/"
-                                   role="button">
-                                    Zum Covid-19 Dashboard
-                                </a>
-                            </div>
-                        </ods-dataset-context>
-                    </ods-simple-tab>
-                    <ods-simple-tab label="RSV" keep-content="false">
-                        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
-                            <h2>
-                                <b>RS-Virus im Abwasser und positiv auf das RS-Virus getestete Personen </b>
-                            </h2>
-                            <h3>
-                                Zeitraum wählen
-                            </h3>
-                            <ods-date-range-slider class="slider" context="myctx" 
-                                date-format="DD MMM YYYY" 
-                                initial-from="'2021/08/14'" 
-                                initial-to="'now'"
-                                precision="day" 
-                                date-field="datum" 
-                                start-bound="'2021/08/14'" 
-                                end-bound="'now'">
-                            </ods-date-range-slider>
-                            <h3>
-                                RS-Virus im Abwasser (Genkopien pro 100 000 Personen) und positiv auf RS-Virus getestete Personen
-                            </h3>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ods-chart scientific-display="false" align-month="true">
-                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                                            <ods-chart-serie label-y="RSV (gc/100'000 P.) 7-Tage Median"
-                                                expression-y="rsv_gc_100_000_p_7_d_median"
-                                                chart-type="line"
-                                                function-y="AVG"
-                                                color="rgb(196,155,51)"
-                                                scientific-display="true"
-                                                min=0 max=2E13>
-                                            </ods-chart-serie>
-                                            <ods-chart-serie label-y="Anzahl wöchentliche RSV-Fälle"
-                                                expression-y="kw_anz_pos_rsv_usb"
-                                                chart-type="line"
-                                                function-y="AVG"
-                                                color="rgb(0,0,0)"
-                                                scientific-display="true"
-                                                min=0 max=40 step=10>
-                                            </ods-chart-serie>
-                                        </ods-chart-query>
-                                    </ods-chart>
+                            </ods-dataset-context>
+                        </div>
+                        <div ng-if="overlayToggle">
+                            <ods-dataset-context context="myctx" 
+                                                 myctx-dataset="100302" 
+                                                 myctx-parameters="{'sort':'-saison',
+                                                                   'disjunctive.saison':true}">
+                                <p>
+                                    Influenza A im Abwasser (Genkopien pro 100 000 Personen) nach Saison
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart class="lighter-x-legend">
+                                            <ods-chart-query context="myctx" 
+                                                             field-x="tag_der_saison"
+                                                             maxpoints="0"
+                                                             series-breakdown="saison"
+                                                             category-colors="{'2021/2022':'#933F8D',
+                                                                              '2022/2023':'#71A3B5',
+                                                                              '2023/2024':'#CD9C00',
+                                                                              '2024/2025':'#C8C8C8',
+                                                                              '2025/2026':'#FF9900',
+                                                                              '2026/2027':'#333399'}">
+                                                <ods-chart-serie expression-y="infa_gc_100_000_p_7_d_median"
+                                                                 label-y="InfA (gc/100'000 P.) 7-Tage Median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 scientific-display="true"
+                                                                 min=0>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
                                 </div>
-                            </div>
-                            <p>
-                                <br>
-                            </p>
-                            <a class="basic-button"
-                               href="https://data.bs.ch/explore/dataset/100302"
-                               role="button">
-                                Zum Datensatz
-                            </a>
-                        </ods-dataset-context>
-                    </ods-simple-tab>
-                    <ods-simple-tab label="Influenza A" keep-content="false">
-                        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
-                            <h2>
-                                <b>Influenza A im Abwasser und positiv auf das Influenza A getestete Personen </b>
-                            </h2>
-                            <h3>
-                                Zeitraum wählen
-                            </h3>
-                            <ods-date-range-slider class="slider" context="myctx" 
-                                date-format="DD MMM YYYY" 
-                                initial-from="'2021/10/03'" 
-                                initial-to="'now'"
-                                precision="day" 
-                                date-field="datum" 
-                                start-bound="'2021/10/03'" 
-                                end-bound="'now'">
-                            </ods-date-range-slider>
-                            <h3>
-                                Influenza A im Abwasser (Genkopien pro 100 000 Personen) und positiv auf Influenza A getestete Personen
-                            </h3>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ods-chart scientific-display="false" align-month="true">
-                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                                            <ods-chart-serie label-y="InfA (gc/100'000 P.) 7-Tage Median"
-                                                expression-y="infa_gc_100_000_p_7_d_median"
-                                                chart-type="line"
-                                                function-y="AVG"
-                                                color="#FF796C" 
-                                                scientific-display="true"
-                                                min=0 max=6E12 step=15E11>
-                                            </ods-chart-serie>
-                                            <ods-chart-serie label-y="InfA-Fälle (BS&BL) 7-Tage Median"
-                                                expression-y="7t_median_infa"
-                                                chart-type="line"
-                                                function-y="AVG"
-                                                color="#929591" 
-                                                scientific-display="true"
-                                                min=0 max=32 step=8>
-                                            </ods-chart-serie>
-                                        </ods-chart-query>
-                                    </ods-chart>
-                                </div>
-                            </div>
-                            <a class="basic-button"
-                               href="https://data.bs.ch/explore/dataset/100302"
-                               role="button">
-                                Zum Datensatz
-                            </a>
-                        </ods-dataset-context>
+                            </ods-dataset-context>
+                        </div>
                     </ods-simple-tab>
                     <ods-simple-tab label="Influenza B" keep-content="false">
-                        <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
-                            <h2>
-                                <b>Influenza B im Abwasser und positiv auf das Influenza B getestete Personen </b>
-                            </h2>
-                            <h3>
-                                Zeitraum wählen
-                            </h3>
-                            <ods-date-range-slider class="slider" context="myctx" 
-                                date-format="DD MMM YYYY" 
-                                initial-from="'2021/10/03'" 
-                                initial-to="'now'"
-                                precision="day" 
-                                date-field="datum" 
-                                start-bound="'2021/10/03'" 
-                                end-bound="'now'">
-                            </ods-date-range-slider>
-                            <h3>
-                                Influenza B im Abwasser (Genkopien pro 100 000 Personen) und positiv auf Influenza B getestete Personen
-                            </h3>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ods-chart scientific-display="false" align-month="true">
-                                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                                            <ods-chart-serie label-y="InfB (gc/100'000 P.) 7-Tage Median"
-                                                expression-y="infb_gc_100_000_p_7_d_median"
-                                                chart-type="line"
-                                                function-y=""
-                                                color="#7BC8F6" 
-                                                scientific-display="true"
-                                                min=0 max=6E12 step=15E11>
-                                            </ods-chart-serie>
-                                            <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
-                                                expression-y="7t_median_infb"
-                                                chart-type="line"
-                                                function-y="AVG"
-                                                color="#000000" 
-                                                scientific-display="true"
-                                                min=0 max=32 step=8>
-                                            </ods-chart-serie>
-                                        </ods-chart-query>
-                                    </ods-chart>
+                        <h4>
+                            <b>Influenza B im Abwasser und positiv auf das Influenza B getestete Personen </b>
+                        </h4>
+                        <div class="switch-container">
+                            <span class="switch-label left">Zeitraum wählen</span>
+                            <label class="switch">
+                                <input class="switch-input" type="checkbox" id="overlayToggle" ng-model="overlayToggle">
+                                <span class="switch-button"></span>
+                            </label>
+                            <span class="switch-label right">Saisons überlagern</span>
+                        </div>
+                        <div ng-if="!overlayToggle">
+                            <ods-dataset-context context="myctx" myctx-dataset="100302" myctx-parameters="{'sort':'-date_start'}">
+                                <ods-date-range-slider class="slider" context="myctx" 
+                                                       date-format="DD MMM YYYY" 
+                                                       initial-from="'2021/10/03'" 
+                                                       initial-to="'now'"
+                                                       precision="day" 
+                                                       date-field="datum" 
+                                                       start-bound="'2021/10/03'" 
+                                                       end-bound="'now'">
+                                </ods-date-range-slider>
+                                <p>
+                                    Influenza B im Abwasser (Genkopien pro 100 000 Personen) und positiv auf Influenza B getestete Personen
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart scientific-display="false" align-month="true">
+                                            <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                                <ods-chart-serie label-y="InfB (gc/100'000 P.) 7-Tage Median"
+                                                                 expression-y="infb_gc_100_000_p_7_d_median"
+                                                                 chart-type="line"
+                                                                 function-y=""
+                                                                 color="#7BC8F6" 
+                                                                 scientific-display="true"
+                                                                 min=0 max=6E12 step=15E11>
+                                                </ods-chart-serie>
+                                                <ods-chart-serie label-y="InfB-Fälle (BS&BL) 7-Tage Median"
+                                                                 expression-y="7t_median_infb"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 color="#000000" 
+                                                                 scientific-display="true"
+                                                                 min=0 max=32 step=8>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
                                 </div>
-                            </div>
-                            <a class="basic-button"
-                               href="https://data.bs.ch/explore/dataset/100302"
-                               role="button">
-                                Zum Datensatz
-                            </a>
-                        </ods-dataset-context>
+                                <a class="basic-button"
+                                   href="https://data.bs.ch/explore/dataset/100302"
+                                   role="button">
+                                    Zum Datensatz
+                                </a>
+                            </ods-dataset-context>
+                        </div>
+                        <div ng-if="overlayToggle">
+                            <ods-dataset-context context="myctx" 
+                                                 myctx-dataset="100302" 
+                                                 myctx-parameters="{'sort':'-saison',
+                                                                   'disjunctive.saison':true}">
+                                <p>
+                                    Influenza B im Abwasser (Genkopien pro 100 000 Personen) nach Saison
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ods-chart class="lighter-x-legend">
+                                            <ods-chart-query context="myctx" 
+                                                             field-x="tag_der_saison"
+                                                             maxpoints="0"
+                                                             series-breakdown="saison"
+                                                             category-colors="{'2021/2022':'#933F8D',
+                                                                              '2022/2023':'#71A3B5',
+                                                                              '2023/2024':'#CD9C00',
+                                                                              '2024/2025':'#C8C8C8',
+                                                                              '2025/2026':'#FF9900',
+                                                                              '2026/2027':'#333399'}">
+                                                <ods-chart-serie expression-y="infb_gc_100_000_p_7_d_median"
+                                                                 label-y="InfB (gc/100'000 P.) 7-Tage Median"
+                                                                 chart-type="line"
+                                                                 function-y="AVG"
+                                                                 scientific-display="true"
+                                                                 min=0>
+                                                </ods-chart-serie>
+                                            </ods-chart-query>
+                                        </ods-chart>
+                                    </div>
+                                </div>
+                            </ods-dataset-context>
+                        </div>
                     </ods-simple-tab>
                 </ods-simple-tabs>
             </div>

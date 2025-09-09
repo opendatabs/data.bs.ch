@@ -299,14 +299,35 @@
                   </div>
                </div>
             </div>
-            <!-- TWITTER -->
-            <!-- Twitter feed is down (temporarily comment out) -->
+            <!-- MASTODON FEED -->
             <div class="col-md-4">
                <div class="twitter-timeline-container">
-                  <!-- To change the Twitter profile to display go to https://publish.twitter.com/# -->
-                  <a class="twitter-timeline" data-height="830"
-                     href="https://twitter.com/OpenDataBS?ref_src=twsrc%5Etfw">Tweets by OGD Basel-Stadt</a>
-                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  <ods-dataset-context context="mastodon"
+                                       mastodon-dataset="open-data-basel-stadt-mastodon"
+                                       mastodon-domain="https://data.bs.ch/"
+                                       mastodon-parameters="{'sort':'published'}">
+                     <div class="mastodon-feed-card">
+                        <h3 class="mastodon-feed-title">Mastodon</h3>
+                        <div class="mastodon-feed-content">
+                           <ods-result-enumerator context="mastodon" max="3">
+                              <div class="mastodon-post-card">
+                                 <a href="{{ item.fields.link }}" target="_blank" class="mastodon-post-link">
+                                    <div class="mastodon-post-header">
+                                       <div class="mastodon-post-title">Open Data Basel-Stadt</div>
+                                       <div class="mastodon-post-date">{{ item.fields.published | date:'dd.MM.yyyy' }}</div>
+                                    </div>
+                                    <div class="mastodon-post-content">
+                                       <div ng-bind-html="item.fields.description"></div>
+                                    </div>
+                                 </a>
+                              </div>
+                           </ods-result-enumerator>
+                        </div>
+                        <div class="mastodon-feed-footer">
+                           <a href="https://swiss.social/@opendatabs" target="_blank" class="mastodon-more-link">Mehr auf Mastodon</a>
+                        </div>
+                     </div>
+                  </ods-dataset-context>
                </div>
             </div>
          </div>

@@ -566,6 +566,144 @@ main {
 .twitter-timeline-container {
 	margin-bottom: 20px;
 }
+
+/* Mastodon Feed Styling
+   ========================================================================== */
+.mastodon-feed-card {
+	background-color: var(--header-background);
+	padding: 26px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	height: 100%;
+}
+
+.mastodon-feed-title {
+	color: var(--titles);
+	font-size: 1.2rem;
+	line-height: 1.5;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.mastodon-feed-content {
+	max-height: 600px;
+	overflow-y: auto;
+	padding-right: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+.mastodon-feed-content::-webkit-scrollbar {
+	width: 6px;
+}
+
+.mastodon-feed-content::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 3px;
+}
+
+.mastodon-feed-content::-webkit-scrollbar-thumb {
+	background: var(--highlight);
+	border-radius: 3px;
+}
+
+.mastodon-feed-content::-webkit-scrollbar-thumb:hover {
+	background: #3a1a4a;
+}
+
+.mastodon-post-card {
+	background-color: white;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	padding: 0;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	transition: box-shadow 0.2s ease;
+	width: 100%;
+	min-width: 100%;
+	flex: 1 1 auto;
+	display: flex;
+}
+
+.mastodon-post-card:hover {
+	box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.mastodon-post-link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	padding: 15px;
+	width: 100%;
+	flex: 1 1 auto;
+}
+
+.mastodon-post-link:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+.mastodon-post-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.mastodon-post-title {
+	font-weight: bold;
+	color: var(--titles);
+	font-size: 0.9rem;
+}
+
+.mastodon-post-date {
+	font-size: 0.8rem;
+	color: #666;
+	font-weight: normal;
+}
+
+.mastodon-post-content {
+	color: var(--text);
+	font-size: 0.9rem;
+	line-height: 1.4;
+	word-wrap: normal;
+	overflow-wrap: anywhere;
+	hyphens: none;
+	word-break: normal;
+}
+
+.mastodon-post-content a {
+	color: var(--links);
+	text-decoration: underline;
+}
+
+.mastodon-post-content a:hover {
+	text-decoration: none;
+}
+
+.mastodon-feed-footer {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 1px solid #e0e0e0;
+	text-align: center;
+}
+
+.mastodon-more-link {
+	color: var(--links);
+	font-weight: bold;
+	font-size: 0.9rem;
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+}
+
+.mastodon-more-link:hover {
+	opacity: 0.7;
+	text-decoration: none;
+}
 /* CHARTS */
 .ods-chart {
     height: 350px;

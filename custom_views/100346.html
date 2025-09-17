@@ -47,7 +47,7 @@
                         chart-type="bar" 
                         function-y="AVG" 
                         color="#51BFD9" 
-                        label-y="Anteil Ja-Stimmen (%)"
+                        label-y="Anteil Ja-Stimmen Vorlage (%)"
                         multiplier="100">
                     </ods-chart-serie>
                     <ods-chart-serie expression-y="gege_anteil_ja_stimmen" 
@@ -61,7 +61,7 @@
                         chart-type="bar" 
                         function-y="AVG" 
                         color="#F6C024" 
-                        label-y="Anteil Stimmen für Initiative in Stichfrage (%)"
+                        label-y="Anteil Stimmen für Vorlage in Stichfrage (%)"
                         multiplier="100">
                     </ods-chart-serie>
                 </ods-chart-query>
@@ -74,9 +74,10 @@
                 <ods-dataset-context context="ctx"
                     ctx-dataset="100346"
                     ctx-parameters="{'sort':'-abst_id','refine.abst_id_titel':''+item.name}">
+                    <br />
                     <b>{{item.name}}</b>
-                    <br /><br />
-                    Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen nach Gemeinde und für den ganzen Kanton Basel-Stadt.
+                    <br />
+                    Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für die <b>Vorlage</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
                     <br />
                     <ods-chart single-y-axis="true" label-x="" labels-x-length=60>
                         <ods-chart-query context="ctx" field-x="gemein_name" stacked="percent" sort="serie1-1">
@@ -84,13 +85,13 @@
                                              chart-type="column" 
                                              function-y="AVG" 
                                              color="#51BFD9" 
-                                             label-y="Ja-Stimmen">
+                                             label-y="Ja-Stimmen Vorlage">
                             </ods-chart-serie>
                             <ods-chart-serie expression-y="nein_anz" 
                                              chart-type="column" 
                                              function-y="AVG" 
                                              color="#F6C024" 
-                                             label-y="Nein-Stimmen">
+                                             label-y="Nein-Stimmen Vorlage">
                             </ods-chart-serie>
                         </ods-chart-query>
                     </ods-chart>
@@ -123,7 +124,7 @@
                                                  chart-type="column" 
                                                  function-y="AVG" 
                                                  color="#51BFD9" 
-                                                 label-y="Stimmen für Initiative">
+                                                 label-y="Stimmen für Vorlage">
                                 </ods-chart-serie>
                                 <ods-chart-serie expression-y="sti_gegenvorschlag_anz" 
                                                  chart-type="column" 

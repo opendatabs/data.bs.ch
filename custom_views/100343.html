@@ -45,7 +45,7 @@
                     ctx-parameters="{'sort':'-abst_id','refine.abst_id_titel':''+item.name}">
                     <b>Vorlage {{item.name}}</b>
                     <br />
-                        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für die <b>Initiative</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
+                        Diese Abbildung zeigt die Anteile der Ja- und Nein-Stimmen für die <b>Vorlage</b> nach Gemeinde und für den ganzen Kanton Basel-Stadt.
                     <br />
                     <ods-chart single-y-axis="true" scientific-display="false" labels-x-length="30" align-month="true">
                         <ods-chart-query context="ctx" field-x="wahllok_name" maxpoints="0" stacked="percent">
@@ -94,7 +94,7 @@
                                                  chart-type="column" 
                                                  function-y="AVG" 
                                                  color="#51BFD9" 
-                                                 label-y="Stimmen für Initiative">
+                                                 label-y="Stimmen für Vorlage">
                                 </ods-chart-serie>
                                 <ods-chart-serie expression-y="sti_gegenvorschlag_anz" 
                                                  chart-type="column" 

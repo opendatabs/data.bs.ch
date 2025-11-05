@@ -1,0 +1,654 @@
+/* General Layout
+========================================================================== */
+:root {
+    --secondary-color: black;
+}
+
+.ods-content {
+    background-color: white;
+}
+
+.ods-front-header, .ods-front-footer, .ods-content:after, footer {
+    display: none;
+}
+
+#page- {
+    margin: 6rem 0 3em 0;
+}
+
+.container {
+    background-color: white;
+}
+
+/* Sticky Content
+   ========================================================================== */
+.sticky-content {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.row.full-height {
+    height: 100%
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.row > * {
+    margin-bottom: 20px
+}
+
+.order-0 {
+    order: 0
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-0 {
+        order: 0
+    }
+}
+
+@media screen and (min-width: 970px) {
+    .order-md-0 {
+        order: 0
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .order-lg-0 {
+        order: 0
+    }
+
+    .order-lg-1 {
+        order: 1
+    }
+}
+
+.order-1 {
+    order: 1
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-1 {
+        order: 1
+    }
+}
+
+@media screen and (min-width: 970px) {
+    .order-md-1 {
+        order: 1
+    }
+
+    .order-md-2 {
+        order: 2
+    }
+}
+
+.order-2 {
+    order: 2
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-2 {
+        order: 2
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .order-lg-2 {
+        order: 2
+    }
+
+    .order-lg-3 {
+        order: 3
+    }
+}
+
+.order-3 {
+    order: 3
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-3 {
+        order: 3
+    }
+}
+
+@media screen and (min-width: 970px) {
+    .order-md-3 {
+        order: 3
+    }
+
+    .order-md-4 {
+        order: 4
+    }
+}
+
+.order-4 {
+    order: 4
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-4 {
+        order: 4
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .order-lg-4 {
+        order: 4
+    }
+
+    .order-lg-5 {
+        order: 5
+    }
+}
+
+.order-5 {
+    order: 5
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-5 {
+        order: 5
+    }
+}
+
+@media screen and (min-width: 970px) {
+    .order-md-5 {
+        order: 5
+    }
+
+    .order-md-6 {
+        order: 6
+    }
+}
+
+.order-6 {
+    order: 6
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-6 {
+        order: 6
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .order-lg-6 {
+        order: 6
+    }
+
+    .order-lg-7 {
+        order: 7
+    }
+}
+
+.order-7 {
+    order: 7
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-7 {
+        order: 7
+    }
+}
+
+@media screen and (min-width: 970px) {
+    .order-md-7 {
+        order: 7
+    }
+
+    .order-md-8 {
+        order: 8
+    }
+}
+
+.order-8 {
+    order: 8
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-8 {
+        order: 8
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .order-lg-8 {
+        order: 8
+    }
+
+    .order-lg-9 {
+        order: 9
+    }
+}
+
+.order-9 {
+    order: 9
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-9 {
+        order: 9
+    }
+}
+
+@media screen and (min-width: 970px) {
+    .order-md-9 {
+        order: 9
+    }
+
+    .order-md-10 {
+        order: 10
+    }
+}
+
+.order-10 {
+    order: 10
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-10 {
+        order: 10
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .order-lg-10 {
+        order: 10
+    }
+
+    .order-lg-11 {
+        order: 11
+    }
+}
+
+.order-11 {
+    order: 11
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-11 {
+        order: 11
+    }
+}
+
+@media screen and (min-width: 970px) {
+    .order-md-11 {
+        order: 11
+    }
+
+    .order-md-12 {
+        order: 12
+    }
+}
+
+.order-12 {
+    order: 12
+}
+
+@media screen and (min-width: 750px) {
+    .order-sm-12 {
+        order: 12
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .order-lg-12 {
+        order: 12
+    }
+}
+
+@media screen and (max-width: 1169px) {
+    :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-1, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-10, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-11, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-12, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-2, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-3, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-4, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-5, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-6, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-7, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-8, :not([class*=col-md]):not([class*=col-sm]):not([class*=col-xs]).col-lg-9 {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 969px) {
+    :not([class*=col-sm]):not([class*=col-xs]).col-md-1, :not([class*=col-sm]):not([class*=col-xs]).col-md-10, :not([class*=col-sm]):not([class*=col-xs]).col-md-11, :not([class*=col-sm]):not([class*=col-xs]).col-md-12, :not([class*=col-sm]):not([class*=col-xs]).col-md-2, :not([class*=col-sm]):not([class*=col-xs]).col-md-3, :not([class*=col-sm]):not([class*=col-xs]).col-md-4, :not([class*=col-sm]):not([class*=col-xs]).col-md-5, :not([class*=col-sm]):not([class*=col-xs]).col-md-6, :not([class*=col-sm]):not([class*=col-xs]).col-md-7, :not([class*=col-sm]):not([class*=col-xs]).col-md-8, :not([class*=col-sm]):not([class*=col-xs]).col-md-9 {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .row {
+        flex-direction: column
+    }
+
+    :not([class*=col-xs]).col-sm-1, :not([class*=col-xs]).col-sm-10, :not([class*=col-xs]).col-sm-11, :not([class*=col-xs]).col-sm-12, :not([class*=col-xs]).col-sm-2, :not([class*=col-xs]).col-sm-3, :not([class*=col-xs]).col-sm-4, :not([class*=col-xs]).col-sm-5, :not([class*=col-xs]).col-sm-6, :not([class*=col-xs]).col-sm-7, :not([class*=col-xs]).col-sm-8, :not([class*=col-xs]).col-sm-9 {
+        width: 100%
+    }
+}
+
+.no-margin-bottom, .no-mb {
+    margin-bottom: 0 !important
+}
+
+.no-margin-x, .no-mx {
+    margin-left: 0 !important;
+    margin-right: 0 !important
+}
+
+.search-filter-container {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Search Module
+========================================================================== */
+
+.search-module {
+    border: 1px solid #999; 
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    background-color: #fff; 
+    display: flex;
+    align-items: center;
+    max-width: 250px
+    position: relative;
+}
+
+.search-module:hover,
+.search-module:focus-within {
+    border-bottom-color: var(--links);
+}
+
+.search-module-icon {
+    margin-right: 0.5rem;
+    color: #999;
+}
+
+.search-module-input {
+  border: none;
+  outline: none;
+  flex: 1;
+  ::placeholder {
+    color: #999;
+  }
+}
+
+.search-module-input::placeholder {
+    transition: all .2s;
+}
+
+.search-module-clear {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.search-module-clear i {
+  font-size: 1rem;
+}
+
+.search-module-clear:hover {
+    opacity: .65;
+}
+
+.search-module:hover .search-module-icon,
+.search-module:focus-within .search-module-icon,
+.search-module:hover .search-module-input::placeholder,
+.search-module:focus-within .search-module-input::placeholder {
+    color: var(--links)
+}
+
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  flex: 0 0 auto;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.filter-list > * {
+  margin: 0 !important;
+  width: 100%;
+}
+
+.odswidget-select .odswidget-select-dropdown.open .odswidget-select-dropdown-menu {
+  width: 100%;
+}
+
+.clear-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-filters-button {
+  background: none;
+  border: none;
+  color: var(--text);
+}
+
+.clear-filters-button:hover {
+  opacity: 0.65;
+}
+
+.odswidget-select,
+.odswidget-select .odswidget-select-dropdown {
+  border: none !important;       /* Override library defaults */
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;                   /* (Optional) Fill the outer container */
+  cursor: pointer;
+  text-align: left;              /* or right/center if desired */
+}
+
+@media screen and (min-width: 500px) {
+  .odswidget-select .odswidget-select-dropdown.open .odswidget-select-dropdown-menu {
+    width: max-content;
+    min-width: 240px;
+  }
+}
+
+.odswidget-select .odswidget-select-button {
+  border: 1px solid #999 !important;
+  border-radius: 4px !important;
+  padding: 0.5rem 1rem !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  margin: 0;
+}
+
+.odswidget-select-button:focus:not(.focus-ring) {
+  outline: var(--highlight) 2px solid;
+}
+
+@media screen and (min-width: 500px) {
+  .filter-date {
+    flex-direction: row;
+  }
+  .filter-date-button {
+    margin-left: 50px;
+    margin-top: 0;
+  }
+}
+
+/* Content Card
+========================================================================== */
+.odswidget-infinite-scroll-results {
+    display: block !important; /* Override flexbox with block display */
+    width: 100% !important; /* Ensure it takes the full width */
+}
+
+.odswidget-infinite-scroll-results .content-card {
+    width: 100% !important; /* Ensure each card takes the full width */
+    margin-bottom: 20px; /* Adjust spacing between cards */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+/* Optionally, if you want the cards to take the full width only on smaller screens */
+@media screen and (max-width: 1024px) {
+    .odswidget-infinite-scroll-results {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .odswidget-infinite-scroll-results .content-card {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+}
+
+.content-card-divider {
+  border: none;
+  border-top: 1px solid black;
+  margin: 1.5rem 0;
+}
+
+.content-card {
+    border-radius: 4px;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-card-title {
+    color: black;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: normal;
+    max-width: 100%;
+    position: relative;
+    padding-right: 1.5rem;
+    cursor: pointer;
+}
+
+.arrow-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  transform-origin: 50% 40%;
+  display: inline-block;
+}
+
+.arrow-icon.opened {
+  transform: translateY(-50%) scaleY(-1);
+}
+
+.arrow-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #000;
+}
+
+.content-card-answer dd {
+    margin-left: 0;
+}
+
+.content-card-icon {
+    color: var(--highlight);
+    font-size: 2rem;
+    margin-bottom: 13px;
+    max-width: 100%;
+}
+
+.content-card-link {
+    color: var(--links);
+    font-weight: bold;
+    transition: all .2s;
+    opacity: 1;
+    max-width: 100%;
+}
+
+.content-card-link:hover {
+    opacity: .7;
+    text-decoration: none;
+}
+
+.content-card-button {
+    color: var(--highlight);
+    border: 1px solid var(--highlight);
+    background: transparent;
+    display: inline-block;
+    text-align: center;
+    font-size: .867rem;
+    border-radius: 4px;
+    padding: .5rem 1.15rem;
+    text-decoration: none;
+    transition: all .2s;
+}
+
+.content-card-button:hover {
+    background-color: var(--highlight);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.dl-inline {
+  color: #666;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.dl-inline dt,
+.dl-inline dd {
+    display: inline-block;
+    margin: 0;
+}
+
+/* KPI Card
+========================================================================== */
+
+.kpi-card {
+    background-color: white;
+    height: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/** Specific override for custom views **/
+@media screen and (min-width: 1408px) {
+    .ods-dataset-visualization .ods-tabs__pane .container:not(.is-max-desktop):not(.is-max-widescreen) {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 1216px) {
+    .ods-dataset-visualization .ods-tabs__pane .container:not(.is-max-desktop) {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .ods-dataset-visualization .ods-tabs__pane .container {
+        max-width: 100%;
+    }
+}

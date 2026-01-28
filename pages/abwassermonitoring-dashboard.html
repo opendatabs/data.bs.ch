@@ -55,6 +55,10 @@
                 <p>
                     Die bis zum 21.04.2025 verwendete RT-PCR-Nachweismethode für Influenza A & B sowie RSV wurde vom Hersteller durch ein anderes Kit ersetzt. Obwohl der Nachweis prinzipiell derselbe ist, war in unseren Tests ein leicht verändertes Detektionsverhalten zu beobachten. Dieses wird bei der Interpretation der aktuellen im Vergleich zur zurückliegenden Kurve berücksichtigt.
                 </p>
+                <b>Hinweis (28.01.2026)</b>
+                <p>
+                    Die Covid-Fallkurve wurde entfernt, da ihre Aussagekraft aufgrund geringer Testzahlen eingeschränkt war. Seit Mitte 2024 lag die Anzahl Fälle konstant unter 10.   
+                </p>
             </h3>
         </div>
         <br>
@@ -80,26 +84,20 @@
                             </p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <ods-chart align-month="true">
+                                    <ods-chart align-month="true"
+                                               single-y-axis="true"
+                                               single-y-axis-label="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median"
+                                               display-legend="false"
+                                               scientific-display="true"
+                                               min=0 max= 62E12 step=155E11>
                                         <ods-chart-query context="myctx" 
                                                          field-x="datum" 
                                                          maxpoints="0" 
                                                          timescale="day">
                                             <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
-                                                             label-y="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median"
                                                              chart-type="line"
                                                              function-y="AVG" 
-                                                             color="#263891"
-                                                             scientific-display="true"
-                                                             min=0 max= 8E13 step=2E13>
-                                            </ods-chart-serie>
-                                            <ods-chart-serie expression-y="7t_median_bs_bl"
-                                                             label-y="SARS-CoV-2-Fälle (BS&BL) 7-Tage Median"
-                                                             chart-type="line"
-                                                             function-y="AVG"
-                                                             color="#AF5FA2"
-                                                             scientific-display="true"
-                                                             min=0 max= 1600 step=400>
+                                                             color="#263891">
                                             </ods-chart-serie>
                                         </ods-chart-query>
                                     </ods-chart>

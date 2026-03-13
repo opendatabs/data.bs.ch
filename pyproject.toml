@@ -1,0 +1,7 @@
+[project]
+name = "data-bs-ch-llms"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "llms-txt>=0.0.6",
+]

@@ -1,0 +1,33 @@
+name: Validate LLM docs
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.6.4"
+
+      - name: Sync dependencies
+        run: uv sync --frozen
+
+      - name: Regenerate dataset docs
+        run: uv run python scripts/generate_dataset_docs.py
+
+      - name: Regenerate llms ctx artifacts
+        run: uv run python scripts/generate_llms_ctx.py
+
+      - name: Validate docs and links
+        run: uv run python scripts/validate_llms_docs.py

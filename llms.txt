@@ -1,0 +1,35 @@
+# data.bs.ch
+
+> Open Data portal of the Canton of Basel-Stadt. This file is the LLM entrypoint to discover datasets, understand query mechanics, and access generated dataset metadata pages optimized for machine use.
+
+This portal is powered by the Huwise Explore API v2.1. For most tasks, start from the dataset index, then use the ODSQL guide and cookbook to build valid requests.
+
+Important usage notes:
+
+- Use the Explore API `catalog/datasets` endpoints for discovery and schema lookup.
+- Use dataset `records` endpoints for filtered queries and aggregations.
+- Respect API pagination and limits (`limit`, `offset`).
+- Prefer concise, URL-encoded ODSQL expressions.
+- All links in this file are absolute and intended for root-only `llms.txt` discovery.
+
+## Getting Started
+
+- [How to query data.bs.ch](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/getting-started.md): API base URL patterns, discovery flow, and first requests.
+
+## Query Language (ODSQL)
+
+- [ODSQL cheat sheet for data.bs.ch](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/odsql-cheatsheet.md): Practical clause guide, valid patterns, and common pitfalls.
+
+## Examples
+
+- [Query cookbook](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/query-cookbook.md): Ready-to-adapt query recipes for discovery, filtering, aggregation, and sorting.
+
+## Dataset Catalog
+
+- [Generated dataset index](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/datasets/index.md): Dataset IDs, titles, freshness, themes, and links.
+- [Generated theme indexes](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/datasets/by-theme/index.md): Dataset grouping by high-level domain/theme.
+
+## Optional
+
+- [Full dataset context bundle (generated)](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/datasets/full/all.md): Contains all public dataset descriptions, full metadata (`metas`), and schema (`fields`) in one file.
+- [Full dataset context index (generated)](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/datasets/full/index.md): Links to per-dataset pages containing description, full metadata (`metas`), and schema (`fields`).

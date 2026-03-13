@@ -33,3 +33,4 @@ Important usage notes:
 
 - [Full dataset context bundle (generated)](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/datasets/full/all.md): Contains all public dataset descriptions, full metadata (`metas`), and schema (`fields`) in one file.
 - [Full dataset context index (generated)](https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/llms/datasets/full/index.md): Links to per-dataset pages containing description, full metadata (`metas`), and schema (`fields`).
+- [Explore API v2.1 reference + OpenAPI download entrypoint](https://help.opendatasoft.com/apis/ods-explore-v2/): Official docs page with "Download OpenAPI specification" action.

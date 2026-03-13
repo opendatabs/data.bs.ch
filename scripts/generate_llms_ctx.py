@@ -19,6 +19,9 @@ PROC_LLMS_DIR = PROC_ROOT / "llms"
 RAW_GITHUB_PREFIX = "https://raw.githubusercontent.com/opendatabs/data.bs.ch_llms.txt/refs/heads/main/"
 LOCAL_DOCS_PREFIX = "https://data.bs.ch/"
 LOG = logging.getLogger("generate_llms_ctx")
+EXCLUDED_FULL_CTX_DOC_TITLES = {
+    "Explore API v2.1 reference + OpenAPI download entrypoint",
+}
 
 
 def configure_logging() -> None:
@@ -72,6 +75,33 @@ def sanitize_ctx_content(content: str) -> str:
     return content
 
 
+def strip_docs_by_title(content: str, *, titles: set[str]) -> str:
+    """Remove listed llms_txt2ctx docs by title from generated context."""
+    if not titles:
+        return content
+
+    for title in titles:
+        escaped = re.escape(title)
+        # Remove list item line printed by llms_txt2ctx before XML body.
+        content = re.sub(
+            rf"^\{{'title': '{escaped}'.*?\}}\n?",
+            "",
+            content,
+            flags=re.MULTILINE,
+        )
+        # Remove XML doc block with matching title.
+        content = re.sub(
+            rf"<doc title=\"{escaped}\".*?</doc>",
+            "",
+            content,
+            flags=re.DOTALL,
+        )
+
+    # Tidy spacing after removals.
+    content = re.sub(r"\n{3,}", "\n\n", content)
+    return content
+
+
 def generate() -> None:
     """Generate both ctx variants from root llms.txt."""
     if not LLMS_TXT.exists():
@@ -88,7 +118,9 @@ def generate() -> None:
 
         LOG.info("Generating llms-ctx-full.txt (with Optional section)")
         ctx_full = run_llms_txt2ctx(local_llms_txt, include_optional=True)
-        write_file(LLMS_CTX_FULL, sanitize_ctx_content(ctx_full))
+        ctx_full = sanitize_ctx_content(ctx_full)
+        ctx_full = strip_docs_by_title(ctx_full, titles=EXCLUDED_FULL_CTX_DOC_TITLES)
+        write_file(LLMS_CTX_FULL, ctx_full)
     finally:
         if local_llms_txt.exists():
             local_llms_txt.unlink()

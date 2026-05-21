@@ -132,7 +132,7 @@ h4:nth-of-type(n+2) {
 p{
     font-size: 16px !important;
     margin-top: 20px;
-    font-weight: 10 !important;
+    font-weight: 400 !important;
 }
 
 @media (max-width: 576px) {

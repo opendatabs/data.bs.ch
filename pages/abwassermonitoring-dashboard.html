@@ -91,14 +91,17 @@
                                     <ods-chart align-month="true"
                                                single-y-axis="true"
                                                single-y-axis-label="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median"
-                                               display-legend="false"
                                                scientific-display="true"
-                                               min=0 max= 62E12 step=155E11>
+                                               min=0 max= 2E14 step=5E13>
                                         <ods-chart-query context="myctx" 
                                                          field-x="datum" 
                                                          maxpoints="0" 
                                                          timescale="day">
-                                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
+                                            <ods-chart-serie expression-y="sc2_pro100000"
+                                                             label-y="SARS-CoV-2 [pro 100'000 Einw.]" chart-type="scatter"
+                                                             function-y="" color="black" scientific-display="true">
+                                            </ods-chart-serie>
+                                            <ods-chart-serie expression-y="	sc2_pro100000_loess"
                                                              chart-type="line"
                                                              function-y="AVG" 
                                                              color="#263891">

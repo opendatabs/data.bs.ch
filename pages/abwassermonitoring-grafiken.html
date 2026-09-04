@@ -19,31 +19,6 @@
                                    end-bound="'now'">
             </ods-date-range-slider>
             <h2>
-                SARS-CoV-2 RNA copies / L Abwasser vs. Tage (E-envelope, N2-nucleo capsid)
-            </h2>
-            <h3>
-                (Tage ohne Punkte = keine Messung)
-            </h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <ods-chart timescale="day" align-month="true" 
-                               single-y-axis="true" single-y-axis-label= "SARS-CoV-2 RNA copies/ L Abwasser" 
-                               label-x= "Datum des ProRheno Zulaufs" 
-                               min=0 max=4E6 step=10E5>
-                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                            <ods-chart-serie expression-y="mean_e_n1_n2_qty_l_ww"
-                                             label-y = "Mean SARS-Cov-2" chart-type="scatter"
-                                             function-y="" color="black" scientific-display="true">
-                            </ods-chart-serie>
-                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean"
-                                             label-y = "7-TageMEDIAN SARS-CoV-2" chart-type="line"
-                                             function-y="" color="rgb(71,163,80)" scientific-display="true">
-                            </ods-chart-serie>
-                        </ods-chart-query>
-                    </ods-chart>
-                </div>
-            </div>
-            <h2>
                 SARS-CoV-2 RNA copies / L Abwasser vs. Tage (Sc2-nicht translatierte Region vor N)
             </h2>
             <h3>
@@ -54,40 +29,15 @@
                     <ods-chart timescale="day" align-month="true" 
                                single-y-axis="true" single-y-axis-label= "SARS-CoV-2 RNA copies/ L Abwasser" 
                                label-x= "Datum des ProRheno Zulaufs" 
-                               min=0 max=4E6 step=10E5>
+                               min=0 max=8E6 step=2E6>
                         <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                            <ods-chart-serie expression-y="sc2_l"
+                            <ods-chart-serie expression-y="sc2_gk_l"
                                              label-y = "Mean SARS-Cov-2" chart-type="scatter"
                                              function-y="" color="black" scientific-display="true">
                             </ods-chart-serie>
-                            <ods-chart-serie expression-y="median_sc2_l"
-                                             label-y = "7-TageMEDIAN SARS-CoV-2" chart-type="line"
+                            <ods-chart-serie expression-y="sc2_gk_l_loess"
+                                             label-y = "LOESS-Glättung SARS-CoV-2" chart-type="line"
                                              function-y="" color="rgb(163, 204, 122)" scientific-display="true">
-                            </ods-chart-serie>
-                        </ods-chart-query>
-                    </ods-chart>
-                </div>
-            </div>
-            <h2>
-                SARS-CoV-2 RNA copies / PMMoV RNA copies vs. Tage (E-envelope, N2-nucleo capsid)
-            </h2>
-            <h3>
-                (Tage ohne Punkte = keine Messung)
-            </h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <ods-chart timescale="day" align-month="true"
-                               single-y-axis="true" single-y-axis-label= "SARS-CoV-2 RNA copies/PMMoV RNA copies"
-                               label-x= "Datum des ProRheno Zulaufs" 
-                               min=0 max=0.02 step=0.005 >
-                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                            <ods-chart-serie expression-y="n1_n2_e_normalized_pmmov"
-                                             label-y="SARS-CoV-2 [PMMoV-normalized]" chart-type="scatter"
-                                             function-y="" color="black" scientific-display="true">
-                            </ods-chart-serie>
-                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
-                                             label-y = "7-TageMEDIAN SARS-CoV-2 [PMMoV-normalized]" chart-type="line"
-                                             function-y="" color="rgb(47,110,186)" scientific-display="true">
                             </ods-chart-serie>
                         </ods-chart-query>
                     </ods-chart>
@@ -110,34 +60,9 @@
                                              label-y="SARS-CoV-2 [PMMoV-normalized]" chart-type="scatter"
                                              function-y="" color="black" scientific-display="true">
                             </ods-chart-serie>
-                            <ods-chart-serie expression-y="median_sc2_pmmov"
-                                             label-y = "7-TageMEDIAN SARS-CoV-2 [PMMoV-normalized]" chart-type="line"
+                            <ods-chart-serie expression-y="sc2_pmmov_loess"
+                                             label-y = "LOESS-Glättung SARS-CoV-2 [PMMoV-normalized]" chart-type="line"
                                              function-y="" color="rgb(0, 204, 204)" scientific-display="true">
-                            </ods-chart-serie>
-                        </ods-chart-query>
-                    </ods-chart>
-                </div>
-            </div>
-            <h2>
-                SARS-CoV-2 RNA copies / 100'000 Personen vs. Tage (E-envelope, N2-nucleo capsid)
-            </h2>
-            <h3>
-                (Tage ohne Punkte = noch keine Info zu Zuflussmenge ProRheno)
-            </h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <ods-chart timescale="day" align-month="true"
-                               single-y-axis="true" single-y-axis-label= "SARS-CoV-2 RNA copies/ 100'000 Pers."
-                               label-x= "Datum des ProRheno Zulaufs"
-                               min=0 max= 100E12 step=250E11>
-                        <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                            <ods-chart-serie expression-y="e_n1_n2_pro_tag_und_100_000_pers_prorheno_260_449_einw"
-                                             label-y="SARS-CoV-2 [pro 100'000 Einw.]" chart-type="scatter"
-                                             function-y="" color="black" scientific-display="true">
-                            </ods-chart-serie>
-                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers"
-                                             label-y ="7-TageMEDIAN SARS-CoV-2 [pro 100'000 Einw]" chart-type="line"
-                                             function-y="" color="rgb(128,128,128)" scientific-display="true">
                             </ods-chart-serie>
                         </ods-chart-query>
                     </ods-chart>
@@ -156,12 +81,12 @@
                                label-x= "Datum des ProRheno Zulaufs"
                                min=0 max= 200E12 step=500E11>
                         <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
-                            <ods-chart-serie expression-y="sc2_100_000"
+                            <ods-chart-serie expression-y="sc2_pro100000"
                                              label-y="SARS-CoV-2 [pro 100'000 Einw.]" chart-type="scatter"
                                              function-y="" color="black" scientific-display="true">
                             </ods-chart-serie>
-                            <ods-chart-serie expression-y="median_sc2_100_000"
-                                             label-y ="7-TageMEDIAN SARS-CoV-2 [pro 100'000 Einw]" chart-type="line"
+                            <ods-chart-serie expression-y="sc2_pro100000_loess"
+                                             label-y ="LOESS-Glättung SARS-CoV-2 [pro 100'000 Einw]" chart-type="line"
                                              function-y="" color="rgb(165, 165, 165)" scientific-display="true">
                             </ods-chart-serie>
                         </ods-chart-query>
@@ -185,10 +110,10 @@
                                              scientific-display="true"
                                              min=0 max=1600 step=400>
                             </ods-chart-serie>
-                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_mean" label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/ L Abwasser"
+                            <ods-chart-serie expression-y="sc2_gk_l_loess" label-y = "LOESS-Glättung SARS-CoV-2 RNA copies/ L Abwasser"
                                              chart-type="line" function-y="" color="rgb(71,163,80)"
                                              scientific-display="true"
-                                             min=0 max=4E6 step=10E5>
+                                             min=0 max=8E6 step=2E6>
                             </ods-chart-serie>
                             <ods-chart-serie expression-y="7t_median_bs_bl" label-y = "7-TagesMedian Total (BS+BL)"
                                              chart-type="line" function-y="" color="rgb(147, 77,33)" 
@@ -216,11 +141,11 @@
                                              scientific-display="true"
                                              min=0 max=1600 step=400>
                             </ods-chart-serie>
-                            <ods-chart-serie expression-y="7_tagemedian_of_pmmov_normalized_data"
-                                             label-y = "7-TageMEDIAN SARS-CoV-2 RNA copies/PMMoV RNA copies"
+                            <ods-chart-serie expression-y="sc2_pmmov_loess"
+                                             label-y = "LOESS-Glättung SARS-CoV-2 RNA copies/PMMoV RNA copies"
                                              chart-type="line" function-y="" color="rgb(47,110,186)"
                                              scientific-display="true"
-                                             min=0 max=0.02 step=0.005>
+                                             min=0 max=0.32 step=0.08>
                             </ods-chart-serie>
                             <ods-chart-serie expression-y="7t_median_bs_bl" label-y = "7-TagesMedian Total (BS+BL)"
                                              chart-type="line" function-y="" color="rgb(147, 77,33)"
@@ -248,11 +173,11 @@
                                              scientific-display="true"
                                              min=0 max=1600 step=400>
                             </ods-chart-serie>
-                            <ods-chart-serie expression-y="7_tagemedian_of_e_n1_n2_pro_tag_100_000_pers" 
-                                             label-y ="7-TageMEDIAN SARS-CoV-2 RNA copies/ 100'000 Pers."
+                            <ods-chart-serie expression-y="sc2_pro100000_loess" 
+                                             label-y ="LOESS-Glättung SARS-CoV-2 RNA copies/ 100'000 Pers."
                                              chart-type="line" function-y="" color="rgb(128,128,128)"
                                              scientific-display="true"
-                                             min=0 max= 100E12 step=250E11>
+                                             min=0 max= 200E12 step=500E11>
                             </ods-chart-serie>
                             <ods-chart-serie expression-y="7t_median_bs_bl" label-y = "7-TagesMedian Total (BS+BL)"
                                              chart-type="line" function-y="" color="rgb(147, 77,33)" 

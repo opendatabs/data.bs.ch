@@ -45,8 +45,28 @@
                 </p>
                 <b>Figuren</b>
                 <p>
-                    Dieses Dashboard zeigt den 7-Tage-Median der RNA-Kopien des angegebenen Virus jeweils pro Tag und 100‘000 Personen im Abwasser der Abwasserreinigungs-Anlage (ARA) Basel sowie den 7-Tage-Median der entsprechenden
+                    Dieses Dashboard zeigt den 7-Tage-Median der RNA-Kopien des angegebenen Virus jeweils pro Tag und 100‘000 Personen im Abwasser 
+                    der Abwasserreinigungs-Anlage (ARA) Basel sowie den 7-Tage-Median der entsprechenden
                     Fallzahlen. Der Datensatz wird i.d.R. jeweils dienstags mit den Daten bis vorangegangenem Sonntag aktualisiert. In einzelnen Wochen kann es zu Verschiebungen kommen.
+                </p>
+                <b>Hinweis (15.09.2026)</b>
+                <p>
+                Seit Herbst 2021 wurde SARS-CoV-2 im Abwasser parallel zur bisher veröffentlichten Methode mit einem alternativen SARS-CoV-2-spezifischen Nachweisverfahren gemessen. 
+                Die Auswertung der Daten zeigte, dass beide Methoden den zeitlichen Verlauf der Viruskonzentration im Abwasser weitgehend übereinstimmend abbilden.
+                </p>
+                <p>
+                Mit der Wiederaufnahme des Monitorings im Spätsommer 2026 erfolgt nun die vollständige Umstellung auf das alternative Nachweisverfahren. 
+                Dieses bietet eine höhere Sensitivität und trägt gleichzeitig zu einem effizienteren Ressourceneinsatz bei. 
+                Damit einhergehend werden die Ergebnisse mit den sichtbaren Einzelwerten präsentiert, wodurch sich zeitliche Trends und Veränderungen der Viruslast leichter erkennen lassen. 
+                Den bisherigen Verlauf sowie den Vergleich der beiden Messmethoden können Sie <a href="https://data-bs.ch/stata/gd_kantonslabor/Begleitinfo_Vergleich E_N2 vs SC2_v2.pdf" style="color: rgb(28, 99, 12);" target="_blank">hier</a> einsehen.
+                </p>
+                <b>Hinweis (21.05.2026)</b>
+                <p>
+                   Die Analysen wurden per 12.04.2026 wie bereits letztes Jahr saisonbedingt unterbrochen. Sie werden voraussichtlich im August wieder aufgenommen.  
+                </p>
+                <b>Hinweis (28.01.2026)</b>
+                <p>
+                    Die Covid-Fallkurve wurde entfernt, da ihre Aussagekraft aufgrund geringer Testzahlen eingeschränkt war. Seit Mitte 2024 lag die Anzahl Fälle konstant unter 10.   
                 </p>
                 <b>Hinweis (16.05.2025)</b>
                 <p>
@@ -54,14 +74,6 @@
                 </p>
                 <p>
                     Die bis zum 21.04.2025 verwendete RT-PCR-Nachweismethode für Influenza A & B sowie RSV wurde vom Hersteller durch ein anderes Kit ersetzt. Obwohl der Nachweis prinzipiell derselbe ist, war in unseren Tests ein leicht verändertes Detektionsverhalten zu beobachten. Dieses wird bei der Interpretation der aktuellen im Vergleich zur zurückliegenden Kurve berücksichtigt.
-                </p>
-                <b>Hinweis (28.01.2026)</b>
-                <p>
-                    Die Covid-Fallkurve wurde entfernt, da ihre Aussagekraft aufgrund geringer Testzahlen eingeschränkt war. Seit Mitte 2024 lag die Anzahl Fälle konstant unter 10.   
-                </p>
-                <b>Hinweis (21.05.2026)</b>
-                <p>
-                   Die Analysen wurden per 12.04.2026 wie bereits letztes Jahr saisonbedingt unterbrochen. Sie werden voraussichtlich im August wieder aufgenommen.  
                 </p>
             </h3>
         </div>
@@ -100,11 +112,6 @@
                                             <ods-chart-serie expression-y="sc2_pro100000"
                                                              label-y="SARS-CoV-2 [pro 100'000 Einw.]" chart-type="scatter"
                                                              function-y="" color="black" scientific-display="true">
-                                            </ods-chart-serie>
-                                            <ods-chart-serie expression-y="	sc2_pro100000_loess"
-                                                             chart-type="line"
-                                                             function-y="AVG" 
-                                                             color="#263891">
                                             </ods-chart-serie>
                                         </ods-chart-query>
                                     </ods-chart>

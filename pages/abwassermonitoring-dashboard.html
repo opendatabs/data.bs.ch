@@ -84,7 +84,11 @@
                                                          maxpoints="0" 
                                                          timescale="day">
                                             <ods-chart-serie expression-y="sc2_pro100000"
-                                                             label-y="SARS-CoV-2 [pro 100'000 Einw.]" chart-type="scatter"
+                                                             label-y="SARS-CoV-2 (gc/100'000 P.)" chart-type="scatter"
+                                                             function-y="" color="rgb(165, 165, 165)" scientific-display="true">
+                                            </ods-chart-serie>
+                                            <ods-chart-serie expression-y="sc2_pro100000_median7t"
+                                                             label-y ="SARS-CoV-2 (gc/100'000 P.) 7-Tage Median" chart-type="line"
                                                              function-y="" color="black" scientific-display="true">
                                             </ods-chart-serie>
                                         </ods-chart-query>
@@ -131,11 +135,19 @@
                                 <div class="col-md-12">
                                     <ods-chart scientific-display="false" align-month="true">
                                         <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                            <ods-chart-serie label-y="RSV (gc/100'000 P.)"
+                                                             expression-y="rsv_gc_100_000_p"
+                                                             chart-type="scatter"
+                                                             function-y="AVG"
+                                                             color="rgb(196,155,51)"
+                                                             scientific-display="true"
+                                                             min=0 max=24E12 step=6E12>
+                                            </ods-chart-serie>
                                             <ods-chart-serie label-y="RSV (gc/100'000 P.) 7-Tage Median"
                                                              expression-y="rsv_gc_100_000_p_7_d_median"
                                                              chart-type="line"
                                                              function-y="AVG"
-                                                             color="rgb(196,155,51)"
+                                                             color="rgb(122,97,22)"
                                                              scientific-display="true"
                                                              min=0 max=2E13>
                                             </ods-chart-serie>
@@ -180,11 +192,19 @@
                                 <div class="col-md-12">
                                     <ods-chart scientific-display="false" align-month="true">
                                         <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                            <ods-chart-serie label-y="InfA (gc/100'000 P.)"
+                                                             expression-y="infa_gc_100_000_p"
+                                                             chart-type="scatter"
+                                                             function-y="AVG"
+                                                             color="#FF796C"
+                                                             scientific-display="true"
+                                                             min=0 max=14E12 step=35E11>
+                                            </ods-chart-serie>
                                             <ods-chart-serie label-y="InfA (gc/100'000 P.) 7-Tage Median"
                                                              expression-y="infa_gc_100_000_p_7_d_median"
                                                              chart-type="line"
                                                              function-y="AVG"
-                                                             color="#FF796C" 
+                                                             color="#EF4026" 
                                                              scientific-display="true"
                                                              min=0 max=14E12 step=35E11>
                                             </ods-chart-serie>
@@ -228,11 +248,19 @@
                                 <div class="col-md-12">
                                     <ods-chart scientific-display="false" align-month="true">
                                         <ods-chart-query context="myctx" field-x="datum" maxpoints="0" timescale="day">
+                                            <ods-chart-serie label-y="InfB (gc/100'000 P.)"
+                                                             expression-y="infb_gc_100_000_p"
+                                                             chart-type="scatter"
+                                                             function-y="AVG"
+                                                             color="#7BC8F6" 
+                                                             scientific-display="true"
+                                                             min=0 max=14E12 step=35E11>
+                                            </ods-chart-serie>
                                             <ods-chart-serie label-y="InfB (gc/100'000 P.) 7-Tage Median"
                                                              expression-y="infb_gc_100_000_p_7_d_median"
                                                              chart-type="line"
                                                              function-y=""
-                                                             color="#7BC8F6" 
+                                                             color="#0343DF" 
                                                              scientific-display="true"
                                                              min=0 max=6E12 step=15E11>
                                             </ods-chart-serie>
